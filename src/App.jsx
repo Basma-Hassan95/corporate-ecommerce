@@ -4,7 +4,6 @@ import Footer from './components/Footer';
 import CartDrawer from './components/CartDrawer';
 import HomepageView from './views/HomepageView';
 import ShopView from './views/ShopView';
-import WoodenGiftsView from './views/WoodenGiftsView';
 import CatalogView from './views/CatalogView';
 import PDPView from './views/PDPView';
 import CartView from './views/CartView';
@@ -13,10 +12,11 @@ import AboutView from './views/AboutView';
 import ContactView from './views/ContactView';
 import RefundPolicyView from './views/RefundPolicyView';
 import ShippingPolicyView from './views/ShippingPolicyView';
-import { PRODUCTS } from './data/products';
+import { ALL_PRODUCTS, PRODUCTS } from './data/products';
 
 export default function App() {
-  const [activePage, setActivePage] = useState('home'); // home, about, shop, wooden, catalog, contact, pdp, cart, checkout, refund, shipping
+  const [activePage, setActivePage] = useState('home');
+  const [selectedCategoryFilter, setSelectedCategoryFilter] = useState('All');
   const [selectedProduct, setSelectedProduct] = useState(PRODUCTS[0]);
   const [cart, setCart] = useState([
     {
@@ -27,6 +27,12 @@ export default function App() {
     }
   ]);
   const [isCartOpen, setIsCartOpen] = useState(false);
+
+  const handleSelectCategory = (categoryName) => {
+    setSelectedCategoryFilter(categoryName);
+    setActivePage('catalog');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const addToCart = (product, quantity, engraving) => {
     const existingIndex = cart.findIndex(item => item.id === product.id && item.engraving?.text === engraving.text);
@@ -68,15 +74,17 @@ export default function App() {
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       
-      {/* Header Navigation */}
+      {/* Refactored Navigation Bar Component with Dropdown Hierarchy */}
       <Navbar 
         activePage={activePage} 
         setActivePage={(page) => {
           setActivePage(page);
+          if (page !== 'catalog') setSelectedCategoryFilter('All');
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }}
         cartCount={totalCartItemsCount}
         openCart={() => setIsCartOpen(true)}
+        onSelectCategory={handleSelectCategory}
       />
 
       {/* Main Page Content Views */}
@@ -101,17 +109,11 @@ export default function App() {
           />
         )}
 
-        {activePage === 'wooden' && (
-          <WoodenGiftsView 
-            setActivePage={(p) => { setActivePage(p); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-            setSelectedProduct={setSelectedProduct}
-          />
-        )}
-
         {activePage === 'catalog' && (
           <CatalogView 
             setActivePage={(p) => { setActivePage(p); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
             setSelectedProduct={setSelectedProduct}
+            initialCategory={selectedCategoryFilter}
           />
         )}
 

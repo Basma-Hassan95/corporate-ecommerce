@@ -1,7 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Sparkles, Check, Info } from 'lucide-react';
 
-export default function EngravingCustomizer({ engraving, setEngraving }) {
+export default function EngravingCustomizer({ 
+  engraving: externalEngraving, 
+  setEngraving: externalSetEngraving 
+}) {
+  // Local state fallback if props are omitted
+  const [internalEngraving, setInternalEngraving] = useState({
+    text: 'A. WAKEEL',
+    font: 'serif',
+    finish: 'laser'
+  });
+
+  const engraving = externalEngraving || internalEngraving;
+  const setEngraving = externalSetEngraving || setInternalEngraving;
+
   const fontStyles = [
     { id: 'serif', name: 'Classic Serif', fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic' },
     { id: 'script', name: 'Script Elegance', fontFamily: "'Brush Script MT', 'Cormorant Garamond', cursive", fontStyle: 'normal' },
@@ -10,7 +23,7 @@ export default function EngravingCustomizer({ engraving, setEngraving }) {
 
   const finishStyles = [
     { id: 'laser', name: 'Deep Laser Burnish', color: '#2B1715', shadow: 'inset 0 1px 2px rgba(0,0,0,0.6)' },
-    { id: 'gold', name: '24K Gold Foil Stamp', color: '#D4AF37', shadow: '0 1px 3px rgba(0,0,0,0.3)' }
+    { id: 'foil', name: 'Precision Foil Stamp', color: '#9C7B69', shadow: '0 1px 3px rgba(0,0,0,0.3)' }
   ];
 
   return (
@@ -29,7 +42,7 @@ export default function EngravingCustomizer({ engraving, setEngraving }) {
             Complimentary Personalization Engine
           </h3>
         </div>
-        <span className="badge-gold">FREE ENGRAVING</span>
+        <span className="badge-taupe">FREE ENGRAVING</span>
       </div>
 
       <p style={{ fontSize: '0.82rem', color: 'var(--text-dark-coffee)', opacity: 0.8, marginBottom: '1rem' }}>
@@ -47,7 +60,7 @@ export default function EngravingCustomizer({ engraving, setEngraving }) {
           <input
             type="text"
             maxLength={14}
-            value={engraving.text}
+            value={engraving?.text || ''}
             onChange={(e) => setEngraving({ ...engraving, text: e.target.value })}
             placeholder="e.g. A. WAKEEL"
             style={{
@@ -77,8 +90,8 @@ export default function EngravingCustomizer({ engraving, setEngraving }) {
                 onClick={() => setEngraving({ ...engraving, font: font.id })}
                 style={{
                   padding: '0.5rem 0.3rem',
-                  backgroundColor: engraving.font === font.id ? 'var(--btn-coffee-bean)' : 'var(--surface-white)',
-                  color: engraving.font === font.id ? '#FFFFFF' : 'var(--text-dark-coffee)',
+                  backgroundColor: engraving?.font === font.id ? 'var(--btn-coffee-bean)' : 'var(--surface-white)',
+                  color: engraving?.font === font.id ? '#FFFFFF' : 'var(--text-dark-coffee)',
                   border: '1px solid var(--accent-dusty-taupe)',
                   borderRadius: 'var(--radius-sm)',
                   cursor: 'pointer',
@@ -91,7 +104,7 @@ export default function EngravingCustomizer({ engraving, setEngraving }) {
                   gap: '0.3rem'
                 }}
               >
-                {engraving.font === font.id && <Check size={12} />}
+                {engraving?.font === font.id && <Check size={12} />}
                 {font.name}
               </button>
             ))}
@@ -111,8 +124,8 @@ export default function EngravingCustomizer({ engraving, setEngraving }) {
                 onClick={() => setEngraving({ ...engraving, finish: finish.id })}
                 style={{
                   padding: '0.5rem 0.6rem',
-                  backgroundColor: engraving.finish === finish.id ? 'var(--text-dark-coffee)' : 'var(--surface-white)',
-                  color: engraving.finish === finish.id ? '#FFFFFF' : 'var(--text-dark-coffee)',
+                  backgroundColor: engraving?.finish === finish.id ? 'var(--text-dark-coffee)' : 'var(--surface-white)',
+                  color: engraving?.finish === finish.id ? '#FFFFFF' : 'var(--text-dark-coffee)',
                   border: '1px solid var(--accent-dusty-taupe)',
                   borderRadius: 'var(--radius-sm)',
                   cursor: 'pointer',
@@ -138,7 +151,7 @@ export default function EngravingCustomizer({ engraving, setEngraving }) {
         backgroundImage: 'radial-gradient(#382319 1px, transparent 1px), radial-gradient(#382319 1px, #4A3125 1px)',
         backgroundSize: '20px 20px',
         backgroundPosition: '0 0, 10px 10px',
-        border: '3px double var(--accent-gold-soft)',
+        border: '2px solid var(--accent-dusty-taupe)',
         borderRadius: 'var(--radius-sm)',
         padding: '1.8rem 1rem',
         textAlign: 'center',
@@ -151,19 +164,19 @@ export default function EngravingCustomizer({ engraving, setEngraving }) {
 
         <div style={{
           marginTop: '0.5rem',
-          fontFamily: fontStyles.find(f => f.id === engraving.font)?.fontFamily,
-          fontStyle: fontStyles.find(f => f.id === engraving.font)?.fontStyle,
-          color: finishStyles.find(f => f.id === engraving.finish)?.color,
+          fontFamily: fontStyles.find(f => f.id === engraving?.font)?.fontFamily || "'Cormorant Garamond', serif",
+          fontStyle: fontStyles.find(f => f.id === engraving?.font)?.fontStyle || 'italic',
+          color: finishStyles.find(f => f.id === engraving?.finish)?.color || '#2B1715',
           fontSize: '1.8rem',
           fontWeight: '700',
           letterSpacing: '0.1em',
-          textShadow: finishStyles.find(f => f.id === engraving.finish)?.shadow,
+          textShadow: finishStyles.find(f => f.id === engraving?.finish)?.shadow || 'none',
           minHeight: '2.4rem',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center'
         }}>
-          {engraving.text.trim() ? engraving.text.toUpperCase() : 'YOUR NAME HERE'}
+          {engraving?.text && engraving.text.trim() ? engraving.text.toUpperCase() : 'YOUR NAME HERE'}
         </div>
       </div>
 

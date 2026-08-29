@@ -1,0 +1,426 @@
+import React, { useState, useEffect } from 'react';
+import { ChevronLeft, ChevronRight, ArrowUpRight, ArrowRight } from 'lucide-react';
+import { BRAND_IMAGES } from '../data/products';
+
+const HERO_SLIDES = [
+  {
+    id: 1,
+    badge: 'MASTER LEATHER & CORPORATE ATELIER',
+    headlineMain: 'Leading Future',
+    headlineAccent: 'for Business.',
+    description: 'Bespoke corporate merchandise, executive leather goods, and custom awards handcrafted from 100% full-grain hide. Personalized with complimentary laser debossing.',
+    image: BRAND_IMAGES.heroBanner,
+    ctaText: 'Get Started',
+    link: 'catalog'
+  },
+  {
+    id: 2,
+    badge: 'HERITAGE & CRAFTSMANSHIP',
+    headlineMain: '5-Stage Saddle Stitching.',
+    headlineAccent: 'Zero Synthetic Fillers.',
+    description: 'Each hide is organically vegetable tanned with tree barks, hand-cut, and saddle-stitched with waxed linen thread for indestructible durability.',
+    image: BRAND_IMAGES.craftsmanship,
+    ctaText: 'Discover Legacy',
+    link: 'about'
+  },
+  {
+    id: 3,
+    badge: 'PERSONALIZATION ENGINE',
+    headlineMain: 'The Art of Monogramming.',
+    headlineAccent: 'Permanently Debossed.',
+    description: 'Laser debossed directly into top-grain hides before final hand assembly. Precision metallic foil stamping and deep laser burnishing.',
+    image: BRAND_IMAGES.engravingProcess,
+    ctaText: 'View Customizer',
+    link: 'catalog'
+  },
+  {
+    id: 4,
+    badge: 'EXECUTIVE LEATHER GOODS',
+    headlineMain: 'Built for a Lifetime.',
+    headlineAccent: 'Patina That Ages Richly.',
+    description: 'Every piece in our atelier is crafted without plastic or synthetic fillers. 100% full-grain leather guaranteed for life.',
+    image: BRAND_IMAGES.aboutWorkshop,
+    ctaText: 'Browse Catalog',
+    link: 'catalog'
+  }
+];
+
+export default function CorporateHeroSection({ setActivePage = () => {} }) {
+  const [currentIdx, setCurrentIdx] = useState(0);
+  const activeSlide = HERO_SLIDES[currentIdx];
+
+  const handleNext = () => {
+    setCurrentIdx((prev) => (prev + 1) % HERO_SLIDES.length);
+  };
+
+  const handlePrev = () => {
+    setCurrentIdx((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
+  };
+
+  // Continuous Auto-Play Loop every 4.5 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIdx((prev) => (prev + 1) % HERO_SLIDES.length);
+    }, 4500);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <section 
+      style={{
+        position: 'relative',
+        width: '100%',
+        height: '82vh',
+        minHeight: '580px',
+        backgroundColor: '#16120B',
+        color: '#FFFFFF',
+        overflow: 'hidden'
+      }}
+      className="reference-hero-section"
+    >
+      {/* BACKGROUND SLIDE IMAGE SHOWCASE */}
+      {HERO_SLIDES.map((slide, idx) => {
+        const isActive = idx === currentIdx;
+
+        return (
+          <div
+            key={slide.id}
+            style={{
+              position: 'absolute',
+              inset: 0,
+              opacity: isActive ? 1 : 0,
+              visibility: isActive ? 'visible' : 'hidden',
+              transition: 'opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1)',
+              transform: isActive ? 'scale(1)' : 'scale(1.05)',
+              backgroundImage: `linear-gradient(90deg, rgba(22, 18, 11, 0.94) 0%, rgba(22, 18, 11, 0.72) 45%, rgba(22, 18, 11, 0.25) 100%), url(${slide.image})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}
+          />
+        );
+      })}
+
+      {/* LEFT & RIGHT NAVIGATION ARROW BUTTONS */}
+      <button
+        onClick={handlePrev}
+        style={{
+          position: 'absolute',
+          left: '24px',
+          top: '50%',
+          transform: 'translateY(-50%)',
+          width: '42px',
+          height: '42px',
+          borderRadius: '50%',
+          backgroundColor: 'rgba(255, 255, 255, 0.08)',
+          backdropFilter: 'blur(10px)',
+          border: '1px solid rgba(255, 255, 255, 0.2)',
+          color: '#FFFFFF',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          cursor: 'pointer',
+          zIndex: 30,
+          transition: 'all 0.3s ease'
+        }}
+        className="nav-arrow-btn"
+        title="Previous Slide"
+      >
+        <ChevronLeft size={20} />
+      </button>
+
+      <button
+        onClick={handleNext}
+        style={{
+          position: 'absolute',
+          right: '24px',
+          top: '50%',
+          transform: 'translateY(-50%)',
+          width: '42px',
+          height: '42px',
+          borderRadius: '50%',
+          backgroundColor: 'rgba(255, 255, 255, 0.08)',
+          backdropFilter: 'blur(10px)',
+          border: '1px solid rgba(255, 255, 255, 0.2)',
+          color: '#FFFFFF',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          cursor: 'pointer',
+          zIndex: 30,
+          transition: 'all 0.3s ease'
+        }}
+        className="nav-arrow-btn"
+        title="Next Slide"
+      >
+        <ChevronRight size={20} />
+      </button>
+
+      {/* HERO CONTENT CONTAINER */}
+      <div 
+        className="container"
+        style={{
+          position: 'relative',
+          height: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          paddingLeft: '5rem',
+          paddingRight: '5rem',
+          maxWidth: '1240px',
+          margin: '0 auto',
+          zIndex: 20
+        }}
+      >
+        <div style={{ maxWidth: '620px' }}>
+          
+          {/* 1. Category Badge */}
+          <div 
+            key={`badge-${currentIdx}`}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.45rem',
+              padding: '0.35rem 0.9rem',
+              borderRadius: '30px',
+              backgroundColor: 'rgba(154, 120, 36, 0.18)',
+              border: '1px solid rgba(194, 154, 56, 0.35)',
+              fontSize: '0.74rem',
+              fontWeight: '600',
+              color: '#C29A38',
+              marginBottom: '1.2rem',
+              backdropFilter: 'blur(10px)',
+              animation: 'slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards'
+            }}
+          >
+            <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#9A7824' }} />
+            <span>✦ {activeSlide.badge}</span>
+          </div>
+
+          {/* 2. Main Headline */}
+          <h1 
+            key={`title-${currentIdx}`}
+            style={{
+              fontFamily: 'var(--font-heading)',
+              fontSize: 'clamp(2.1rem, 3.8vw, 3.2rem)',
+              lineHeight: 1.15,
+              fontWeight: '300',
+              color: '#FFFFFF',
+              letterSpacing: '-0.01em',
+              marginBottom: '1.2rem',
+              animation: 'slideUpFade 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards'
+            }}
+          >
+            {activeSlide.headlineMain} <br />
+            <span style={{ fontFamily: 'var(--font-heading)', fontWeight: '700', color: '#9A7824', fontStyle: 'italic' }}>
+              {activeSlide.headlineAccent}
+            </span>
+          </h1>
+
+          {/* 3. Sub-headline Description */}
+          <p 
+            key={`desc-${currentIdx}`}
+            style={{
+              fontFamily: 'var(--font-body)',
+              fontSize: '0.98rem',
+              color: 'rgba(250, 247, 242, 0.85)',
+              maxWidth: '520px',
+              lineHeight: 1.6,
+              fontWeight: '300',
+              marginBottom: '2rem',
+              animation: 'slideUpFade 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards'
+            }}
+          >
+            {activeSlide.description}
+          </p>
+
+          {/* 4. Primary CTA Pill Button (Dark Goldenrod #9A7824) */}
+          <div 
+            key={`cta-${currentIdx}`}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '1rem',
+              animation: 'slideUpFade 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards'
+            }}
+          >
+            <button
+              onClick={() => setActivePage(activeSlide.link)}
+              className="reference-gold-btn"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.8rem',
+                padding: '0.78rem 1.6rem',
+                borderRadius: '30px',
+                backgroundColor: '#9A7824',
+                color: '#FFFFFF',
+                fontSize: '0.9rem',
+                fontWeight: '600',
+                border: 'none',
+                cursor: 'pointer',
+                transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+                boxShadow: '0 8px 25px rgba(154, 120, 36, 0.4)'
+              }}
+            >
+              <span>{activeSlide.ctaText}</span>
+              <span 
+                style={{
+                  width: '26px',
+                  height: '26px',
+                  borderRadius: '50%',
+                  backgroundColor: 'rgba(0,0,0,0.25)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#FFFFFF',
+                  transition: 'transform 0.3s ease'
+                }}
+                className="btn-arrow-circle"
+              >
+                <ArrowUpRight size={15} />
+              </span>
+            </button>
+
+            <button
+              onClick={() => setActivePage('contact')}
+              style={{
+                background: 'none',
+                border: 'none',
+                color: 'rgba(250, 247, 242, 0.85)',
+                fontFamily: 'var(--font-body)',
+                fontSize: '0.88rem',
+                fontWeight: '600',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.4rem',
+                padding: '0.78rem 1rem'
+              }}
+            >
+              <span>Request Quote</span>
+              <ArrowRight size={15} />
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      {/* BOTTOM LEFT: THUMBNAIL SLIDE PREVIEWS */}
+      <div 
+        style={{
+          position: 'absolute',
+          bottom: '28px',
+          left: '5rem',
+          display: 'flex',
+          gap: '0.8rem',
+          zIndex: 30
+        }}
+        className="hero-thumbnails-bar"
+      >
+        {HERO_SLIDES.map((slide, idx) => (
+          <div
+            key={slide.id}
+            onClick={() => setCurrentIdx(idx)}
+            style={{
+              width: '54px',
+              height: '54px',
+              borderRadius: '8px',
+              overflow: 'hidden',
+              border: currentIdx === idx ? '2px solid #9A7824' : '1px solid rgba(255, 255, 255, 0.25)',
+              opacity: currentIdx === idx ? 1 : 0.6,
+              cursor: 'pointer',
+              transition: 'all 0.3s ease',
+              boxShadow: currentIdx === idx ? '0 4px 15px rgba(0,0,0,0.5)' : 'none'
+            }}
+            className="thumb-card"
+          >
+            <img src={slide.image} alt={`Slide ${idx + 1}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          </div>
+        ))}
+      </div>
+
+      {/* BOTTOM RIGHT: ROTATING CIRCULAR EMBLEM */}
+      <div 
+        style={{
+          position: 'absolute',
+          bottom: '24px',
+          right: '5rem',
+          width: '110px',
+          height: '110px',
+          borderRadius: '50%',
+          border: '1px solid rgba(255, 255, 255, 0.2)',
+          backgroundColor: 'rgba(22, 18, 11, 0.8)',
+          backdropFilter: 'blur(10px)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          boxShadow: '0 10px 30px rgba(0,0,0,0.5)',
+          zIndex: 30
+        }}
+        className="hero-circular-emblem"
+      >
+        <svg 
+          viewBox="0 0 100 100" 
+          style={{ width: '100%', height: '100%', animation: 'spinSlow 16s linear infinite' }}
+        >
+          <path id="circlePathHeroRef2" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
+          <text fontSize="10" letterSpacing="2.2" fill="rgba(250, 247, 242, 0.85)">
+            <textPath href="#circlePathHeroRef2">EXPLORE MORE ✦ WAKEEL &amp; SONS ✦</textPath>
+          </text>
+        </svg>
+        <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <ArrowRight size={17} color="#9A7824" style={{ transform: 'rotate(45deg)' }} />
+        </div>
+      </div>
+
+      {/* KEYFRAME ANIMATIONS & HOVER HELPER */}
+      <style>{`
+        @keyframes slideUpFade {
+          from {
+            opacity: 0;
+            transform: translateY(24px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        @keyframes spinSlow {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        .nav-arrow-btn:hover {
+          background-color: rgba(255, 255, 255, 0.2) !important;
+          transform: translateY(-50%) scale(1.08) !important;
+        }
+        .reference-gold-btn:hover {
+          transform: scale(1.04);
+          background-color: #80631C !important;
+        }
+        .reference-gold-btn:hover .btn-arrow-circle {
+          transform: rotate(45deg);
+        }
+        .thumb-card:hover {
+          opacity: 1 !important;
+          transform: scale(1.08);
+        }
+        @media (max-width: 960px) {
+          .reference-hero-section {
+            padding-left: 1.5rem !important;
+            padding-right: 1.5rem !important;
+          }
+          .hero-thumbnails-bar {
+            left: 1.5rem !important;
+            bottom: 16px !important;
+          }
+          .hero-circular-emblem {
+            display: none !important;
+          }
+          .nav-arrow-btn {
+            display: none !important;
+          }
+        }
+      `}</style>
+    </section>
+  );
+}

@@ -1,123 +1,203 @@
 import React from 'react';
-import { ShieldCheck, Truck, Sparkles, RefreshCw, Lock } from 'lucide-react';
+import { Lock, MapPin, Phone, Mail, Clock } from 'lucide-react';
 
-export default function Footer({ setActivePage }) {
+export default function Footer({ setActivePage = () => {}, onSelectCategory = () => {} }) {
+  const handleCategoryClick = (catName) => {
+    if (typeof onSelectCategory === 'function') {
+      onSelectCategory(catName);
+    }
+    setActivePage('catalog');
+  };
+
   return (
-    <footer style={{ backgroundColor: 'var(--surface-dark-espresso)', color: 'var(--bg-parchment)', paddingTop: '4rem', paddingBottom: '2rem', borderTop: '2px solid var(--btn-coffee-bean)' }}>
-      <div className="container">
+    <footer 
+      style={{ 
+        backgroundColor: '#16100f', 
+        color: '#FAF6F0', 
+        paddingTop: '4.5rem', 
+        paddingBottom: '2.5rem', 
+        borderTop: '2px solid var(--btn-coffee-bean)' 
+      }}
+    >
+      <div className="container" style={{ maxWidth: '1200px', margin: '0 auto' }}>
         
-        {/* Brand Value Pillars */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '2rem', paddingBottom: '3rem', borderBottom: '1px solid rgba(250, 246, 240, 0.12)' }}>
-          <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-            <ShieldCheck size={28} color="var(--accent-gold)" />
-            <div>
-              <h4 style={{ color: 'var(--bg-parchment)', fontSize: '1rem', marginBottom: '0.3rem' }}>100% Full-Grain Leather</h4>
-              <p style={{ fontSize: '0.82rem', color: 'rgba(250, 246, 240, 0.7)' }}>Pure vegetable-tanned hides that age with magnificent patina.</p>
-            </div>
-          </div>
-          <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-            <Sparkles size={28} color="var(--accent-gold)" />
-            <div>
-              <h4 style={{ color: 'var(--bg-parchment)', fontSize: '1rem', marginBottom: '0.3rem' }}>Custom Engraving Included</h4>
-              <p style={{ fontSize: '0.82rem', color: 'rgba(250, 246, 240, 0.7)' }}>Personalized laser monogram or full name at no extra cost.</p>
-            </div>
-          </div>
-          <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-            <Truck size={28} color="var(--accent-gold)" />
-            <div>
-              <h4 style={{ color: 'var(--bg-parchment)', fontSize: '1rem', marginBottom: '0.3rem' }}>Express Worldwide Delivery</h4>
-              <p style={{ fontSize: '0.82rem', color: 'rgba(250, 246, 240, 0.7)' }}>Dispatched within 24-48 hours in luxury gift boxes.</p>
-            </div>
-          </div>
-          <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-            <RefreshCw size={28} color="var(--accent-gold)" />
-            <div>
-              <h4 style={{ color: 'var(--bg-parchment)', fontSize: '1rem', marginBottom: '0.3rem' }}>Lifetime Guarantee</h4>
-              <p style={{ fontSize: '0.82rem', color: 'rgba(250, 246, 240, 0.7)' }}>Lifetime stitching warranty on every handcrafted wallet.</p>
-            </div>
-          </div>
-        </div>
-
         {/* Footer Navigation Columns */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2.5rem', margin: '3rem 0' }}>
+        <div 
+          style={{ 
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', 
+            gap: '3rem', 
+            marginBottom: '3.5rem' 
+          }}
+        >
           
-          {/* Brand Info */}
+          {/* 1. Brand Info */}
           <div>
-            <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--accent-gold)', fontSize: '1.4rem', letterSpacing: '0.04em', marginBottom: '0.8rem' }}>
+            <h3 style={{ 
+              fontFamily: 'var(--font-heading)', 
+              color: 'var(--accent-gold)', 
+              fontSize: '1.5rem', 
+              letterSpacing: '0.06em', 
+              marginBottom: '1rem',
+              fontWeight: '700'
+            }}>
               WAKEEL &amp; SONS
             </h3>
-            <p style={{ fontSize: '0.85rem', color: 'rgba(250, 246, 240, 0.75)', lineHeight: 1.7, marginBottom: '1.2rem' }}>
-              Crafting timeless personalized leather goods since 1978. Every stitch is a commitment to heritage, elegance, and durability.
+            <p style={{ 
+              fontSize: '0.9rem', 
+              color: 'rgba(250, 246, 240, 0.85)', 
+              lineHeight: 1.7, 
+              marginBottom: '1.4rem',
+              fontWeight: '300'
+            }}>
+              Crafting timeless personalized executive leather goods &amp; corporate merchandise since 1978. Every stitch is a commitment to heritage and durability.
             </p>
-            <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'center', fontSize: '0.8rem', color: 'var(--accent-gold-soft)' }}>
-              <Lock size={14} /> 256-Bit SSL Encrypted Checkout
+            <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'center', fontSize: '0.82rem', color: 'var(--accent-gold)', fontWeight: '600' }}>
+              <Lock size={15} color="var(--accent-gold)" />
+              <span>256-Bit SSL Encrypted Checkout</span>
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* 2. Products & Gifts (Navbar Categories) */}
           <div>
-            <h4 style={{ fontFamily: 'var(--font-subheading)', fontSize: '0.9rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--bg-parchment)', marginBottom: '1rem' }}>
-              Bespoke Catalog
+            <h4 style={{ 
+              fontFamily: 'var(--font-subheading)', 
+              fontSize: '0.9rem', 
+              letterSpacing: '0.12em', 
+              textTransform: 'uppercase', 
+              color: '#FFFFFF', 
+              marginBottom: '1.2rem',
+              fontWeight: '700'
+            }}>
+              Products &amp; Gifts
             </h4>
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.6rem', fontSize: '0.88rem' }}>
-              <li><button onClick={() => setActivePage('shop')} style={{ background: 'none', border: 'none', color: 'rgba(250, 246, 240, 0.75)', cursor: 'pointer' }}>Bifold Wallets</button></li>
-              <li><button onClick={() => setActivePage('shop')} style={{ background: 'none', border: 'none', color: 'rgba(250, 246, 240, 0.75)', cursor: 'pointer' }}>Slim Cardholders</button></li>
-              <li><button onClick={() => setActivePage('shop')} style={{ background: 'none', border: 'none', color: 'rgba(250, 246, 240, 0.75)', cursor: 'pointer' }}>Executive Trifolds</button></li>
-              <li><button onClick={() => setActivePage('shop')} style={{ background: 'none', border: 'none', color: 'rgba(250, 246, 240, 0.75)', cursor: 'pointer' }}>Passport Travel Wallets</button></li>
-              <li><button onClick={() => setActivePage('shop')} style={{ background: 'none', border: 'none', color: 'rgba(250, 246, 240, 0.75)', cursor: 'pointer' }}>Solid Brass Money Clips</button></li>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.75rem', fontSize: '0.9rem' }}>
+              <li>
+                <button onClick={() => handleCategoryClick('Leather')} style={{ background: 'none', border: 'none', color: 'rgba(250, 246, 240, 0.85)', cursor: 'pointer', padding: 0, textAlign: 'left', transition: 'color 0.2s' }} className="footer-link">
+                  Leather Products
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleCategoryClick('Apparel')} style={{ background: 'none', border: 'none', color: 'rgba(250, 246, 240, 0.85)', cursor: 'pointer', padding: 0, textAlign: 'left', transition: 'color 0.2s' }} className="footer-link">
+                  Corporate Apparel
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleCategoryClick('Bags')} style={{ background: 'none', border: 'none', color: 'rgba(250, 246, 240, 0.85)', cursor: 'pointer', padding: 0, textAlign: 'left', transition: 'color 0.2s' }} className="footer-link">
+                  Executive Bags
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleCategoryClick('Tech Gadgets')} style={{ background: 'none', border: 'none', color: 'rgba(250, 246, 240, 0.85)', cursor: 'pointer', padding: 0, textAlign: 'left', transition: 'color 0.2s' }} className="footer-link">
+                  Tech Gadgets
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleCategoryClick('Custom Mugs')} style={{ background: 'none', border: 'none', color: 'rgba(250, 246, 240, 0.85)', cursor: 'pointer', padding: 0, textAlign: 'left', transition: 'color 0.2s' }} className="footer-link">
+                  Custom Mugs &amp; Bottles
+                </button>
+              </li>
             </ul>
           </div>
 
-          {/* Customer Care */}
+          {/* 3. Office & Corporate (Replacing OUR ATELIER) */}
           <div>
-            <h4 style={{ fontFamily: 'var(--font-subheading)', fontSize: '0.9rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--bg-parchment)', marginBottom: '1rem' }}>
-              Client Care &amp; Policies
+            <h4 style={{ 
+              fontFamily: 'var(--font-subheading)', 
+              fontSize: '0.9rem', 
+              letterSpacing: '0.12em', 
+              textTransform: 'uppercase', 
+              color: '#FFFFFF', 
+              marginBottom: '1.2rem',
+              fontWeight: '700'
+            }}>
+              Office &amp; Corporate
             </h4>
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.6rem', fontSize: '0.88rem' }}>
-              <li><button onClick={() => setActivePage('about')} style={{ background: 'none', border: 'none', color: 'rgba(250, 246, 240, 0.75)', cursor: 'pointer' }}>Our Atelier Legacy</button></li>
-              <li><button onClick={() => setActivePage('contact')} style={{ background: 'none', border: 'none', color: 'rgba(250, 246, 240, 0.75)', cursor: 'pointer' }}>Contact &amp; Concierge</button></li>
-              <li><button onClick={() => setActivePage('refund')} style={{ background: 'none', border: 'none', color: 'rgba(250, 246, 240, 0.75)', cursor: 'pointer' }}>Refund &amp; Return Policy</button></li>
-              <li><button onClick={() => setActivePage('shipping')} style={{ background: 'none', border: 'none', color: 'rgba(250, 246, 240, 0.75)', cursor: 'pointer' }}>Shipping &amp; Delivery Days</button></li>
-              <li><button onClick={() => setActivePage('contact')} style={{ background: 'none', border: 'none', color: 'rgba(250, 246, 240, 0.75)', cursor: 'pointer' }}>WhatsApp Live Support</button></li>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.75rem', fontSize: '0.9rem' }}>
+              <li>
+                <button onClick={() => handleCategoryClick('Corporate Notebooks')} style={{ background: 'none', border: 'none', color: 'rgba(250, 246, 240, 0.85)', cursor: 'pointer', padding: 0, textAlign: 'left', transition: 'color 0.2s' }} className="footer-link">
+                  Corporate Notebooks
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleCategoryClick('Desk Organizer')} style={{ background: 'none', border: 'none', color: 'rgba(250, 246, 240, 0.85)', cursor: 'pointer', padding: 0, textAlign: 'left', transition: 'color 0.2s' }} className="footer-link">
+                  Desk Organizer &amp; Tabletop
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleCategoryClick('Shields & Awards')} style={{ background: 'none', border: 'none', color: 'rgba(250, 246, 240, 0.85)', cursor: 'pointer', padding: 0, textAlign: 'left', transition: 'color 0.2s' }} className="footer-link">
+                  Shields &amp; Corporate Awards
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleCategoryClick('Corporate Gift Box')} style={{ background: 'none', border: 'none', color: 'rgba(250, 246, 240, 0.85)', cursor: 'pointer', padding: 0, textAlign: 'left', transition: 'color 0.2s' }} className="footer-link">
+                  Corporate Gift Boxes
+                </button></li>
+              <li>
+                <button onClick={() => setActivePage('contact')} style={{ background: 'none', border: 'none', color: 'rgba(250, 246, 240, 0.85)', cursor: 'pointer', padding: 0, textAlign: 'left', transition: 'color 0.2s' }} className="footer-link">
+                  Bulk Orders &amp; Invoices
+                </button>
+              </li>
             </ul>
           </div>
 
-          {/* Private Atelier Newsletter */}
+          {/* 4. Customer Support */}
           <div>
-            <h4 style={{ fontFamily: 'var(--font-subheading)', fontSize: '0.9rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--bg-parchment)', marginBottom: '1rem' }}>
-              The Gentlemen's Guild
+            <h4 style={{ 
+              fontFamily: 'var(--font-subheading)', 
+              fontSize: '0.9rem', 
+              letterSpacing: '0.12em', 
+              textTransform: 'uppercase', 
+              color: '#FFFFFF', 
+              marginBottom: '1.2rem',
+              fontWeight: '700'
+            }}>
+              Customer Support
             </h4>
-            <p style={{ fontSize: '0.82rem', color: 'rgba(250, 246, 240, 0.7)', marginBottom: '1rem' }}>
-              Subscribe to receive exclusive vault drops, bespoke leather care guides, and VIP previews.
-            </p>
-            <div style={{ display: 'flex', gap: '0.4rem' }}>
-              <input 
-                type="email" 
-                placeholder="Enter your email address"
-                style={{
-                  backgroundColor: 'rgba(250, 246, 240, 0.08)',
-                  border: '1px solid rgba(250, 246, 240, 0.2)',
-                  color: 'var(--bg-parchment)',
-                  padding: '0.6rem 0.8rem',
-                  fontSize: '0.85rem',
-                  borderRadius: 'var(--radius-sm)',
-                  outline: 'none',
-                  flex: 1
-                }}
-              />
-              <button className="btn-gold" style={{ padding: '0.6rem 1rem', fontSize: '0.8rem' }}>
-                Join
-              </button>
+            
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem', fontSize: '0.88rem', color: 'rgba(250, 246, 240, 0.85)' }}>
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
+                <MapPin size={17} color="var(--accent-gold)" style={{ flexShrink: 0, marginTop: '2px' }} />
+                <span>Heritage Leather District, Sector 15, Karachi</span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                <Phone size={17} color="var(--accent-gold)" style={{ flexShrink: 0 }} />
+                <span>+92 (0) 300 829 4410</span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                <Mail size={17} color="var(--accent-gold)" style={{ flexShrink: 0 }} />
+                <span>atelier@wakeelandson.com</span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                <Clock size={17} color="var(--accent-gold)" style={{ flexShrink: 0 }} />
+                <span>Mon - Sat: 9:00 AM - 7:00 PM</span>
+              </div>
             </div>
           </div>
 
         </div>
 
-        {/* Copyright */}
-        <div style={{ borderTop: '1px solid rgba(250, 246, 240, 0.1)', paddingTop: '1.8rem', textAlign: 'center', fontSize: '0.78rem', color: 'rgba(250, 246, 240, 0.5)' }}>
-          &copy; {new Date().getFullYear()} Wakeel &amp; Sons Fine Leathercraft. All Rights Reserved. Customized leather goods are precision laser-engraved.
+        {/* Bottom Copyright Bar */}
+        <div style={{ borderTop: '1px solid rgba(250, 246, 240, 0.12)', paddingTop: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', fontSize: '0.85rem', color: 'rgba(250, 246, 240, 0.7)' }}>
+          <div>
+            © {new Date().getFullYear()} Wakeel &amp; Sons Leather Goods (Pvt) Ltd. All Rights Reserved.
+          </div>
+
+          <div style={{ display: 'flex', gap: '1.8rem' }}>
+            <span style={{ cursor: 'pointer' }} className="footer-link">Privacy Policy</span>
+            <span style={{ cursor: 'pointer' }} className="footer-link">Terms of Service</span>
+            <span style={{ cursor: 'pointer' }} className="footer-link">Lifetime Guarantee Terms</span>
+          </div>
         </div>
+
       </div>
+
+      {/* Hover Styles */}
+      <style>{`
+        .footer-link:hover {
+          color: var(--accent-gold) !important;
+        }
+      `}</style>
     </footer>
   );
 }
