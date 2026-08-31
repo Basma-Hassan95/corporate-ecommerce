@@ -1,14 +1,9 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Clock, MessageSquare, Send, CheckCircle, ChevronDown, ChevronUp, HelpCircle, User, Lock, Sparkles } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, MessageSquare, ChevronDown, ChevronUp, HelpCircle } from 'lucide-react';
+import InteractiveCustomizationForm from '../components/InteractiveCustomizationForm';
 
 export default function ContactView() {
-  const [submitted, setSubmitted] = useState(false);
   const [openFaq, setOpenFaq] = useState(null);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
@@ -38,217 +33,107 @@ export default function ContactView() {
   ];
 
   return (
-    <div className="animate-fade-in" style={{ padding: '4rem 0', backgroundColor: 'var(--bg-parchment)' }}>
-      <div className="container" style={{ maxWidth: '1100px' }}>
+    <div className="animate-fade-in" style={{ padding: '4.5rem 0 5.5rem', backgroundColor: 'var(--bg-parchment)' }}>
+      <div className="container" style={{ maxWidth: '1180px', margin: '0 auto' }}>
         
-        {/* Page Title */}
+        {/* PAGE HEADER */}
         <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
           <span className="badge-gold" style={{ marginBottom: '0.8rem', display: 'inline-block' }}>
-            ATELIER CONCIERGE &amp; CLIENT SERVICES
+            ✦ ATELIER CONCIERGE &amp; CLIENT SERVICES
           </span>
-          <h1 style={{ fontSize: '3rem', fontFamily: 'var(--font-heading)', color: 'var(--text-dark-coffee)' }}>
+          <h1 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.2rem)', fontFamily: 'var(--font-heading)', color: '#9A7824', lineHeight: 1.15 }}>
             Connect with Wakeel &amp; Sons
           </h1>
-          <p style={{ color: 'var(--accent-dusty-taupe)', fontSize: '1rem', maxWidth: '620px', margin: '0.4rem auto 0' }}>
-            Have a question about custom monogramming, wooden giftware, or corporate orders? Our master craftsmen are at your service.
+          <p style={{ color: 'var(--accent-dusty-taupe)', fontSize: '1rem', maxWidth: '640px', margin: '0.5rem auto 0' }}>
+            Have a question about custom monogramming, corporate gifts, or volume pricing? Share your project brief below and our master craftsmen will reply within 24 hours.
           </p>
         </div>
 
-        {/* Form + Concierge Grid Layout */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: '3rem', marginBottom: '4.5rem' }} className="contact-grid">
+        {/* 2-COLUMN LAYOUT: LEFT INTERACTIVE FORM + RIGHT CONCIERGE INFO */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gap: '3rem', marginBottom: '5rem', alignItems: 'flex-start' }} className="contact-grid">
           
-          {/* Left Column: CLEAN LUXURY CONTACT FORM */}
-          <div style={{
-            backgroundColor: 'var(--surface-white)',
-            padding: '2.8rem 2.2rem',
-            borderRadius: 'var(--radius-md)',
-            border: '1px solid var(--border-light)',
-            borderTop: '4px solid var(--accent-gold)',
-            boxShadow: 'var(--shadow-md)',
-            position: 'relative'
-          }}>
-            
-            <div style={{ marginBottom: '1.8rem', paddingBottom: '1rem', borderBottom: '1px solid var(--border-light)' }}>
-              <h3 style={{ fontSize: '1.6rem', fontFamily: 'var(--font-heading)', color: 'var(--text-dark-coffee)', margin: 0 }}>
-                Contact Us
-              </h3>
-            </div>
-
-            {submitted ? (
-              <div style={{ textAlign: 'center', padding: '3rem 1rem' }}>
-                <CheckCircle size={56} color="var(--accent-emerald)" style={{ marginBottom: '1rem' }} />
-                <h4 style={{ fontSize: '1.3rem', color: 'var(--text-dark-coffee)' }}>Message Submitted</h4>
-                <p style={{ fontSize: '0.9rem', color: 'var(--accent-dusty-taupe)', margin: '0.6rem 0 1.8rem' }}>
-                  Thank you. Your message has been received. You will receive a response within 2-4 business hours.
-                </p>
-                <button onClick={() => setSubmitted(false)} className="btn-secondary">Send Another Message</button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.4rem' }}>
-                
-                {/* Name Input */}
-                <div>
-                  <label style={{ fontSize: '0.78rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--text-dark-coffee)', display: 'block', marginBottom: '0.4rem' }}>
-                    Your Full Name *
-                  </label>
-                  <div style={{ position: 'relative' }}>
-                    <input 
-                      type="text" 
-                      required 
-                      placeholder="e.g. Tariq Wakeel" 
-                      style={{
-                        width: '100%',
-                        padding: '0.8rem 1rem 0.8rem 2.6rem',
-                        backgroundColor: 'var(--bg-parchment)',
-                        border: '1.5px solid var(--accent-dusty-taupe)',
-                        borderRadius: 'var(--radius-sm)',
-                        fontSize: '0.95rem',
-                        fontFamily: 'var(--font-body)',
-                        color: 'var(--text-dark-coffee)',
-                        outline: 'none'
-                      }} 
-                    />
-                    <User size={16} color="var(--btn-coffee-bean)" style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)' }} />
-                  </div>
-                </div>
-
-                {/* Email Input */}
-                <div>
-                  <label style={{ fontSize: '0.78rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--text-dark-coffee)', display: 'block', marginBottom: '0.4rem' }}>
-                    Email Address *
-                  </label>
-                  <div style={{ position: 'relative' }}>
-                    <input 
-                      type="email" 
-                      required 
-                      placeholder="name@domain.com" 
-                      style={{
-                        width: '100%',
-                        padding: '0.8rem 1rem 0.8rem 2.6rem',
-                        backgroundColor: 'var(--bg-parchment)',
-                        border: '1.5px solid var(--accent-dusty-taupe)',
-                        borderRadius: 'var(--radius-sm)',
-                        fontSize: '0.95rem',
-                        fontFamily: 'var(--font-body)',
-                        color: 'var(--text-dark-coffee)',
-                        outline: 'none'
-                      }} 
-                    />
-                    <Mail size={16} color="var(--btn-coffee-bean)" style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)' }} />
-                  </div>
-                </div>
-
-                {/* Details Textarea */}
-                <div>
-                  <label style={{ fontSize: '0.78rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--text-dark-coffee)', display: 'block', marginBottom: '0.4rem' }}>
-                    Inquiry Details *
-                  </label>
-                  <textarea 
-                    rows={5} 
-                    required 
-                    placeholder="Describe your custom laser engraving request, wooden gift box choice, or custom query..." 
-                    style={{
-                      width: '100%',
-                      padding: '0.82rem 1rem',
-                      backgroundColor: 'var(--bg-parchment)',
-                      border: '1.5px solid var(--accent-dusty-taupe)',
-                      borderRadius: 'var(--radius-sm)',
-                      fontSize: '0.95rem',
-                      fontFamily: 'var(--font-body)',
-                      color: 'var(--text-dark-coffee)',
-                      outline: 'none'
-                    }} 
-                  />
-                </div>
-
-                {/* Submit Button */}
-                <button 
-                  type="submit" 
-                  className="btn-gold" 
-                  style={{
-                    padding: '1rem 1.8rem',
-                    fontSize: '1rem',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '0.6rem',
-                    marginTop: '0.5rem'
-                  }}
-                >
-                  <Send size={18} /> Submit
-                </button>
-
-                {/* Security Micro Footer */}
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem', fontSize: '0.76rem', color: 'var(--accent-dusty-taupe)', marginTop: '0.5rem' }}>
-                  <span style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}><Lock size={12} /> 100% Confidential</span>
-                  <span>&bull;</span>
-                  <span style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}><Sparkles size={12} color="var(--accent-gold)" /> Fast 2-4 Hr Response</span>
-                </div>
-
-              </form>
-            )}
+          {/* LEFT COLUMN: INTERACTIVE FORM MATCHING HOMEPAGE */}
+          <div style={{ gridColumn: 'span 7' }} className="contact-form-col">
+            <InteractiveCustomizationForm />
           </div>
 
-          {/* Right Column: WhatsApp Integration + Concierge Info */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+          {/* RIGHT COLUMN: WHATSAPP CONCIERGE & ATELIER INFO */}
+          <div style={{ gridColumn: 'span 5', display: 'flex', flexDirection: 'column', gap: '1.8rem' }} className="contact-info-col">
             
-            {/* WHATSAPP CHAT INTEGRATION CARD */}
-            <div style={{ backgroundColor: 'var(--accent-emerald)', color: '#FFFFFF', padding: '2.2rem', borderRadius: 'var(--radius-md)', boxShadow: 'var(--shadow-md)' }}>
+            {/* WHATSAPP CHAT CARD */}
+            <div style={{ backgroundColor: '#9A7824', color: '#FFFFFF', padding: '2.2rem', borderRadius: '24px', boxShadow: '0 12px 30px rgba(154, 120, 36, 0.3)' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '0.8rem' }}>
-                <MessageSquare size={28} color="var(--accent-gold)" />
-                <h3 style={{ fontSize: '1.3rem', fontFamily: 'var(--font-heading)' }}>Instant WhatsApp Concierge</h3>
+                <MessageSquare size={26} color="#FFFFFF" />
+                <h3 style={{ fontSize: '1.35rem', fontFamily: 'var(--font-heading)', margin: 0, fontWeight: '700' }}>
+                  Instant WhatsApp Concierge
+                </h3>
               </div>
-              <p style={{ fontSize: '0.88rem', opacity: 0.9, lineHeight: 1.6, marginBottom: '1.4rem' }}>
-                Need immediate help with custom initials font choice, custom wooden box engraving, or urgent dispatch? Chat directly with our concierge via WhatsApp.
+              <p style={{ fontSize: '0.88rem', color: 'rgba(255, 255, 255, 0.9)', lineHeight: 1.6, marginBottom: '1.4rem' }}>
+                Need immediate assistance with custom initials font choice, custom gift box choices, or urgent bulk dispatch? Chat directly with our master craftsmen on WhatsApp.
               </p>
               <a 
-                href="https://wa.me/923001234567?text=Hello%20Wakeel%20%26%20Sons%2C%20I%20have%20a%20question%20about%20customized%20gifts" 
+                href="https://wa.me/923008294410?text=Hello%20Wakeel%20%26%20Sons%2C%20I%20have%20a%20question%20about%20customized%20corporate%20gifts" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="btn-gold" 
-                style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', textDecoration: 'none' }}
+                style={{
+                  width: '100%',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.6rem',
+                  textDecoration: 'none',
+                  backgroundColor: '#FFFFFF',
+                  color: '#9A7824',
+                  fontWeight: '700',
+                  padding: '0.85rem 1.4rem',
+                  borderRadius: '30px',
+                  boxShadow: '0 6px 20px rgba(0,0,0,0.15)',
+                  transition: 'all 0.3s ease',
+                  boxSizing: 'border-box'
+                }}
               >
-                <MessageSquare size={18} /> Launch WhatsApp Concierge
+                <MessageSquare size={18} />
+                <span>Launch WhatsApp Concierge</span>
               </a>
             </div>
 
-            {/* Atelier Info Card */}
-            <div style={{ backgroundColor: 'var(--surface-white)', padding: '2.2rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-light)' }}>
-              <h4 style={{ fontSize: '1.15rem', color: 'var(--text-dark-coffee)', marginBottom: '1.2rem', paddingBottom: '0.6rem', borderBottom: '1px solid var(--border-light)' }}>
+            {/* ATELIER LOCATION CARD */}
+            <div style={{ backgroundColor: '#FFFFFF', padding: '2.2rem', borderRadius: '24px', border: '1px solid var(--border-light)', boxShadow: '0 10px 30px rgba(0,0,0,0.04)' }}>
+              <h4 style={{ fontSize: '1.15rem', fontFamily: 'var(--font-heading)', color: '#9A7824', marginBottom: '1.2rem', paddingBottom: '0.6rem', borderBottom: '1px solid var(--border-light)', fontWeight: '700' }}>
                 Atelier Location &amp; Hours
               </h4>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.1rem', fontSize: '0.9rem', color: 'var(--text-dark-coffee)' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem', fontSize: '0.88rem', color: 'var(--text-dark-coffee)' }}>
                 <div style={{ display: 'flex', gap: '0.8rem', alignItems: 'flex-start' }}>
-                  <MapPin size={20} color="var(--btn-coffee-bean)" style={{ flexShrink: 0 }} />
+                  <MapPin size={18} color="#9A7824" style={{ flexShrink: 0, marginTop: '2px' }} />
                   <div>
-                    <strong>Main Leather &amp; Wood Atelier:</strong><br />
-                    Heritage Craft Building, Suit #402, Leather Market Road, Lahore, Pakistan.
+                    <strong style={{ color: '#9A7824' }}>Main Leather &amp; Wood Atelier:</strong><br />
+                    Heritage Leather District, Sector 15, Karachi, Pakistan.
                   </div>
                 </div>
 
                 <div style={{ display: 'flex', gap: '0.8rem', alignItems: 'flex-start' }}>
-                  <Phone size={20} color="var(--btn-coffee-bean)" style={{ flexShrink: 0 }} />
+                  <Phone size={18} color="#9A7824" style={{ flexShrink: 0, marginTop: '2px' }} />
                   <div>
-                    <strong>Phone Support Hotline:</strong><br />
-                    +92 (42) 3589-1978 / +92 300 1234567
+                    <strong style={{ color: '#9A7824' }}>Phone Support Hotline:</strong><br />
+                    +92 (0) 300 829 4410
                   </div>
                 </div>
 
                 <div style={{ display: 'flex', gap: '0.8rem', alignItems: 'flex-start' }}>
-                  <Mail size={20} color="var(--btn-coffee-bean)" style={{ flexShrink: 0 }} />
+                  <Mail size={18} color="#9A7824" style={{ flexShrink: 0, marginTop: '2px' }} />
                   <div>
-                    <strong>Client Services Email:</strong><br />
-                    concierge@wakeelandsons.com
+                    <strong style={{ color: '#9A7824' }}>Client Services Email:</strong><br />
+                    atelier@wakeelandson.com
                   </div>
                 </div>
 
                 <div style={{ display: 'flex', gap: '0.8rem', alignItems: 'flex-start' }}>
-                  <Clock size={20} color="var(--btn-coffee-bean)" style={{ flexShrink: 0 }} />
+                  <Clock size={18} color="#9A7824" style={{ flexShrink: 0, marginTop: '2px' }} />
                   <div>
-                    <strong>Support &amp; Engraving Hours:</strong><br />
-                    Monday – Saturday: 9:00 AM – 8:00 PM PKT<br />
-                    <span className="badge-emerald" style={{ marginTop: '0.4rem', display: 'inline-block' }}>
+                    <strong style={{ color: '#9A7824' }}>Support &amp; Crafting Hours:</strong><br />
+                    Monday – Saturday: 9:00 AM – 7:00 PM PKT<br />
+                    <span style={{ marginTop: '0.4rem', display: 'inline-block', backgroundColor: 'rgba(154, 120, 36, 0.1)', color: '#9A7824', fontSize: '0.72rem', fontWeight: '700', padding: '0.2rem 0.6rem', borderRadius: '4px' }}>
                       Atelier is currently OPEN
                     </span>
                   </div>
@@ -261,11 +146,11 @@ export default function ContactView() {
         </div>
 
         {/* FREQUENTLY ASKED QUESTIONS (FAQ ACCORDION) */}
-        <div style={{ backgroundColor: 'var(--surface-white)', padding: '3rem 2.2rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-light)' }}>
+        <div style={{ backgroundColor: '#FFFFFF', padding: '3rem 2.5rem', borderRadius: '24px', border: '1px solid var(--border-light)', boxShadow: '0 10px 30px rgba(0,0,0,0.04)' }}>
           <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', color: 'var(--btn-coffee-bean)', marginBottom: '0.4rem' }}>
-              <HelpCircle size={26} color="var(--btn-coffee-bean)" />
-              <h2 style={{ fontSize: '2.2rem', fontFamily: 'var(--font-heading)', color: 'var(--text-dark-coffee)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', color: '#9A7824', marginBottom: '0.4rem' }}>
+              <HelpCircle size={24} color="#9A7824" />
+              <h2 style={{ fontSize: '2.2rem', fontFamily: 'var(--font-heading)', color: '#9A7824', margin: 0 }}>
                 Frequently Asked Questions (FAQ)
               </h2>
             </div>
@@ -274,14 +159,14 @@ export default function ContactView() {
             </p>
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', maxWidth: '860px', margin: '0 auto' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.9rem', maxWidth: '860px', margin: '0 auto' }}>
             {faqs.map((faq, index) => (
               <div 
                 key={index}
                 style={{
                   border: '1px solid var(--border-light)',
-                  borderRadius: 'var(--radius-sm)',
-                  backgroundColor: openFaq === index ? 'var(--surface-linen)' : 'var(--bg-parchment)',
+                  borderRadius: '12px',
+                  backgroundColor: openFaq === index ? 'rgba(154, 120, 36, 0.05)' : '#F8F9FA',
                   overflow: 'hidden',
                   transition: 'all 0.2s ease'
                 }}
@@ -290,7 +175,7 @@ export default function ContactView() {
                   onClick={() => toggleFaq(index)}
                   style={{
                     width: '100%',
-                    padding: '1.15rem 1.4rem',
+                    padding: '1.1rem 1.4rem',
                     background: 'none',
                     border: 'none',
                     textAlign: 'left',
@@ -298,16 +183,16 @@ export default function ContactView() {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    fontSize: '1rem',
+                    fontSize: '0.98rem',
                     fontWeight: '600',
                     color: 'var(--text-dark-coffee)'
                   }}
                 >
                   <span>{faq.q}</span>
-                  {openFaq === index ? <ChevronUp size={18} color="var(--btn-coffee-bean)" /> : <ChevronDown size={18} color="var(--accent-dusty-taupe)" />}
+                  {openFaq === index ? <ChevronUp size={18} color="#9A7824" /> : <ChevronDown size={18} color="var(--accent-dusty-taupe)" />}
                 </button>
                 {openFaq === index && (
-                  <div style={{ padding: '0 1.4rem 1.25rem', fontSize: '0.92rem', color: 'var(--text-dark-coffee)', opacity: 0.9, lineHeight: 1.6 }}>
+                  <div style={{ padding: '0 1.4rem 1.25rem', fontSize: '0.9rem', color: 'var(--text-dark-coffee)', opacity: 0.9, lineHeight: 1.6 }}>
                     {faq.a}
                   </div>
                 )}
@@ -319,8 +204,13 @@ export default function ContactView() {
       </div>
 
       <style>{`
-        @media (max-width: 800px) {
-          .contact-grid { grid-template-columns: 1fr !important; }
+        @media (max-width: 960px) {
+          .contact-grid { 
+            grid-template-columns: 1fr !important; 
+          }
+          .contact-form-col, .contact-info-col {
+            grid-column: span 12 !important;
+          }
         }
       `}</style>
     </div>

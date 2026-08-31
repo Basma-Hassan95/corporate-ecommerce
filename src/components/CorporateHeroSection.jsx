@@ -157,15 +157,15 @@ export default function CorporateHeroSection({ setActivePage = () => {} }) {
 
       {/* HERO CONTENT CONTAINER */}
       <div 
-        className="container"
+        className="container hero-content-inner"
         style={{
           position: 'relative',
           height: '100%',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
-          paddingLeft: '5rem',
-          paddingRight: '5rem',
+          paddingLeft: '3.5rem',
+          paddingRight: '3.5rem',
           maxWidth: '1240px',
           margin: '0 auto',
           zIndex: 20
@@ -406,15 +406,32 @@ export default function CorporateHeroSection({ setActivePage = () => {} }) {
         }
         @media (max-width: 960px) {
           .reference-hero-section {
-            padding-left: 1.5rem !important;
-            padding-right: 1.5rem !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+          }
+          .hero-content-inner {
+            padding-left: 1.2rem !important;
+            padding-right: 1.2rem !important;
+            max-width: 100% !important;
+          }
+          .hero-content-inner h1 {
+            font-size: clamp(1.6rem, 7vw, 2.3rem) !important;
+            word-break: break-word;
+            hyphens: auto;
+          }
+          .hero-content-inner p {
+            font-size: 0.88rem !important;
+            max-width: 100% !important;
           }
           .hero-thumbnails-bar {
-            left: 1.5rem !important;
-            bottom: 16px !important;
+            display: none !important;
           }
           .hero-circular-emblem {
-            display: none !important;
+            display: flex !important;
+            width: 70px !important;
+            height: 70px !important;
+            right: 1rem !important;
+            bottom: 1rem !important;
           }
           .nav-arrow-btn {
             display: none !important;

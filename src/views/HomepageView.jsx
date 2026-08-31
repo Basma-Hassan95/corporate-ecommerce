@@ -1,6 +1,7 @@
 import React from 'react';
 import CorporateHeroSection from '../components/CorporateHeroSection';
 import EngravingCustomizer from '../components/EngravingCustomizer';
+import InteractiveCustomizationForm from '../components/InteractiveCustomizationForm';
 import StatsAndValueProp from '../components/StatsAndValueProp';
 import BrandingServicesSection from '../components/BrandingServicesSection';
 import TestimonialsAndLogosSection from '../components/TestimonialsAndLogosSection';
@@ -146,24 +147,22 @@ export default function HomepageView({ setActivePage, setSelectedProduct, openCa
       {/* 5. CORPORATE CLIENT LOGOS & GOOGLE TESTIMONIALS */}
       <TestimonialsAndLogosSection setActivePage={setActivePage} />
 
-      {/* 6. INTERACTIVE ENGRAVING CUSTOMIZER SHOWCASE */}
-      <section style={{ padding: '5rem 0', backgroundColor: 'var(--surface-linen)', borderTop: '1px solid var(--border-light)', borderBottom: '1px solid var(--border-light)' }}>
+      {/* 6. INTERACTIVE 4-STEP PROJECT BRIEF & QUOTE FORM */}
+      <section style={{ padding: '5.5rem 0', backgroundColor: 'var(--surface-linen)', borderTop: '1px solid var(--border-light)', borderBottom: '1px solid var(--border-light)' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
             <span className="badge-gold" style={{ marginBottom: '0.8rem', display: 'inline-block' }}>
-              ✦ LIVE MONOGRAM ENGINE
+              ✦ CONTACT US
             </span>
-            <h2 style={{ fontSize: '2.6rem', fontFamily: 'var(--font-heading)', color: 'var(--text-dark-coffee)' }}>
-              Personalize Your Leather Piece
+            <h2 style={{ fontSize: '2.8rem', fontFamily: 'var(--font-heading)', color: '#9A7824' }}>
+              Tell Us What You Want to Craft
             </h2>
-            <p style={{ color: 'var(--text-dark-coffee)', opacity: 0.85, maxWidth: '600px', margin: '0.5rem auto 0' }}>
-              Preview how your name or initials look permanently debossed into full-grain hide.
+            <p style={{ color: 'var(--accent-dusty-taupe)', fontSize: '1rem', maxWidth: '640px', margin: '0.5rem auto 0' }}>
+              Share your idea, preferred merchandise, and branding requirements — we'll reply within 24 hours.
             </p>
           </div>
 
-          <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-            <EngravingCustomizer />
-          </div>
+          <InteractiveCustomizationForm />
         </div>
       </section>
 

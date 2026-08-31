@@ -178,18 +178,19 @@ export default function StatsAndValueProp({ setActivePage = () => {} }) {
           
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gap: '1.8rem' }} className="bento-asymmetric-grid">
             
-            {/* TOP ROW - CARD 1 */}
+            {/* TOP ROW - CARD 1 (#9A7824 DARK GOLDENROD BACKGROUND) */}
             <div 
               style={{
                 gridColumn: 'span 4',
-                backgroundColor: 'var(--surface-white)',
+                backgroundColor: '#9A7824',
+                color: '#FFFFFF',
                 borderRadius: 'var(--radius-md)',
-                border: '1px solid var(--border-light)',
+                border: '1px solid rgba(0, 0, 0, 0.05)',
                 padding: '2.5rem 2rem',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
-                boxShadow: 'var(--shadow-sm)',
+                boxShadow: '0 10px 30px rgba(154, 120, 36, 0.25)',
                 minHeight: '260px'
               }}
               className="bento-card-hover"
@@ -199,24 +200,24 @@ export default function StatsAndValueProp({ setActivePage = () => {} }) {
                   width: '52px',
                   height: '52px',
                   borderRadius: '50%',
-                  backgroundColor: 'rgba(104, 74, 58, 0.08)',
-                  border: '1px solid var(--border-light)',
+                  backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                  border: '1px solid rgba(255, 255, 255, 0.3)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center'
                 }}>
-                  <CheckCircle2 size={24} color="var(--btn-coffee-bean)" />
+                  <CheckCircle2 size={24} color="#FFFFFF" />
                 </div>
-                <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', fontWeight: '700', color: 'var(--accent-dusty-taupe)', opacity: 0.6 }}>
+                <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', fontWeight: '700', color: 'rgba(255, 255, 255, 0.75)' }}>
                   01.
                 </span>
               </div>
 
               <div style={{ marginTop: '2rem' }}>
-                <p style={{ fontSize: '0.9rem', color: 'var(--accent-dusty-taupe)', fontWeight: '600', marginBottom: '0.4rem' }}>
+                <p style={{ fontSize: '0.9rem', color: 'rgba(255, 255, 255, 0.9)', fontWeight: '600', marginBottom: '0.4rem' }}>
                   Products Manufactured.
                 </p>
-                <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '3.6rem', fontWeight: '700', color: 'var(--text-dark-coffee)', lineHeight: 1, margin: 0 }}>
+                <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '3.6rem', fontWeight: '700', color: '#FFFFFF', lineHeight: 1, margin: 0 }}>
                   <AnimatedNumber targetNumber={500000} suffix="+" />
                 </h2>
               </div>
@@ -401,13 +402,13 @@ export default function StatsAndValueProp({ setActivePage = () => {} }) {
                   width: '52px',
                   height: '52px',
                   borderRadius: '50%',
-                  backgroundColor: 'rgba(104, 74, 58, 0.08)',
-                  border: '1px solid var(--border-light)',
+                  backgroundColor: 'rgba(154, 120, 36, 0.1)',
+                  border: '1px solid rgba(154, 120, 36, 0.2)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center'
                 }}>
-                  <Globe size={24} color="var(--btn-coffee-bean)" />
+                  <Globe size={24} color="#9A7824" />
                 </div>
                 <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', fontWeight: '700', color: 'var(--accent-dusty-taupe)', opacity: 0.6 }}>
                   02.
@@ -418,7 +419,7 @@ export default function StatsAndValueProp({ setActivePage = () => {} }) {
                 <p style={{ fontSize: '0.9rem', color: 'var(--accent-dusty-taupe)', fontWeight: '600', marginBottom: '0.4rem' }}>
                   Corporate Partners.
                 </p>
-                <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '3.4rem', fontWeight: '700', color: 'var(--text-dark-coffee)', lineHeight: 1, margin: 0 }}>
+                <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '3.4rem', fontWeight: '700', color: '#9A7824', lineHeight: 1, margin: 0 }}>
                   <AnimatedNumber targetNumber={1000} suffix="+" />
                 </h2>
               </div>
@@ -445,13 +446,13 @@ export default function StatsAndValueProp({ setActivePage = () => {} }) {
                   width: '52px',
                   height: '52px',
                   borderRadius: '50%',
-                  backgroundColor: 'rgba(104, 74, 58, 0.08)',
-                  border: '1px solid var(--border-light)',
+                  backgroundColor: 'rgba(154, 120, 36, 0.1)',
+                  border: '1px solid rgba(154, 120, 36, 0.2)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center'
                 }}>
-                  <TrendingUp size={24} color="var(--btn-coffee-bean)" />
+                  <TrendingUp size={24} color="#9A7824" />
                 </div>
                 <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', fontWeight: '700', color: 'var(--accent-dusty-taupe)', opacity: 0.6 }}>
                   03.
@@ -462,7 +463,7 @@ export default function StatsAndValueProp({ setActivePage = () => {} }) {
                 <p style={{ fontSize: '0.9rem', color: 'var(--accent-dusty-taupe)', fontWeight: '600', marginBottom: '0.4rem' }}>
                   Client Retention SLA.
                 </p>
-                <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '3.4rem', fontWeight: '700', color: 'var(--text-dark-coffee)', lineHeight: 1, margin: 0 }}>
+                <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '3.4rem', fontWeight: '700', color: '#9A7824', lineHeight: 1, margin: 0 }}>
                   <AnimatedNumber targetNumber={98} suffix="%" />
                 </h2>
               </div>
@@ -476,7 +477,7 @@ export default function StatsAndValueProp({ setActivePage = () => {} }) {
       {/* 2. WHY CHOOSE US - STICKY STAGGERED SIDE-SLIDING CARDS (CARDS SLIDE IN FROM THE RIGHT SIDE) */}
       <div 
         ref={cardsSectionRef} 
-        style={{ padding: '5.5rem 0', backgroundColor: 'var(--surface-linen)', borderTop: '1px solid var(--border-light)', overflow: 'hidden' }}
+        style={{ padding: '5.5rem 0', backgroundColor: '#F4EEDC', borderTop: '1px solid rgba(192, 165, 95, 0.2)', overflow: 'hidden' }}
       >
         <div className="container" style={{ maxWidth: '1200px', margin: '0 auto' }}>
           
@@ -584,7 +585,7 @@ export default function StatsAndValueProp({ setActivePage = () => {} }) {
 
                     {/* Content */}
                     <div>
-                      <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.6rem', color: 'var(--text-dark-coffee)', fontWeight: '600', marginBottom: '0.8rem' }}>
+                      <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.6rem', color: '#9A7824', fontWeight: '600', marginBottom: '0.8rem' }}>
                         {card.title}
                       </h3>
 
@@ -592,10 +593,10 @@ export default function StatsAndValueProp({ setActivePage = () => {} }) {
                         {card.description}
                       </p>
 
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', paddingTop: '1rem', borderTop: '1px solid var(--border-light)' }}>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', paddingTop: '1rem', borderTop: '1px solid rgba(192, 165, 95, 0.25)' }}>
                         {card.bullets.map((bullet, bIdx) => (
-                          <div key={bIdx} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.82rem', color: 'var(--btn-coffee-bean)', fontWeight: '600' }}>
-                            <ChevronRight size={14} color="var(--btn-coffee-bean)" />
+                          <div key={bIdx} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.82rem', color: '#9A7824', fontWeight: '600' }}>
+                            <ChevronRight size={14} color="#9A7824" />
                             <span>{bullet}</span>
                           </div>
                         ))}

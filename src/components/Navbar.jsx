@@ -89,12 +89,12 @@ export default function Navbar({
         {/* Brand Logo Section */}
         <div 
           onClick={() => setActivePage && setActivePage('home')} 
-          style={{ cursor: 'pointer', textAlign: 'left', flexShrink: 0 }}
+          style={{ cursor: 'pointer', textAlign: 'left', flexShrink: 1, minWidth: 0, overflow: 'hidden' }}
         >
-          <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.7rem', color: 'var(--text-dark-coffee)', letterSpacing: '0.05em', margin: 0, lineHeight: 1, textTransform: 'uppercase' }}>
+          <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.2rem, 5vw, 1.7rem)', color: 'var(--text-dark-coffee)', letterSpacing: '0.04em', margin: 0, lineHeight: 1, textTransform: 'uppercase', whiteSpace: 'nowrap' }}>
             WAKEEL &amp; SONS
           </h1>
-          <p style={{ fontFamily: 'var(--font-subheading)', fontSize: '0.6rem', color: 'var(--btn-coffee-bean)', letterSpacing: '0.18em', margin: '0.25rem 0 0', textTransform: 'uppercase', fontWeight: '600' }}>
+          <p style={{ fontFamily: 'var(--font-subheading)', fontSize: 'clamp(0.48rem, 2.2vw, 0.6rem)', color: 'var(--btn-coffee-bean)', letterSpacing: '0.12em', margin: '0.25rem 0 0', textTransform: 'uppercase', fontWeight: '600', whiteSpace: 'nowrap' }}>
             EST. 1978 &bull; CORPORATE GIFTS &amp; LEATHER
           </p>
         </div>
