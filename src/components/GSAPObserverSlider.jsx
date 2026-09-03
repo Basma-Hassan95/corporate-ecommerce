@@ -45,7 +45,7 @@ export default function GSAPObserverSlider({ setActivePage, setSelectedProduct }
       badge: 'EXECUTIVE LEATHER GOODS',
       title: 'Built for a Lifetime.',
       subtitle: 'Patina that grows richer with age.',
-      description: 'Every piece in our atelier is crafted without plastic or synthetic fillers. 100% full-grain leather guaranteed for life.',
+      description: 'Every piece in our collection is crafted without plastic or synthetic fillers. 100% full-grain leather guaranteed for life.',
       image: BRAND_IMAGES.aboutWorkshop,
       ctaText: 'View Master Catalog',
       action: () => setActivePage('catalog')
@@ -272,7 +272,7 @@ export default function GSAPObserverSlider({ setActivePage, setSelectedProduct }
             ✕ Return to Landing
           </button>
           
-          <span className="badge-taupe" style={{ marginBottom: '1rem', backgroundColor: 'rgba(255,255,255,0.1)', color: '#FAF6F0' }}>✦ ATELIER MONOGRAM STUDIO</span>
+          <span className="badge-taupe" style={{ marginBottom: '1rem', backgroundColor: 'rgba(255,255,255,0.1)', color: '#FAF6F0' }}>✦ MONOGRAM STUDIO</span>
           <h2 style={{ fontSize: '2.5rem', fontFamily: 'var(--font-heading)', color: '#FAF6F0', marginBottom: '1rem' }}>
             Full-Screen Personalization Workspace
           </h2>

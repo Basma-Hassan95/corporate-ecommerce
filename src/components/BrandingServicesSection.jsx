@@ -8,7 +8,7 @@ const BRANDING_SERVICES = [
     id: "printing",
     number: "01",
     headerLabel: "BRANDING TECHNIQUE 01",
-    tag: "WAKEEL & SONS ATELIER",
+    tag: "WAKEEL & SONS",
     title: "Custom Printing Solutions",
     subtitle: "Vibrant & High-Quality Direct-to-Substrate Printing",
     icon: <Printer size={16} color="#9A7824" />,
@@ -22,7 +22,7 @@ const BRANDING_SERVICES = [
     id: "engraving",
     number: "02",
     headerLabel: "BRANDING TECHNIQUE 02",
-    tag: "WAKEEL & SONS ATELIER",
+    tag: "WAKEEL & SONS",
     title: "Laser Precision Engraving",
     subtitle: "0.1mm Micro-Vector Fiber Debossing",
     icon: <Sparkles size={16} color="#9A7824" />,
@@ -36,7 +36,7 @@ const BRANDING_SERVICES = [
     id: "embroidery",
     number: "03",
     headerLabel: "BRANDING TECHNIQUE 03",
-    tag: "WAKEEL & SONS ATELIER",
+    tag: "WAKEEL & SONS",
     title: "Expert Computerized Embroidery",
     subtitle: "High-Density 3D Thread Cresting",
     icon: <Award size={16} color="#9A7824" />,
@@ -50,7 +50,7 @@ const BRANDING_SERVICES = [
     id: "packaging",
     number: "04",
     headerLabel: "BRANDING TECHNIQUE 04",
-    tag: "WAKEEL & SONS ATELIER",
+    tag: "WAKEEL & SONS",
     title: "VIP Packaging & Presentation",
     subtitle: "Rigid Magnetic Boxes & Velvet Inserts",
     icon: <Package size={16} color="#9A7824" />,
@@ -142,7 +142,7 @@ export default function BrandingServicesSection({ setActivePage = () => {} }) {
         {/* TOP HEADER */}
         <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
           <span className="badge-taupe" style={{ marginBottom: '0.8rem', display: 'inline-block' }}>
-            ✦ ATELIER TECHNIQUE GALLERY
+            ✦ BRANDING TECHNIQUE GALLERY
           </span>
           <h2 style={{
             fontFamily: 'var(--font-heading)',

@@ -1,5 +1,6 @@
 import React from 'react';
 import { X, Trash2, ShoppingBag, ArrowRight, ShieldCheck, Tag } from 'lucide-react';
+import WhatsAppIcon from './WhatsAppIcon';
 
 export default function CartDrawer({ isOpen, onClose, cart, updateQuantity, removeItem, setActivePage }) {
   if (!isOpen) return null;
@@ -96,7 +97,7 @@ export default function CartDrawer({ isOpen, onClose, cart, updateQuantity, remo
                         <button onClick={() => updateQuantity(idx, item.quantity + 1)} style={{ padding: '0.2rem 0.5rem', background: 'none', border: 'none', cursor: 'pointer' }}>+</button>
                       </div>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
-                        <span style={{ fontWeight: '700', fontSize: '0.95rem', color: 'var(--text-dark-coffee)' }}>${item.price * item.quantity}</span>
+                        <span style={{ fontWeight: '700', fontSize: '0.82rem', color: '#9A7824', textTransform: 'uppercase' }}>Bespoke Quote</span>
                         <button onClick={() => removeItem(idx)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#990000' }}>
                           <Trash2 size={16} />
                         </button>
@@ -113,20 +114,10 @@ export default function CartDrawer({ isOpen, onClose, cart, updateQuantity, remo
         {cart.length > 0 && (
           <div style={{ padding: '1.5rem', backgroundColor: 'var(--surface-white)', borderTop: '1px solid var(--border-light)' }}>
             
-            {/* Promo Code */}
-            <div style={{ display: 'flex', gap: '0.4rem', marginBottom: '1rem' }}>
-              <input 
-                type="text" 
-                placeholder="Promo Code (e.g. WAKEEL10)"
-                style={{ flex: 1, padding: '0.55rem 0.8rem', border: '1px solid var(--border-light)', borderRadius: 'var(--radius-sm)', fontSize: '0.82rem', outline: 'none' }}
-              />
-              <button className="btn-secondary" style={{ padding: '0.55rem 1rem', fontSize: '0.8rem' }}>Apply</button>
-            </div>
-
             {/* Subtotal */}
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '1.1rem', fontWeight: '700', color: 'var(--text-dark-coffee)', marginBottom: '1rem' }}>
-              <span>Subtotal</span>
-              <span>${subtotal.toFixed(2)}</span>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '1rem', fontWeight: '700', color: 'var(--text-dark-coffee)', marginBottom: '1rem' }}>
+              <span>Selected Products</span>
+              <span style={{ color: '#9A7824' }}>{cart.length} Item(s) Selected</span>
             </div>
 
             <p style={{ fontSize: '0.75rem', color: 'var(--accent-dusty-taupe)', marginBottom: '1rem', textAlign: 'center' }}>
@@ -134,11 +125,41 @@ export default function CartDrawer({ isOpen, onClose, cart, updateQuantity, remo
             </p>
 
             <button 
+              onClick={() => {
+                const cartSummary = cart.map((i, idx) => `${idx + 1}. *${i.name}* (Qty: ${i.quantity})`).join('\n');
+                const waText = `*BESPOKE BAG QUOTE REQUEST - WAKEEL & SONS*\n\n` +
+                  `*SELECTED MERCHANDISE:*\n${cartSummary}\n\n` +
+                  `Please share wholesale price & delivery timeline for these items.`;
+                window.open(`https://wa.me/923404766631?text=${encodeURIComponent(waText)}`, '_blank');
+              }}
+              style={{
+                width: '100%',
+                backgroundColor: '#25D366',
+                color: '#FFFFFF',
+                fontSize: '0.95rem',
+                fontWeight: '700',
+                padding: '0.85rem 1rem',
+                borderRadius: '30px',
+                border: 'none',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '0.5rem',
+                marginBottom: '0.8rem',
+                boxShadow: '0 6px 20px rgba(37, 211, 102, 0.35)'
+              }}
+            >
+              <WhatsAppIcon size={20} color="#FFFFFF" />
+              <span>Request Quote via WhatsApp</span>
+            </button>
+
+            <button 
               onClick={() => { onClose(); setActivePage('checkout'); }}
               className="btn-primary" 
-              style={{ width: '100%', padding: '1rem', fontSize: '1rem' }}
+              style={{ width: '100%', padding: '0.85rem 1rem', fontSize: '0.95rem' }}
             >
-              Proceed to Secure Checkout <ArrowRight size={18} />
+              Proceed to Specification Form <ArrowRight size={18} />
             </button>
           </div>
         )}

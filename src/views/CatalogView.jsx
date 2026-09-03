@@ -180,7 +180,7 @@ export default function CatalogView({ setActivePage, setSelectedProduct, initial
                         <span style={{ color: 'var(--accent-dusty-taupe)' }}>({product.reviewsCount})</span>
                       </div>
                       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '0.6rem', borderTop: '1px solid var(--border-light)' }}>
-                        <span style={{ fontSize: '1.15rem', fontWeight: '700', color: 'var(--text-dark-coffee)' }}>${product.price}</span>
+                        <span style={{ fontSize: '0.75rem', fontWeight: '700', color: '#9A7824', textTransform: 'uppercase' }}>Bespoke Quote</span>
                         <span className="badge-taupe">Custom Logo</span>
                       </div>
                     </div>

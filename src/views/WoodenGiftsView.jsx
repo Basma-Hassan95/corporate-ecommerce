@@ -30,7 +30,7 @@ export default function WoodenGiftsView({ setActivePage, setSelectedProduct }) {
         {/* Page Header */}
         <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
           <span className="badge-gold" style={{ marginBottom: '0.8rem', display: 'inline-block' }}>
-            ✦ ATELIER WOODWORK COLLECTION
+            ✦ WOODWORK COLLECTION
           </span>
           <h1 style={{ fontSize: '3rem', fontFamily: 'var(--font-heading)', color: 'var(--text-dark-coffee)' }}>
             Personalized Wooden Gifts
@@ -186,7 +186,7 @@ export default function WoodenGiftsView({ setActivePage, setSelectedProduct }) {
                         <span style={{ color: 'var(--accent-dusty-taupe)' }}>({product.reviewsCount})</span>
                       </div>
                       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '0.6rem', borderTop: '1px solid var(--border-light)' }}>
-                        <span style={{ fontSize: '1.15rem', fontWeight: '700', color: 'var(--text-dark-coffee)' }}>${product.price}</span>
+                        <span style={{ fontSize: '0.75rem', fontWeight: '700', color: '#9A7824', textTransform: 'uppercase' }}>Bespoke Quote</span>
                         <span className="badge-taupe">Laser Carved</span>
                       </div>
                     </div>

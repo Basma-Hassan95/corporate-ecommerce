@@ -22,7 +22,7 @@ export default function CheckoutView({ cart, setActivePage, clearCart }) {
         <div className="container" style={{ maxWidth: '600px', backgroundColor: 'var(--surface-white)', padding: '3.5rem 2rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-light)' }}>
           <CheckCircle2 size={64} color="var(--accent-emerald)" style={{ marginBottom: '1.2rem' }} />
           <h1 style={{ fontSize: '2.4rem', fontFamily: 'var(--font-heading)', color: 'var(--text-dark-coffee)' }}>
-            Order Confirmed &amp; Dispatched to Atelier!
+            Order Confirmed &amp; Dispatched!
           </h1>
           <p style={{ color: 'var(--accent-dusty-taupe)', margin: '0.8rem 0 1.5rem', fontSize: '1rem', lineHeight: 1.6 }}>
             Thank you for choosing Wakeel &amp; Sons. Your personalized laser engraving request has been received by our master craftsman.
@@ -34,7 +34,7 @@ export default function CheckoutView({ cart, setActivePage, clearCart }) {
             A confirmation SMS &amp; tracking code has been dispatched to your phone number. Estimated delivery: 2-4 business days.
           </p>
           <button onClick={() => setActivePage('home')} className="btn-primary">
-            Return to Atelier Homepage
+            Return to Homepage
           </button>
         </div>
       </div>
@@ -211,22 +211,22 @@ export default function CheckoutView({ cart, setActivePage, clearCart }) {
                     <h5 style={{ color: 'var(--text-dark-coffee)', fontWeight: '600' }}>{item.name}</h5>
                     <p style={{ color: 'var(--accent-dusty-taupe)' }}>Qty: {item.quantity}</p>
                   </div>
-                  <span style={{ fontWeight: '700', fontSize: '0.9rem' }}>${item.price * item.quantity}</span>
+                  <span style={{ fontSize: '0.78rem', fontWeight: '700', color: '#9A7824', textTransform: 'uppercase' }}>Bespoke Quote</span>
                 </div>
               ))}
 
               <div style={{ borderTop: '1px solid var(--border-light)', paddingTop: '1rem', marginTop: '1rem', display: 'flex', flexDirection: 'column', gap: '0.5rem', fontSize: '0.9rem' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <span>Subtotal</span>
-                  <span>${subtotal.toFixed(2)}</span>
+                  <span>Selected Items</span>
+                  <span style={{ fontWeight: '700', color: '#9A7824' }}>{cart.length} Item(s)</span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <span>Shipping</span>
-                  <span>{shippingCost === 0 ? 'FREE' : `$${shippingCost}`}</span>
+                  <span>Delivery SLA</span>
+                  <span style={{ fontWeight: '600', color: 'var(--accent-emerald)' }}>FREE Scheduled Dispatch</span>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '1.2rem', fontWeight: '700', color: 'var(--text-dark-coffee)', borderTop: '1px solid var(--border-light)', paddingTop: '0.8rem', marginTop: '0.4rem' }}>
-                  <span>Total</span>
-                  <span>${total.toFixed(2)}</span>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '1.1rem', fontWeight: '700', borderTop: '1px solid var(--border-light)', paddingTop: '0.8rem', marginTop: '0.4rem', color: 'var(--text-dark-coffee)' }}>
+                  <span>Total Payable</span>
+                  <span style={{ color: '#9A7824' }}>Wholesale Quote Request</span>
                 </div>
               </div>
 

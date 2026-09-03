@@ -37,7 +37,7 @@ export default function ShopView({ setActivePage, setSelectedProduct }) {
         {/* Page Header */}
         <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
           <span className="badge-gold" style={{ marginBottom: '0.8rem', display: 'inline-block' }}>
-            ATELIER BESPOKE CATALOG
+            BESPOKE CATALOG
           </span>
           <h1 style={{ fontSize: '2.8rem', fontFamily: 'var(--font-heading)', color: 'var(--text-dark-coffee)' }}>
             Personalized Leather Wallets
@@ -177,7 +177,7 @@ export default function ShopView({ setActivePage, setSelectedProduct }) {
                 Showing <strong>{filteredProducts.length}</strong> handcrafted wallets
               </span>
               <span style={{ fontSize: '0.85rem', color: 'var(--accent-dusty-taupe)' }}>
-                Sort: Featured Atelier Selection
+                Sort: Featured Selection
               </span>
             </div>
 
@@ -222,7 +222,7 @@ export default function ShopView({ setActivePage, setSelectedProduct }) {
                         <span style={{ color: 'var(--accent-dusty-taupe)' }}>({product.reviewsCount})</span>
                       </div>
                       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '0.6rem', borderTop: '1px solid var(--border-light)' }}>
-                        <span style={{ fontSize: '1.15rem', fontWeight: '700', color: 'var(--text-dark-coffee)' }}>${product.price}</span>
+                        <span style={{ fontSize: '0.75rem', fontWeight: '700', color: '#9A7824', textTransform: 'uppercase' }}>Bespoke Quote</span>
                         <span className="badge-taupe">Custom Monogram</span>
                       </div>
                     </div>

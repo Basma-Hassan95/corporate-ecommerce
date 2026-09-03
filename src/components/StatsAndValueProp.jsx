@@ -316,7 +316,7 @@ export default function StatsAndValueProp({ setActivePage = () => {} }) {
             >
               <img 
                 src={BRAND_IMAGES.aboutWorkshop} 
-                alt="Atelier Craftsman" 
+                alt="Master Craftsman" 
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
               <div style={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(33, 21, 20, 0.35)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>

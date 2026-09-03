@@ -29,7 +29,7 @@ export default class ErrorBoundary extends React.Component {
           textAlign: 'center'
         }}>
           <h1 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '2.5rem', marginBottom: '1rem', color: '#684A3A' }}>
-            Wakeel &amp; Sons Atelier
+            Wakeel &amp; Sons
           </h1>
           <p style={{ fontSize: '1.1rem', marginBottom: '1rem', maxWidth: '600px' }}>
             Rendering error caught:

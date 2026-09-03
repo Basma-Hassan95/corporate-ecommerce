@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { ShoppingBag, Search, Menu, X, ChevronDown, Gift, BookOpen, Trophy } from 'lucide-react';
+import { ShoppingBag, Search, Menu, X, ChevronDown, ChevronRight, Gift, BookOpen, Trophy } from 'lucide-react';
 
 const MENU_STRUCTURE = [
   { type: 'link', id: 'home', label: 'Home' },
@@ -13,10 +13,15 @@ const MENU_STRUCTURE = [
       { label: 'Apparel', category: 'Apparel' },
       { label: 'Bags', category: 'Bags' },
       { label: 'Bottles', category: 'Bottles' },
-      { label: 'Leather Products', category: 'Leather' },
+      { 
+        label: 'Leather Products', 
+        category: 'Leather',
+        subCategories: [
+          { label: 'Wallets', page: 'shop', category: 'Leather' }
+        ]
+      },
       { label: 'Tech Gadgets', category: 'Tech Gadgets' },
       { label: 'Wall Clocks', category: 'Wall Clocks' },
-      { label: 'Custom Mugs', category: 'Custom Mugs' },
     ]
   },
   {
@@ -56,6 +61,7 @@ export default function Navbar({
 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const [activeSubHover, setActiveSubHover] = useState(null);
   const [mobileAccordion, setMobileAccordion] = useState(null);
 
   const timeoutRef = useRef(null);
@@ -68,7 +74,8 @@ export default function Navbar({
   const handleMouseLeave = () => {
     timeoutRef.current = setTimeout(() => {
       setActiveDropdown(null);
-    }, 150);
+      setActiveSubHover(null);
+    }, 180);
   };
 
   const handleCategoryClick = (categoryName) => {
@@ -184,47 +191,122 @@ export default function Navbar({
                       animation: 'fadeIn 0.2s ease-out'
                     }}
                   >
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', padding: '0.4rem 1rem 0.5rem', borderBottom: '1px solid var(--border-light)', marginBottom: '0.3rem' }}>
-                      {menuItem.icon}
-                      <span style={{ fontSize: '0.75rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--btn-coffee-bean)' }}>
-                        {menuItem.label}
-                      </span>
-                    </div>
-
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
-                      {(menuItem.items || []).map((subItem, idx) => (
-                        <button
-                          key={idx}
-                          onClick={() => handleCategoryClick(subItem.category)}
-                          style={{
-                            textAlign: 'left',
-                            background: 'none',
-                            border: 'none',
-                            padding: '0.5rem 1.1rem',
-                            fontSize: '0.84rem',
-                            fontFamily: 'var(--font-body)',
-                            color: 'var(--text-dark-coffee)',
-                            cursor: 'pointer',
-                            transition: 'all 0.15s ease',
-                            whiteSpace: 'nowrap',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'space-between'
-                          }}
-                          onMouseEnter={(e) => {
-                            e.currentTarget.style.backgroundColor = 'var(--surface-linen)';
-                            e.currentTarget.style.color = 'var(--btn-coffee-bean)';
-                            e.currentTarget.style.paddingLeft = '1.3rem';
-                          }}
-                          onMouseLeave={(e) => {
-                            e.currentTarget.style.backgroundColor = 'transparent';
-                            e.currentTarget.style.color = 'var(--text-dark-coffee)';
-                            e.currentTarget.style.paddingLeft = '1.1rem';
-                          }}
-                        >
-                          <span>{subItem.label}</span>
-                        </button>
-                      ))}
+                      {(menuItem.items || []).map((subItem, idx) => {
+                        const hasSub = subItem.subCategories && subItem.subCategories.length > 0;
+                        const isSubHovered = activeSubHover === subItem.label;
+
+                        return (
+                          <div 
+                            key={idx} 
+                            style={{ position: 'relative' }}
+                            onMouseEnter={() => hasSub && setActiveSubHover(subItem.label)}
+                            onMouseLeave={() => hasSub && setActiveSubHover(null)}
+                          >
+                            <button
+                              onClick={() => {
+                                handleCategoryClick(subItem.category);
+                              }}
+                              style={{
+                                width: '100%',
+                                textAlign: 'left',
+                                background: isSubHovered ? 'var(--surface-linen)' : 'none',
+                                border: 'none',
+                                padding: '0.55rem 1.1rem',
+                                fontSize: '0.84rem',
+                                fontFamily: 'var(--font-body)',
+                                color: isSubHovered ? 'var(--btn-coffee-bean)' : 'var(--text-dark-coffee)',
+                                cursor: 'pointer',
+                                transition: 'all 0.15s ease',
+                                whiteSpace: 'nowrap',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'space-between',
+                                gap: '1rem'
+                              }}
+                              onMouseEnter={(e) => {
+                                e.currentTarget.style.backgroundColor = 'var(--surface-linen)';
+                                e.currentTarget.style.color = 'var(--btn-coffee-bean)';
+                                e.currentTarget.style.paddingLeft = '1.3rem';
+                              }}
+                              onMouseLeave={(e) => {
+                                if (!isSubHovered) {
+                                  e.currentTarget.style.backgroundColor = 'transparent';
+                                  e.currentTarget.style.color = 'var(--text-dark-coffee)';
+                                  e.currentTarget.style.paddingLeft = '1.1rem';
+                                }
+                              }}
+                            >
+                              <span>{subItem.label}</span>
+                              {hasSub && <ChevronRight size={14} color="#9A7824" />}
+                            </button>
+
+                            {/* NESTED SUBCATEGORY FLYOUT MENU */}
+                            {hasSub && isSubHovered && (
+                              <div
+                                style={{
+                                  position: 'absolute',
+                                  top: 0,
+                                  left: '100%',
+                                  minWidth: '190px',
+                                  backgroundColor: 'var(--surface-white)',
+                                  borderRadius: 'var(--radius-md)',
+                                  border: '1px solid var(--border-light)',
+                                  boxShadow: '0 10px 25px rgba(0,0,0,0.12)',
+                                  padding: '0.5rem 0',
+                                  zIndex: 220,
+                                  marginLeft: '4px',
+                                  animation: 'fadeIn 0.15s ease-out'
+                                }}
+                              >
+                                {subItem.subCategories.map((nested, nIdx) => (
+                                  <button
+                                    key={nIdx}
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                      setActiveDropdown(null);
+                                      setActiveSubHover(null);
+                                      setMobileMenuOpen(false);
+                                      if (nested.page && typeof setActivePage === 'function') {
+                                        setActivePage(nested.page);
+                                      } else {
+                                        handleCategoryClick(nested.category);
+                                      }
+                                    }}
+                                    style={{
+                                      width: '100%',
+                                      textAlign: 'left',
+                                      background: 'none',
+                                      border: 'none',
+                                      padding: '0.55rem 1.2rem',
+                                      fontSize: '0.84rem',
+                                      fontWeight: '600',
+                                      fontFamily: 'var(--font-body)',
+                                      color: 'var(--btn-coffee-bean)',
+                                      cursor: 'pointer',
+                                      transition: 'all 0.15s ease',
+                                      whiteSpace: 'nowrap',
+                                      display: 'flex',
+                                      alignItems: 'center',
+                                      gap: '0.4rem'
+                                    }}
+                                    onMouseEnter={(e) => {
+                                      e.currentTarget.style.backgroundColor = 'var(--surface-linen)';
+                                      e.currentTarget.style.paddingLeft = '1.4rem';
+                                    }}
+                                    onMouseLeave={(e) => {
+                                      e.currentTarget.style.backgroundColor = 'transparent';
+                                      e.currentTarget.style.paddingLeft = '1.2rem';
+                                    }}
+                                  >
+                                    <span>✦ {nested.label}</span>
+                                  </button>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })}
                     </div>
                   </div>
                 )}
@@ -353,20 +435,48 @@ export default function Navbar({
                   {isAccordionOpen && (
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', backgroundColor: 'var(--surface-linen)', borderRadius: 'var(--radius-sm)', padding: '0.6rem 1rem' }}>
                       {(menuItem.items || []).map((subItem, idx) => (
-                        <button
-                          key={idx}
-                          onClick={() => handleCategoryClick(subItem.category)}
-                          style={{
-                            textAlign: 'left',
-                            background: 'none',
-                            border: 'none',
-                            padding: '0.4rem 0',
-                            fontSize: '0.9rem',
-                            color: 'var(--text-dark-coffee)'
-                          }}
-                        >
-                          &bull; {subItem.label}
-                        </button>
+                        <React.Fragment key={idx}>
+                          <button
+                            onClick={() => handleCategoryClick(subItem.category)}
+                            style={{
+                              textAlign: 'left',
+                              background: 'none',
+                              border: 'none',
+                              padding: '0.4rem 0',
+                              fontSize: '0.9rem',
+                              fontWeight: '600',
+                              color: 'var(--text-dark-coffee)'
+                            }}
+                          >
+                            &bull; {subItem.label}
+                          </button>
+                          
+                          {/* Nested Subcategories in Mobile Accordion */}
+                          {subItem.subCategories && subItem.subCategories.map((nested, nIdx) => (
+                            <button
+                              key={nIdx}
+                              onClick={() => {
+                                setMobileMenuOpen(false);
+                                if (nested.page && typeof setActivePage === 'function') {
+                                  setActivePage(nested.page);
+                                } else {
+                                  handleCategoryClick(nested.category);
+                                }
+                              }}
+                              style={{
+                                textAlign: 'left',
+                                background: 'none',
+                                border: 'none',
+                                padding: '0.3rem 0 0.3rem 1.2rem',
+                                fontSize: '0.85rem',
+                                color: 'var(--btn-coffee-bean)',
+                                fontWeight: '700'
+                              }}
+                            >
+                              └─ ✦ {nested.label}
+                            </button>
+                          ))}
+                        </React.Fragment>
                       ))}
                     </div>
                   )}

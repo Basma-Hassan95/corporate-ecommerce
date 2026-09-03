@@ -11,7 +11,7 @@ export default function ShippingPolicyView() {
     setTrackingResult({
       id: trackingId.toUpperCase(),
       status: 'In Transit with Express Air Courier',
-      location: 'Atelier Central Logistics Hub, Lahore',
+      location: 'Central Logistics Hub, Lahore',
       estimatedDelivery: '2 Business Days'
     });
   };
@@ -23,7 +23,7 @@ export default function ShippingPolicyView() {
         {/* Title */}
         <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
           <span className="badge-gold" style={{ marginBottom: '0.8rem', display: 'inline-block' }}>
-            ATELIER LOGISTICS &amp; FULFILLMENT
+            LOGISTICS &amp; FULFILLMENT
           </span>
           <h1 style={{ fontSize: '2.8rem', fontFamily: 'var(--font-heading)', color: 'var(--text-dark-coffee)' }}>
             Shipping &amp; Delivery Timeline

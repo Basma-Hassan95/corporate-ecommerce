@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Clock, MessageSquare, ChevronDown, ChevronUp, HelpCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, ChevronDown, ChevronUp, HelpCircle } from 'lucide-react';
 import InteractiveCustomizationForm from '../components/InteractiveCustomizationForm';
+import WhatsAppIcon from '../components/WhatsAppIcon';
 
 export default function ContactView() {
   const [openFaq, setOpenFaq] = useState(null);
@@ -12,7 +13,7 @@ export default function ContactView() {
   const faqs = [
     {
       q: "How long does custom laser monogramming & crafting take?",
-      a: "All personalized leather wallets and laser-engraved wooden gifts undergo a 24 to 48-hour precision crafting and laser debossing window in our atelier before dispatch."
+      a: "All personalized leather wallets and laser-engraved wooden gifts undergo a 24 to 48-hour precision crafting and laser debossing window in our workshop before dispatch."
     },
     {
       q: "Can I return or exchange a laser-engraved item?",
@@ -39,7 +40,7 @@ export default function ContactView() {
         {/* PAGE HEADER */}
         <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
           <span className="badge-gold" style={{ marginBottom: '0.8rem', display: 'inline-block' }}>
-            ✦ ATELIER CONCIERGE &amp; CLIENT SERVICES
+            ✦ CONCIERGE &amp; CLIENT SERVICES
           </span>
           <h1 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.2rem)', fontFamily: 'var(--font-heading)', color: '#9A7824', lineHeight: 1.15 }}>
             Connect with Wakeel &amp; Sons
@@ -61,18 +62,20 @@ export default function ContactView() {
           <div style={{ gridColumn: 'span 5', display: 'flex', flexDirection: 'column', gap: '1.8rem' }} className="contact-info-col">
             
             {/* WHATSAPP CHAT CARD */}
-            <div style={{ backgroundColor: '#9A7824', color: '#FFFFFF', padding: '2.2rem', borderRadius: '24px', boxShadow: '0 12px 30px rgba(154, 120, 36, 0.3)' }}>
+            <div style={{ backgroundColor: '#25D366', color: '#FFFFFF', padding: '2.2rem', borderRadius: '24px', boxShadow: '0 12px 30px rgba(37, 211, 102, 0.35)' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '0.8rem' }}>
-                <MessageSquare size={26} color="#FFFFFF" />
+                <div style={{ width: '42px', height: '42px', borderRadius: '50%', backgroundColor: '#FFFFFF', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <WhatsAppIcon size={26} color="#25D366" />
+                </div>
                 <h3 style={{ fontSize: '1.35rem', fontFamily: 'var(--font-heading)', margin: 0, fontWeight: '700' }}>
                   Instant WhatsApp Concierge
                 </h3>
               </div>
-              <p style={{ fontSize: '0.88rem', color: 'rgba(255, 255, 255, 0.9)', lineHeight: 1.6, marginBottom: '1.4rem' }}>
+              <p style={{ fontSize: '0.88rem', color: 'rgba(255, 255, 255, 0.95)', lineHeight: 1.6, marginBottom: '1.4rem' }}>
                 Need immediate assistance with custom initials font choice, custom gift box choices, or urgent bulk dispatch? Chat directly with our master craftsmen on WhatsApp.
               </p>
               <a 
-                href="https://wa.me/923008294410?text=Hello%20Wakeel%20%26%20Sons%2C%20I%20have%20a%20question%20about%20customized%20corporate%20gifts" 
+                href="https://wa.me/923404766631?text=Hello%20Wakeel%20%26%20Sons%2C%20I%20have%20a%20question%20about%20customized%20corporate%20gifts" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 style={{
@@ -83,7 +86,7 @@ export default function ContactView() {
                   gap: '0.6rem',
                   textDecoration: 'none',
                   backgroundColor: '#FFFFFF',
-                  color: '#9A7824',
+                  color: '#25D366',
                   fontWeight: '700',
                   padding: '0.85rem 1.4rem',
                   borderRadius: '30px',
@@ -92,7 +95,7 @@ export default function ContactView() {
                   boxSizing: 'border-box'
                 }}
               >
-                <MessageSquare size={18} />
+                <WhatsAppIcon size={22} color="#25D366" />
                 <span>Launch WhatsApp Concierge</span>
               </a>
             </div>
@@ -100,14 +103,14 @@ export default function ContactView() {
             {/* ATELIER LOCATION CARD */}
             <div style={{ backgroundColor: '#FFFFFF', padding: '2.2rem', borderRadius: '24px', border: '1px solid var(--border-light)', boxShadow: '0 10px 30px rgba(0,0,0,0.04)' }}>
               <h4 style={{ fontSize: '1.15rem', fontFamily: 'var(--font-heading)', color: '#9A7824', marginBottom: '1.2rem', paddingBottom: '0.6rem', borderBottom: '1px solid var(--border-light)', fontWeight: '700' }}>
-                Atelier Location &amp; Hours
+                Workshop Location &amp; Hours
               </h4>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem', fontSize: '0.88rem', color: 'var(--text-dark-coffee)' }}>
                 <div style={{ display: 'flex', gap: '0.8rem', alignItems: 'flex-start' }}>
                   <MapPin size={18} color="#9A7824" style={{ flexShrink: 0, marginTop: '2px' }} />
                   <div>
-                    <strong style={{ color: '#9A7824' }}>Main Leather &amp; Wood Atelier:</strong><br />
+                    <strong style={{ color: '#9A7824' }}>Main Leather &amp; Wood Workshop:</strong><br />
                     Heritage Leather District, Sector 15, Karachi, Pakistan.
                   </div>
                 </div>
@@ -116,7 +119,7 @@ export default function ContactView() {
                   <Phone size={18} color="#9A7824" style={{ flexShrink: 0, marginTop: '2px' }} />
                   <div>
                     <strong style={{ color: '#9A7824' }}>Phone Support Hotline:</strong><br />
-                    +92 (0) 300 829 4410
+                    +92 340 4766631
                   </div>
                 </div>
 
@@ -124,7 +127,7 @@ export default function ContactView() {
                   <Mail size={18} color="#9A7824" style={{ flexShrink: 0, marginTop: '2px' }} />
                   <div>
                     <strong style={{ color: '#9A7824' }}>Client Services Email:</strong><br />
-                    atelier@wakeelandson.com
+                    info@wakeelandson.com
                   </div>
                 </div>
 
@@ -134,7 +137,7 @@ export default function ContactView() {
                     <strong style={{ color: '#9A7824' }}>Support &amp; Crafting Hours:</strong><br />
                     Monday – Saturday: 9:00 AM – 7:00 PM PKT<br />
                     <span style={{ marginTop: '0.4rem', display: 'inline-block', backgroundColor: 'rgba(154, 120, 36, 0.1)', color: '#9A7824', fontSize: '0.72rem', fontWeight: '700', padding: '0.2rem 0.6rem', borderRadius: '4px' }}>
-                      Atelier is currently OPEN
+                      Workshop is currently OPEN
                     </span>
                   </div>
                 </div>

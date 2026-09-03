@@ -5,7 +5,7 @@ import { BRAND_IMAGES } from '../data/products';
 const HERO_SLIDES = [
   {
     id: 1,
-    badge: 'MASTER LEATHER & CORPORATE ATELIER',
+    badge: 'MASTER LEATHER & CORPORATE GIFTS',
     headlineMain: 'Leading Future',
     headlineAccent: 'for Business.',
     description: 'Bespoke corporate merchandise, executive leather goods, and custom awards handcrafted from 100% full-grain hide. Personalized with complimentary laser debossing.',
@@ -38,7 +38,7 @@ const HERO_SLIDES = [
     badge: 'EXECUTIVE LEATHER GOODS',
     headlineMain: 'Built for a Lifetime.',
     headlineAccent: 'Patina That Ages Richly.',
-    description: 'Every piece in our atelier is crafted without plastic or synthetic fillers. 100% full-grain leather guaranteed for life.',
+    description: 'Every piece in our collection is crafted without plastic or synthetic fillers. 100% full-grain leather guaranteed for life.',
     image: BRAND_IMAGES.aboutWorkshop,
     ctaText: 'Browse Catalog',
     link: 'catalog'

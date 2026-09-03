@@ -6,10 +6,10 @@ import StatsAndValueProp from '../components/StatsAndValueProp';
 import BrandingServicesSection from '../components/BrandingServicesSection';
 import TestimonialsAndLogosSection from '../components/TestimonialsAndLogosSection';
 import { ArrowRight, Star } from 'lucide-react';
-import { PRODUCTS } from '../data/products';
+import { ALL_PRODUCTS, PRODUCTS } from '../data/products';
 
 export default function HomepageView({ setActivePage, setSelectedProduct, openCart, onSelectCategory }) {
-  const featuredProducts = PRODUCTS.slice(0, 4);
+  const featuredProducts = ALL_PRODUCTS.slice(0, 8);
 
   return (
     <div className="homepage-view" style={{ backgroundColor: 'var(--bg-parchment)' }}>
@@ -128,8 +128,8 @@ export default function HomepageView({ setActivePage, setSelectedProduct, openCa
                   </div>
 
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: '0.8rem', paddingTop: '0.8rem', borderTop: '1px solid var(--border-light)' }}>
-                    <span style={{ fontSize: '1.25rem', fontWeight: '700', color: 'var(--text-dark-coffee)', fontFamily: 'var(--font-heading)' }}>
-                      ${product.price}
+                    <span style={{ fontSize: '0.78rem', fontWeight: '700', color: '#9A7824', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                      Bespoke Quote
                     </span>
                     <span className="badge-gold" style={{ fontSize: '0.7rem' }}>Custom Engraved</span>
                   </div>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import CartDrawer from './components/CartDrawer';
+import FloatingWhatsAppWidget from './components/FloatingWhatsAppWidget';
 import HomepageView from './views/HomepageView';
 import ShopView from './views/ShopView';
 import CatalogView from './views/CatalogView';
@@ -15,7 +16,25 @@ import ShippingPolicyView from './views/ShippingPolicyView';
 import { ALL_PRODUCTS, PRODUCTS } from './data/products';
 
 export default function App() {
-  const [activePage, setActivePage] = useState('home');
+  const [activePage, setActivePageRaw] = useState(() => {
+    if (typeof window !== 'undefined' && window.location.hash) {
+      const hashPage = window.location.hash.replace('#', '');
+      if (['home', 'shop', 'catalog', 'pdp', 'cart', 'checkout', 'about', 'contact', 'refund-policy', 'shipping-policy'].includes(hashPage)) {
+        return hashPage;
+      }
+    }
+    return localStorage.getItem('active_page_nav') || 'home';
+  });
+
+  const setActivePage = (pageName) => {
+    setActivePageRaw(pageName);
+    localStorage.setItem('active_page_nav', pageName);
+    if (typeof window !== 'undefined') {
+      window.location.hash = pageName;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   const [selectedCategoryFilter, setSelectedCategoryFilter] = useState('All');
   const [selectedProduct, setSelectedProduct] = useState(PRODUCTS[0]);
   const [cart, setCart] = useState([
@@ -167,6 +186,9 @@ export default function App() {
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }} 
       />
+
+      {/* Site-wide Floating WhatsApp Chat Widget */}
+      <FloatingWhatsAppWidget />
 
     </div>
   );

@@ -94,11 +94,12 @@ export default function PDPView({ product, addToCart, setActivePage, openCart })
               <span style={{ color: 'var(--accent-dusty-taupe)', fontSize: '0.85rem' }}>({product.reviewsCount} Reviews)</span>
             </div>
 
-            {/* Price */}
-            <div style={{ display: 'flex', alignItems: 'baseline', gap: '1rem', marginBottom: '1.5rem', paddingBottom: '1.5rem', borderBottom: '1px solid var(--border-light)' }}>
-              <span style={{ fontSize: '2rem', fontWeight: '700', color: 'var(--text-dark-coffee)' }}>${product.price}</span>
-              <span style={{ fontSize: '1.1rem', color: 'var(--accent-dusty-taupe)', textDecoration: 'line-through' }}>${product.originalPrice}</span>
-              <span className="badge-emerald">Save ${(product.originalPrice - product.price).toFixed(2)}</span>
+            {/* Quote Badge */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem', paddingTop: '0.4rem', paddingBottom: '1.2rem', borderBottom: '1px solid var(--border-light)' }}>
+              <span className="badge-gold" style={{ fontSize: '0.78rem' }}>
+                ✦ Wholesale &amp; Corporate Quote Available
+              </span>
+              <span className="badge-emerald">Free Custom Engraving</span>
             </div>
 
             {/* Description */}
@@ -121,9 +122,6 @@ export default function PDPView({ product, addToCart, setActivePage, openCart })
               </div>
             </div>
 
-            {/* LIVE ENGRAVING INPUT ENGINE */}
-            <EngravingCustomizer engraving={engraving} setEngraving={setEngraving} />
-
             {/* Quantity & ADD TO CART CTA */}
             <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginBottom: '1.8rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', border: '1.5px solid var(--accent-dusty-taupe)', borderRadius: 'var(--radius-sm)', backgroundColor: 'var(--surface-white)' }}>
@@ -143,7 +141,7 @@ export default function PDPView({ product, addToCart, setActivePage, openCart })
                   backgroundColor: addedAnimation ? 'var(--text-dark-coffee)' : 'var(--btn-coffee-bean)'
                 }}
               >
-                {addedAnimation ? 'Adding to Bespoke Bag...' : `Add to Bag • $${(product.price * quantity).toFixed(2)}`}
+                {addedAnimation ? 'Adding to Bespoke Bag...' : 'Add to Bag'}
               </button>
             </div>
 

@@ -95,8 +95,8 @@ export default function Footer({ setActivePage = () => {}, onSelectCategory = ()
                 </button>
               </li>
               <li>
-                <button onClick={() => handleCategoryClick('Custom Mugs')} style={{ background: 'none', border: 'none', color: '#FFFFFF', cursor: 'pointer', padding: 0, textAlign: 'left', transition: 'opacity 0.2s', fontWeight: '500' }} className="footer-gold-link">
-                  Custom Mugs &amp; Bottles
+                <button onClick={() => handleCategoryClick('Bottles')} style={{ background: 'none', border: 'none', color: '#FFFFFF', cursor: 'pointer', padding: 0, textAlign: 'left', transition: 'opacity 0.2s', fontWeight: '500' }} className="footer-gold-link">
+                  Custom Water Bottles
                 </button>
               </li>
             </ul>
@@ -165,11 +165,11 @@ export default function Footer({ setActivePage = () => {}, onSelectCategory = ()
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
                 <Phone size={17} color="#F4EEDC" style={{ flexShrink: 0 }} />
-                <span>+92 (0) 300 829 4410</span>
+                <span>+92 340 4766631</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
                 <Mail size={17} color="#F4EEDC" style={{ flexShrink: 0 }} />
-                <span>atelier@wakeelandson.com</span>
+                <span>info@wakeelandson.com</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
                 <Clock size={17} color="#F4EEDC" style={{ flexShrink: 0 }} />

@@ -69,7 +69,7 @@ export default function CartView({ cart, updateQuantity, removeItem, setActivePa
                           <button onClick={() => updateQuantity(idx, item.quantity + 1)} style={{ padding: '0.3rem 0.7rem', background: 'none', border: 'none', cursor: 'pointer' }}>+</button>
                         </div>
 
-                        <span style={{ fontSize: '1.2rem', fontWeight: '700', color: 'var(--text-dark-coffee)' }}>${(item.price * item.quantity).toFixed(2)}</span>
+                        <span style={{ fontSize: '0.85rem', fontWeight: '700', color: '#9A7824', textTransform: 'uppercase' }}>Bespoke Quote</span>
 
                         <button onClick={() => removeItem(idx)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#990000' }}>
                           <Trash2 size={18} />
@@ -88,7 +88,7 @@ export default function CartView({ cart, updateQuantity, removeItem, setActivePa
                   <p style={{ fontSize: '0.8rem', color: 'var(--accent-dusty-taupe)' }}>Nourish and protect your wallet for decades of weather-proof shine.</p>
                 </div>
                 <button className="btn-secondary" style={{ padding: '0.5rem 1rem', fontSize: '0.82rem' }}>
-                  + Add $12
+                  + Add Care Balm
                 </button>
               </div>
 
@@ -98,12 +98,12 @@ export default function CartView({ cart, updateQuantity, removeItem, setActivePa
             <div>
               <div style={{ backgroundColor: 'var(--surface-white)', padding: '1.8rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-light)', position: 'sticky', top: '100px' }}>
                 <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.4rem', color: 'var(--text-dark-coffee)', marginBottom: '1.2rem', paddingBottom: '0.8rem', borderBottom: '1px solid var(--border-light)' }}>
-                  Order Summary
+                  Specification Summary
                 </h3>
 
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.95rem', marginBottom: '0.8rem' }}>
-                  <span style={{ color: 'var(--accent-dusty-taupe)' }}>Subtotal</span>
-                  <span style={{ fontWeight: '600' }}>${subtotal.toFixed(2)}</span>
+                  <span style={{ color: 'var(--accent-dusty-taupe)' }}>Selected Items</span>
+                  <span style={{ fontWeight: '600', color: '#9A7824' }}>{cart.length} Item(s)</span>
                 </div>
 
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.95rem', marginBottom: '0.8rem' }}>
@@ -112,13 +112,13 @@ export default function CartView({ cart, updateQuantity, removeItem, setActivePa
                 </div>
 
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.95rem', marginBottom: '1.2rem' }}>
-                  <span style={{ color: 'var(--accent-dusty-taupe)' }}>Estimated Express Delivery</span>
-                  <span>{subtotal >= freeShippingThreshold ? 'FREE' : '$9.95'}</span>
+                  <span style={{ color: 'var(--accent-dusty-taupe)' }}>Digital Proofing</span>
+                  <span className="badge-emerald">FREE 48-HR PROOF</span>
                 </div>
 
-                <div style={{ borderTop: '1px solid var(--border-light)', paddingTop: '1rem', marginBottom: '1.5rem', display: 'flex', justifyContent: 'space-between', fontSize: '1.3rem', fontWeight: '700', color: 'var(--text-dark-coffee)' }}>
-                  <span>Total</span>
-                  <span>${(subtotal + (subtotal >= freeShippingThreshold ? 0 : 9.95)).toFixed(2)}</span>
+                <div style={{ borderTop: '1px solid var(--border-light)', paddingTop: '1rem', marginBottom: '1.5rem', display: 'flex', justifyContent: 'space-between', fontSize: '1.1rem', fontWeight: '700', color: 'var(--text-dark-coffee)' }}>
+                  <span>Pricing Mode</span>
+                  <span style={{ color: '#9A7824' }}>Wholesale Quote</span>
                 </div>
 
                 <button 

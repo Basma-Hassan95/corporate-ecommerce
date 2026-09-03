@@ -25,6 +25,22 @@ export default function InteractiveCustomizationForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
+
+    // Formatted WhatsApp Message
+    const waText = 
+      `*NEW CORPORATE INQUIRY - WAKEEL & SONS*\n\n` +
+      `👤 *Full Name:* ${formData.fullName}\n` +
+      `✉️ *Email:* ${formData.email}\n` +
+      `📱 *WhatsApp:* ${formData.whatsapp}\n` +
+      `📝 *Product Query:* ${formData.productDetails || 'N/A'}\n\n` +
+      `*PROJECT SPECIFICATIONS:*\n` +
+      `1️⃣ *Logo Status:* ${Q1_OPTIONS[q1Logo]}\n` +
+      `2️⃣ *Branding Technique:* ${Q2_OPTIONS[q2Branding]}\n` +
+      `3️⃣ *Packaging:* ${Q3_OPTIONS[q3Packaging]}\n` +
+      `4️⃣ *Timeline:* ${Q4_OPTIONS[q4Timeline]}`;
+
+    window.open(`https://wa.me/923404766631?text=${encodeURIComponent(waText)}`, '_blank');
+
     setTimeout(() => {
       setSubmitted(false);
     }, 5000);
@@ -147,7 +163,7 @@ export default function InteractiveCustomizationForm() {
               required
               value={formData.whatsapp}
               onChange={handleInputChange}
-              placeholder="+92 300 0000000"
+              placeholder="+92 340 4766631"
               style={{
                 width: '100%',
                 padding: '0.8rem 1.1rem',

@@ -62,7 +62,7 @@ export default function RefundPolicyView() {
                 <CheckCircle size={16} color="var(--accent-emerald)" /> <strong>Client Input Spelling Errors:</strong> Non-refundable if entered incorrectly by the buyer.
               </li>
               <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <CheckCircle size={16} color="var(--accent-emerald)" /> <strong>Atelier Engraving Error:</strong> If our laser operator misprints your confirmed text, we dispatch a brand-new replacement within 48 hours at zero cost to you.
+                <CheckCircle size={16} color="var(--accent-emerald)" /> <strong>Workshop Engraving Error:</strong> If our laser operator misprints your confirmed text, we dispatch a brand-new replacement within 48 hours at zero cost to you.
               </li>
             </ul>
           </div>
@@ -74,7 +74,7 @@ export default function RefundPolicyView() {
               <h3 style={{ fontSize: '1.3rem', color: 'var(--text-dark-coffee)' }}>3. Lifetime Stitch Guarantee &amp; Craft Defects</h3>
             </div>
             <p style={{ fontSize: '0.92rem', color: 'var(--text-dark-coffee)', lineHeight: 1.7, opacity: 0.88 }}>
-              All Wakeel &amp; Sons products are backed by our Lifetime Stitch Warranty. If the saddle stitching or brass snaps ever fail due to normal use, send your wallet back to our atelier and we will restitch or replace it free of charge for life.
+              All Wakeel &amp; Sons products are backed by our Lifetime Stitch Warranty. If the saddle stitching or brass snaps ever fail due to normal use, send your wallet back to our workshop and we will restitch or replace it free of charge for life.
             </p>
           </div>
 
