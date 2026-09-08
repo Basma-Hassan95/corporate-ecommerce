@@ -10,7 +10,7 @@ const HERO_SLIDES = [
     headlineAccent: 'Zero Synthetic Fillers.',
     description: 'Elevate your brand with premium, ethically sourced corporate merchandise designed to leave a lasting impression on clients, partners, and teams.',
     image: BRAND_IMAGES.heroBanner,
-    ctaPrimaryText: 'Request a Quote',
+    ctaPrimaryText: 'Contact Us',
     ctaSecondaryText: 'Explore Catalog',
     linkPrimary: 'contact',
     linkSecondary: 'catalog'
@@ -22,7 +22,7 @@ const HERO_SLIDES = [
     headlineAccent: 'Zero Synthetic Fillers.',
     description: 'Elevate your brand with premium, ethically sourced corporate merchandise designed to leave a lasting impression on clients, partners, and teams.',
     image: BRAND_IMAGES.craftsmanship,
-    ctaPrimaryText: 'Request a Quote',
+    ctaPrimaryText: 'Contact Us',
     ctaSecondaryText: 'Explore Catalog',
     linkPrimary: 'contact',
     linkSecondary: 'catalog'
@@ -34,7 +34,7 @@ const HERO_SLIDES = [
     headlineAccent: 'Zero Synthetic Fillers.',
     description: 'Elevate your brand with premium, ethically sourced corporate merchandise designed to leave a lasting impression on clients, partners, and teams.',
     image: BRAND_IMAGES.engravingProcess,
-    ctaPrimaryText: 'Request a Quote',
+    ctaPrimaryText: 'Contact Us',
     ctaSecondaryText: 'Explore Catalog',
     linkPrimary: 'contact',
     linkSecondary: 'catalog'
@@ -46,7 +46,7 @@ const HERO_SLIDES = [
     headlineAccent: 'Zero Synthetic Fillers.',
     description: 'Elevate your brand with premium, ethically sourced corporate merchandise designed to leave a lasting impression on clients, partners, and teams.',
     image: BRAND_IMAGES.aboutWorkshop,
-    ctaPrimaryText: 'Request a Quote',
+    ctaPrimaryText: 'Contact Us',
     ctaSecondaryText: 'Explore Catalog',
     linkPrimary: 'contact',
     linkSecondary: 'catalog'
@@ -248,7 +248,7 @@ export default function CorporateHeroSection({ setActivePage = () => {} }) {
                 boxShadow: '0 8px 25px rgba(154, 120, 36, 0.4)'
               }}
             >
-              <span>Request a Quote</span>
+              <span>Contact Us</span>
               <span 
                 style={{
                   width: '26px',
