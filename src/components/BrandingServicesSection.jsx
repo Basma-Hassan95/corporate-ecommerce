@@ -186,7 +186,7 @@ export default function BrandingServicesSection({ setActivePage = () => {} }) {
       <div className="container" style={{ maxWidth: '1060px', margin: '0 auto' }}>
         
         {/* TOP HEADER */}
-        <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
+        <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
           <span className="badge-taupe" style={{ marginBottom: '0.8rem', display: 'inline-block' }}>
             ✦ BESPOKE BRANDING
           </span>
@@ -210,36 +210,6 @@ export default function BrandingServicesSection({ setActivePage = () => {} }) {
           }}>
             Turn everyday executive essentials into powerful brand ambassadors.
           </p>
-        </div>
-
-        {/* TAB PILL NAVIGATION FOR CARDS */}
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '0.6rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
-          {BRANDING_SERVICES.map((serv, sIdx) => {
-            const isActive = deck[0] === sIdx;
-            return (
-              <button
-                key={serv.id}
-                onClick={() => handleCardClick(sIdx)}
-                style={{
-                  padding: '0.55rem 1.2rem',
-                  borderRadius: '30px',
-                  border: isActive ? '2px solid #9A7824' : '1px solid var(--border-light)',
-                  backgroundColor: isActive ? '#9A7824' : '#FFFFFF',
-                  color: isActive ? '#FFFFFF' : 'var(--text-dark-coffee)',
-                  fontSize: '0.82rem',
-                  fontWeight: '600',
-                  cursor: 'pointer',
-                  transition: 'all 0.25s ease',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.45rem',
-                  boxShadow: isActive ? '0 4px 14px rgba(154, 120, 36, 0.25)' : 'none'
-                }}
-              >
-                <span>{serv.headerLabel}</span>
-              </button>
-            );
-          })}
         </div>
 
         {/* VERTICALLY STACKED FLIP CARDS DECK (FULLY VISIBLE & SMOOTH) */}
