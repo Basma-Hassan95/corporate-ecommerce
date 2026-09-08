@@ -94,11 +94,15 @@ const WHY_CHOOSE_US_CARDS = [
 
 export default function StatsAndValueProp({ setActivePage = () => {} }) {
   const headingRef = useRef(null);
+  const solutionsHeadingRef = useRef(null);
   const cardsSectionRef = useRef(null);
   const cardsContainerRef = useRef(null);
 
   const headlineText = "Driving into Excellence & Innovation: Your Trusted Partner for Sustainable Corporate Success.";
   const words = headlineText.split(" ");
+
+  const solutionsText = "Tailored Business Solutions for our Corporates.";
+  const solutionsWords = solutionsText.split(" ");
 
   // GSAP ScrollTrigger Text Fill Animation
   useEffect(() => {
@@ -123,6 +127,38 @@ export default function StatsAndValueProp({ setActivePage = () => {} }) {
             trigger: headingEl,
             start: 'top 85%',
             end: 'bottom 40%',
+            scrub: 0.8
+          }
+        }
+      );
+    }, headingEl);
+
+    return () => ctx.revert();
+  }, []);
+
+  // GSAP ScrollTrigger Text Fill Animation for Solutions Heading
+  useEffect(() => {
+    const headingEl = solutionsHeadingRef.current;
+    if (!headingEl) return;
+
+    let ctx = gsap.context(() => {
+      const wordSpans = headingEl.querySelectorAll('.reveal-word-solutions');
+      
+      gsap.fromTo(
+        wordSpans,
+        { 
+          color: 'rgba(33, 21, 20, 0.22)',
+          opacity: 0.35
+        },
+        {
+          color: '#211514',
+          opacity: 1,
+          stagger: 0.08,
+          ease: 'power1.out',
+          scrollTrigger: {
+            trigger: headingEl,
+            start: 'top 85%',
+            end: 'bottom 50%',
             scrub: 0.8
           }
         }
@@ -511,8 +547,30 @@ export default function StatsAndValueProp({ setActivePage = () => {} }) {
                 OUR SOLUTIONS
               </span>
 
-              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.8rem', lineHeight: 1.15, color: 'var(--text-dark-coffee)', fontWeight: '600', marginBottom: '1.4rem' }}>
-                Tailored Business Solutions for our Corporates.
+              <h2 
+                ref={solutionsHeadingRef}
+                style={{ 
+                  fontFamily: 'var(--font-heading)', 
+                  fontSize: '2.8rem', 
+                  lineHeight: 1.15, 
+                  fontWeight: '600', 
+                  marginBottom: '1.4rem' 
+                }}
+              >
+                {solutionsWords.map((word, idx) => (
+                  <span 
+                    key={idx} 
+                    className="reveal-word-solutions"
+                    style={{
+                      display: 'inline-block',
+                      marginRight: '0.3em',
+                      transition: 'color 0.1s ease',
+                      color: 'rgba(33, 21, 20, 0.22)'
+                    }}
+                  >
+                    {word}
+                  </span>
+                ))}
               </h2>
 
               <p style={{ fontSize: '1rem', color: 'var(--accent-dusty-taupe)', lineHeight: 1.6, marginBottom: '2.2rem', fontWeight: '400' }}>
