@@ -104,7 +104,7 @@ export default function Navbar({
         </div>
 
         {/* Desktop Single-Line Navigation */}
-        <nav style={{ display: 'none', gap: '1.2rem', alignItems: 'center', flexWrap: 'nowrap' }} className="desktop-nav">
+        <nav style={{ display: 'none', gap: '1.4rem', alignItems: 'center', flexWrap: 'nowrap' }} className="desktop-nav">
           {(MENU_STRUCTURE || []).map((menuItem) => {
             if (!menuItem) return null;
 
@@ -120,8 +120,8 @@ export default function Navbar({
                     background: 'none',
                     border: 'none',
                     fontFamily: 'var(--font-body)',
-                    fontSize: '0.85rem',
-                    fontWeight: activePage === menuItem.id ? '700' : '500',
+                    fontSize: '1.05rem',
+                    fontWeight: activePage === menuItem.id ? '700' : '600',
                     color: activePage === menuItem.id ? 'var(--btn-coffee-bean)' : 'var(--text-dark-coffee)',
                     borderBottom: activePage === menuItem.id ? '2px solid var(--btn-coffee-bean)' : '2px solid transparent',
                     padding: '0.35rem 0.2rem',
@@ -149,12 +149,12 @@ export default function Navbar({
                     background: 'none',
                     border: 'none',
                     fontFamily: 'var(--font-body)',
-                    fontSize: '0.85rem',
-                    fontWeight: '500',
+                    fontSize: '1.05rem',
+                    fontWeight: '600',
                     color: isOpen ? 'var(--btn-coffee-bean)' : 'var(--text-dark-coffee)',
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '0.3rem',
+                    gap: '0.35rem',
                     cursor: 'pointer',
                     whiteSpace: 'nowrap',
                     transition: 'all 0.2s ease'
@@ -162,7 +162,7 @@ export default function Navbar({
                 >
                   <span>{menuItem.label}</span>
                   <ChevronDown 
-                    size={13} 
+                    size={16} 
                     style={{ 
                       transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)', 
                       transition: 'transform 0.2s ease',
@@ -209,8 +209,8 @@ export default function Navbar({
                                 textAlign: 'left',
                                 background: isSubHovered ? 'var(--surface-linen)' : 'none',
                                 border: 'none',
-                                padding: '0.55rem 1.1rem',
-                                fontSize: '0.84rem',
+                                padding: '0.6rem 1.2rem',
+                                fontSize: '0.96rem',
                                 fontFamily: 'var(--font-body)',
                                 color: isSubHovered ? 'var(--btn-coffee-bean)' : 'var(--text-dark-coffee)',
                                 cursor: 'pointer',
@@ -235,7 +235,7 @@ export default function Navbar({
                               }}
                             >
                               <span>{subItem.label}</span>
-                              {hasSub && <ChevronRight size={14} color="#9A7824" />}
+                              {hasSub && <ChevronRight size={16} color="#9A7824" />}
                             </button>
 
                             {/* NESTED SUBCATEGORY FLYOUT MENU */}
@@ -245,7 +245,7 @@ export default function Navbar({
                                   position: 'absolute',
                                   top: 0,
                                   left: '100%',
-                                  minWidth: '190px',
+                                  minWidth: '200px',
                                   backgroundColor: 'var(--surface-white)',
                                   borderRadius: 'var(--radius-md)',
                                   border: '1px solid var(--border-light)',
@@ -275,8 +275,8 @@ export default function Navbar({
                                       textAlign: 'left',
                                       background: 'none',
                                       border: 'none',
-                                      padding: '0.55rem 1.2rem',
-                                      fontSize: '0.84rem',
+                                      padding: '0.6rem 1.3rem',
+                                      fontSize: '0.96rem',
                                       fontWeight: '600',
                                       fontFamily: 'var(--font-body)',
                                       color: 'var(--btn-coffee-bean)',
@@ -326,17 +326,17 @@ export default function Navbar({
               backgroundColor: '#FFFFFF',
               border: '1px solid var(--border-light)',
               borderRadius: '25px',
-              padding: '0.4rem 0.9rem',
-              width: 'clamp(150px, 22vw, 240px)',
+              padding: '0.45rem 1.1rem',
+              width: 'clamp(170px, 25vw, 270px)',
               boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
               transition: 'all 0.25s ease'
             }}
             className="navbar-search-bar"
           >
             <Search 
-              size={16} 
+              size={18} 
               color="#9A7824" 
-              style={{ flexShrink: 0, marginRight: '0.45rem', cursor: 'pointer' }} 
+              style={{ flexShrink: 0, marginRight: '0.5rem', cursor: 'pointer' }} 
               onClick={() => {
                 if (typeof onSearch === 'function') onSearch(searchTerm);
                 if (typeof setActivePage === 'function') setActivePage('catalog');
@@ -355,7 +355,7 @@ export default function Navbar({
                 border: 'none',
                 outline: 'none',
                 background: 'transparent',
-                fontSize: '0.84rem',
+                fontSize: '0.95rem',
                 fontFamily: 'var(--font-body)',
                 color: 'var(--text-dark-coffee)',
                 width: '100%'
