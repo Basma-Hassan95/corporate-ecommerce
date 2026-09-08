@@ -48,46 +48,46 @@ function AnimatedNumber({ targetNumber, suffix = '' }) {
 const WHY_CHOOSE_US_CARDS = [
   {
     id: 1,
-    title: "100% Full-Grain Hide Certification",
-    icon: <ShieldCheck size={26} color="var(--btn-coffee-bean)" />,
-    description: "Through a combination of organic vegetable tanning and master hand selection, we work closely with you to develop customized corporate merchandise.",
+    title: "Bespoke Product Customization",
+    icon: <Sparkles size={26} color="var(--btn-coffee-bean)" />,
+    description: "Precision debossing, laser engraving, and custom screen printing to match exact brand guidelines.",
     bullets: [
-      "Organic Tree-Bark Vegetable Tanning",
-      "Zero Synthetic PU or Bonded Fillers",
-      "Lifetime Structural Guarantee"
+      "0.1mm Micro-Vector Laser Detailing",
+      "Blind & Foil Stamping Options",
+      "Exact Corporate Brand Matching"
     ]
   },
   {
     id: 2,
-    title: "Laser Precision In-House Debossing",
-    icon: <Sparkles size={26} color="var(--btn-coffee-bean)" />,
-    description: "Achieve an uncompromised high-end finish with our 0.1mm micro-vector laser debossing technology for sharp, permanent company branding.",
+    title: "Eco-Conscious & Sustainable Materials",
+    icon: <ShieldCheck size={26} color="var(--btn-coffee-bean)" />,
+    description: "Ethically sourced natural leathers, organic fabrics, and zero-plastic packaging options.",
     bullets: [
-      "Permanent Heat Burnish & Foil Stamping",
-      "Zero Fading or Peeling Guarantee",
-      "Micro Vector Logo Detailing"
+      "100% Organically Tanned Leather",
+      "Heavyweight Organic Canvas Fabrics",
+      "Recyclable & Zero-Plastic Packaging"
     ]
   },
   {
     id: 3,
-    title: "5-Stage Waxed Saddle Stitching",
-    icon: <Scissors size={26} color="var(--btn-coffee-bean)" />,
-    description: "Every executive piece is hand-cut and saddle-stitched with heavy-gauge German waxed linen thread for indestructible durability.",
+    title: "Dedicated Corporate Concierge",
+    icon: <Briefcase size={26} color="var(--btn-coffee-bean)" />,
+    description: "Dedicated account managers ensuring seamless bulk ordering, sample approvals, and timeline management.",
     bullets: [
-      "Hand-Cut Precision Craftsmanship",
-      "Color-Fast German Waxed Linen Thread",
-      "Reinforced Stress-Point Rivets"
+      "1-on-1 Dedicated Account Manager",
+      "24-Hour Proofing & Mockups",
+      "Priority Sample Approval SLA"
     ]
   },
   {
     id: 4,
-    title: "Dedicated Corporate Account SLA",
-    icon: <Briefcase size={26} color="var(--btn-coffee-bean)" />,
-    description: "From rapid 48-hour sample proofing to velvet presentation gift boxes and nationwide scheduled delivery for corporate milestones.",
+    title: "Global Bulk Fulfillment",
+    icon: <Globe size={26} color="var(--btn-coffee-bean)" />,
+    description: "Individual address drop-shipping and bulk multi-office distribution with end-to-end tracking.",
     bullets: [
-      "48-Hour Sample Proof Delivery",
-      "Rigid Velvet Presentation Boxes",
-      "99.98% On-Time Corporate Delivery"
+      "Direct Multi-Office Distribution",
+      "Individual Recipient Drop-Shipping",
+      "End-to-End International Tracking"
     ]
   }
 ];
@@ -98,10 +98,10 @@ export default function StatsAndValueProp({ setActivePage = () => {} }) {
   const cardsSectionRef = useRef(null);
   const cardsContainerRef = useRef(null);
 
-  const headlineText = "Driving into Excellence & Innovation: Your Trusted Partner for Sustainable Corporate Success.";
+  const headlineText = "Bridging Artisan Craftsmanship & Enterprise Scale";
   const words = headlineText.split(" ");
 
-  const solutionsText = "Tailored Business Solutions for our Corporates.";
+  const solutionsText = "End-to-End Gifting Solutions for Modern Enterprises";
   const solutionsWords = solutionsText.split(" ");
 
   // GSAP ScrollTrigger Text Fill Animation
@@ -250,11 +250,11 @@ export default function StatsAndValueProp({ setActivePage = () => {} }) {
               </div>
 
               <div style={{ marginTop: '2rem' }}>
-                <p style={{ fontSize: '0.9rem', color: 'rgba(255, 255, 255, 0.9)', fontWeight: '600', marginBottom: '0.4rem' }}>
-                  Products Manufactured.
+                <p style={{ fontSize: '0.88rem', color: 'rgba(255, 255, 255, 0.9)', fontWeight: '600', marginBottom: '0.4rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                  Handcrafted &amp; Ethical Sourcing
                 </p>
-                <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '3.6rem', fontWeight: '700', color: '#FFFFFF', lineHeight: 1, margin: 0 }}>
-                  <AnimatedNumber targetNumber={500000} suffix="+" />
+                <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '3.2rem', fontWeight: '700', color: '#FFFFFF', lineHeight: 1, margin: 0 }}>
+                  100%
                 </h2>
               </div>
             </div>
@@ -285,7 +285,7 @@ export default function StatsAndValueProp({ setActivePage = () => {} }) {
                   textTransform: 'uppercase'
                 }}
               >
-                GET TO KNOW US
+                WHY CHOOSE US
               </span>
 
               <h2 
@@ -295,7 +295,7 @@ export default function StatsAndValueProp({ setActivePage = () => {} }) {
                   fontSize: '2.4rem', 
                   lineHeight: 1.25, 
                   fontWeight: '600', 
-                  marginBottom: '1.6rem' 
+                  marginBottom: '1.2rem' 
                 }}
               >
                 {words.map((word, idx) => (
@@ -314,6 +314,10 @@ export default function StatsAndValueProp({ setActivePage = () => {} }) {
                 ))}
               </h2>
 
+              <p style={{ fontSize: '0.92rem', color: 'var(--accent-dusty-taupe)', lineHeight: 1.6, marginBottom: '1.4rem' }}>
+                We specialize in custom-crafted corporate gifts that blend sustainability with executive luxury. Every piece is built to showcase your company’s commitment to quality.
+              </p>
+
               <button
                 onClick={() => setActivePage('about')}
                 style={{
@@ -330,10 +334,7 @@ export default function StatsAndValueProp({ setActivePage = () => {} }) {
                 }}
                 className="learn-more-btn"
               >
-                <span>Learn More</span>
-                <span style={{ width: '28px', height: '28px', borderRadius: '50%', backgroundColor: 'var(--text-dark-coffee)', color: '#FFF', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <ArrowUpRight size={16} />
-                </span>
+                <span>Learn More →</span>
               </button>
             </div>
 
@@ -411,8 +412,8 @@ export default function StatsAndValueProp({ setActivePage = () => {} }) {
               </div>
 
               <div style={{ zIndex: 2 }}>
-                <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.6rem', color: '#FAF6F0', fontWeight: '600', margin: 0 }}>
-                  We have 1,000+ trusted corporate partners.
+                <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem', color: '#FAF6F0', fontWeight: '600', margin: 0 }}>
+                  Trusted by 500+ global corporate enterprises.
                 </h3>
               </div>
             </div>
@@ -452,10 +453,10 @@ export default function StatsAndValueProp({ setActivePage = () => {} }) {
               </div>
 
               <div style={{ marginTop: '1.5rem' }}>
-                <p style={{ fontSize: '0.9rem', color: 'var(--accent-dusty-taupe)', fontWeight: '600', marginBottom: '0.4rem' }}>
-                  Global Presence.
+                <p style={{ fontSize: '0.88rem', color: 'var(--accent-dusty-taupe)', fontWeight: '600', marginBottom: '0.4rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                  Worldwide Insured Shipping
                 </p>
-                <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.8rem', fontWeight: '700', color: '#9A7824', lineHeight: 1, margin: 0 }}>
+                <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.4rem', fontWeight: '700', color: '#9A7824', lineHeight: 1, margin: 0 }}>
                   Worldwide
                 </h2>
               </div>
@@ -496,11 +497,11 @@ export default function StatsAndValueProp({ setActivePage = () => {} }) {
               </div>
 
               <div style={{ marginTop: '1.5rem' }}>
-                <p style={{ fontSize: '0.9rem', color: 'var(--accent-dusty-taupe)', fontWeight: '600', marginBottom: '0.4rem' }}>
-                  Client Retention SLA.
+                <p style={{ fontSize: '0.88rem', color: 'var(--accent-dusty-taupe)', fontWeight: '600', marginBottom: '0.4rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                  Client Satisfaction Rate
                 </p>
-                <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '3.4rem', fontWeight: '700', color: '#9A7824', lineHeight: 1, margin: 0 }}>
-                  <AnimatedNumber targetNumber={98} suffix="%" />
+                <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '3.2rem', fontWeight: '700', color: '#9A7824', lineHeight: 1, margin: 0 }}>
+                  99.4%
                 </h2>
               </div>
             </div>
@@ -544,14 +545,14 @@ export default function StatsAndValueProp({ setActivePage = () => {} }) {
                   textTransform: 'uppercase'
                 }}
               >
-                OUR SOLUTIONS
+                TAILORED SERVICES
               </span>
 
               <h2 
                 ref={solutionsHeadingRef}
                 style={{ 
                   fontFamily: 'var(--font-heading)', 
-                  fontSize: '2.8rem', 
+                  fontSize: '2.6rem', 
                   lineHeight: 1.15, 
                   fontWeight: '600', 
                   marginBottom: '1.4rem' 
@@ -574,11 +575,11 @@ export default function StatsAndValueProp({ setActivePage = () => {} }) {
               </h2>
 
               <p style={{ fontSize: '1rem', color: 'var(--accent-dusty-taupe)', lineHeight: 1.6, marginBottom: '2.2rem', fontWeight: '400' }}>
-                Through a combination of full-grain leathercraft, precision debossing, and dedicated corporate SLAs, we deliver solutions engineered for long-term partnership.
+                From concept to doorstep delivery, we streamline corporate gifting for HR teams, marketing managers, and executive leadership.
               </p>
 
               <button
-                onClick={() => setActivePage('catalog')}
+                onClick={() => setActivePage('contact')}
                 className="btn-primary"
                 style={{
                   backgroundColor: 'var(--btn-coffee-bean)',
@@ -594,7 +595,7 @@ export default function StatsAndValueProp({ setActivePage = () => {} }) {
                   boxShadow: 'var(--shadow-sm)'
                 }}
               >
-                <span>More Services</span>
+                <span>Schedule a Consultation</span>
                 <ArrowUpRight size={18} />
               </button>
             </div>

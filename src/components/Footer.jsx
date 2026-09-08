@@ -55,7 +55,7 @@ export default function Footer({ setActivePage = () => {}, onSelectCategory = ()
               marginBottom: '1.4rem',
               fontWeight: '400'
             }}>
-              Crafting timeless personalized executive leather goods &amp; corporate merchandise since 1978. Every stitch is a commitment to heritage and durability.
+              Delivering artisan-crafted, sustainable corporate gifts that build lasting professional relationships across the globe.
             </p>
             <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'center', fontSize: '0.82rem', color: '#F4EEDC', fontWeight: '700' }}>
               <Lock size={15} color="#F4EEDC" />

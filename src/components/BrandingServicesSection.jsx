@@ -5,66 +5,52 @@ import { BRAND_IMAGES } from '../data/products';
 
 const BRANDING_SERVICES = [
   {
-    id: "printing",
-    number: "01",
-    headerLabel: "BRANDING TECHNIQUE 01",
-    tag: "WAKEEL & SONS",
-    title: "Custom Printing Solutions",
-    subtitle: "Vibrant & High-Quality Direct-to-Substrate Printing",
-    icon: <Printer size={16} color="#9A7824" />,
-    image: "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&q=80&w=1000",
-    badge: "UV & SCREEN PRINTING",
-    description: "Bring your company logo and designs to life with vibrant, high-precision UV printing directly onto leather, brass, acrylic, and gift box surfaces.",
-    bullets: ["UV Direct-to-Substrate", "Scratch-Resistant Ink", "Pantone Color Accuracy", "High-Volume Speed"],
-    year: "Technique: 01"
-  },
-  {
     id: "engraving",
-    number: "02",
-    headerLabel: "BRANDING TECHNIQUE 02",
+    number: "01",
+    headerLabel: "BRANDING FEATURE 01",
     tag: "WAKEEL & SONS",
-    title: "Laser Precision Engraving",
-    subtitle: "0.1mm Micro-Vector Fiber Debossing",
+    title: "Precision Laser Engraving",
+    subtitle: "Crisp, permanent detailing on hard goods.",
     icon: <Sparkles size={16} color="#9A7824" />,
     image: BRAND_IMAGES.engravingProcess,
     badge: "0.1MM FIBER LASER",
-    description: "Achieve an uncompromised high-end executive finish with our 0.1mm micro-vector laser engraving technology for sharp, permanent company logo debossing.",
-    bullets: ["Permanent Heat Burnish", "Zero Fading or Peeling", "Micro Vector Detailing", "Works on Leather & Brass"],
-    year: "Technique: 02"
+    description: "Crisp, permanent detailing on hard goods. Achieve an uncompromised high-end executive finish with our micro-vector laser technology for sharp company logo debossing.",
+    bullets: ["Crisp Permanent Detailing", "0.1mm Micro-Vector Laser", "Zero Fading or Peeling", "Ideal for Leather, Brass & Wood"],
+    year: "Feature: 01"
   },
   {
-    id: "embroidery",
-    number: "03",
-    headerLabel: "BRANDING TECHNIQUE 03",
+    id: "debossing",
+    number: "02",
+    headerLabel: "BRANDING FEATURE 02",
     tag: "WAKEEL & SONS",
-    title: "Expert Computerized Embroidery",
-    subtitle: "High-Density 3D Thread Cresting",
+    title: "Blind & Foil Debossing",
+    subtitle: "Deep, luxurious impressions on all leather goods.",
     icon: <Award size={16} color="#9A7824" />,
-    image: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=1000",
-    badge: "3D THREAD CREST",
-    description: "Showcase your brand with the polished, premium feel of professionally stitched high-density logos on corporate apparel, bags, and leather crests.",
-    bullets: ["High-Density Thread Count", "Color-Fast German Thread", "Multi-Needle Precision", "Durable Machine Washable"],
-    year: "Technique: 03"
+    image: "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&q=80&w=1000",
+    badge: "LUXURY DEBOSSING",
+    description: "Deep, luxurious impressions on all leather goods. Permanent heat burnishing with rich gold, silver, or blind debossing into premium full-grain hides.",
+    bullets: ["Deep Heat Burnishing", "Gold & Silver Foil Stamping", "Rich Tactile Finish", "Preserves Hide Integrity"],
+    year: "Feature: 02"
   },
   {
     id: "packaging",
-    number: "04",
-    headerLabel: "BRANDING TECHNIQUE 04",
+    number: "03",
+    headerLabel: "BRANDING FEATURE 03",
     tag: "WAKEEL & SONS",
-    title: "VIP Packaging & Presentation",
-    subtitle: "Rigid Magnetic Boxes & Velvet Inserts",
+    title: "Custom Packaging",
+    subtitle: "Brand-colored gift boxes with satin pull-ribbons and custom greeting cards.",
     icon: <Package size={16} color="#9A7824" />,
     image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&q=80&w=1000",
-    badge: "VELVET PRESENTATION",
-    description: "From custom rigid magnetic boxes to velvet presentation cutouts, our packaging delivers an uncompromised VIP corporate unboxing experience.",
-    bullets: ["Rigid Magnetic Boxes", "Custom Velvet Cutouts", "Foil Stamped Box Lids", "VIP Corporate Welcome Kits"],
-    year: "Technique: 04"
+    badge: "UNBOXING EXPERIENCE",
+    description: "Brand-colored gift boxes with satin pull-ribbons and custom greeting cards. Delivering an uncompromised VIP corporate unboxing experience for your clients.",
+    bullets: ["Brand-Colored Gift Boxes", "Satin Pull-Ribbon Ties", "Custom Greeting & Thank You Cards", "Rigid Velvet Cutout Inserts"],
+    year: "Feature: 03"
   }
 ];
 
 export default function BrandingServicesSection({ setActivePage = () => {} }) {
-  // Deck state array representing front-to-back card order [0, 1, 2, 3]
-  const [deck, setDeck] = useState([0, 1, 2, 3]);
+  // Deck state array representing front-to-back card order [0, 1, 2]
+  const [deck, setDeck] = useState([0, 1, 2]);
   const [isAnimating, setIsAnimating] = useState(false);
   const deckRef = useRef(null);
 
@@ -102,26 +88,13 @@ export default function BrandingServicesSection({ setActivePage = () => {} }) {
       }
     });
 
-    // 1. Top active card slides down and fades out smoothly
     tl.to(topCardEl, {
-      duration: 0.38,
-      y: 45,
+      y: -140,
+      scale: 1.04,
+      rotationX: 12,
       opacity: 0,
-      scale: 0.94,
-      ease: 'power3.inOut'
-    });
-
-    // 2. Sub-cards behind shift forward seamlessly
-    cardElements.forEach((card, idx) => {
-      if (idx > 0) {
-        tl.to(card, {
-          duration: 0.32,
-          y: -18,
-          scale: '+=0.025',
-          opacity: '+=0.12',
-          ease: 'power3.out'
-        }, '<0.04');
-      }
+      duration: 0.45,
+      ease: 'power2.inOut'
     });
   };
 
@@ -142,7 +115,7 @@ export default function BrandingServicesSection({ setActivePage = () => {} }) {
         {/* TOP HEADER */}
         <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
           <span className="badge-taupe" style={{ marginBottom: '0.8rem', display: 'inline-block' }}>
-            ✦ BRANDING TECHNIQUE GALLERY
+            ✦ BESPOKE BRANDING
           </span>
           <h2 style={{
             fontFamily: 'var(--font-heading)',
@@ -153,7 +126,7 @@ export default function BrandingServicesSection({ setActivePage = () => {} }) {
             textTransform: 'uppercase',
             letterSpacing: '0.04em'
           }}>
-            Professional Branding Services Under One Roof
+            Professional Branding Services Made For You
           </h2>
           <p style={{
             color: 'var(--accent-dusty-taupe)',
@@ -162,7 +135,7 @@ export default function BrandingServicesSection({ setActivePage = () => {} }) {
             margin: '0.5rem auto 0',
             fontWeight: '400'
           }}>
-            Click any card to shuffle through our in-house branding techniques engineered for corporate excellence.
+            Turn everyday executive essentials into powerful brand ambassadors.
           </p>
         </div>
 

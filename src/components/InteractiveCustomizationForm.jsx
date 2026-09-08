@@ -5,8 +5,8 @@ export default function InteractiveCustomizationForm() {
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
-    whatsapp: '',
-    productDetails: ''
+    quantity: '',
+    projectDetails: ''
   });
 
   const [submitted, setSubmitted] = useState(false);
@@ -22,11 +22,11 @@ export default function InteractiveCustomizationForm() {
 
     // Formatted WhatsApp Message
     const waText = 
-      `*NEW CORPORATE INQUIRY - WAKEEL & SONS*\n\n` +
+      `*NEW CUSTOM PROPOSAL REQUEST - WAKEEL & SONS*\n\n` +
       `👤 *Full Name:* ${formData.fullName}\n` +
-      `✉️ *Email:* ${formData.email}\n` +
-      `📱 *WhatsApp:* ${formData.whatsapp}\n` +
-      `📝 *Product Query:* ${formData.productDetails || 'N/A'}`;
+      `✉️ *Work Email:* ${formData.email}\n` +
+      `📦 *Estimated Quantity:* ${formData.quantity || 'N/A'}\n` +
+      `📝 *Project Details:* ${formData.projectDetails || 'N/A'}`;
 
     window.open(`https://wa.me/923402695130?text=${encodeURIComponent(waText)}`, '_blank');
 
@@ -38,7 +38,7 @@ export default function InteractiveCustomizationForm() {
   return (
     <div style={{ maxWidth: '820px', margin: '0 auto' }}>
       
-      {/* FORM CARD CONTAINER (EXACT MATCH FOR REFERENCE SCREENSHOT media_1788141953531.png) */}
+      {/* FORM CARD CONTAINER */}
       <div 
         style={{
           backgroundColor: '#FFFFFF',
@@ -52,10 +52,10 @@ export default function InteractiveCustomizationForm() {
       >
         <form onSubmit={handleSubmit}>
           
-          {/* ROW 1: FULL NAME & EMAIL */}
+          {/* ROW 1: FULL NAME & WORK EMAIL */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.2rem', marginBottom: '1.2rem' }} className="form-row-2col">
             <div>
-              <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: '700', color: 'var(--text-dark-coffee)', marginBottom: '0.45rem' }}>
+              <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: '700', color: 'var(--text-dark-coffee)', marginBottom: '0.45rem' }}>
                 Full Name *
               </label>
               <div style={{ position: 'relative' }}>
@@ -65,7 +65,7 @@ export default function InteractiveCustomizationForm() {
                   required
                   value={formData.fullName}
                   onChange={handleInputChange}
-                  placeholder="Your name"
+                  placeholder="Full Name"
                   style={{
                     width: '100%',
                     padding: '0.8rem 1.1rem',
@@ -85,8 +85,8 @@ export default function InteractiveCustomizationForm() {
             </div>
 
             <div>
-              <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: '700', color: 'var(--text-dark-coffee)', marginBottom: '0.45rem' }}>
-                Email *
+              <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: '700', color: 'var(--text-dark-coffee)', marginBottom: '0.45rem' }}>
+                Work Email *
               </label>
               <input
                 type="email"
@@ -94,7 +94,7 @@ export default function InteractiveCustomizationForm() {
                 required
                 value={formData.email}
                 onChange={handleInputChange}
-                placeholder="you@company.com"
+                placeholder="name@company.com"
                 style={{
                   width: '100%',
                   padding: '0.8rem 1.1rem',
@@ -113,18 +113,17 @@ export default function InteractiveCustomizationForm() {
             </div>
           </div>
 
-          {/* ROW 2: PHONE / WHATSAPP */}
+          {/* ROW 2: ESTIMATED QUANTITY */}
           <div style={{ marginBottom: '1.2rem' }}>
-            <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: '700', color: 'var(--text-dark-coffee)', marginBottom: '0.45rem' }}>
-              Phone / WhatsApp *
+            <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: '700', color: 'var(--text-dark-coffee)', marginBottom: '0.45rem' }}>
+              Estimated Quantity
             </label>
             <input
-              type="tel"
-              name="whatsapp"
-              required
-              value={formData.whatsapp}
+              type="text"
+              name="quantity"
+              value={formData.quantity}
               onChange={handleInputChange}
-              placeholder="+92 340 4766631"
+              placeholder="e.g., 50, 100, 500+ units"
               style={{
                 width: '100%',
                 padding: '0.8rem 1.1rem',
@@ -142,17 +141,17 @@ export default function InteractiveCustomizationForm() {
             />
           </div>
 
-          {/* ROW 3: TEXTAREA PRODUCT DETAILS */}
+          {/* ROW 3: PROJECT DETAILS */}
           <div style={{ marginBottom: '2.5rem' }}>
-            <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: '700', color: 'var(--text-dark-coffee)', marginBottom: '0.45rem' }}>
-              What kind of corporate merchandise / product do you want?
+            <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: '700', color: 'var(--text-dark-coffee)', marginBottom: '0.45rem' }}>
+              Project Details
             </label>
             <textarea
-              name="productDetails"
-              rows={3}
-              value={formData.productDetails}
+              name="projectDetails"
+              rows={4}
+              value={formData.projectDetails}
               onChange={handleInputChange}
-              placeholder="E.g. executive leather wallets, customized corporate gift boxes, branded notebooks..."
+              placeholder="Tell us about the occasion, desired products, and branding requirements..."
               style={{
                 width: '100%',
                 padding: '0.85rem 1.1rem',
@@ -196,11 +195,11 @@ export default function InteractiveCustomizationForm() {
             {submitted ? (
               <>
                 <Check size={20} color="#FFFFFF" />
-                <span>Submitted! We'll reply within 24 hours.</span>
+                <span>Proposal Request Sent! We'll reply within 24 hours.</span>
               </>
             ) : (
               <>
-                <span>Submit</span>
+                <span>Request Custom Proposal</span>
                 <Send size={18} />
               </>
             )}

@@ -30,7 +30,7 @@ export default function HomepageView({ setActivePage, setSelectedProduct, openCa
                 ✦ CURATED SELECTION
               </span>
               <h2 style={{ fontSize: '2.5rem', fontFamily: 'var(--font-heading)', color: 'var(--text-dark-coffee)' }}>
-                Featured Executive Pieces
+                Featured Executive Bestsellers
               </h2>
             </div>
 
@@ -49,8 +49,7 @@ export default function HomepageView({ setActivePage, setSelectedProduct, openCa
                 gap: '0.4rem'
               }}
             >
-              <span>View All Catalog Items</span>
-              <ArrowRight size={16} />
+              <span>View All Products →</span>
             </button>
           </div>
 
@@ -129,9 +128,9 @@ export default function HomepageView({ setActivePage, setSelectedProduct, openCa
 
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: '0.8rem', paddingTop: '0.8rem', borderTop: '1px solid var(--border-light)' }}>
                     <span style={{ fontSize: '0.78rem', fontWeight: '700', color: '#9A7824', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                      Bespoke Quote
+                      Quick Quote
                     </span>
-                    <span className="badge-gold" style={{ fontSize: '0.7rem' }}>Custom Engraved</span>
+                    <span className="badge-gold" style={{ fontSize: '0.7rem' }}>Bulk Available</span>
                   </div>
                 </div>
               </div>
@@ -152,13 +151,13 @@ export default function HomepageView({ setActivePage, setSelectedProduct, openCa
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
             <span className="badge-gold" style={{ marginBottom: '0.8rem', display: 'inline-block' }}>
-              ✦ CONTACT US
+              ✦ GET STARTED
             </span>
             <h2 style={{ fontSize: '2.8rem', fontFamily: 'var(--font-heading)', color: '#9A7824' }}>
               Tell Us What You Want to Craft
             </h2>
             <p style={{ color: 'var(--accent-dusty-taupe)', fontSize: '1rem', maxWidth: '640px', margin: '0.5rem auto 0' }}>
-              Share your idea, preferred merchandise, and branding requirements — we'll reply within 24 hours.
+              Share your project requirements and get a custom quote along with free digital mockups within 24 hours.
             </p>
           </div>
 

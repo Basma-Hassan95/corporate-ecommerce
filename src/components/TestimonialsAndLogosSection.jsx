@@ -16,10 +16,10 @@ const CORPORATE_LOGOS = [
 const TESTIMONIAL_SLIDES = [
   {
     id: 1,
-    name: "Devon Lane",
-    role: "Sr. Corporate Procurement Manager",
+    name: "Marcus Vance",
+    role: "Head of People & Culture, Apex Global Solutions",
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200",
-    quote: "We’ve been working with Wakeel & Sons for years, and they continue to deliver outstanding results. Their team is proactive, responsive, and always goes the extra mile to ensure our needs are met. They’ve become a key contributor to our growth and success."
+    quote: "The quality of the customized leather sets exceeded our expectations. Our executive clients were genuinely impressed, and the fulfillment process was flawless from start to finish."
   },
   {
     id: 2,
@@ -70,10 +70,9 @@ export default function TestimonialsAndLogosSection({ setActivePage = () => {} }
           }}
         >
           <span>Join Over</span>
-          <span style={{ color: 'var(--btn-coffee-bean)', fontWeight: '700' }}>1000+</span>
-          <span>Companies with</span>
+          <span style={{ color: 'var(--btn-coffee-bean)', fontWeight: '700' }}>500+</span>
+          <span>Global Enterprises with</span>
           <span style={{ color: 'var(--text-dark-coffee)', fontWeight: '700' }}>Wakeel &amp; Sons</span>
-          <span>Here</span>
         </div>
       </div>
 
@@ -98,34 +97,28 @@ export default function TestimonialsAndLogosSection({ setActivePage = () => {} }
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                width: '190px',
-                height: '80px',
+                padding: '0.75rem 1.6rem',
+                borderRadius: '30px',
                 backgroundColor: 'var(--surface-white)',
-                borderRadius: '16px',
                 border: '1px solid var(--border-light)',
-                boxShadow: '0 4px 15px rgba(0,0,0,0.03)',
-                transition: 'all 0.3s ease',
-                flexShrink: 0
+                boxShadow: '0 2px 10px rgba(0,0,0,0.03)',
+                fontSize: '0.85rem',
+                fontWeight: '700',
+                letterSpacing: '0.08em',
+                color: 'var(--text-dark-coffee)',
+                whiteSpace: 'nowrap',
+                transition: 'all 0.3s ease'
               }}
               className="logo-capsule-card"
             >
-              <span style={{
-                fontFamily: 'var(--font-heading)',
-                fontSize: '1.15rem',
-                fontWeight: '700',
-                color: 'var(--text-dark-coffee)',
-                letterSpacing: '0.08em',
-                opacity: 0.88
-              }}>
-                {logo.text}
-              </span>
+              <span>✦ {logo.text}</span>
             </div>
           ))}
         </div>
       </div>
 
-      {/* 3. SIDE-BY-SIDE TESTIMONIALS SHOWCASE (EXACT MATCH FOR REFERENCE SCREENSHOT media_1787952375109.png) */}
-      <div className="container" style={{ maxWidth: '1200px', margin: '0 auto' }}>
+      {/* 3. TESTIMONIAL GRID */}
+      <div className="container" style={{ maxWidth: '1160px', margin: '0 auto' }}>
         <div 
           style={{
             display: 'grid',
@@ -199,8 +192,8 @@ export default function TestimonialsAndLogosSection({ setActivePage = () => {} }
                 ))}
               </div>
 
-              <span style={{ fontSize: '0.72rem', opacity: 0.85, fontWeight: '500' }}>
-                (80+ Clients Reviews)
+              <span style={{ fontSize: '0.72rem', opacity: 0.9, fontWeight: '600' }}>
+                ★ 4.9/5 Average Corporate Rating
               </span>
             </div>
 

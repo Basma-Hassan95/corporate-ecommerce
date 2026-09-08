@@ -5,43 +5,51 @@ import { BRAND_IMAGES } from '../data/products';
 const HERO_SLIDES = [
   {
     id: 1,
-    badge: 'MASTER LEATHER & CORPORATE GIFTS',
-    headlineMain: 'Leading Future',
-    headlineAccent: 'for Business.',
-    description: 'Bespoke corporate merchandise, executive leather goods, and custom awards handcrafted from 100% full-grain hide. Personalized with complimentary laser debossing.',
+    badge: 'SUSTAINABLE LUXURY CORPORATE GIFTING',
+    headlineMain: 'Handcrafted Excellence.',
+    headlineAccent: 'Zero Synthetic Fillers.',
+    description: 'Elevate your brand with premium, ethically sourced corporate merchandise designed to leave a lasting impression on clients, partners, and teams.',
     image: BRAND_IMAGES.heroBanner,
-    ctaText: 'Get Started',
-    link: 'catalog'
+    ctaPrimaryText: 'Request a Quote',
+    ctaSecondaryText: 'Explore Catalog',
+    linkPrimary: 'contact',
+    linkSecondary: 'catalog'
   },
   {
     id: 2,
-    badge: 'HERITAGE & CRAFTSMANSHIP',
-    headlineMain: '5-Stage Saddle Stitching.',
+    badge: 'SUSTAINABLE LUXURY CORPORATE GIFTING',
+    headlineMain: 'Handcrafted Excellence.',
     headlineAccent: 'Zero Synthetic Fillers.',
-    description: 'Each hide is organically vegetable tanned with tree barks, hand-cut, and saddle-stitched with waxed linen thread for indestructible durability.',
+    description: 'Elevate your brand with premium, ethically sourced corporate merchandise designed to leave a lasting impression on clients, partners, and teams.',
     image: BRAND_IMAGES.craftsmanship,
-    ctaText: 'Discover Legacy',
-    link: 'about'
+    ctaPrimaryText: 'Request a Quote',
+    ctaSecondaryText: 'Explore Catalog',
+    linkPrimary: 'contact',
+    linkSecondary: 'catalog'
   },
   {
     id: 3,
-    badge: 'PERSONALIZATION ENGINE',
-    headlineMain: 'The Art of Monogramming.',
-    headlineAccent: 'Permanently Debossed.',
-    description: 'Laser debossed directly into top-grain hides before final hand assembly. Precision metallic foil stamping and deep laser burnishing.',
+    badge: 'SUSTAINABLE LUXURY CORPORATE GIFTING',
+    headlineMain: 'Handcrafted Excellence.',
+    headlineAccent: 'Zero Synthetic Fillers.',
+    description: 'Elevate your brand with premium, ethically sourced corporate merchandise designed to leave a lasting impression on clients, partners, and teams.',
     image: BRAND_IMAGES.engravingProcess,
-    ctaText: 'View Customizer',
-    link: 'catalog'
+    ctaPrimaryText: 'Request a Quote',
+    ctaSecondaryText: 'Explore Catalog',
+    linkPrimary: 'contact',
+    linkSecondary: 'catalog'
   },
   {
     id: 4,
-    badge: 'EXECUTIVE LEATHER GOODS',
-    headlineMain: 'Built for a Lifetime.',
-    headlineAccent: 'Patina That Ages Richly.',
-    description: 'Every piece in our collection is crafted without plastic or synthetic fillers. 100% full-grain leather guaranteed for life.',
+    badge: 'SUSTAINABLE LUXURY CORPORATE GIFTING',
+    headlineMain: 'Handcrafted Excellence.',
+    headlineAccent: 'Zero Synthetic Fillers.',
+    description: 'Elevate your brand with premium, ethically sourced corporate merchandise designed to leave a lasting impression on clients, partners, and teams.',
     image: BRAND_IMAGES.aboutWorkshop,
-    ctaText: 'Browse Catalog',
-    link: 'catalog'
+    ctaPrimaryText: 'Request a Quote',
+    ctaSecondaryText: 'Explore Catalog',
+    linkPrimary: 'contact',
+    linkSecondary: 'catalog'
   }
 ];
 
@@ -70,8 +78,8 @@ export default function CorporateHeroSection({ setActivePage = () => {} }) {
       style={{
         position: 'relative',
         width: '100%',
-        height: '82vh',
-        minHeight: '580px',
+        height: '85vh',
+        minHeight: '600px',
         backgroundColor: '#16120B',
         color: '#FFFFFF',
         overflow: 'hidden'
@@ -171,7 +179,7 @@ export default function CorporateHeroSection({ setActivePage = () => {} }) {
           zIndex: 20
         }}
       >
-        <div style={{ maxWidth: '620px' }}>
+        <div style={{ maxWidth: '640px' }}>
           
           {/* 1. Category Badge */}
           <div 
@@ -180,12 +188,13 @@ export default function CorporateHeroSection({ setActivePage = () => {} }) {
               display: 'inline-flex',
               alignItems: 'center',
               gap: '0.45rem',
-              padding: '0.35rem 0.9rem',
+              padding: '0.4rem 1rem',
               borderRadius: '30px',
               backgroundColor: 'rgba(154, 120, 36, 0.18)',
               border: '1px solid rgba(194, 154, 56, 0.35)',
               fontSize: '0.74rem',
-              fontWeight: '600',
+              fontWeight: '700',
+              letterSpacing: '0.08em',
               color: '#C29A38',
               marginBottom: '1.2rem',
               backdropFilter: 'blur(10px)',
@@ -223,7 +232,7 @@ export default function CorporateHeroSection({ setActivePage = () => {} }) {
               fontFamily: 'var(--font-body)',
               fontSize: '0.98rem',
               color: 'rgba(250, 247, 242, 0.85)',
-              maxWidth: '520px',
+              maxWidth: '560px',
               lineHeight: 1.6,
               fontWeight: '300',
               marginBottom: '2rem',
@@ -233,36 +242,37 @@ export default function CorporateHeroSection({ setActivePage = () => {} }) {
             {activeSlide.description}
           </p>
 
-          {/* 4. Primary CTA Pill Button (Dark Goldenrod #9A7824) */}
+          {/* 4. Primary & Secondary CTA Buttons */}
           <div 
             key={`cta-${currentIdx}`}
             style={{
               display: 'flex',
               alignItems: 'center',
               gap: '1rem',
+              flexWrap: 'wrap',
               animation: 'slideUpFade 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards'
             }}
           >
             <button
-              onClick={() => setActivePage(activeSlide.link)}
+              onClick={() => setActivePage('contact')}
               className="reference-gold-btn"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '0.8rem',
-                padding: '0.78rem 1.6rem',
+                padding: '0.85rem 1.8rem',
                 borderRadius: '30px',
                 backgroundColor: '#9A7824',
                 color: '#FFFFFF',
-                fontSize: '0.9rem',
-                fontWeight: '600',
+                fontSize: '0.92rem',
+                fontWeight: '700',
                 border: 'none',
                 cursor: 'pointer',
                 transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
                 boxShadow: '0 8px 25px rgba(154, 120, 36, 0.4)'
               }}
             >
-              <span>{activeSlide.ctaText}</span>
+              <span>Request a Quote</span>
               <span 
                 style={{
                   width: '26px',
@@ -282,24 +292,50 @@ export default function CorporateHeroSection({ setActivePage = () => {} }) {
             </button>
 
             <button
-              onClick={() => setActivePage('contact')}
+              onClick={() => setActivePage('catalog')}
               style={{
-                background: 'none',
-                border: 'none',
-                color: 'rgba(250, 247, 242, 0.85)',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                padding: '0.85rem 1.6rem',
+                borderRadius: '30px',
+                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                border: '1px solid rgba(255, 255, 255, 0.25)',
+                color: '#FFFFFF',
                 fontFamily: 'var(--font-body)',
-                fontSize: '0.88rem',
+                fontSize: '0.92rem',
                 fontWeight: '600',
                 cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.4rem',
-                padding: '0.78rem 1rem'
+                backdropFilter: 'blur(10px)',
+                transition: 'all 0.3s ease'
               }}
             >
-              <span>Request Quote</span>
+              <span>Explore Catalog</span>
               <ArrowRight size={15} />
             </button>
+          </div>
+
+          {/* 5. Social Proof Ticker / Trust Badges */}
+          <div 
+            style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: '1.5rem', 
+              marginTop: '2rem', 
+              paddingTop: '1.2rem', 
+              borderTop: '1px solid rgba(255, 255, 255, 0.15)', 
+              flexWrap: 'wrap' 
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.84rem', color: 'rgba(255, 255, 255, 0.9)', fontWeight: '600' }}>
+              <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#9A7824' }} />
+              <span>Over 100,000+ Units Delivered</span>
+            </div>
+            <span style={{ color: 'rgba(255, 255, 255, 0.3)' }}>|</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.84rem', color: 'rgba(255, 255, 255, 0.9)', fontWeight: '600' }}>
+              <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#9A7824' }} />
+              <span>Trusted by 500+ Global Enterprises</span>
+            </div>
           </div>
 
         </div>
