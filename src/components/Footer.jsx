@@ -57,10 +57,6 @@ export default function Footer({ setActivePage = () => {}, onSelectCategory = ()
             }}>
               Delivering artisan-crafted, sustainable corporate gifts that build lasting professional relationships across the globe.
             </p>
-            <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'center', fontSize: '0.82rem', color: '#F4EEDC', fontWeight: '700' }}>
-              <Lock size={15} color="#F4EEDC" />
-              <span>256-Bit SSL Encrypted Checkout</span>
-            </div>
           </div>
 
           {/* 2. Products & Gifts */}

@@ -54,9 +54,6 @@ export default function CheckoutView({ cart, setActivePage, clearCart }) {
               style={{ height: '68px', width: 'auto', objectFit: 'contain', mixBlendMode: 'multiply' }} 
             />
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', color: 'var(--accent-gold-soft)', fontSize: '0.85rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-            <Lock size={15} /> 256-Bit Encrypted Checkout
-          </div>
           <h1 style={{ fontSize: '2.5rem', fontFamily: 'var(--font-heading)', color: 'var(--text-dark-coffee)', marginTop: '0.3rem' }}>
             Wakeel &amp; Sons Checkout
           </h1>
