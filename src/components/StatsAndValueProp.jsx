@@ -417,10 +417,10 @@ export default function StatsAndValueProp({ setActivePage = () => {} }) {
 
               <div style={{ marginTop: '1.5rem' }}>
                 <p style={{ fontSize: '0.9rem', color: 'var(--accent-dusty-taupe)', fontWeight: '600', marginBottom: '0.4rem' }}>
-                  Corporate Partners.
+                  Global Presence.
                 </p>
-                <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '3.4rem', fontWeight: '700', color: '#9A7824', lineHeight: 1, margin: 0 }}>
-                  <AnimatedNumber targetNumber={1000} suffix="+" />
+                <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.8rem', fontWeight: '700', color: '#9A7824', lineHeight: 1, margin: 0 }}>
+                  Worldwide
                 </h2>
               </div>
             </div>

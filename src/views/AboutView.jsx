@@ -361,10 +361,10 @@ export default function AboutView({ setActivePage = () => {} }) {
         <div className="container" style={{ maxWidth: '1180px', margin: '0 auto' }}>
           
           {/* STATS COUNTER ROW */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.8rem', marginBottom: '4.5rem', textAlign: 'center' }} className="about-stats-grid about-stats-container scroll-reveal reveal-up">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1.5rem', marginBottom: '4.5rem', textAlign: 'center' }} className="about-stats-grid about-stats-container scroll-reveal reveal-up">
             
-            <div style={{ backgroundColor: '#FFFFFF', padding: '2rem 1.5rem', borderRadius: '16px', border: '1px solid var(--border-light)' }}>
-              <div style={{ fontFamily: 'var(--font-heading)', fontSize: '3rem', fontWeight: '700', color: '#9A7824', lineHeight: 1, marginBottom: '0.4rem' }}>
+            <div style={{ backgroundColor: '#FFFFFF', padding: '2rem 1.2rem', borderRadius: '16px', border: '1px solid var(--border-light)' }}>
+              <div style={{ fontFamily: 'var(--font-heading)', fontSize: '2.5rem', fontWeight: '700', color: '#9A7824', lineHeight: 1, marginBottom: '0.4rem' }}>
                 <AnimatedCounter targetNumber={500000} suffix="+" isVisible={statsVisible} />
               </div>
               <div style={{ fontSize: '0.86rem', color: 'var(--accent-dusty-taupe)', fontWeight: '600' }}>
@@ -372,8 +372,8 @@ export default function AboutView({ setActivePage = () => {} }) {
               </div>
             </div>
 
-            <div style={{ backgroundColor: '#FFFFFF', padding: '2rem 1.5rem', borderRadius: '16px', border: '1px solid var(--border-light)' }}>
-              <div style={{ fontFamily: 'var(--font-heading)', fontSize: '3rem', fontWeight: '700', color: '#9A7824', lineHeight: 1, marginBottom: '0.4rem' }}>
+            <div style={{ backgroundColor: '#FFFFFF', padding: '2rem 1.2rem', borderRadius: '16px', border: '1px solid var(--border-light)' }}>
+              <div style={{ fontFamily: 'var(--font-heading)', fontSize: '2.5rem', fontWeight: '700', color: '#9A7824', lineHeight: 1, marginBottom: '0.4rem' }}>
                 <AnimatedCounter targetNumber={1000} suffix="+" isVisible={statsVisible} />
               </div>
               <div style={{ fontSize: '0.86rem', color: 'var(--accent-dusty-taupe)', fontWeight: '600' }}>
@@ -381,8 +381,17 @@ export default function AboutView({ setActivePage = () => {} }) {
               </div>
             </div>
 
-            <div style={{ backgroundColor: '#FFFFFF', padding: '2rem 1.5rem', borderRadius: '16px', border: '1px solid var(--border-light)' }}>
-              <div style={{ fontFamily: 'var(--font-heading)', fontSize: '3rem', fontWeight: '700', color: '#9A7824', lineHeight: 1, marginBottom: '0.4rem' }}>
+            <div style={{ backgroundColor: '#FFFFFF', padding: '2rem 1.2rem', borderRadius: '16px', border: '1px solid var(--border-light)' }}>
+              <div style={{ fontFamily: 'var(--font-heading)', fontSize: '2.2rem', fontWeight: '700', color: '#9A7824', lineHeight: 1, marginBottom: '0.4rem' }}>
+                Worldwide
+              </div>
+              <div style={{ fontSize: '0.86rem', color: 'var(--accent-dusty-taupe)', fontWeight: '600' }}>
+                Global Presence
+              </div>
+            </div>
+
+            <div style={{ backgroundColor: '#FFFFFF', padding: '2rem 1.2rem', borderRadius: '16px', border: '1px solid var(--border-light)' }}>
+              <div style={{ fontFamily: 'var(--font-heading)', fontSize: '2.5rem', fontWeight: '700', color: '#9A7824', lineHeight: 1, marginBottom: '0.4rem' }}>
                 <AnimatedCounter targetNumber={48} suffix="+" isVisible={statsVisible} />
               </div>
               <div style={{ fontSize: '0.86rem', color: 'var(--accent-dusty-taupe)', fontWeight: '600' }}>
@@ -390,8 +399,8 @@ export default function AboutView({ setActivePage = () => {} }) {
               </div>
             </div>
 
-            <div style={{ backgroundColor: '#FFFFFF', padding: '2rem 1.5rem', borderRadius: '16px', border: '1px solid var(--border-light)' }}>
-              <div style={{ fontFamily: 'var(--font-heading)', fontSize: '3rem', fontWeight: '700', color: '#9A7824', lineHeight: 1, marginBottom: '0.4rem' }}>
+            <div style={{ backgroundColor: '#FFFFFF', padding: '2rem 1.2rem', borderRadius: '16px', border: '1px solid var(--border-light)' }}>
+              <div style={{ fontFamily: 'var(--font-heading)', fontSize: '2.5rem', fontWeight: '700', color: '#9A7824', lineHeight: 1, marginBottom: '0.4rem' }}>
                 <AnimatedCounter targetNumber={98} suffix="%" isVisible={statsVisible} />
               </div>
               <div style={{ fontSize: '0.86rem', color: 'var(--accent-dusty-taupe)', fontWeight: '600' }}>

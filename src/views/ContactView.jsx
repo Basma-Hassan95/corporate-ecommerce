@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Clock, ChevronDown, ChevronUp, HelpCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, ChevronDown, ChevronUp, HelpCircle, Globe } from 'lucide-react';
 import InteractiveCustomizationForm from '../components/InteractiveCustomizationForm';
 import WhatsAppIcon from '../components/WhatsAppIcon';
 
@@ -112,6 +112,14 @@ export default function ContactView() {
                   <div>
                     <strong style={{ color: '#9A7824' }}>Main Leather &amp; Wood Workshop:</strong><br />
                     Hakeem Center, Karachi, Pakistan.
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', gap: '0.8rem', alignItems: 'flex-start' }}>
+                  <Globe size={18} color="#9A7824" style={{ flexShrink: 0, marginTop: '2px' }} />
+                  <div>
+                    <strong style={{ color: '#9A7824' }}>Global Presence:</strong><br />
+                    Worldwide Shipping &amp; Client Services
                   </div>
                 </div>
 

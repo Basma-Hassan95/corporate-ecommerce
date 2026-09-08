@@ -1,5 +1,5 @@
 import React from 'react';
-import { Lock, MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { Lock, MapPin, Phone, Mail, Clock, Globe } from 'lucide-react';
 
 export default function Footer({ setActivePage = () => {}, onSelectCategory = () => {} }) {
   const handleCategoryClick = (catName) => {
@@ -162,6 +162,10 @@ export default function Footer({ setActivePage = () => {}, onSelectCategory = ()
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
                 <MapPin size={17} color="#F4EEDC" style={{ flexShrink: 0, marginTop: '2px' }} />
                 <span>Hakeem Center, Karachi</span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                <Globe size={17} color="#F4EEDC" style={{ flexShrink: 0 }} />
+                <span>Presence: Worldwide</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
                 <Phone size={17} color="#F4EEDC" style={{ flexShrink: 0 }} />
