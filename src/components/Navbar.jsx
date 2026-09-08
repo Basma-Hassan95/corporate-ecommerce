@@ -94,9 +94,9 @@ export default function Navbar({
             src="/logo.png" 
             alt="Wakeel & Sons Corporate Gifts" 
             style={{ 
-              height: '95px', 
+              height: '65px', 
               width: 'auto', 
-              maxHeight: '95px',
+              maxHeight: '65px',
               objectFit: 'contain',
               mixBlendMode: 'multiply'
             }} 
@@ -104,7 +104,7 @@ export default function Navbar({
         </div>
 
         {/* Desktop Single-Line Navigation */}
-        <nav style={{ display: 'none', gap: '1.4rem', alignItems: 'center', flexWrap: 'nowrap' }} className="desktop-nav">
+        <nav style={{ display: 'none', gap: '1.2rem', alignItems: 'center', flexWrap: 'nowrap' }} className="desktop-nav">
           {(MENU_STRUCTURE || []).map((menuItem) => {
             if (!menuItem) return null;
 
@@ -120,7 +120,7 @@ export default function Navbar({
                     background: 'none',
                     border: 'none',
                     fontFamily: 'var(--font-body)',
-                    fontSize: '1.05rem',
+                    fontSize: '0.92rem',
                     fontWeight: activePage === menuItem.id ? '700' : '600',
                     color: activePage === menuItem.id ? 'var(--btn-coffee-bean)' : 'var(--text-dark-coffee)',
                     borderBottom: activePage === menuItem.id ? '2px solid var(--btn-coffee-bean)' : '2px solid transparent',
@@ -149,12 +149,12 @@ export default function Navbar({
                     background: 'none',
                     border: 'none',
                     fontFamily: 'var(--font-body)',
-                    fontSize: '1.05rem',
+                    fontSize: '0.92rem',
                     fontWeight: '600',
                     color: isOpen ? 'var(--btn-coffee-bean)' : 'var(--text-dark-coffee)',
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '0.35rem',
+                    gap: '0.3rem',
                     cursor: 'pointer',
                     whiteSpace: 'nowrap',
                     transition: 'all 0.2s ease'
@@ -162,7 +162,7 @@ export default function Navbar({
                 >
                   <span>{menuItem.label}</span>
                   <ChevronDown 
-                    size={16} 
+                    size={14} 
                     style={{ 
                       transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)', 
                       transition: 'transform 0.2s ease',
@@ -326,17 +326,17 @@ export default function Navbar({
               backgroundColor: '#FFFFFF',
               border: '1px solid var(--border-light)',
               borderRadius: '25px',
-              padding: '0.45rem 1.1rem',
-              width: 'clamp(170px, 25vw, 270px)',
+              padding: '0.38rem 0.9rem',
+              width: 'clamp(150px, 20vw, 220px)',
               boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
               transition: 'all 0.25s ease'
             }}
             className="navbar-search-bar"
           >
             <Search 
-              size={18} 
+              size={16} 
               color="#9A7824" 
-              style={{ flexShrink: 0, marginRight: '0.5rem', cursor: 'pointer' }} 
+              style={{ flexShrink: 0, marginRight: '0.45rem', cursor: 'pointer' }} 
               onClick={() => {
                 if (typeof onSearch === 'function') onSearch(searchTerm);
                 if (typeof setActivePage === 'function') setActivePage('catalog');
@@ -355,7 +355,7 @@ export default function Navbar({
                 border: 'none',
                 outline: 'none',
                 background: 'transparent',
-                fontSize: '0.95rem',
+                fontSize: '0.86rem',
                 fontFamily: 'var(--font-body)',
                 color: 'var(--text-dark-coffee)',
                 width: '100%'

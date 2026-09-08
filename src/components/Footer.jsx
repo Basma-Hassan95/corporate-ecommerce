@@ -40,7 +40,7 @@ export default function Footer({ setActivePage = () => {}, onSelectCategory = ()
                 src="/logo.png" 
                 alt="Wakeel & Sons Corporate Gifts" 
                 style={{ 
-                  height: '95px', 
+                  height: '68px', 
                   width: 'auto', 
                   display: 'block',
                   objectFit: 'contain'

@@ -51,7 +51,7 @@ export default function CheckoutView({ cart, setActivePage, clearCart }) {
             <img 
               src="/logo.png" 
               alt="Wakeel & Sons Logo" 
-              style={{ height: '100px', width: 'auto', objectFit: 'contain', mixBlendMode: 'multiply' }} 
+              style={{ height: '68px', width: 'auto', objectFit: 'contain', mixBlendMode: 'multiply' }} 
             />
           </div>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', color: 'var(--accent-gold-soft)', fontSize: '0.85rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
