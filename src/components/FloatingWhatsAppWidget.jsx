@@ -41,9 +41,11 @@ export default function FloatingWhatsAppWidget() {
           {/* HEADER */}
           <div style={{ backgroundColor: '#25D366', color: '#FFFFFF', padding: '1.2rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
-              <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: '#FFFFFF', color: '#25D366', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '700' }}>
-                <WhatsAppIcon size={24} color="#25D366" />
-              </div>
+              <img 
+                src="/logo.jpg" 
+                alt="Wakeel & Sons" 
+                style={{ width: '42px', height: '42px', borderRadius: '50%', objectFit: 'cover', border: '2px solid #FFFFFF', boxShadow: '0 2px 8px rgba(0,0,0,0.2)' }} 
+              />
               <div>
                 <h4 style={{ margin: 0, fontSize: '0.98rem', fontWeight: '700', color: '#FFFFFF' }}>Wakeel &amp; Sons Concierge</h4>
                 <span style={{ fontSize: '0.72rem', opacity: 0.9 }}>Typically replies in 5 minutes</span>

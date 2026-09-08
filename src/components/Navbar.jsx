@@ -88,14 +88,29 @@ export default function Navbar({
         {/* Brand Logo Section */}
         <div 
           onClick={() => setActivePage && setActivePage('home')} 
-          style={{ cursor: 'pointer', textAlign: 'left', flexShrink: 1, minWidth: 0, overflow: 'hidden' }}
+          style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.75rem', flexShrink: 1, minWidth: 0, overflow: 'hidden' }}
         >
-          <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.2rem, 5vw, 1.7rem)', color: 'var(--text-dark-coffee)', letterSpacing: '0.04em', margin: 0, lineHeight: 1, textTransform: 'uppercase', whiteSpace: 'nowrap' }}>
-            WAKEEL &amp; SONS
-          </h1>
-          <p style={{ fontFamily: 'var(--font-subheading)', fontSize: 'clamp(0.48rem, 2.2vw, 0.6rem)', color: 'var(--btn-coffee-bean)', letterSpacing: '0.12em', margin: '0.25rem 0 0', textTransform: 'uppercase', fontWeight: '600', whiteSpace: 'nowrap' }}>
-            EST. 1978 &bull; CORPORATE GIFTS &amp; LEATHER
-          </p>
+          <img 
+            src="/logo.jpg" 
+            alt="Wakeel & Sons Logo" 
+            style={{ 
+              width: '44px', 
+              height: '44px', 
+              borderRadius: '10px', 
+              objectFit: 'cover', 
+              boxShadow: '0 2px 10px rgba(0,0,0,0.15)',
+              border: '1px solid rgba(154, 120, 36, 0.35)',
+              flexShrink: 0
+            }} 
+          />
+          <div>
+            <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.1rem, 4vw, 1.55rem)', color: 'var(--text-dark-coffee)', letterSpacing: '0.04em', margin: 0, lineHeight: 1, textTransform: 'uppercase', whiteSpace: 'nowrap' }}>
+              WAKEEL &amp; SONS
+            </h1>
+            <p style={{ fontFamily: 'var(--font-subheading)', fontSize: 'clamp(0.48rem, 2vw, 0.58rem)', color: 'var(--btn-coffee-bean)', letterSpacing: '0.12em', margin: '0.2rem 0 0', textTransform: 'uppercase', fontWeight: '600', whiteSpace: 'nowrap' }}>
+              FINE LEATHER GOODS &bull; EST. 1978
+            </p>
+          </div>
         </div>
 
         {/* Desktop Single-Line Navigation */}

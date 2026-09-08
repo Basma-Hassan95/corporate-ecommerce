@@ -110,6 +110,21 @@ export default function AboutView({ setActivePage = () => {} }) {
         <div className="container" style={{ maxWidth: '1180px', margin: '0 auto', textAlign: 'center' }}>
           
           <div className="scroll-reveal reveal-up">
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.5rem' }}>
+              <img 
+                src="/logo.jpg" 
+                alt="Wakeel & Sons Official Crest" 
+                style={{ 
+                  width: '110px', 
+                  height: '110px', 
+                  borderRadius: '22px', 
+                  objectFit: 'cover', 
+                  boxShadow: '0 10px 30px rgba(154, 120, 36, 0.35)',
+                  border: '2px solid rgba(154, 120, 36, 0.5)'
+                }} 
+              />
+            </div>
+
             <span className="badge-gold" style={{ marginBottom: '1rem', display: 'inline-block' }}>
               ✦ WHO WE ARE &amp; OUR HERITAGE
             </span>

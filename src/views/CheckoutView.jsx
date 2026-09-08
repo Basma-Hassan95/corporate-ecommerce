@@ -47,6 +47,13 @@ export default function CheckoutView({ cart, setActivePage, clearCart }) {
         
         {/* Page Title */}
         <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
+            <img 
+              src="/logo.jpg" 
+              alt="Wakeel & Sons Logo" 
+              style={{ width: '64px', height: '64px', borderRadius: '14px', objectFit: 'cover', boxShadow: '0 4px 15px rgba(0,0,0,0.15)', border: '1px solid rgba(154, 120, 36, 0.4)' }} 
+            />
+          </div>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', color: 'var(--accent-gold-soft)', fontSize: '0.85rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
             <Lock size={15} /> 256-Bit Encrypted Checkout
           </div>
