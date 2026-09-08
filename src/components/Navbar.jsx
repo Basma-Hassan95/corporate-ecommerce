@@ -88,7 +88,7 @@ export default function Navbar({
         {/* Brand Logo Section */}
         <div 
           onClick={() => setActivePage && setActivePage('home')} 
-          style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', flexShrink: 0, padding: '0.1rem 0' }}
+          style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', flexShrink: 0, padding: '0.1rem 0', marginLeft: '1.8rem', marginRight: '1rem' }}
         >
           <img 
             src="/logo.png" 
