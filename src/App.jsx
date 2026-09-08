@@ -36,6 +36,7 @@ export default function App() {
   };
 
   const [selectedCategoryFilter, setSelectedCategoryFilter] = useState('All');
+  const [searchQuery, setSearchQuery] = useState('');
   const [selectedProduct, setSelectedProduct] = useState(PRODUCTS[0]);
   const [cart, setCart] = useState([
     {
@@ -104,6 +105,13 @@ export default function App() {
         cartCount={totalCartItemsCount}
         openCart={() => setIsCartOpen(true)}
         onSelectCategory={handleSelectCategory}
+        searchQuery={searchQuery}
+        onSearch={(query) => {
+          setSearchQuery(query);
+          if (activePage !== 'catalog') {
+            setActivePage('catalog');
+          }
+        }}
       />
 
       {/* Main Page Content Views */}
@@ -133,6 +141,8 @@ export default function App() {
             setActivePage={(p) => { setActivePage(p); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
             setSelectedProduct={setSelectedProduct}
             initialCategory={selectedCategoryFilter}
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
           />
         )}
 

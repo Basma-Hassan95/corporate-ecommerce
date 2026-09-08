@@ -46,12 +46,15 @@ export default function Navbar({
   setActivePage = () => {}, 
   cartCount = 0, 
   openCart = () => {}, 
-  onSelectCategory = () => {} 
+  onSelectCategory = () => {},
+  onSearch = () => {},
+  searchQuery = ''
 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [activeSubHover, setActiveSubHover] = useState(null);
   const [mobileAccordion, setMobileAccordion] = useState(null);
+  const [searchTerm, setSearchTerm] = useState(searchQuery);
 
   const timeoutRef = useRef(null);
 
@@ -304,53 +307,56 @@ export default function Navbar({
           })}
         </nav>
 
-        {/* Right Header Actions */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexShrink: 0 }}>
-          <button 
-            onClick={() => setActivePage && setActivePage('catalog')} 
+        {/* Right Header Actions: Interactive Search Bar */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', flexShrink: 0 }}>
+          <form 
+            onSubmit={(e) => {
+              e.preventDefault();
+              if (typeof onSearch === 'function') onSearch(searchTerm);
+              if (typeof setActivePage === 'function') setActivePage('catalog');
+            }}
             style={{
-              background: 'none',
-              border: 'none',
-              cursor: 'pointer',
-              color: 'var(--text-dark-coffee)',
-              padding: '0.4rem',
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'center',
-              borderRadius: '50%'
+              backgroundColor: '#FFFFFF',
+              border: '1px solid var(--border-light)',
+              borderRadius: '25px',
+              padding: '0.4rem 0.9rem',
+              width: 'clamp(150px, 22vw, 240px)',
+              boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
+              transition: 'all 0.25s ease'
             }}
-            title="Search Catalog"
+            className="navbar-search-bar"
           >
-            <Search size={19} />
-          </button>
-          
-          <button 
-            onClick={openCart} 
-            className="btn-primary"
-            style={{ padding: '0.5rem 1.1rem', borderRadius: '20px', fontSize: '0.82rem', position: 'relative' }}
-          >
-            <ShoppingBag size={16} />
-            <span>Bag</span>
-            {cartCount > 0 && (
-              <span style={{
-                position: 'absolute',
-                top: '-5px',
-                right: '-5px',
-                backgroundColor: 'var(--accent-gold)',
-                color: 'var(--surface-dark-espresso)',
-                fontSize: '0.7rem',
-                fontWeight: '700',
-                width: '19px',
-                height: '19px',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}>
-                {cartCount}
-              </span>
-            )}
-          </button>
+            <Search 
+              size={16} 
+              color="#9A7824" 
+              style={{ flexShrink: 0, marginRight: '0.45rem', cursor: 'pointer' }} 
+              onClick={() => {
+                if (typeof onSearch === 'function') onSearch(searchTerm);
+                if (typeof setActivePage === 'function') setActivePage('catalog');
+              }}
+            />
+            <input 
+              type="text"
+              value={searchTerm}
+              onChange={(e) => {
+                const val = e.target.value;
+                setSearchTerm(val);
+                if (typeof onSearch === 'function') onSearch(val);
+              }}
+              placeholder="Search catalog..."
+              style={{
+                border: 'none',
+                outline: 'none',
+                background: 'transparent',
+                fontSize: '0.84rem',
+                fontFamily: 'var(--font-body)',
+                color: 'var(--text-dark-coffee)',
+                width: '100%'
+              }}
+            />
+          </form>
 
           {/* Mobile Menu Toggle */}
           <button 

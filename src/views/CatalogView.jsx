@@ -2,9 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Filter, Star, Check, RotateCcw, Search } from 'lucide-react';
 import { ALL_PRODUCTS } from '../data/products';
 
-export default function CatalogView({ setActivePage, setSelectedProduct, initialCategory = 'All' }) {
+export default function CatalogView({ setActivePage, setSelectedProduct, initialCategory = 'All', searchQuery: externalSearchQuery = '', setSearchQuery: setExternalSearchQuery = null }) {
   const [selectedCategory, setSelectedCategory] = useState(initialCategory);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [internalSearchQuery, setInternalSearchQuery] = useState('');
+
+  const searchQuery = setExternalSearchQuery ? externalSearchQuery : internalSearchQuery;
+  const setSearchQuery = setExternalSearchQuery || setInternalSearchQuery;
 
   useEffect(() => {
     if (initialCategory) {
