@@ -115,7 +115,7 @@ export default function AboutView({ setActivePage = () => {} }) {
                 src="/logo.png" 
                 alt="Wakeel & Sons Official Crest" 
                 style={{ 
-                  height: '110px', 
+                  height: '200px', 
                   width: 'auto',
                   objectFit: 'contain',
                   mixBlendMode: 'multiply'

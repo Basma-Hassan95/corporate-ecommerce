@@ -88,15 +88,15 @@ export default function Navbar({
         {/* Brand Logo Section */}
         <div 
           onClick={() => setActivePage && setActivePage('home')} 
-          style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', flexShrink: 1, padding: '0.2rem 0' }}
+          style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', flexShrink: 0, padding: '0.1rem 0' }}
         >
           <img 
             src="/logo.png" 
             alt="Wakeel & Sons Corporate Gifts" 
             style={{ 
-              height: '52px', 
+              height: '95px', 
               width: 'auto', 
-              maxHeight: '52px',
+              maxHeight: '95px',
               objectFit: 'contain',
               mixBlendMode: 'multiply'
             }} 

@@ -35,12 +35,12 @@ export default function Footer({ setActivePage = () => {}, onSelectCategory = ()
           
           {/* 1. Brand Info */}
           <div>
-            <div style={{ marginBottom: '1.2rem', backgroundColor: '#FAF9F6', padding: '0.6rem 1rem', borderRadius: '12px', display: 'inline-block', border: '1px solid rgba(244, 238, 220, 0.4)', boxShadow: '0 4px 15px rgba(0,0,0,0.2)' }}>
+            <div style={{ marginBottom: '1.2rem', backgroundColor: '#FAF9F6', padding: '0.8rem 1.2rem', borderRadius: '14px', display: 'inline-block', border: '1px solid rgba(244, 238, 220, 0.4)', boxShadow: '0 4px 15px rgba(0,0,0,0.2)' }}>
               <img 
                 src="/logo.png" 
                 alt="Wakeel & Sons Corporate Gifts" 
                 style={{ 
-                  height: '50px', 
+                  height: '95px', 
                   width: 'auto', 
                   display: 'block',
                   objectFit: 'contain'
