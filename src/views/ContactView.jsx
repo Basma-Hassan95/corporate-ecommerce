@@ -143,10 +143,7 @@ export default function ContactView() {
                   <Clock size={18} color="#9A7824" style={{ flexShrink: 0, marginTop: '2px' }} />
                   <div>
                     <strong style={{ color: '#9A7824' }}>Support &amp; Crafting Hours:</strong><br />
-                    Monday – Saturday: 12:00 PM – 9:00 PM PKT<br />
-                    <span style={{ marginTop: '0.4rem', display: 'inline-block', backgroundColor: 'rgba(154, 120, 36, 0.1)', color: '#9A7824', fontSize: '0.72rem', fontWeight: '700', padding: '0.2rem 0.6rem', borderRadius: '4px' }}>
-                      Workshop is currently OPEN
-                    </span>
+                    Monday – Saturday: 12:00 PM – 9:00 PM
                   </div>
                 </div>
               </div>
