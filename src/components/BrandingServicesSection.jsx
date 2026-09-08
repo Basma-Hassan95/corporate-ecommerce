@@ -1,6 +1,5 @@
-import React, { useState, useRef } from 'react';
-import gsap from 'gsap';
-import { Printer, Sparkles, Award, Package, ArrowRight, CheckCircle2 } from 'lucide-react';
+import React, { useState } from 'react';
+import { Sparkles, Award, Package, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { BRAND_IMAGES } from '../data/products';
 
 const BRANDING_SERVICES = [
@@ -49,126 +48,25 @@ const BRANDING_SERVICES = [
 ];
 
 export default function BrandingServicesSection({ setActivePage = () => {} }) {
-  // Deck state array representing front-to-back card order [0, 1, 2]
+  // Deck order array: indices of BRANDING_SERVICES from front to back, e.g. [0, 1, 2]
   const [deck, setDeck] = useState([0, 1, 2]);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const deckRef = useRef(null);
 
-  // Stack positions configuration (0 = front/top active, 1 = middle behind, 2 = back behind)
-  const POS_CONFIG = [
-    { top: 60, scale: 1, zIndex: 10, opacity: 1, border: '2px solid #9A7824', shadow: '0 20px 45px rgba(0, 0, 0, 0.12)' },
-    { top: 30, scale: 0.96, zIndex: 9, opacity: 0.9, border: '1.5px solid rgba(154, 120, 36, 0.4)', shadow: '0 10px 25px rgba(0, 0, 0, 0.08)' },
-    { top: 0, scale: 0.92, zIndex: 8, opacity: 0.8, border: '1px solid var(--border-light)', shadow: '0 6px 16px rgba(0, 0, 0, 0.05)' }
-  ];
-
-  // GSAP 60fps Butter-Smooth Flip Card Transition for clicking any card or tab
   const handleCardClick = (clickedCardIdx) => {
-    if (isAnimating) return;
+    setDeck((prevDeck) => {
+      const frontIdx = prevDeck[0];
 
-    const currentFront = deck[0];
-    let newDeck;
-
-    if (clickedCardIdx === currentFront) {
-      // Clicking front card cycles to next card
-      newDeck = [deck[1], deck[2], deck[0]];
-    } else if (clickedCardIdx === deck[1]) {
-      // Clicking middle card brings it to front
-      newDeck = [deck[1], deck[2], deck[0]];
-    } else if (clickedCardIdx === deck[2]) {
-      // Clicking back card brings it to front
-      newDeck = [deck[2], deck[0], deck[1]];
-    } else {
-      return;
-    }
-
-    setIsAnimating(true);
-    const deckContainer = deckRef.current;
-    if (!deckContainer) {
-      setDeck(newDeck);
-      setIsAnimating(false);
-      return;
-    }
-
-    const getEl = (idx) => deckContainer.querySelector(`[data-card-idx="${idx}"]`);
-    const allEls = Array.from(deckContainer.querySelectorAll('.stacked-single-card'));
-
-    const oldFrontEl = getEl(currentFront);
-    const newFrontEl = getEl(newDeck[0]);
-    const newMiddleEl = getEl(newDeck[1]);
-    const newBackEl = getEl(newDeck[2]);
-
-    const tl = gsap.timeline({
-      onComplete: () => {
-        setDeck(newDeck);
-        allEls.forEach((el) => {
-          gsap.set(el, { clearProps: 'transform,y,scale,opacity,zIndex,top' });
-        });
-        setIsAnimating(false);
+      if (clickedCardIdx === frontIdx) {
+        // If clicking front card, cycle front card to back
+        return [prevDeck[1], prevDeck[2], prevDeck[0]];
+      } else if (clickedCardIdx === prevDeck[1]) {
+        // If clicking middle card, bring middle to front
+        return [prevDeck[1], prevDeck[2], prevDeck[0]];
+      } else if (clickedCardIdx === prevDeck[2]) {
+        // If clicking back card, bring back to front
+        return [prevDeck[2], prevDeck[0], prevDeck[1]];
       }
+      return prevDeck;
     });
-
-    // 1. Lift old front card up smoothly
-    if (oldFrontEl) {
-      tl.to(oldFrontEl, {
-        y: -100,
-        scale: 1.02,
-        opacity: 0.6,
-        duration: 0.28,
-        ease: 'power2.inOut'
-      }, 0);
-    }
-
-    // 2. Animate new front card to top stack position
-    if (newFrontEl) {
-      tl.to(newFrontEl, {
-        top: POS_CONFIG[0].top,
-        scale: POS_CONFIG[0].scale,
-        zIndex: POS_CONFIG[0].zIndex,
-        opacity: POS_CONFIG[0].opacity,
-        duration: 0.4,
-        ease: 'power2.out'
-      }, 0.08);
-    }
-
-    // 3. Animate new middle card
-    if (newMiddleEl && newMiddleEl !== oldFrontEl) {
-      tl.to(newMiddleEl, {
-        top: POS_CONFIG[1].top,
-        scale: POS_CONFIG[1].scale,
-        zIndex: POS_CONFIG[1].zIndex,
-        opacity: POS_CONFIG[1].opacity,
-        duration: 0.38,
-        ease: 'power2.out'
-      }, 0.08);
-    }
-
-    // 4. Animate new back card
-    if (newBackEl && newBackEl !== oldFrontEl) {
-      tl.to(newBackEl, {
-        top: POS_CONFIG[2].top,
-        scale: POS_CONFIG[2].scale,
-        zIndex: POS_CONFIG[2].zIndex,
-        opacity: POS_CONFIG[2].opacity,
-        duration: 0.35,
-        ease: 'power2.out'
-      }, 0.08);
-    }
-
-    // 5. Old front card drops smoothly into its target stack position behind
-    if (oldFrontEl) {
-      const oldFrontNewPos = newDeck.indexOf(currentFront);
-      const targetConfig = POS_CONFIG[oldFrontNewPos] || POS_CONFIG[2];
-
-      tl.to(oldFrontEl, {
-        y: 0,
-        top: targetConfig.top,
-        scale: targetConfig.scale,
-        zIndex: targetConfig.zIndex,
-        opacity: targetConfig.opacity,
-        duration: 0.32,
-        ease: 'power2.in'
-      }, 0.22);
-    }
   };
 
   return (
@@ -212,7 +110,7 @@ export default function BrandingServicesSection({ setActivePage = () => {} }) {
           </p>
         </div>
 
-        {/* VERTICALLY STACKED FLIP CARDS DECK (FULLY VISIBLE & SMOOTH) */}
+        {/* VERTICALLY STACKED FLIP CARDS DECK */}
         <div 
           style={{ 
             position: 'relative', 
@@ -225,7 +123,6 @@ export default function BrandingServicesSection({ setActivePage = () => {} }) {
           }}
         >
           <div 
-            ref={deckRef}
             style={{
               position: 'relative',
               width: '100%',
@@ -235,38 +132,44 @@ export default function BrandingServicesSection({ setActivePage = () => {} }) {
             }}
             className="stacked-cards-deck-container"
           >
-            {deck.map((cardIdx, stackPos) => {
-              const card = BRANDING_SERVICES[cardIdx];
+            {BRANDING_SERVICES.map((card, cardIdx) => {
+              const stackPos = deck.indexOf(cardIdx);
               const isTop = stackPos === 0;
 
-              const posConfig = POS_CONFIG[stackPos] || POS_CONFIG[2];
+              // Compute position properties cleanly
+              const topPx = stackPos === 0 ? 60 : stackPos === 1 ? 30 : 0;
+              const scaleVal = stackPos === 0 ? 1 : stackPos === 1 ? 0.96 : 0.92;
+              const zIndexVal = 10 - stackPos;
+              const opacityVal = stackPos === 0 ? 1 : stackPos === 1 ? 0.9 : 0.8;
+              const borderVal = stackPos === 0 ? '2px solid #9A7824' : stackPos === 1 ? '1.5px solid rgba(154, 120, 36, 0.4)' : '1px solid var(--border-light)';
+              const boxShadowVal = stackPos === 0 ? '0 20px 45px rgba(0, 0, 0, 0.12)' : stackPos === 1 ? '0 10px 25px rgba(0, 0, 0, 0.08)' : '0 6px 16px rgba(0, 0, 0, 0.05)';
 
               return (
                 <div
                   key={card.id}
-                  data-card-idx={cardIdx}
                   className={`stacked-single-card ${isTop ? 'top-deck-card' : ''}`}
                   onClick={() => handleCardClick(cardIdx)}
                   style={{
                     position: 'absolute',
-                    top: `${posConfig.top}px`,
+                    top: `${topPx}px`,
                     left: '50%',
-                    transform: `translateX(-50%) scale(${posConfig.scale})`,
+                    transform: `translateX(-50%) scale(${scaleVal})`,
                     transformOrigin: 'top center',
                     width: '100%',
                     maxWidth: '860px',
                     height: '410px',
                     backgroundColor: '#FFFFFF',
                     borderRadius: '20px',
-                    border: posConfig.border,
-                    boxShadow: posConfig.shadow,
-                    zIndex: posConfig.zIndex,
-                    opacity: posConfig.opacity,
+                    border: borderVal,
+                    boxShadow: boxShadowVal,
+                    zIndex: zIndexVal,
+                    opacity: opacityVal,
                     overflow: 'hidden',
-                    willChange: 'transform, opacity, top',
-                    backfaceVisibility: 'hidden',
                     cursor: 'pointer',
-                    userSelect: 'none'
+                    userSelect: 'none',
+                    transition: 'top 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.45s ease, box-shadow 0.45s ease, border-color 0.45s ease',
+                    willChange: 'transform, opacity, top',
+                    backfaceVisibility: 'hidden'
                   }}
                 >
                   {/* CARD WINDOW TOP BAR */}
