@@ -183,7 +183,7 @@ export default function Footer({ setActivePage = () => {}, onSelectCategory = ()
         {/* Bottom Copyright Bar */}
         <div style={{ borderTop: '1px solid rgba(255, 255, 255, 0.2)', paddingTop: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', fontSize: '0.85rem', color: 'rgba(255, 255, 255, 0.85)' }}>
           <div>
-            © {new Date().getFullYear()} Wakeel &amp; Sons Leather Goods (Pvt) Ltd. All Rights Reserved.
+            © All Rights Reserved 2026 Wakeel &amp; Sons Leather Goods (Pvt) Ltd 2023
           </div>
 
           <div style={{ display: 'flex', gap: '1.8rem' }}>
