@@ -54,48 +54,121 @@ export default function BrandingServicesSection({ setActivePage = () => {} }) {
   const [isAnimating, setIsAnimating] = useState(false);
   const deckRef = useRef(null);
 
-  // GSAP 60fps Butter-Smooth Flip Card Transition
-  const handleNextCard = () => {
-    if (isAnimating) return;
-    setIsAnimating(true);
+  // Stack positions configuration (0 = front/top active, 1 = middle behind, 2 = back behind)
+  const POS_CONFIG = [
+    { top: 60, scale: 1, zIndex: 10, opacity: 1, border: '2px solid #9A7824', shadow: '0 20px 45px rgba(0, 0, 0, 0.12)' },
+    { top: 30, scale: 0.96, zIndex: 9, opacity: 0.9, border: '1.5px solid rgba(154, 120, 36, 0.4)', shadow: '0 10px 25px rgba(0, 0, 0, 0.08)' },
+    { top: 0, scale: 0.92, zIndex: 8, opacity: 0.8, border: '1px solid var(--border-light)', shadow: '0 6px 16px rgba(0, 0, 0, 0.05)' }
+  ];
 
+  // GSAP 60fps Butter-Smooth Flip Card Transition for clicking any card or tab
+  const handleCardClick = (clickedCardIdx) => {
+    if (isAnimating) return;
+
+    const currentFront = deck[0];
+    let newDeck;
+
+    if (clickedCardIdx === currentFront) {
+      // Clicking front card cycles to next card
+      newDeck = [deck[1], deck[2], deck[0]];
+    } else if (clickedCardIdx === deck[1]) {
+      // Clicking middle card brings it to front
+      newDeck = [deck[1], deck[2], deck[0]];
+    } else if (clickedCardIdx === deck[2]) {
+      // Clicking back card brings it to front
+      newDeck = [deck[2], deck[0], deck[1]];
+    } else {
+      return;
+    }
+
+    setIsAnimating(true);
     const deckContainer = deckRef.current;
     if (!deckContainer) {
+      setDeck(newDeck);
       setIsAnimating(false);
       return;
     }
 
-    const cardElements = deckContainer.querySelectorAll('.stacked-single-card');
-    const topCardEl = cardElements[0];
+    const getEl = (idx) => deckContainer.querySelector(`[data-card-idx="${idx}"]`);
+    const allEls = Array.from(deckContainer.querySelectorAll('.stacked-single-card'));
 
-    if (!topCardEl) {
-      setIsAnimating(false);
-      return;
-    }
+    const oldFrontEl = getEl(currentFront);
+    const newFrontEl = getEl(newDeck[0]);
+    const newMiddleEl = getEl(newDeck[1]);
+    const newBackEl = getEl(newDeck[2]);
 
-    // GSAP Timeline with hardware acceleration
     const tl = gsap.timeline({
       onComplete: () => {
-        setDeck((prevDeck) => {
-          const newDeck = [...prevDeck];
-          const first = newDeck.shift();
-          newDeck.push(first);
-          return newDeck;
+        setDeck(newDeck);
+        allEls.forEach((el) => {
+          gsap.set(el, { clearProps: 'transform,y,scale,opacity,zIndex,top' });
         });
-
-        gsap.set(cardElements, { clearProps: 'transform,opacity,zIndex' });
         setIsAnimating(false);
       }
     });
 
-    tl.to(topCardEl, {
-      y: -140,
-      scale: 1.04,
-      rotationX: 12,
-      opacity: 0,
-      duration: 0.45,
-      ease: 'power2.inOut'
-    });
+    // 1. Lift old front card up smoothly
+    if (oldFrontEl) {
+      tl.to(oldFrontEl, {
+        y: -100,
+        scale: 1.02,
+        opacity: 0.6,
+        duration: 0.28,
+        ease: 'power2.inOut'
+      }, 0);
+    }
+
+    // 2. Animate new front card to top stack position
+    if (newFrontEl) {
+      tl.to(newFrontEl, {
+        top: POS_CONFIG[0].top,
+        scale: POS_CONFIG[0].scale,
+        zIndex: POS_CONFIG[0].zIndex,
+        opacity: POS_CONFIG[0].opacity,
+        duration: 0.4,
+        ease: 'power2.out'
+      }, 0.08);
+    }
+
+    // 3. Animate new middle card
+    if (newMiddleEl && newMiddleEl !== oldFrontEl) {
+      tl.to(newMiddleEl, {
+        top: POS_CONFIG[1].top,
+        scale: POS_CONFIG[1].scale,
+        zIndex: POS_CONFIG[1].zIndex,
+        opacity: POS_CONFIG[1].opacity,
+        duration: 0.38,
+        ease: 'power2.out'
+      }, 0.08);
+    }
+
+    // 4. Animate new back card
+    if (newBackEl && newBackEl !== oldFrontEl) {
+      tl.to(newBackEl, {
+        top: POS_CONFIG[2].top,
+        scale: POS_CONFIG[2].scale,
+        zIndex: POS_CONFIG[2].zIndex,
+        opacity: POS_CONFIG[2].opacity,
+        duration: 0.35,
+        ease: 'power2.out'
+      }, 0.08);
+    }
+
+    // 5. Old front card drops smoothly into its target stack position behind
+    if (oldFrontEl) {
+      const oldFrontNewPos = newDeck.indexOf(currentFront);
+      const targetConfig = POS_CONFIG[oldFrontNewPos] || POS_CONFIG[2];
+
+      tl.to(oldFrontEl, {
+        y: 0,
+        top: targetConfig.top,
+        scale: targetConfig.scale,
+        zIndex: targetConfig.zIndex,
+        opacity: targetConfig.opacity,
+        duration: 0.32,
+        ease: 'power2.in'
+      }, 0.22);
+    }
   };
 
   return (
@@ -113,7 +186,7 @@ export default function BrandingServicesSection({ setActivePage = () => {} }) {
       <div className="container" style={{ maxWidth: '1060px', margin: '0 auto' }}>
         
         {/* TOP HEADER */}
-        <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
+        <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
           <span className="badge-taupe" style={{ marginBottom: '0.8rem', display: 'inline-block' }}>
             ✦ BESPOKE BRANDING
           </span>
@@ -139,12 +212,42 @@ export default function BrandingServicesSection({ setActivePage = () => {} }) {
           </p>
         </div>
 
+        {/* TAB PILL NAVIGATION FOR CARDS */}
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '0.6rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
+          {BRANDING_SERVICES.map((serv, sIdx) => {
+            const isActive = deck[0] === sIdx;
+            return (
+              <button
+                key={serv.id}
+                onClick={() => handleCardClick(sIdx)}
+                style={{
+                  padding: '0.55rem 1.2rem',
+                  borderRadius: '30px',
+                  border: isActive ? '2px solid #9A7824' : '1px solid var(--border-light)',
+                  backgroundColor: isActive ? '#9A7824' : '#FFFFFF',
+                  color: isActive ? '#FFFFFF' : 'var(--text-dark-coffee)',
+                  fontSize: '0.82rem',
+                  fontWeight: '600',
+                  cursor: 'pointer',
+                  transition: 'all 0.25s ease',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.45rem',
+                  boxShadow: isActive ? '0 4px 14px rgba(154, 120, 36, 0.25)' : 'none'
+                }}
+              >
+                <span>{serv.headerLabel}</span>
+              </button>
+            );
+          })}
+        </div>
+
         {/* VERTICALLY STACKED FLIP CARDS DECK (FULLY VISIBLE & SMOOTH) */}
         <div 
           style={{ 
             position: 'relative', 
             width: '100%', 
-            minHeight: '500px',
+            minHeight: '510px',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -153,58 +256,54 @@ export default function BrandingServicesSection({ setActivePage = () => {} }) {
         >
           <div 
             ref={deckRef}
-            onClick={handleNextCard}
             style={{
               position: 'relative',
               width: '100%',
               maxWidth: '880px',
-              height: '470px',
-              cursor: 'pointer',
+              height: '480px',
               perspective: '1200px'
             }}
             className="stacked-cards-deck-container"
-            title="Click to Flip Card Deck!"
           >
             {deck.map((cardIdx, stackPos) => {
               const card = BRANDING_SERVICES[cardIdx];
               const isTop = stackPos === 0;
 
-              // Vertical Stacked Offsets (Cards stack upwards behind the main card)
-              const topOffset = (3 - stackPos) * 20;
-              const scaleVal = 1 - (3 - stackPos) * 0.025;
-              const zIndexVal = 10 - stackPos;
-              const opacityVal = stackPos === 0 ? 1 : 0.85 - stackPos * 0.12;
+              const posConfig = POS_CONFIG[stackPos] || POS_CONFIG[2];
 
               return (
                 <div
                   key={card.id}
+                  data-card-idx={cardIdx}
                   className={`stacked-single-card ${isTop ? 'top-deck-card' : ''}`}
+                  onClick={() => handleCardClick(cardIdx)}
                   style={{
                     position: 'absolute',
-                    top: `${topOffset}px`,
+                    top: `${posConfig.top}px`,
                     left: '50%',
-                    transform: `translateX(-50%) scale(${scaleVal})`,
+                    transform: `translateX(-50%) scale(${posConfig.scale})`,
                     transformOrigin: 'top center',
                     width: '100%',
                     maxWidth: '860px',
                     height: '410px',
                     backgroundColor: '#FFFFFF',
                     borderRadius: '20px',
-                    border: isTop ? '2px solid #9A7824' : '1px solid var(--border-light)',
-                    boxShadow: isTop ? '0 18px 45px rgba(0, 0, 0, 0.12)' : '0 6px 20px rgba(0, 0, 0, 0.04)',
-                    zIndex: zIndexVal,
-                    opacity: opacityVal,
-                    transition: isTop ? 'none' : 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)',
+                    border: posConfig.border,
+                    boxShadow: posConfig.shadow,
+                    zIndex: posConfig.zIndex,
+                    opacity: posConfig.opacity,
                     overflow: 'hidden',
-                    willChange: 'transform, opacity',
-                    backfaceVisibility: 'hidden'
+                    willChange: 'transform, opacity, top',
+                    backfaceVisibility: 'hidden',
+                    cursor: 'pointer',
+                    userSelect: 'none'
                   }}
                 >
                   {/* CARD WINDOW TOP BAR */}
                   <div 
                     style={{ 
                       padding: '0.75rem 1.4rem', 
-                      backgroundColor: 'rgba(248, 249, 250, 0.95)', 
+                      backgroundColor: isTop ? 'rgba(248, 249, 250, 0.98)' : 'rgba(240, 238, 233, 0.95)', 
                       borderBottom: '1px solid var(--border-light)',
                       display: 'flex',
                       alignItems: 'center',
@@ -224,20 +323,27 @@ export default function BrandingServicesSection({ setActivePage = () => {} }) {
                       }}>
                         {card.icon}
                       </div>
-                      <span style={{ fontFamily: 'var(--font-heading)', fontSize: '0.78rem', fontWeight: '700', color: 'var(--text-dark-coffee)', letterSpacing: '0.08em' }}>
-                        {card.headerLabel}
+                      <span style={{ fontFamily: 'var(--font-heading)', fontSize: '0.78rem', fontWeight: '700', color: isTop ? '#9A7824' : 'var(--text-dark-coffee)', letterSpacing: '0.08em' }}>
+                        {card.headerLabel} — {card.title}
                       </span>
                     </div>
 
-                    {/* Window Control Dots */}
-                    <div style={{ display: 'flex', gap: '0.35rem' }}>
-                      <span style={{ width: '7px', height: '7px', borderRadius: '50%', backgroundColor: '#9A7824' }} />
-                      <span style={{ width: '7px', height: '7px', borderRadius: '50%', backgroundColor: 'rgba(154, 120, 36, 0.5)' }} />
-                      <span style={{ width: '7px', height: '7px', borderRadius: '50%', backgroundColor: 'rgba(154, 120, 36, 0.25)' }} />
+                    {/* Window Control Dots / Click Indicator */}
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                      {!isTop && (
+                        <span style={{ fontSize: '0.68rem', fontWeight: '600', color: '#9A7824', backgroundColor: 'rgba(154, 120, 36, 0.12)', padding: '0.15rem 0.55rem', borderRadius: '10px' }}>
+                          Click to bring to front
+                        </span>
+                      )}
+                      <div style={{ display: 'flex', gap: '0.35rem' }}>
+                        <span style={{ width: '7px', height: '7px', borderRadius: '50%', backgroundColor: '#9A7824' }} />
+                        <span style={{ width: '7px', height: '7px', borderRadius: '50%', backgroundColor: 'rgba(154, 120, 36, 0.5)' }} />
+                        <span style={{ width: '7px', height: '7px', borderRadius: '50%', backgroundColor: 'rgba(154, 120, 36, 0.25)' }} />
+                      </div>
                     </div>
                   </div>
 
-                  {/* CARD INNER CONTENT BODY (HEIGHT: 366PX) */}
+                  {/* CARD INNER CONTENT BODY */}
                   <div 
                     style={{ 
                       display: 'grid', 
@@ -248,7 +354,7 @@ export default function BrandingServicesSection({ setActivePage = () => {} }) {
                     className="card-content-grid"
                   >
                     
-                    {/* LEFT SIDE: INSET PHOTO FRAME (ROUNDED 14PX CORNERS) */}
+                    {/* LEFT SIDE: INSET PHOTO FRAME */}
                     <div 
                       style={{ 
                         gridColumn: 'span 5',
@@ -409,7 +515,7 @@ export default function BrandingServicesSection({ setActivePage = () => {} }) {
         }
         @media (max-width: 960px) {
           .stacked-cards-deck-container {
-            height: 580px !important;
+            height: 600px !important;
           }
           .stacked-single-card {
             height: 540px !important;
@@ -419,12 +525,12 @@ export default function BrandingServicesSection({ setActivePage = () => {} }) {
           }
           .card-left-img-wrap {
             grid-column: span 12 !important;
-            height: 180px !important;
+            height: 170px !important;
             padding: 0.6rem !important;
           }
           .card-right-details-wrap {
             grid-column: span 12 !important;
-            padding: 1rem !important;
+            padding: 0.8rem 1rem !important;
           }
         }
       `}</style>
