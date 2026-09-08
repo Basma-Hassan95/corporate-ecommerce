@@ -180,30 +180,6 @@ export default function CorporateHeroSection({ setActivePage = () => {} }) {
         }}
       >
         <div style={{ maxWidth: '640px' }}>
-          
-          {/* 1. Category Badge */}
-          <div 
-            key={`badge-${currentIdx}`}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.45rem',
-              padding: '0.4rem 1rem',
-              borderRadius: '30px',
-              backgroundColor: 'rgba(154, 120, 36, 0.18)',
-              border: '1px solid rgba(194, 154, 56, 0.35)',
-              fontSize: '0.74rem',
-              fontWeight: '700',
-              letterSpacing: '0.08em',
-              color: '#C29A38',
-              marginBottom: '1.2rem',
-              backdropFilter: 'blur(10px)',
-              animation: 'slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards'
-            }}
-          >
-            <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#9A7824' }} />
-            <span>✦ {activeSlide.badge}</span>
-          </div>
 
           {/* 2. Main Headline */}
           <h1 
