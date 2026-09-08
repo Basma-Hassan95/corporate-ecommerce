@@ -161,19 +161,19 @@ export default function Footer({ setActivePage = () => {}, onSelectCategory = ()
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem', fontSize: '0.88rem', color: 'rgba(255, 255, 255, 0.95)' }}>
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
                 <MapPin size={17} color="#F4EEDC" style={{ flexShrink: 0, marginTop: '2px' }} />
-                <span>Heritage Leather District, Sector 15, Karachi</span>
+                <span>Hakeem Center, Karachi</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
                 <Phone size={17} color="#F4EEDC" style={{ flexShrink: 0 }} />
-                <span>+92 340 4766631</span>
+                <span>+92 340 2695130</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
                 <Mail size={17} color="#F4EEDC" style={{ flexShrink: 0 }} />
-                <span>info@wakeelandson.com</span>
+                <span>wakeel&amp;sons@gmail.com</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
                 <Clock size={17} color="#F4EEDC" style={{ flexShrink: 0 }} />
-                <span>Mon - Sat: 9:00 AM - 7:00 PM</span>
+                <span>Mon - Sat: 12:00 PM - 9:00 PM</span>
               </div>
             </div>
           </div>

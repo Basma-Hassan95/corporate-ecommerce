@@ -6,7 +6,7 @@ export default function FloatingWhatsAppWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [customMsg, setCustomMsg] = useState('');
 
-  const WHATSAPP_NUMBER = "923404766631"; // Official Atelier WhatsApp Support Number
+  const WHATSAPP_NUMBER = "923402695130"; // Official Atelier WhatsApp Support Number
 
   const handleSendWhatsApp = (e) => {
     e.preventDefault();

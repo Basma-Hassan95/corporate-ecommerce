@@ -130,7 +130,7 @@ export default function CartDrawer({ isOpen, onClose, cart, updateQuantity, remo
                 const waText = `*BESPOKE BAG QUOTE REQUEST - WAKEEL & SONS*\n\n` +
                   `*SELECTED MERCHANDISE:*\n${cartSummary}\n\n` +
                   `Please share wholesale price & delivery timeline for these items.`;
-                window.open(`https://wa.me/923404766631?text=${encodeURIComponent(waText)}`, '_blank');
+                window.open(`https://wa.me/923402695130?text=${encodeURIComponent(waText)}`, '_blank');
               }}
               style={{
                 width: '100%',

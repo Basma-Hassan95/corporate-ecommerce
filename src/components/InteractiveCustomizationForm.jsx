@@ -39,7 +39,7 @@ export default function InteractiveCustomizationForm() {
       `3️⃣ *Packaging:* ${Q3_OPTIONS[q3Packaging]}\n` +
       `4️⃣ *Timeline:* ${Q4_OPTIONS[q4Timeline]}`;
 
-    window.open(`https://wa.me/923404766631?text=${encodeURIComponent(waText)}`, '_blank');
+    window.open(`https://wa.me/923402695130?text=${encodeURIComponent(waText)}`, '_blank');
 
     setTimeout(() => {
       setSubmitted(false);

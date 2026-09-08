@@ -75,7 +75,7 @@ export default function ContactView() {
                 Need immediate assistance with custom initials font choice, custom gift box choices, or urgent bulk dispatch? Chat directly with our master craftsmen on WhatsApp.
               </p>
               <a 
-                href="https://wa.me/923404766631?text=Hello%20Wakeel%20%26%20Sons%2C%20I%20have%20a%20question%20about%20customized%20corporate%20gifts" 
+                href="https://wa.me/923402695130?text=Hello%20Wakeel%20%26%20Sons%2C%20I%20have%20a%20question%20about%20customized%20corporate%20gifts" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 style={{
@@ -111,7 +111,7 @@ export default function ContactView() {
                   <MapPin size={18} color="#9A7824" style={{ flexShrink: 0, marginTop: '2px' }} />
                   <div>
                     <strong style={{ color: '#9A7824' }}>Main Leather &amp; Wood Workshop:</strong><br />
-                    Heritage Leather District, Sector 15, Karachi, Pakistan.
+                    Hakeem Center, Karachi, Pakistan.
                   </div>
                 </div>
 
@@ -119,7 +119,7 @@ export default function ContactView() {
                   <Phone size={18} color="#9A7824" style={{ flexShrink: 0, marginTop: '2px' }} />
                   <div>
                     <strong style={{ color: '#9A7824' }}>Phone Support Hotline:</strong><br />
-                    +92 340 4766631
+                    +92 340 2695130
                   </div>
                 </div>
 
@@ -127,7 +127,7 @@ export default function ContactView() {
                   <Mail size={18} color="#9A7824" style={{ flexShrink: 0, marginTop: '2px' }} />
                   <div>
                     <strong style={{ color: '#9A7824' }}>Client Services Email:</strong><br />
-                    info@wakeelandson.com
+                    wakeel&amp;sons@gmail.com
                   </div>
                 </div>
 
@@ -135,7 +135,7 @@ export default function ContactView() {
                   <Clock size={18} color="#9A7824" style={{ flexShrink: 0, marginTop: '2px' }} />
                   <div>
                     <strong style={{ color: '#9A7824' }}>Support &amp; Crafting Hours:</strong><br />
-                    Monday – Saturday: 9:00 AM – 7:00 PM PKT<br />
+                    Monday – Saturday: 12:00 PM – 9:00 PM PKT<br />
                     <span style={{ marginTop: '0.4rem', display: 'inline-block', backgroundColor: 'rgba(154, 120, 36, 0.1)', color: '#9A7824', fontSize: '0.72rem', fontWeight: '700', padding: '0.2rem 0.6rem', borderRadius: '4px' }}>
                       Workshop is currently OPEN
                     </span>
