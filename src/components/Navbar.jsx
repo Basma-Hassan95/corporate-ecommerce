@@ -37,17 +37,6 @@ const MENU_STRUCTURE = [
       { label: 'New Year Calendars', category: 'Calendars' },
     ]
   },
-  {
-    type: 'dropdown',
-    id: 'boxes',
-    label: 'Boxes & Awards',
-    icon: <Trophy size={15} color="var(--btn-coffee-bean)" />,
-    items: [
-      { label: 'Corporate Gift Box', category: 'Corporate Gift Box' },
-      { label: 'PVC Rubber Merch', category: 'PVC Rubber Merch' },
-      { label: 'Shields / Plaques / Momento', category: 'Shields & Awards' },
-    ]
-  },
   { type: 'link', id: 'catalog', label: 'Catalog' },
   { type: 'link', id: 'contact', label: 'Contact' },
 ];

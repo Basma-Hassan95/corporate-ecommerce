@@ -118,8 +118,8 @@ export default function ContactView() {
                 <div style={{ display: 'flex', gap: '0.8rem', alignItems: 'flex-start' }}>
                   <Globe size={18} color="#9A7824" style={{ flexShrink: 0, marginTop: '2px' }} />
                   <div>
-                    <strong style={{ color: '#9A7824' }}>Global Presence:</strong><br />
-                    Worldwide Shipping &amp; Client Services
+                    <strong style={{ color: '#9A7824', fontSize: '0.95rem' }}>Presence:</strong><br />
+                    <span>Worldwide</span>
                   </div>
                 </div>
 

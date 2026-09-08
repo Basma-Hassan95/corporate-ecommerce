@@ -9,12 +9,6 @@ export default function InteractiveCustomizationForm() {
     productDetails: ''
   });
 
-  // Selected Option Index for each question (Default to 0)
-  const [q1Logo, setQ1Logo] = useState(0);
-  const [q2Branding, setQ2Branding] = useState(0);
-  const [q3Packaging, setQ3Packaging] = useState(0);
-  const [q4Timeline, setQ4Timeline] = useState(0);
-
   const [submitted, setSubmitted] = useState(false);
 
   const handleInputChange = (e) => {
@@ -32,12 +26,7 @@ export default function InteractiveCustomizationForm() {
       `👤 *Full Name:* ${formData.fullName}\n` +
       `✉️ *Email:* ${formData.email}\n` +
       `📱 *WhatsApp:* ${formData.whatsapp}\n` +
-      `📝 *Product Query:* ${formData.productDetails || 'N/A'}\n\n` +
-      `*PROJECT SPECIFICATIONS:*\n` +
-      `1️⃣ *Logo Status:* ${Q1_OPTIONS[q1Logo]}\n` +
-      `2️⃣ *Branding Technique:* ${Q2_OPTIONS[q2Branding]}\n` +
-      `3️⃣ *Packaging:* ${Q3_OPTIONS[q3Packaging]}\n` +
-      `4️⃣ *Timeline:* ${Q4_OPTIONS[q4Timeline]}`;
+      `📝 *Product Query:* ${formData.productDetails || 'N/A'}`;
 
     window.open(`https://wa.me/923402695130?text=${encodeURIComponent(waText)}`, '_blank');
 
@@ -45,34 +34,6 @@ export default function InteractiveCustomizationForm() {
       setSubmitted(false);
     }, 5000);
   };
-
-  // QUESTION 1 OPTIONS
-  const Q1_OPTIONS = [
-    "No, I need Wakeel & Sons to design & vector my logo",
-    "Yes, I have vector logo / AI / EPS / PDF files ready",
-    "Partial — I have PNG / reference wireframe images"
-  ];
-
-  // QUESTION 2 OPTIONS
-  const Q2_OPTIONS = [
-    "Micro Laser Debossing (0.1mm Fiber Laser Heat Burnish)",
-    "UV Direct-to-Substrate Full-Color Printing",
-    "3D Computerized High-Density Thread Embroidery"
-  ];
-
-  // QUESTION 3 OPTIONS
-  const Q3_OPTIONS = [
-    "Standard Protective Packaging",
-    "VIP Rigid Magnetic Box with Custom Velvet Cutouts",
-    "Custom Foil-Stamped Box Lids & Presentation Sleeves"
-  ];
-
-  // QUESTION 4 OPTIONS
-  const Q4_OPTIONS = [
-    "Express Priority (48-Hour Sample Proof Delivery)",
-    "Standard Corporate Milestone Delivery",
-    "Flexible Scheduled Batch Delivery"
-  ];
 
   return (
     <div style={{ maxWidth: '820px', margin: '0 auto' }}>
@@ -208,157 +169,6 @@ export default function InteractiveCustomizationForm() {
               }}
               className="custom-input-field"
             />
-          </div>
-
-          {/* SECTION DIVIDER: PROJECT BRIEF */}
-          <div style={{ marginBottom: '1.8rem', paddingTop: '1.2rem', borderTop: '1px solid var(--border-light)' }}>
-            <span style={{ fontSize: '0.75rem', fontWeight: '800', letterSpacing: '0.12em', color: '#9A7824', textTransform: 'uppercase' }}>
-              PROJECT BRIEF
-            </span>
-          </div>
-
-          {/* QUESTION 1: DO YOU HAVE A LOGO / DESIGN READY? */}
-          <div style={{ marginBottom: '2rem' }}>
-            <label style={{ display: 'block', fontSize: '0.78rem', fontWeight: '800', color: 'var(--text-dark-coffee)', letterSpacing: '0.06em', marginBottom: '0.8rem', textTransform: 'uppercase' }}>
-              1. DO YOU HAVE A LOGO / DESIGN READY?
-            </label>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
-              {Q1_OPTIONS.map((opt, idx) => {
-                const isSelected = q1Logo === idx;
-                return (
-                  <div
-                    key={idx}
-                    onClick={() => setQ1Logo(idx)}
-                    style={{
-                      padding: '0.85rem 1.2rem',
-                      borderRadius: '12px',
-                      border: isSelected ? '2px solid #9A7824' : '1px solid var(--border-light)',
-                      backgroundColor: isSelected ? 'rgba(154, 120, 36, 0.07)' : '#FFFFFF',
-                      color: isSelected ? '#9A7824' : 'var(--text-dark-coffee)',
-                      fontWeight: isSelected ? '700' : '500',
-                      fontSize: '0.88rem',
-                      cursor: 'pointer',
-                      transition: 'all 0.25s ease',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between'
-                    }}
-                    className="brief-option-row"
-                  >
-                    <span>{opt}</span>
-                    {isSelected && <CheckCircle2 size={18} color="#9A7824" />}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* QUESTION 2: PREFERRED BRANDING TECHNIQUE */}
-          <div style={{ marginBottom: '2rem' }}>
-            <label style={{ display: 'block', fontSize: '0.78rem', fontWeight: '800', color: 'var(--text-dark-coffee)', letterSpacing: '0.06em', marginBottom: '0.8rem', textTransform: 'uppercase' }}>
-              2. PREFERRED BRANDING TECHNIQUE?
-            </label>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
-              {Q2_OPTIONS.map((opt, idx) => {
-                const isSelected = q2Branding === idx;
-                return (
-                  <div
-                    key={idx}
-                    onClick={() => setQ2Branding(idx)}
-                    style={{
-                      padding: '0.85rem 1.2rem',
-                      borderRadius: '12px',
-                      border: isSelected ? '2px solid #9A7824' : '1px solid var(--border-light)',
-                      backgroundColor: isSelected ? 'rgba(154, 120, 36, 0.07)' : '#FFFFFF',
-                      color: isSelected ? '#9A7824' : 'var(--text-dark-coffee)',
-                      fontWeight: isSelected ? '700' : '500',
-                      fontSize: '0.88rem',
-                      cursor: 'pointer',
-                      transition: 'all 0.25s ease',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between'
-                    }}
-                    className="brief-option-row"
-                  >
-                    <span>{opt}</span>
-                    {isSelected && <CheckCircle2 size={18} color="#9A7824" />}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* QUESTION 3: PACKAGING & PRESENTATION */}
-          <div style={{ marginBottom: '2rem' }}>
-            <label style={{ display: 'block', fontSize: '0.78rem', fontWeight: '800', color: 'var(--text-dark-coffee)', letterSpacing: '0.06em', marginBottom: '0.8rem', textTransform: 'uppercase' }}>
-              3. PACKAGING &amp; PRESENTATION PREFERENCE?
-            </label>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
-              {Q3_OPTIONS.map((opt, idx) => {
-                const isSelected = q3Packaging === idx;
-                return (
-                  <div
-                    key={idx}
-                    onClick={() => setQ3Packaging(idx)}
-                    style={{
-                      padding: '0.85rem 1.2rem',
-                      borderRadius: '12px',
-                      border: isSelected ? '2px solid #9A7824' : '1px solid var(--border-light)',
-                      backgroundColor: isSelected ? 'rgba(154, 120, 36, 0.07)' : '#FFFFFF',
-                      color: isSelected ? '#9A7824' : 'var(--text-dark-coffee)',
-                      fontWeight: isSelected ? '700' : '500',
-                      fontSize: '0.88rem',
-                      cursor: 'pointer',
-                      transition: 'all 0.25s ease',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between'
-                    }}
-                    className="brief-option-row"
-                  >
-                    <span>{opt}</span>
-                    {isSelected && <CheckCircle2 size={18} color="#9A7824" />}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* QUESTION 4: TIMELINE & DELIVERY SCHEDULE */}
-          <div style={{ marginBottom: '2.5rem' }}>
-            <label style={{ display: 'block', fontSize: '0.78rem', fontWeight: '800', color: 'var(--text-dark-coffee)', letterSpacing: '0.06em', marginBottom: '0.8rem', textTransform: 'uppercase' }}>
-              4. PREFERRED TIMELINE / DELIVERY SCHEDULE?
-            </label>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
-              {Q4_OPTIONS.map((opt, idx) => {
-                const isSelected = q4Timeline === idx;
-                return (
-                  <div
-                    key={idx}
-                    onClick={() => setQ4Timeline(idx)}
-                    style={{
-                      padding: '0.85rem 1.2rem',
-                      borderRadius: '12px',
-                      border: isSelected ? '2px solid #9A7824' : '1px solid var(--border-light)',
-                      backgroundColor: isSelected ? 'rgba(154, 120, 36, 0.07)' : '#FFFFFF',
-                      color: isSelected ? '#9A7824' : 'var(--text-dark-coffee)',
-                      fontWeight: isSelected ? '700' : '500',
-                      fontSize: '0.88rem',
-                      cursor: 'pointer',
-                      transition: 'all 0.25s ease',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between'
-                    }}
-                    className="brief-option-row"
-                  >
-                    <span>{opt}</span>
-                    {isSelected && <CheckCircle2 size={18} color="#9A7824" />}
-                  </div>
-                );
-              })}
-            </div>
           </div>
 
           {/* SUBMIT INQUIRY BUTTON */}

@@ -163,9 +163,12 @@ export default function Footer({ setActivePage = () => {}, onSelectCategory = ()
                 <MapPin size={17} color="#F4EEDC" style={{ flexShrink: 0, marginTop: '2px' }} />
                 <span>Hakeem Center, Karachi</span>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-                <Globe size={17} color="#F4EEDC" style={{ flexShrink: 0 }} />
-                <span>Presence: Worldwide</span>
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
+                <Globe size={17} color="#F4EEDC" style={{ flexShrink: 0, marginTop: '2px' }} />
+                <div>
+                  <strong style={{ display: 'block', color: '#F4EEDC', fontSize: '0.85rem', fontWeight: '700' }}>Presence:</strong>
+                  <span>Worldwide</span>
+                </div>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
                 <Phone size={17} color="#F4EEDC" style={{ flexShrink: 0 }} />
