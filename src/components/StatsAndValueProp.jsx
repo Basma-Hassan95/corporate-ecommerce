@@ -98,7 +98,7 @@ export default function StatsAndValueProp({ setActivePage = () => {} }) {
   const cardsSectionRef = useRef(null);
   const cardsContainerRef = useRef(null);
 
-  const headlineText = "Bridging Artisan Craftsmanship & Enterprise Scale";
+  const headlineText = "Delivering luxury gifts across hundreds of offices shouldn’t mean cutting corners on quality. We combine hand-stitched attention to detail with seamless volume fulfillment, ensuring every recipient experiences the finest corporate gift your company can offer.";
   const words = headlineText.split(" ");
 
   const solutionsText = "End-to-End Gifting Solutions for Modern Enterprises";
@@ -292,10 +292,10 @@ export default function StatsAndValueProp({ setActivePage = () => {} }) {
                 ref={headingRef}
                 style={{ 
                   fontFamily: 'var(--font-heading)', 
-                  fontSize: '2.4rem', 
-                  lineHeight: 1.25, 
+                  fontSize: 'clamp(1.25rem, 1.9vw, 1.55rem)', 
+                  lineHeight: 1.38, 
                   fontWeight: '600', 
-                  marginBottom: '1.2rem' 
+                  marginBottom: '1.4rem' 
                 }}
               >
                 {words.map((word, idx) => (
@@ -304,7 +304,7 @@ export default function StatsAndValueProp({ setActivePage = () => {} }) {
                     className="reveal-word"
                     style={{
                       display: 'inline-block',
-                      marginRight: '0.3em',
+                      marginRight: '0.28em',
                       transition: 'color 0.1s ease',
                       color: 'rgba(33, 21, 20, 0.22)'
                     }}
@@ -313,10 +313,6 @@ export default function StatsAndValueProp({ setActivePage = () => {} }) {
                   </span>
                 ))}
               </h2>
-
-              <p style={{ fontSize: '0.92rem', color: 'var(--accent-dusty-taupe)', lineHeight: 1.6, marginBottom: '1.4rem' }}>
-                We specialize in custom-crafted corporate gifts that blend sustainability with executive luxury. Every piece is built to showcase your company’s commitment to quality.
-              </p>
 
               <button
                 onClick={() => setActivePage('about')}
