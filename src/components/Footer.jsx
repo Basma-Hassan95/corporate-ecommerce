@@ -35,35 +35,17 @@ export default function Footer({ setActivePage = () => {}, onSelectCategory = ()
           
           {/* 1. Brand Info */}
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', marginBottom: '1.2rem' }}>
+            <div style={{ marginBottom: '1.2rem', backgroundColor: '#FAF9F6', padding: '0.6rem 1rem', borderRadius: '12px', display: 'inline-block', border: '1px solid rgba(244, 238, 220, 0.4)', boxShadow: '0 4px 15px rgba(0,0,0,0.2)' }}>
               <img 
-                src="/logo.jpg" 
-                alt="Wakeel & Sons Logo" 
+                src="/logo.png" 
+                alt="Wakeel & Sons Corporate Gifts" 
                 style={{ 
-                  width: '54px', 
-                  height: '54px', 
-                  borderRadius: '12px', 
-                  objectFit: 'cover', 
-                  boxShadow: '0 4px 15px rgba(0,0,0,0.3)',
-                  border: '1px solid rgba(244, 238, 220, 0.4)',
-                  flexShrink: 0
+                  height: '50px', 
+                  width: 'auto', 
+                  display: 'block',
+                  objectFit: 'contain'
                 }} 
               />
-              <div>
-                <h3 style={{ 
-                  fontFamily: 'var(--font-heading)', 
-                  color: '#FFFFFF', 
-                  fontSize: '1.5rem', 
-                  letterSpacing: '0.06em', 
-                  margin: 0,
-                  fontWeight: '700'
-                }}>
-                  WAKEEL &amp; SONS
-                </h3>
-                <span style={{ fontSize: '0.7rem', color: '#F4EEDC', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: '600' }}>
-                  FINE LEATHER GOODS
-                </span>
-              </div>
             </div>
             <p style={{ 
               fontSize: '0.9rem', 

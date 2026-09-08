@@ -112,15 +112,13 @@ export default function AboutView({ setActivePage = () => {} }) {
           <div className="scroll-reveal reveal-up">
             <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.5rem' }}>
               <img 
-                src="/logo.jpg" 
+                src="/logo.png" 
                 alt="Wakeel & Sons Official Crest" 
                 style={{ 
-                  width: '110px', 
                   height: '110px', 
-                  borderRadius: '22px', 
-                  objectFit: 'cover', 
-                  boxShadow: '0 10px 30px rgba(154, 120, 36, 0.35)',
-                  border: '2px solid rgba(154, 120, 36, 0.5)'
+                  width: 'auto',
+                  objectFit: 'contain',
+                  mixBlendMode: 'multiply'
                 }} 
               />
             </div>
