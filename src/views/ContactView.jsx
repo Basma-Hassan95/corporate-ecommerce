@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Clock, ChevronDown, ChevronUp, HelpCircle, Globe } from 'lucide-react';
 import InteractiveCustomizationForm from '../components/InteractiveCustomizationForm';
-import WhatsAppIcon from '../components/WhatsAppIcon';
 
 export default function ContactView() {
   const [openFaq, setOpenFaq] = useState(null);
@@ -61,45 +60,6 @@ export default function ContactView() {
           {/* RIGHT COLUMN: WHATSAPP CONCIERGE & ATELIER INFO */}
           <div style={{ gridColumn: 'span 5', display: 'flex', flexDirection: 'column', gap: '1.8rem' }} className="contact-info-col">
             
-            {/* WHATSAPP CHAT CARD */}
-            <div style={{ backgroundColor: '#25D366', color: '#FFFFFF', padding: '2.2rem', borderRadius: '24px', boxShadow: '0 12px 30px rgba(37, 211, 102, 0.35)' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '0.8rem' }}>
-                <div style={{ width: '42px', height: '42px', borderRadius: '50%', backgroundColor: '#FFFFFF', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <WhatsAppIcon size={26} color="#25D366" />
-                </div>
-                <h3 style={{ fontSize: '1.35rem', fontFamily: 'var(--font-heading)', margin: 0, fontWeight: '700' }}>
-                  Instant WhatsApp Concierge
-                </h3>
-              </div>
-              <p style={{ fontSize: '0.88rem', color: 'rgba(255, 255, 255, 0.95)', lineHeight: 1.6, marginBottom: '1.4rem' }}>
-                Need immediate assistance with custom initials font choice, custom gift box choices, or urgent bulk dispatch? Chat directly with our master craftsmen on WhatsApp.
-              </p>
-              <a 
-                href="https://wa.me/923402695130?text=Hello%20Wakeel%20%26%20Sons%2C%20I%20have%20a%20question%20about%20customized%20corporate%20gifts" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                style={{
-                  width: '100%',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: '0.6rem',
-                  textDecoration: 'none',
-                  backgroundColor: '#FFFFFF',
-                  color: '#25D366',
-                  fontWeight: '700',
-                  padding: '0.85rem 1.4rem',
-                  borderRadius: '30px',
-                  boxShadow: '0 6px 20px rgba(0,0,0,0.15)',
-                  transition: 'all 0.3s ease',
-                  boxSizing: 'border-box'
-                }}
-              >
-                <WhatsAppIcon size={22} color="#25D366" />
-                <span>Launch WhatsApp Concierge</span>
-              </a>
-            </div>
-
             {/* ATELIER LOCATION CARD */}
             <div style={{ backgroundColor: '#FFFFFF', padding: '2.2rem', borderRadius: '24px', border: '1px solid var(--border-light)', boxShadow: '0 10px 30px rgba(0,0,0,0.04)' }}>
               <h4 style={{ fontSize: '1.15rem', fontFamily: 'var(--font-heading)', color: '#9A7824', marginBottom: '1.2rem', paddingBottom: '0.6rem', borderBottom: '1px solid var(--border-light)', fontWeight: '700' }}>
