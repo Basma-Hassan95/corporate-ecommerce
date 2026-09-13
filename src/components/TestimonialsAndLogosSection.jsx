@@ -4,6 +4,10 @@ import { BRAND_IMAGES } from '../data/products';
 
 const CORPORATE_LOGOS = [
   { 
+    name: 'Corporate Partner 1', 
+    logoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHhJtpbvOYqc0NkwwsMLhKqxQhaioywq53TXv-526bOA&s' 
+  },
+  { 
     name: 'Meezan Bank', 
     logoUrl: 'https://companieslogo.com/img/orig/MEBL.PK-a35991f1.png?t=1720244492' 
   },
