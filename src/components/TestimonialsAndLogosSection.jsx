@@ -29,7 +29,7 @@ const CORPORATE_LOGOS = [
   },
   { 
     name: 'Swvl', 
-    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Swvl_Logo.png/512px-Swvl_Logo.png' 
+    logoUrl: 'https://iconlogovector.com/uploads/images/2025/02/lg-67add1f115927-Swvl.webp' 
   },
   { 
     name: 'Khaadi', 
