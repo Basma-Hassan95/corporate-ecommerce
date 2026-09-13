@@ -71,6 +71,7 @@ const TESTIMONIAL_SLIDES = [
 
 export default function TestimonialsAndLogosSection({ setActivePage = () => {} }) {
   const [currentIdx, setCurrentIdx] = useState(0);
+  const activeItem = TESTIMONIAL_SLIDES[currentIdx];
 
   // Auto-slide every 6 seconds
   useEffect(() => {
