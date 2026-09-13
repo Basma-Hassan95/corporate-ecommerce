@@ -20,6 +20,10 @@ const CORPORATE_LOGOS = [
     logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Habib_Bank_Limited_logo.svg/512px-Habib_Bank_Limited_logo.svg.png' 
   },
   { 
+    name: 'Lucky Cement', 
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/10/Lucky_Cement_logo.png?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original' 
+  },
+  { 
     name: 'Unilever', 
     logoUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/8/87/Unilever.svg/512px-Unilever.svg.png' 
   },
