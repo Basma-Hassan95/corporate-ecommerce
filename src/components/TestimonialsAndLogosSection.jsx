@@ -4,52 +4,36 @@ import { BRAND_IMAGES } from '../data/products';
 
 const CORPORATE_LOGOS = [
   { 
-    name: 'HBL', 
-    text: 'HBL', 
-    hideText: true,
-    bgColor: '#008269',
-    logoUrl: 'https://www.hbl.com/assets/images/HBL-Device-Logo-White.png' 
-  },
-  { 
     name: 'Meezan Bank', 
-    text: 'MEEZAN BANK', 
-    hideText: true,
     logoUrl: 'https://companieslogo.com/img/orig/MEBL.PK-a35991f1.png?t=1720244492' 
   },
   { 
-    name: 'Swvl', 
-    text: 'SWVL', 
-    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Swvl_Logo.png/320px-Swvl_Logo.png' 
+    name: 'TUC', 
+    logoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR57Sr4uImEfq9qF-mwrrpa1mrJqw1OljRMEB77cB7ahg&s' 
   },
   { 
-    name: 'Dura Built', 
-    text: 'DURA BUILT', 
-    logoUrl: 'https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?auto=format&fit=crop&q=80&w=200' 
-  },
-  { 
-    name: 'Lucky Cement', 
-    text: 'LUCKY CEMENT', 
-    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Lucky_Cement_logo.png/320px-Lucky_Cement_logo.png' 
-  },
-  { 
-    name: 'Engro', 
-    text: 'ENGRO', 
-    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Engro_Corporation_logo.svg/320px-Engro_Corporation_logo.svg.png' 
+    name: 'HBL', 
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Habib_Bank_Limited_logo.svg/512px-Habib_Bank_Limited_logo.svg.png' 
   },
   { 
     name: 'Unilever', 
-    text: 'UNILEVER', 
-    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/8/87/Unilever.svg/320px-Unilever.svg.png' 
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/8/87/Unilever.svg/512px-Unilever.svg.png' 
   },
   { 
-    name: 'MCB Bank', 
-    text: 'MCB BANK', 
-    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/MCB_Bank_logo.svg/320px-MCB_Bank_logo.svg.png' 
+    name: 'Swvl', 
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Swvl_Logo.png/512px-Swvl_Logo.png' 
   },
   { 
     name: 'Khaadi', 
-    text: 'KHAADI', 
-    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Khaadi_logo.svg/320px-Khaadi_logo.svg.png' 
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Khaadi_logo.svg/512px-Khaadi_logo.svg.png' 
+  },
+  { 
+    name: 'Engro', 
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Engro_Corporation_logo.svg/512px-Engro_Corporation_logo.svg.png' 
+  },
+  { 
+    name: 'MCB Bank', 
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/MCB_Bank_logo.svg/512px-MCB_Bank_logo.svg.png' 
   }
 ];
 
@@ -129,7 +113,7 @@ export default function TestimonialsAndLogosSection({ setActivePage = () => {} }
         <div style={{ position: 'absolute', top: 0, bottom: 0, left: 0, width: '120px', background: 'linear-gradient(90deg, var(--surface-linen) 0%, transparent 100%)', zIndex: 10, pointerEvents: 'none' }} />
         <div style={{ position: 'absolute', top: 0, bottom: 0, right: 0, width: '120px', background: 'linear-gradient(270deg, var(--surface-linen) 0%, transparent 100%)', zIndex: 10, pointerEvents: 'none' }} />
 
-        <div className="logos-marquee-track" style={{ display: 'flex', gap: '1.8rem', width: 'max-content' }}>
+        <div className="logos-marquee-track" style={{ display: 'flex', gap: '3.8rem', alignItems: 'center', width: 'max-content' }}>
           {[...CORPORATE_LOGOS, ...CORPORATE_LOGOS, ...CORPORATE_LOGOS, ...CORPORATE_LOGOS].map((logo, idx) => (
             <div 
               key={idx}
@@ -137,32 +121,28 @@ export default function TestimonialsAndLogosSection({ setActivePage = () => {} }
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                gap: '0.65rem',
-                padding: '0.65rem 1.4rem',
-                borderRadius: '30px',
-                backgroundColor: logo.bgColor || 'var(--surface-white)',
-                border: logo.bgColor ? 'none' : '1px solid var(--border-light)',
-                boxShadow: '0 2px 10px rgba(0,0,0,0.03)',
-                fontSize: '0.85rem',
-                fontWeight: '700',
-                letterSpacing: '0.06em',
-                color: logo.bgColor ? '#FFFFFF' : 'var(--text-dark-coffee)',
+                padding: '0.4rem 0.8rem',
                 whiteSpace: 'nowrap',
-                transition: 'all 0.3s ease'
+                opacity: 0.9,
+                transition: 'all 0.3s ease',
+                cursor: 'pointer'
               }}
-              className="logo-capsule-card"
+              className="standalone-logo-item"
             >
-              {logo.logoUrl ? (
-                <img 
-                  src={logo.logoUrl} 
-                  alt={logo.name}
-                  style={{ height: '22px', width: 'auto', maxHeight: '26px', objectFit: 'contain' }}
-                  onError={(e) => { e.currentTarget.style.display = 'none'; }}
-                />
-              ) : (
-                <span>✦</span>
-              )}
-              {!logo.hideText && <span>{logo.text}</span>}
+              <img 
+                src={logo.logoUrl} 
+                alt={logo.name}
+                style={{ 
+                  height: '42px', 
+                  width: 'auto', 
+                  maxHeight: '48px', 
+                  maxWidth: '160px',
+                  objectFit: 'contain'
+                }}
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                }}
+              />
             </div>
           ))}
         </div>
