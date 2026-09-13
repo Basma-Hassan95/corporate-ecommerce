@@ -539,16 +539,10 @@ export default function AboutView({ setActivePage = () => {} }) {
                 <div style={{ height: '240px', overflow: 'hidden' }}>
                   <img src={member.image} alt={member.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
-                <div style={{ padding: '1.5rem 1.2rem' }}>
-                  <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', color: '#9A7824', margin: '0 0 0.2rem', fontWeight: '600' }}>
+                <div style={{ padding: '1.4rem 1.2rem' }}>
+                  <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', color: '#9A7824', margin: 0, fontWeight: '600' }}>
                     {member.name}
                   </h3>
-                  <p style={{ fontSize: '0.82rem', color: 'var(--text-dark-coffee)', fontWeight: '600', margin: '0 0 0.4rem' }}>
-                    {member.role}
-                  </p>
-                  <span style={{ fontSize: '0.74rem', color: 'var(--accent-dusty-taupe)', fontWeight: '500' }}>
-                    {member.experience}
-                  </span>
                 </div>
               </div>
             ))}
