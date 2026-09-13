@@ -3,14 +3,46 @@ import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import { BRAND_IMAGES } from '../data/products';
 
 const CORPORATE_LOGOS = [
-  { name: 'HBL', text: 'HBL' },
-  { name: 'Swvl', text: 'SWVL' },
-  { name: 'Adamjee DuraBuilt', text: 'DURA BUILT' },
-  { name: 'Lucky Cement', text: 'LUCKY CEMENT' },
-  { name: 'Engro', text: 'ENGRO' },
-  { name: 'Unilever', text: 'UNILEVER' },
-  { name: 'MCB', text: 'MCB BANK' },
-  { name: 'Khaadi', text: 'KHAADI' }
+  { 
+    name: 'HBL', 
+    text: 'HBL', 
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Habib_Bank_Limited_logo.svg/320px-Habib_Bank_Limited_logo.svg.png' 
+  },
+  { 
+    name: 'Swvl', 
+    text: 'SWVL', 
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Swvl_Logo.png/320px-Swvl_Logo.png' 
+  },
+  { 
+    name: 'Dura Built', 
+    text: 'DURA BUILT', 
+    logoUrl: 'https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?auto=format&fit=crop&q=80&w=200' 
+  },
+  { 
+    name: 'Lucky Cement', 
+    text: 'LUCKY CEMENT', 
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Lucky_Cement_logo.png/320px-Lucky_Cement_logo.png' 
+  },
+  { 
+    name: 'Engro', 
+    text: 'ENGRO', 
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Engro_Corporation_logo.svg/320px-Engro_Corporation_logo.svg.png' 
+  },
+  { 
+    name: 'Unilever', 
+    text: 'UNILEVER', 
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/8/87/Unilever.svg/320px-Unilever.svg.png' 
+  },
+  { 
+    name: 'MCB Bank', 
+    text: 'MCB BANK', 
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/MCB_Bank_logo.svg/320px-MCB_Bank_logo.svg.png' 
+  },
+  { 
+    name: 'Khaadi', 
+    text: 'KHAADI', 
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Khaadi_logo.svg/320px-Khaadi_logo.svg.png' 
+  }
 ];
 
 const TESTIMONIAL_SLIDES = [
@@ -39,7 +71,6 @@ const TESTIMONIAL_SLIDES = [
 
 export default function TestimonialsAndLogosSection({ setActivePage = () => {} }) {
   const [currentIdx, setCurrentIdx] = useState(0);
-  const activeItem = TESTIMONIAL_SLIDES[currentIdx];
 
   // Auto-slide every 6 seconds
   useEffect(() => {
@@ -96,22 +127,32 @@ export default function TestimonialsAndLogosSection({ setActivePage = () => {} }
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center',
-                padding: '0.75rem 1.6rem',
+                gap: '0.65rem',
+                padding: '0.65rem 1.4rem',
                 borderRadius: '30px',
                 backgroundColor: 'var(--surface-white)',
                 border: '1px solid var(--border-light)',
                 boxShadow: '0 2px 10px rgba(0,0,0,0.03)',
                 fontSize: '0.85rem',
                 fontWeight: '700',
-                letterSpacing: '0.08em',
+                letterSpacing: '0.06em',
                 color: 'var(--text-dark-coffee)',
                 whiteSpace: 'nowrap',
                 transition: 'all 0.3s ease'
               }}
               className="logo-capsule-card"
             >
-              <span>✦ {logo.text}</span>
+              {logo.logoUrl ? (
+                <img 
+                  src={logo.logoUrl} 
+                  alt={logo.name}
+                  style={{ height: '20px', width: 'auto', maxHeight: '22px', objectFit: 'contain' }}
+                  onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                />
+              ) : (
+                <span>✦</span>
+              )}
+              <span>{logo.text}</span>
             </div>
           ))}
         </div>
