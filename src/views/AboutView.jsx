@@ -482,10 +482,10 @@ export default function AboutView({ setActivePage = () => {} }) {
               {activeTab === 'vision' && (
                 <div>
                   <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.8rem', color: '#9A7824', marginBottom: '0.8rem', fontWeight: '600' }}>
-                    The Premier Global Benchmark for Bespoke Leather Luxury
+                    The World’s Premier Bespoke Corporate Workshop
                   </h3>
                   <p style={{ fontSize: '0.98rem', color: 'var(--text-dark-coffee)', opacity: 0.85, lineHeight: 1.7, maxWidth: '820px', margin: 0 }}>
-                    To be recognized globally as the definitive leader in bespoke corporate leather solutions—defining the intersection of timeless artisan tradition, sustainable production, and modern corporate identity.
+                    To remain the global reference point for sustainable, handcrafted leather goods by integrating ethical sourcing, timeless aesthetics, and dependable corporate execution.
                   </p>
                 </div>
               )}
