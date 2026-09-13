@@ -11,7 +11,6 @@ function AnimatedCounter({ targetNumber, suffix = '', isVisible = false }) {
     if (!isVisible || animRef.current) return;
     animRef.current = true;
 
-    let start = 0;
     const duration = 2000;
     const startTime = performance.now();
 
@@ -19,7 +18,7 @@ function AnimatedCounter({ targetNumber, suffix = '', isVisible = false }) {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
       const easedProgress = 1 - Math.pow(1 - progress, 3);
-      setCount(Math.floor(easedProgress * targetNumber));
+      setCount(easedProgress * targetNumber);
 
       if (progress < 1) {
         requestAnimationFrame(updateCount);
@@ -31,7 +30,11 @@ function AnimatedCounter({ targetNumber, suffix = '', isVisible = false }) {
     requestAnimationFrame(updateCount);
   }, [targetNumber, isVisible]);
 
-  return <span>{count.toLocaleString()}{suffix}</span>;
+  const displayVal = Number.isInteger(targetNumber)
+    ? Math.floor(count).toLocaleString()
+    : count.toFixed(1);
+
+  return <span>{displayVal}{suffix}</span>;
 }
 
 export default function AboutView({ setActivePage = () => {} }) {
@@ -41,6 +44,8 @@ export default function AboutView({ setActivePage = () => {} }) {
   const containerRef = useRef(null);
 
   useEffect(() => {
+    document.title = "Custom Leather Corporate Gifts & Bespoke Executive Goods | Wakeel & Sons";
+
     // IntersectionObserver to animate elements ONLY when user scrolls down to them
     const observerCallback = (entries) => {
       entries.forEach((entry) => {
@@ -275,15 +280,15 @@ export default function AboutView({ setActivePage = () => {} }) {
             {/* Left Details (SLIDES IN FROM LEFT ON SCROLL) */}
             <div style={{ gridColumn: 'span 6' }} className="scroll-reveal reveal-left">
               <span style={{ fontSize: '0.75rem', fontWeight: '700', letterSpacing: '0.12em', color: '#9A7824', textTransform: 'uppercase', marginBottom: '0.6rem', display: 'block' }}>
-                ✦ SINCE 1978 HERITAGE HISTORY
+                ✦ OUR STORY &amp; CRAFTSMANSHIP
               </span>
 
               <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.5rem', color: 'var(--text-dark-coffee)', lineHeight: 1.2, marginBottom: '1.2rem', fontWeight: '600' }}>
-                We Are Leather Advisors &amp; Corporate Consultants Since 1978.
+                Crafting Distinction: Decades of Leather Mastery &amp; Corporate Partnership
               </h2>
 
               <p style={{ fontSize: '0.95rem', color: 'var(--text-dark-coffee)', opacity: 0.85, lineHeight: 1.7, marginBottom: '1.8rem' }}>
-                Unlike mass-manufactured accessories that rely on cardboard and synthetic PU linings, every piece from Wakeel &amp; Sons is crafted from 100% organic vegetable-tanned leather hides.
+                Founded on an uncompromising respect for traditional leatherworking, our workshop bridges authentic hand-craftsmanship with modern corporate scale. We partner with multinational corporations, luxury brands, and executive teams to transform functional items into memorable brand statements. Every stitch, cut, and embossed logo reflects our obsession with precision, durability, and elegance.
               </p>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
@@ -293,10 +298,10 @@ export default function AboutView({ setActivePage = () => {} }) {
                   </div>
                   <div>
                     <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.1rem', color: '#9A7824', margin: '0 0 0.2rem', fontWeight: '600' }}>
-                      48+ Years of Unmatched Heritage
+                      48+ Years of Proven Heritage
                     </h4>
                     <p style={{ fontSize: '0.84rem', color: 'var(--accent-dusty-taupe)', margin: 0, lineHeight: 1.5 }}>
-                      Trusted by top fortune 500 corporations, executive boardrooms, and luxury clients nationwide.
+                      Deep-rooted expertise in full-grain leather selection, precision tanning, and time-honored bench craftsmanship.
                     </p>
                   </div>
                 </div>
@@ -307,10 +312,10 @@ export default function AboutView({ setActivePage = () => {} }) {
                   </div>
                   <div>
                     <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.1rem', color: '#9A7824', margin: '0 0 0.2rem', fontWeight: '600' }}>
-                      0.1mm Micro-Vector Laser Debossing
+                      Scalable B2B Fulfillment
                     </h4>
                     <p style={{ fontSize: '0.84rem', color: 'var(--accent-dusty-taupe)', margin: 0, lineHeight: 1.5 }}>
-                      Permanent heat-burnished monograms and 24K gold foil stamping that will never fade or peel.
+                      Seamless supply-chain execution capable of handling high-volume custom orders without compromising hand-finished detail.
                     </p>
                   </div>
                 </div>
@@ -368,25 +373,25 @@ export default function AboutView({ setActivePage = () => {} }) {
                 <AnimatedCounter targetNumber={500000} suffix="+" isVisible={statsVisible} />
               </div>
               <div style={{ fontSize: '0.86rem', color: 'var(--accent-dusty-taupe)', fontWeight: '600' }}>
-                Products Manufactured
+                Bespoke Leather Goods Delivered
               </div>
             </div>
 
             <div style={{ backgroundColor: '#FFFFFF', padding: '2rem 1.2rem', borderRadius: '16px', border: '1px solid var(--border-light)' }}>
               <div style={{ fontFamily: 'var(--font-heading)', fontSize: '2.5rem', fontWeight: '700', color: '#9A7824', lineHeight: 1, marginBottom: '0.4rem' }}>
-                <AnimatedCounter targetNumber={1000} suffix="+" isVisible={statsVisible} />
+                <AnimatedCounter targetNumber={1200} suffix="+" isVisible={statsVisible} />
               </div>
               <div style={{ fontSize: '0.86rem', color: 'var(--accent-dusty-taupe)', fontWeight: '600' }}>
-                Corporate Partners
+                Corporate &amp; Luxury Clients Globally
               </div>
             </div>
 
             <div style={{ backgroundColor: '#FFFFFF', padding: '2rem 1.2rem', borderRadius: '16px', border: '1px solid var(--border-light)' }}>
-              <div style={{ fontFamily: 'var(--font-heading)', fontSize: '2.2rem', fontWeight: '700', color: '#9A7824', lineHeight: 1, marginBottom: '0.4rem' }}>
-                Worldwide
+              <div style={{ fontFamily: 'var(--font-heading)', fontSize: '2.5rem', fontWeight: '700', color: '#9A7824', lineHeight: 1, marginBottom: '0.4rem' }}>
+                <AnimatedCounter targetNumber={45} suffix="+" isVisible={statsVisible} />
               </div>
               <div style={{ fontSize: '0.86rem', color: 'var(--accent-dusty-taupe)', fontWeight: '600' }}>
-                Global Presence
+                Countries Worldwide Logistics &amp; Distribution
               </div>
             </div>
 
@@ -395,16 +400,16 @@ export default function AboutView({ setActivePage = () => {} }) {
                 <AnimatedCounter targetNumber={48} suffix="+" isVisible={statsVisible} />
               </div>
               <div style={{ fontSize: '0.86rem', color: 'var(--accent-dusty-taupe)', fontWeight: '600' }}>
-                Years Heritage Legacy
+                Years Unbroken Heritage of Excellence
               </div>
             </div>
 
             <div style={{ backgroundColor: '#FFFFFF', padding: '2rem 1.2rem', borderRadius: '16px', border: '1px solid var(--border-light)' }}>
               <div style={{ fontFamily: 'var(--font-heading)', fontSize: '2.5rem', fontWeight: '700', color: '#9A7824', lineHeight: 1, marginBottom: '0.4rem' }}>
-                <AnimatedCounter targetNumber={98} suffix="%" isVisible={statsVisible} />
+                <AnimatedCounter targetNumber={99.2} suffix="%" isVisible={statsVisible} />
               </div>
               <div style={{ fontSize: '0.86rem', color: 'var(--accent-dusty-taupe)', fontWeight: '600' }}>
-                Client Retention SLA
+                Client Retention &amp; Satisfaction
               </div>
             </div>
 
@@ -472,10 +477,10 @@ export default function AboutView({ setActivePage = () => {} }) {
               {activeTab === 'mission' && (
                 <div>
                   <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.8rem', color: '#9A7824', marginBottom: '0.8rem', fontWeight: '600' }}>
-                    Engineered For Executive &amp; Corporate Excellence
+                    Elevating Corporate Gifting Through Heritage Craftsmanship
                   </h3>
                   <p style={{ fontSize: '0.98rem', color: 'var(--text-dark-coffee)', opacity: 0.85, lineHeight: 1.7, maxWidth: '820px', margin: 0 }}>
-                    Our mission is to replace low-quality mass production with hand-crafted, organically vegetable-tanned leather goods that honor heritage while fulfilling modern corporate SLAs with speed and micro-precision.
+                    To empower global enterprises and executive leaders with meticulously handcrafted leather goods that communicate distinction, foster lasting partner relationships, and set the pinnacle standard for corporate gifting.
                   </p>
                 </div>
               )}
@@ -483,10 +488,10 @@ export default function AboutView({ setActivePage = () => {} }) {
               {activeTab === 'vision' && (
                 <div>
                   <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.8rem', color: '#9A7824', marginBottom: '0.8rem', fontWeight: '600' }}>
-                    Setting the Benchmark in Global Leathercraft
+                    The Premier Global Benchmark for Bespoke Leather Luxury
                   </h3>
                   <p style={{ fontSize: '0.98rem', color: 'var(--text-dark-coffee)', opacity: 0.85, lineHeight: 1.7, maxWidth: '820px', margin: 0 }}>
-                    We envision a world where corporate gifting creates lasting personal connections. By combining 0.1mm fiber laser technology with traditional saddle stitching, we build heirloom pieces that age gracefully over decades.
+                    To be recognized globally as the definitive leader in bespoke corporate leather solutions—defining the intersection of timeless artisan tradition, sustainable production, and modern corporate identity.
                   </p>
                 </div>
               )}
@@ -494,10 +499,10 @@ export default function AboutView({ setActivePage = () => {} }) {
               {activeTab === 'values' && (
                 <div>
                   <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.8rem', color: '#9A7824', marginBottom: '0.8rem', fontWeight: '600' }}>
-                    Zero Compromise on Material &amp; Craft
+                    Uncompromising Standards in Material, Method, &amp; Relationship
                   </h3>
                   <p style={{ fontSize: '0.98rem', color: 'var(--text-dark-coffee)', opacity: 0.85, lineHeight: 1.7, maxWidth: '820px', margin: 0 }}>
-                    100% full-grain leather certification, zero synthetic PU fillers, German waxed linen thread, and transparent pricing. Every stitch delivered from our Karachi workshop carries our lifetime structural guarantee.
+                    We operate on five unshakeable pillars: Artisanal Integrity (100% genuine full-grain leather), Micro-Precision (obsessive attention to detail), Client Partnerships (dedicated SLA support), Sustainable Sourcing (ethically processed tanneries), and Enduring Quality (heirloom durability).
                   </p>
                 </div>
               )}
@@ -508,21 +513,21 @@ export default function AboutView({ setActivePage = () => {} }) {
         </div>
       </section>
 
-      {/* 4. MEET THE PROFESSIONALS (TEAM SECTION ON SCROLL) */}
+      {/* 5. MEET THE PROFESSIONALS (TEAM SECTION ON SCROLL) */}
       <section style={{ padding: '5.5rem 0', backgroundColor: '#FFFFFF' }}>
         <div className="container" style={{ maxWidth: '1180px', margin: '0 auto', textAlign: 'center' }}>
           
           <div className="scroll-reveal reveal-up">
             <span className="badge-gold" style={{ marginBottom: '0.8rem', display: 'inline-block' }}>
-              ✦ OUR TEAM &amp; LEADERSHIP
+              ✦ LEADERSHIP &amp; ARTISANSHIP
             </span>
 
             <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.6rem', color: 'var(--text-dark-coffee)', marginBottom: '0.6rem', fontWeight: '600' }}>
-              Meet The Professionals
+              Meet the Craftsmen &amp; Strategic Advisors
             </h2>
 
-            <p style={{ fontSize: '0.98rem', color: 'var(--accent-dusty-taupe)', maxWidth: '600px', margin: '0 auto 3.5rem' }}>
-              Meet the master tanners, designers, and corporate advisors behind Wakeel &amp; Sons.
+            <p style={{ fontSize: '0.98rem', color: 'var(--accent-dusty-taupe)', maxWidth: '640px', margin: '0 auto 3.5rem' }}>
+              The master leatherworkers, product designers, and corporate account managers dedicated to crafting your brand's physical identity.
             </p>
           </div>
 
@@ -562,49 +567,71 @@ export default function AboutView({ setActivePage = () => {} }) {
         </div>
       </section>
 
-      {/* 5. HIGH-CONVERSION CTA BANNER */}
+      {/* 6. HIGH-CONVERSION CTA BANNER */}
       <section style={{ padding: '4.5rem 0', backgroundColor: '#9A7824', color: '#FFFFFF', textAlign: 'center' }} className="scroll-reveal reveal-up">
         <div className="container" style={{ maxWidth: '880px', margin: '0 auto' }}>
           <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.6rem', color: '#FFFFFF', marginBottom: '1rem', fontWeight: '600' }}>
-            Solve All Your Corporate Gifting Needs Under One Roof
+            Ready to Elevate Your Brand's Corporate Identity?
           </h2>
           <p style={{ fontSize: '1.05rem', color: 'rgba(255, 255, 255, 0.9)', marginBottom: '2rem', lineHeight: 1.6 }}>
-            From 48-hour sample proofs to velvet presentation gift boxes and custom micro-vector logo debossing.
+            Partner with our master craftsmen to design custom executive leather gifts, luxury board-member accessories, and bespoke corporate merchandise.
           </p>
-          <button
-            onClick={() => setActivePage('contact')}
-            style={{
-              backgroundColor: '#FFFFFF',
-              color: '#9A7824',
-              fontSize: '0.95rem',
-              fontWeight: '700',
-              padding: '0.85rem 2.2rem',
-              borderRadius: '30px',
-              border: 'none',
-              cursor: 'pointer',
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.6rem',
-              boxShadow: '0 8px 25px rgba(0,0,0,0.2)',
-              transition: 'transform 0.3s ease'
-            }}
-            className="btn-primary"
-          >
-            <span>Request Consultation</span>
-            <ArrowRight size={16} />
-          </button>
+          <div style={{ display: 'flex', gap: '1.2rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <button
+              onClick={() => setActivePage('contact')}
+              style={{
+                backgroundColor: '#FFFFFF',
+                color: '#9A7824',
+                fontSize: '0.95rem',
+                fontWeight: '700',
+                padding: '0.85rem 2.2rem',
+                borderRadius: '30px',
+                border: 'none',
+                cursor: 'pointer',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.6rem',
+                boxShadow: '0 8px 25px rgba(0,0,0,0.2)',
+                transition: 'transform 0.3s ease'
+              }}
+              className="btn-primary"
+            >
+              <span>Request a Corporate Consultation</span>
+              <ArrowRight size={16} />
+            </button>
+
+            <button
+              onClick={() => setActivePage('shop')}
+              style={{
+                backgroundColor: 'transparent',
+                color: '#FFFFFF',
+                fontSize: '0.95rem',
+                fontWeight: '700',
+                padding: '0.85rem 2.2rem',
+                borderRadius: '30px',
+                border: '2px solid #FFFFFF',
+                cursor: 'pointer',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.6rem',
+                transition: 'all 0.3s ease'
+              }}
+            >
+              <span>Explore Catalog</span>
+            </button>
+          </div>
         </div>
       </section>
 
-      {/* 6. WHAT CLIENTS ARE SAYING */}
+      {/* 7. WHAT CLIENTS ARE SAYING */}
       <section style={{ padding: '5.5rem 0', backgroundColor: 'var(--bg-parchment)' }}>
         <div className="container" style={{ maxWidth: '980px', margin: '0 auto', textAlign: 'center' }}>
           <div className="scroll-reveal reveal-up">
             <span className="badge-gold" style={{ marginBottom: '0.8rem', display: 'inline-block' }}>
-              ✦ CLIENT TESTIMONIAL SPOTLIGHT
+              ✦ CLIENT EXPERIENCES
             </span>
             <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.5rem', color: 'var(--text-dark-coffee)', marginBottom: '3rem', fontWeight: '600' }}>
-              What Executive Clients Are Saying
+              Trusted by Industry Leaders Worldwide
             </h2>
           </div>
 
@@ -623,15 +650,15 @@ export default function AboutView({ setActivePage = () => {} }) {
               </div>
 
               <p style={{ fontSize: '1.05rem', color: 'var(--text-dark-coffee)', lineHeight: 1.7, fontStyle: 'italic', marginBottom: '1.2rem' }}>
-                "Wakeel &amp; Sons supplied 350 custom engraved leather welcome kits for our Annual Global Leadership Summit. The 0.1mm laser debossing and velvet gift packaging exceeded our highest expectations."
+                "Wakeel &amp; Sons transformed our annual executive summit gifting. Their bespoke leather tech portfolios and precision logo debossing were met with universal acclaim by our board of directors. The attention to detail and packaging was second to none."
               </p>
 
               <div>
                 <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.2rem', color: '#9A7824', margin: 0, fontWeight: '700' }}>
-                  Sarah S. Rehman
+                  Marcus Vance
                 </h4>
                 <span style={{ fontSize: '0.84rem', color: 'var(--accent-dusty-taupe)', fontWeight: '600' }}>
-                  VP Corporate Relations, Habib Bank Global
+                  VP of Procurement, Global Assets Group
                 </span>
               </div>
             </div>
