@@ -55,7 +55,7 @@ export default function Footer({ setActivePage = () => {}, onSelectCategory = ()
               marginBottom: '1.4rem',
               fontWeight: '400'
             }}>
-              Delivering artisan-crafted, sustainable corporate gifts that build lasting professional relationships across the globe.
+              Making custom leather corporate gifts that build strong, long-lasting business relationships worldwide.
             </p>
           </div>
 
