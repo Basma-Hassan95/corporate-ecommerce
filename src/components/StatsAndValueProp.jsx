@@ -98,7 +98,7 @@ export default function StatsAndValueProp({ setActivePage = () => {} }) {
   const cardsSectionRef = useRef(null);
   const cardsContainerRef = useRef(null);
 
-  const headlineText = "Delivering luxury gifts across hundreds of offices shouldn’t mean cutting corners on quality. We combine hand-stitched attention to detail with seamless volume fulfillment, ensuring every recipient experiences the finest corporate gift your company can offer.";
+  const headlineText = "Sending gifts to hundreds of offices shouldn't mean compromising on quality. We combine handmade craftsmanship with fast bulk delivery, making sure every client receives a premium gift your company can be proud of.";
   const words = headlineText.split(" ");
 
   const solutionsText = "End-to-End Gifting Solutions for Modern Enterprises";
