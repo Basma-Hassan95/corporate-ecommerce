@@ -41,7 +41,7 @@ const CORPORATE_LOGOS = [
   },
   { 
     name: 'Engro', 
-    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Engro_Corporation_logo.svg/512px-Engro_Corporation_logo.svg.png' 
+    logoUrl: 'https://www.logo.wine/a/logo/Engro_Corporation/Engro_Corporation-Logo.wine.svg' 
   },
   { 
     name: 'MCB Bank', 
