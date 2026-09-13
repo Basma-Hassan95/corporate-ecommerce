@@ -8,8 +8,8 @@ const CORPORATE_LOGOS = [
     logoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHhJtpbvOYqc0NkwwsMLhKqxQhaioywq53TXv-526bOA&s' 
   },
   { 
-    name: 'TUC', 
-    logoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR57Sr4uImEfq9qF-mwrrpa1mrJqw1OljRMEB77cB7ahg&s' 
+    name: 'TUC Cracker', 
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/5/54/Tuc_cracker_logo.png?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original' 
   },
   { 
     name: 'HBL', 
