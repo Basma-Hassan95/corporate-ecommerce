@@ -471,10 +471,10 @@ export default function AboutView({ setActivePage = () => {} }) {
               {activeTab === 'mission' && (
                 <div>
                   <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.8rem', color: '#9A7824', marginBottom: '0.8rem', fontWeight: '600' }}>
-                    Elevating Corporate Gifting Through Heritage Craftsmanship
+                    Engineered for Executive Impact &amp; Lasting Impressions
                   </h3>
                   <p style={{ fontSize: '0.98rem', color: 'var(--text-dark-coffee)', opacity: 0.85, lineHeight: 1.7, maxWidth: '820px', margin: 0 }}>
-                    To empower global enterprises and executive leaders with meticulously handcrafted leather goods that communicate distinction, foster lasting partner relationships, and set the pinnacle standard for corporate gifting.
+                    To empower companies with distinguished, artisan-grade leather products that leave a lasting mark on clients, partners, and employees, setting a higher benchmark for corporate gifting.
                   </p>
                 </div>
               )}
