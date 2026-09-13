@@ -541,7 +541,7 @@ export default function StatsAndValueProp({ setActivePage = () => {} }) {
                   textTransform: 'uppercase'
                 }}
               >
-                TAILORED SERVICES
+                OUR SERVICES
               </span>
 
               <h2 
