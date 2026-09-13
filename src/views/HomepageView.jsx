@@ -26,9 +26,6 @@ export default function HomepageView({ setActivePage, setSelectedProduct, openCa
           
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '3rem', flexWrap: 'wrap', gap: '1rem' }}>
             <div>
-              <span className="badge-gold" style={{ marginBottom: '0.5rem', display: 'inline-block' }}>
-                ✦ CURATED SELECTION
-              </span>
               <h2 style={{ fontSize: '2.5rem', fontFamily: 'var(--font-heading)', color: 'var(--text-dark-coffee)' }}>
                 Featured Executive Bestsellers
               </h2>
