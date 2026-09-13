@@ -20,12 +20,12 @@ const CORPORATE_LOGOS = [
     logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/5/54/Tuc_cracker_logo.png?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original' 
   },
   { 
-    name: 'HBL', 
-    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Habib_Bank_Limited_logo.svg/512px-Habib_Bank_Limited_logo.svg.png' 
-  },
-  { 
     name: 'Lucky Cement', 
     logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/10/Lucky_Cement_logo.png?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original' 
+  },
+  { 
+    name: 'HBL', 
+    logoUrl: 'https://companieslogo.com/img/orig/HBL.PK-3c9ca012.png?t=1720244492' 
   },
   { 
     name: 'Unilever', 
@@ -125,7 +125,7 @@ export default function TestimonialsAndLogosSection({ setActivePage = () => {} }
         <div style={{ position: 'absolute', top: 0, bottom: 0, left: 0, width: '120px', background: 'linear-gradient(90deg, var(--surface-linen) 0%, transparent 100%)', zIndex: 10, pointerEvents: 'none' }} />
         <div style={{ position: 'absolute', top: 0, bottom: 0, right: 0, width: '120px', background: 'linear-gradient(270deg, var(--surface-linen) 0%, transparent 100%)', zIndex: 10, pointerEvents: 'none' }} />
 
-        <div className="logos-marquee-track" style={{ display: 'flex', gap: '1.8rem', alignItems: 'center', width: 'max-content' }}>
+        <div className="logos-marquee-track" style={{ display: 'flex', gap: '1.2rem', alignItems: 'center', width: 'max-content' }}>
           {[...CORPORATE_LOGOS, ...CORPORATE_LOGOS, ...CORPORATE_LOGOS, ...CORPORATE_LOGOS].map((logo, idx) => (
             <div 
               key={idx}
@@ -133,7 +133,7 @@ export default function TestimonialsAndLogosSection({ setActivePage = () => {} }
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                padding: '0.4rem 0.8rem',
+                padding: '0.2rem 0.4rem',
                 whiteSpace: 'nowrap',
                 opacity: 0.9,
                 transition: 'all 0.3s ease',
@@ -145,14 +145,17 @@ export default function TestimonialsAndLogosSection({ setActivePage = () => {} }
                 src={logo.logoUrl} 
                 alt={logo.name}
                 style={{ 
-                  height: '42px', 
+                  height: '40px', 
                   width: 'auto', 
-                  maxHeight: '48px', 
-                  maxWidth: '160px',
+                  maxHeight: '46px', 
+                  maxWidth: '150px',
                   objectFit: 'contain'
                 }}
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';
+                  if (e.currentTarget.parentElement) {
+                    e.currentTarget.parentElement.style.display = 'none';
+                  }
                 }}
               />
             </div>
