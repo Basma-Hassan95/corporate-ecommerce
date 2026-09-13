@@ -21,7 +21,7 @@ const CORPORATE_LOGOS = [
   },
   { 
     name: 'Lucky Cement', 
-    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/10/Lucky_Cement_logo.png?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original' 
+    logoUrl: 'https://companieslogo.com/img/orig/LUCK.PK-9d10e53a.png?t=1720244492' 
   },
   { 
     name: 'HBL', 
