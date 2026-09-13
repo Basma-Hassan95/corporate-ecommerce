@@ -210,10 +210,10 @@ export default function AboutView({ setActivePage = () => {} }) {
                 <Award size={24} color="#9A7824" />
               </div>
               <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.35rem', color: '#9A7824', margin: '0 0 0.6rem', fontWeight: '600' }}>
-                Best Creative Service
+                Bespoke Leather Crafting
               </h3>
               <p style={{ fontSize: '0.88rem', color: 'var(--text-dark-coffee)', opacity: 0.82, lineHeight: 1.65, margin: 0 }}>
-                Tailored corporate merchandise designed with organic vegetable-tanned full-grain leather hides.
+                Custom-designed executive leather accessories, luggage, and stationery tailored to your exact brand specifications.
               </p>
             </div>
 
@@ -232,10 +232,10 @@ export default function AboutView({ setActivePage = () => {} }) {
                 <TrendingUp size={24} color="#9A7824" />
               </div>
               <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.35rem', color: '#9A7824', margin: '0 0 0.6rem', fontWeight: '600' }}>
-                Business Strategy &amp; Growth
+                Corporate Gifting Advisory
               </h3>
               <p style={{ fontSize: '0.88rem', color: 'var(--text-dark-coffee)', opacity: 0.82, lineHeight: 1.65, margin: 0 }}>
-                Rapid 48-hour sample proofing and nationwide scheduled delivery for high-volume corporate milestones.
+                End-to-end strategic gifting solutions—from ideation and prototyping to bulk production and executive packaging.
               </p>
             </div>
 
@@ -254,10 +254,10 @@ export default function AboutView({ setActivePage = () => {} }) {
                 <ShieldCheck size={24} color="#9A7824" />
               </div>
               <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.35rem', color: '#9A7824', margin: '0 0 0.6rem', fontWeight: '600' }}>
-                Highly Dedicated Master Craftsmen
+                Master Artisan Quality
               </h3>
               <p style={{ fontSize: '0.88rem', color: 'var(--text-dark-coffee)', opacity: 0.82, lineHeight: 1.65, margin: 0 }}>
-                Hand-cut leather panels and 5-stage saddle stitching using German waxed linen thread for indestructible durability.
+                Handcrafted using ethically sourced, premium top-grain leather built to endure and impress for years.
               </p>
             </div>
 
