@@ -29,7 +29,7 @@ const CORPORATE_LOGOS = [
   },
   { 
     name: 'Unilever', 
-    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/8/87/Unilever.svg/512px-Unilever.svg.png' 
+    logoUrl: 'https://images.seeklogo.com/logo-png/14/2/unilever-logo-png_seeklogo-145123.png' 
   },
   { 
     name: 'Swvl', 
@@ -37,7 +37,7 @@ const CORPORATE_LOGOS = [
   },
   { 
     name: 'Khaadi', 
-    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Khaadi_logo.svg/512px-Khaadi_logo.svg.png' 
+    logoUrl: 'https://i.dawn.com/large/2021/12/61caa7175be6b.png' 
   },
   { 
     name: 'Engro', 
@@ -45,7 +45,7 @@ const CORPORATE_LOGOS = [
   },
   { 
     name: 'MCB Bank', 
-    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/MCB_Bank_logo.svg/512px-MCB_Bank_logo.svg.png' 
+    logoUrl: 'https://images.seeklogo.com/logo-png/20/1/mcb-bank-logo-png_seeklogo-202822.png' 
   }
 ];
 
