@@ -125,7 +125,7 @@ export default function TestimonialsAndLogosSection({ setActivePage = () => {} }
         <div style={{ position: 'absolute', top: 0, bottom: 0, left: 0, width: '120px', background: 'linear-gradient(90deg, var(--surface-linen) 0%, transparent 100%)', zIndex: 10, pointerEvents: 'none' }} />
         <div style={{ position: 'absolute', top: 0, bottom: 0, right: 0, width: '120px', background: 'linear-gradient(270deg, var(--surface-linen) 0%, transparent 100%)', zIndex: 10, pointerEvents: 'none' }} />
 
-        <div className="logos-marquee-track" style={{ display: 'flex', gap: '3.8rem', alignItems: 'center', width: 'max-content' }}>
+        <div className="logos-marquee-track" style={{ display: 'flex', gap: '1.8rem', alignItems: 'center', width: 'max-content' }}>
           {[...CORPORATE_LOGOS, ...CORPORATE_LOGOS, ...CORPORATE_LOGOS, ...CORPORATE_LOGOS].map((logo, idx) => (
             <div 
               key={idx}
