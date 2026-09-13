@@ -8,6 +8,10 @@ const CORPORATE_LOGOS = [
     logoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHhJtpbvOYqc0NkwwsMLhKqxQhaioywq53TXv-526bOA&s' 
   },
   { 
+    name: 'Corporate Partner 2', 
+    logoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqSsagWN3RFkmN-QRHYlypAc5Otli-AtGSLr6nSXp13HWoomIba8eWZKw5&s=10' 
+  },
+  { 
     name: 'Meezan Bank', 
     logoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR57Sr4uImEfq9qF-mwrrpa1mrJqw1OljRMEB77cB7ahg&s' 
   },
