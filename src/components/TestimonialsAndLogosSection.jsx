@@ -8,10 +8,6 @@ const CORPORATE_LOGOS = [
     logoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHhJtpbvOYqc0NkwwsMLhKqxQhaioywq53TXv-526bOA&s' 
   },
   { 
-    name: 'Meezan Bank', 
-    logoUrl: 'https://companieslogo.com/img/orig/MEBL.PK-a35991f1.png?t=1720244492' 
-  },
-  { 
     name: 'TUC', 
     logoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR57Sr4uImEfq9qF-mwrrpa1mrJqw1OljRMEB77cB7ahg&s' 
   },
