@@ -11,6 +11,11 @@ const CORPORATE_LOGOS = [
     logoUrl: 'https://www.hbl.com/assets/images/HBL-Device-Logo-White.png' 
   },
   { 
+    name: 'Meezan Bank', 
+    text: 'MEEZAN BANK', 
+    logoUrl: 'https://companieslogo.com/img/orig/MEBL.PK-a35991f1.png?t=1720244492' 
+  },
+  { 
     name: 'Swvl', 
     text: 'SWVL', 
     logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Swvl_Logo.png/320px-Swvl_Logo.png' 
