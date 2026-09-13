@@ -7,14 +7,15 @@ const BRANDING_SERVICES = [
     id: "engraving",
     number: "01",
     headerLabel: "BRANDING FEATURE 01",
+    headerTitle: "Custom Laser Engraving",
     tag: "WAKEEL & SONS",
     title: "Precision Laser Engraving",
-    subtitle: "Crisp, permanent detailing on hard goods.",
+    subtitle: "Sharp, permanent company logos that never fade.",
     icon: <Sparkles size={16} color="#9A7824" />,
     image: BRAND_IMAGES.engravingProcess,
-    badge: "0.1MM FIBER LASER",
-    description: "Crisp, permanent detailing on hard goods. Achieve an uncompromised high-end executive finish with our micro-vector laser technology for sharp company logo debossing.",
-    bullets: ["Crisp Permanent Detailing", "0.1mm Micro-Vector Laser", "Zero Fading or Peeling", "Ideal for Leather, Brass & Wood"],
+    badge: "HIGH-PRECISION LASER",
+    description: "Put your company logo or custom text on your corporate gifts with razor-sharp detail. Using advanced laser technology, we create clean, high-end branding that looks elegant, stays permanent, and never peels off.",
+    bullets: ["Sharp & Clean Detailing", "Never Fades or Peels Off", "High-Accuracy Laser Tech", "Works on Leather, Metal & Wood"],
     year: "Feature: 01"
   },
   {
@@ -197,7 +198,7 @@ export default function BrandingServicesSection({ setActivePage = () => {} }) {
                         {card.icon}
                       </div>
                       <span style={{ fontFamily: 'var(--font-heading)', fontSize: '0.78rem', fontWeight: '700', color: isTop ? '#9A7824' : 'var(--text-dark-coffee)', letterSpacing: '0.08em' }}>
-                        {card.headerLabel} — {card.title}
+                        {card.headerLabel} — {card.headerTitle || card.title}
                       </span>
                     </div>
 
