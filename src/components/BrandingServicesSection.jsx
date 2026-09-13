@@ -36,13 +36,13 @@ const BRANDING_SERVICES = [
     number: "03",
     headerLabel: "BRANDING FEATURE 03",
     tag: "WAKEEL & SONS",
-    title: "Custom Packaging",
-    subtitle: "Brand-colored gift boxes with satin pull-ribbons and custom greeting cards.",
+    title: "Custom Gift Packaging",
+    subtitle: "Make a great first impression with packaging made in your brand colors.",
     icon: <Package size={16} color="#9A7824" />,
     image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&q=80&w=1000",
     badge: "UNBOXING EXPERIENCE",
-    description: "Brand-colored gift boxes with satin pull-ribbons and custom greeting cards. Delivering an uncompromised VIP corporate unboxing experience for your clients.",
-    bullets: ["Brand-Colored Gift Boxes", "Satin Pull-Ribbon Ties", "Custom Greeting & Thank You Cards", "Rigid Velvet Cutout Inserts"],
+    description: "Beautiful gift boxes designed to fit your brand perfectly. Every box comes with soft ribbon pulls, custom thank-you cards, and premium velvet inside to give your clients a true VIP feel when they open their gift.",
+    bullets: ["Boxes in Your Brand Colors", "Silky Pull-Ribbons", "Personalized Thank-You Cards", "Soft Velvet Interior"],
     year: "Feature: 03"
   }
 ];
