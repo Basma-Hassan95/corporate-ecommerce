@@ -78,27 +78,21 @@ export default function AboutView({ setActivePage = () => {} }) {
 
   const TEAM_MEMBERS = [
     {
-      name: "M. Wakeel",
+      name: "Muhammad Wakeel",
       role: "Founder & Master Craftsman",
       experience: "48+ Yrs Experience",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600"
     },
     {
-      name: "Tariq Wakeel",
+      name: "Wahaj Wakeel",
       role: "Head of Corporate Production",
       experience: "22+ Yrs Experience",
       image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=600"
     },
     {
-      name: "Ayesha Wakeel",
-      role: "Senior Product Designer",
+      name: "Oman Wakeel",
+      role: "Senior Product & Brand Director",
       experience: "15+ Yrs Experience",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600"
-    },
-    {
-      name: "Hamza Khan",
-      role: "Corporate Accounts SLA Lead",
-      experience: "10+ Yrs Experience",
       image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=600"
     }
   ];
@@ -518,10 +512,6 @@ export default function AboutView({ setActivePage = () => {} }) {
         <div className="container" style={{ maxWidth: '1180px', margin: '0 auto', textAlign: 'center' }}>
           
           <div className="scroll-reveal reveal-up">
-            <span className="badge-gold" style={{ marginBottom: '0.8rem', display: 'inline-block' }}>
-              ✦ LEADERSHIP &amp; ARTISANSHIP
-            </span>
-
             <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.6rem', color: 'var(--text-dark-coffee)', marginBottom: '0.6rem', fontWeight: '600' }}>
               Meet the Craftsmen &amp; Strategic Advisors
             </h2>
@@ -531,7 +521,7 @@ export default function AboutView({ setActivePage = () => {} }) {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.8rem' }} className="about-team-grid">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.8rem' }} className="about-team-grid">
             {TEAM_MEMBERS.map((member, idx) => (
               <div 
                 key={idx}
