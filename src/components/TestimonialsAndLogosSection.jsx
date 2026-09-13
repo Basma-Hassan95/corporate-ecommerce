@@ -13,6 +13,7 @@ const CORPORATE_LOGOS = [
   { 
     name: 'Meezan Bank', 
     text: 'MEEZAN BANK', 
+    hideText: true,
     logoUrl: 'https://companieslogo.com/img/orig/MEBL.PK-a35991f1.png?t=1720244492' 
   },
   { 
