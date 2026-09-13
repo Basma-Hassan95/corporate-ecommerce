@@ -8,8 +8,8 @@ const CORPORATE_LOGOS = [
     logoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHhJtpbvOYqc0NkwwsMLhKqxQhaioywq53TXv-526bOA&s' 
   },
   { 
-    name: 'Corporate Partner 2', 
-    logoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqSsagWN3RFkmN-QRHYlypAc5Otli-AtGSLr6nSXp13HWoomIba8eWZKw5&s=10' 
+    name: 'DRS Logistics', 
+    logoUrl: 'https://www.drs.com.pk/wp-content/uploads/2025/10/Untitled-1-1.png' 
   },
   { 
     name: 'Meezan Bank', 
