@@ -516,8 +516,8 @@ export default function AboutView({ setActivePage = () => {} }) {
               Meet the Craftsmen &amp; Strategic Advisors
             </h2>
 
-            <p style={{ fontSize: '0.98rem', color: 'var(--accent-dusty-taupe)', maxWidth: '640px', margin: '0 auto 3.5rem' }}>
-              The master leatherworkers, product designers, and corporate account managers dedicated to crafting your brand's physical identity.
+            <p style={{ fontSize: '0.98rem', color: 'var(--accent-dusty-taupe)', maxWidth: '680px', margin: '0 auto 3.5rem' }}>
+              A passionate blend of master leather benchmen, industrial designers, and corporate procurement consultants.
             </p>
           </div>
 
