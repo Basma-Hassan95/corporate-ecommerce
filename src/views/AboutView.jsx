@@ -493,10 +493,10 @@ export default function AboutView({ setActivePage = () => {} }) {
               {activeTab === 'values' && (
                 <div>
                   <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.8rem', color: '#9A7824', marginBottom: '0.8rem', fontWeight: '600' }}>
-                    Uncompromising Standards in Material, Method, &amp; Relationship
+                    Integrity in Craft, Reliability in Service
                   </h3>
                   <p style={{ fontSize: '0.98rem', color: 'var(--text-dark-coffee)', opacity: 0.85, lineHeight: 1.7, maxWidth: '820px', margin: 0 }}>
-                    We operate on five unshakeable pillars: Artisanal Integrity (100% genuine full-grain leather), Micro-Precision (obsessive attention to detail), Client Partnerships (dedicated SLA support), Sustainable Sourcing (ethically processed tanneries), and Enduring Quality (heirloom durability).
+                    Authenticity in our materials, Precision in every seam, Sustainability in our tanneries, and Dependability in every delivery schedule.
                   </p>
                 </div>
               )}
