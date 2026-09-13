@@ -111,7 +111,7 @@ export default function AboutView({ setActivePage = () => {} }) {
           
           <div className="scroll-reveal reveal-up">
             <span className="badge-gold" style={{ marginBottom: '1rem', display: 'inline-block' }}>
-              ✦ WHO WE ARE &amp; OUR HERITAGE
+              ✦ HERITAGE CRAFTSMANSHIP &amp; CORPORATE SOLUTIONS
             </span>
 
             <h1 
@@ -120,26 +120,26 @@ export default function AboutView({ setActivePage = () => {} }) {
                 fontFamily: 'var(--font-heading)', 
                 color: '#9A7824', 
                 lineHeight: 1.15,
-                maxWidth: '920px',
+                maxWidth: '960px',
                 margin: '0 auto 1.2rem',
                 fontWeight: '600',
                 textTransform: 'uppercase'
               }}
             >
-              We are a full-service master leather workshop &amp; corporate gifting advisor globally.
+              Master Leather Artisans &amp; Global Corporate Gifting Specialists
             </h1>
 
             <p 
               style={{ 
                 fontSize: '1.05rem', 
                 color: 'var(--accent-dusty-taupe)', 
-                maxWidth: '720px', 
+                maxWidth: '780px', 
                 margin: '0 auto 3rem', 
                 lineHeight: 1.7,
                 fontWeight: '400'
               }}
             >
-              Crafting timeless personalized executive leather goods &amp; corporate merchandise since 1978. Every stitch is an uncompromised commitment to heritage and durability.
+              We craft timeless, bespoke executive leather goods and premium corporate merchandise that elevate your brand identity. Combining decades of artisanal heritage with modern design, we deliver enduring quality for industry leaders worldwide.
             </p>
           </div>
 
@@ -181,13 +181,13 @@ export default function AboutView({ setActivePage = () => {} }) {
                   marginBottom: '1rem'
                 }}
                 className="play-btn-pulse"
-                title="Watch Workshop Documentary"
+                title="Watch Our Master Craftsmen at Work (Est. 1976)"
               >
                 <Play size={28} fill="#FFFFFF" style={{ marginLeft: '4px' }} />
               </button>
 
               <span style={{ color: '#FFFFFF', fontFamily: 'var(--font-heading)', fontSize: '1.4rem', letterSpacing: '0.05em' }}>
-                WATCH OUR WORKSHOP DOCUMENTARY (EST. 1978)
+                Watch Our Master Craftsmen at Work (Est. 1976)
               </span>
             </div>
           </div>
