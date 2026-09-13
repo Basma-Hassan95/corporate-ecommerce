@@ -6,7 +6,9 @@ const CORPORATE_LOGOS = [
   { 
     name: 'HBL', 
     text: 'HBL', 
-    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Habib_Bank_Limited_logo.svg/320px-Habib_Bank_Limited_logo.svg.png' 
+    hideText: true,
+    bgColor: '#008269',
+    logoUrl: 'https://www.hbl.com/assets/images/HBL-Device-Logo-White.png' 
   },
   { 
     name: 'Swvl', 
@@ -128,16 +130,17 @@ export default function TestimonialsAndLogosSection({ setActivePage = () => {} }
               style={{
                 display: 'flex',
                 alignItems: 'center',
+                justifyContent: 'center',
                 gap: '0.65rem',
                 padding: '0.65rem 1.4rem',
                 borderRadius: '30px',
-                backgroundColor: 'var(--surface-white)',
-                border: '1px solid var(--border-light)',
+                backgroundColor: logo.bgColor || 'var(--surface-white)',
+                border: logo.bgColor ? 'none' : '1px solid var(--border-light)',
                 boxShadow: '0 2px 10px rgba(0,0,0,0.03)',
                 fontSize: '0.85rem',
                 fontWeight: '700',
                 letterSpacing: '0.06em',
-                color: 'var(--text-dark-coffee)',
+                color: logo.bgColor ? '#FFFFFF' : 'var(--text-dark-coffee)',
                 whiteSpace: 'nowrap',
                 transition: 'all 0.3s ease'
               }}
@@ -147,13 +150,13 @@ export default function TestimonialsAndLogosSection({ setActivePage = () => {} }
                 <img 
                   src={logo.logoUrl} 
                   alt={logo.name}
-                  style={{ height: '20px', width: 'auto', maxHeight: '22px', objectFit: 'contain' }}
+                  style={{ height: '22px', width: 'auto', maxHeight: '26px', objectFit: 'contain' }}
                   onError={(e) => { e.currentTarget.style.display = 'none'; }}
                 />
               ) : (
                 <span>✦</span>
               )}
-              <span>{logo.text}</span>
+              {!logo.hideText && <span>{logo.text}</span>}
             </div>
           ))}
         </div>
