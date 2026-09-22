@@ -18,6 +18,7 @@ export default function CatalogView({ setActivePage, setSelectedProduct, initial
   const categories = [
     'All',
     'Leather Products',
+    'Leather Keychains',
     'Apparel',
     'Bags',
     'Bottles',

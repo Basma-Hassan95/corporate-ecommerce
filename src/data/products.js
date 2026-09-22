@@ -337,6 +337,112 @@ export const CORPORATE_GIFTS = [
     description: "Premium corporate award trophy combining hand-beveled optic crystal glass with solid walnut base and brass dedication plaque.",
     images: ["https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=1000"],
     features: ["Optic Crystal Glass Bevels", "Solid Walnut Hardwood Base", "Deep Laser Inscribed Text & Crest"]
+  },
+  {
+    id: "kc-01",
+    name: "Executive Leather Strap Keychain",
+    subtitle: "Full-Grain Leather & Polished Chrome Clip",
+    category: "Leather Keychains",
+    material: "Leather & Metal",
+    leatherType: "Full-Grain Bovine",
+    color: "Classic Black",
+    isBestSeller: true,
+    isCustomizable: true,
+    description: "Crafted from genuine full-grain leather with heavy-duty metal hardware. Designed for corporate logo debossing and laser engraving.",
+    images: [
+      "/products/keychains/keychain-01.jpg"
+    ],
+    features: [
+      "100% Top-tier Full-Grain Leather Strap",
+      "Heavy-Duty Zinc Alloy Metal Clasp & Ring",
+      "Complimentary Laser Engraving / Debossing",
+      "Delivered in Premium Gift Box Packaging"
+    ]
+  },
+  {
+    id: "kc-02",
+    name: "Royal Blue Executive Leather Keychain",
+    subtitle: "Stitched Full-Grain Leather & Chrome Top",
+    category: "Leather Keychains",
+    material: "Leather & Metal",
+    leatherType: "Full-Grain",
+    color: "Royal Blue",
+    isBestSeller: true,
+    isCustomizable: true,
+    description: "Striking royal blue leather keychain with precision edge stitching and chrome hardware. Supplied in a velvet-lined luxury presentation box.",
+    images: [
+      "/products/keychains/keychain-02.jpg"
+    ],
+    features: [
+      "Vibrant Royal Blue Leather Finish",
+      "Reinforced Perimeter Stitching",
+      "Custom Micro-Laser Logo Stamping",
+      "Includes Velvet Presentation Box"
+    ]
+  },
+  {
+    id: "kc-03",
+    name: "360° Rotating Circular Leather Keychain",
+    subtitle: "Dual Ring Stainless Steel & Black Hide",
+    category: "Leather Keychains",
+    material: "Leather & Metal",
+    leatherType: "Full-Grain",
+    color: "Silver & Black",
+    isBestSeller: true,
+    isCustomizable: true,
+    description: "Interactive 360-degree rotating emblem centerpiece set inside a durable chrome ring with leather loop attachment.",
+    images: [
+      "/products/keychains/keychain-03.jpg"
+    ],
+    features: [
+      "360-Degree Smooth Rotating Mechanism",
+      "Double-Sided Logo Engraving Area",
+      "Scratch-Resistant Electroplated Finish",
+      "Luxury Velvet Tray Presentation Box"
+    ]
+  },
+  {
+    id: "kc-04",
+    name: "Sleek Black Leather Loop Keychain",
+    subtitle: "Minimalist Executive Design",
+    category: "Leather Keychains",
+    material: "Leather",
+    leatherType: "Vegetable-Tanned",
+    color: "Matte Black",
+    isBestSeller: false,
+    isCustomizable: true,
+    description: "Clean, ultra-slim leather loop keychain engineered for minimalist corporate gifting.",
+    images: [
+      "/products/keychains/keychain-04.jpg"
+    ],
+    features: [
+      "Organically Tanned Full-Grain Leather Loop",
+      "Hand-Burnished Waxed Edges",
+      "Laser Debossable Surface",
+      "Presentation Box Packaging"
+    ]
+  },
+  {
+    id: "kc-05",
+    name: "Trio Executive Leather Keychain Gift Set",
+    subtitle: "Royal Blue, Onyx Black & Crimson Red Collection",
+    category: "Leather Keychains",
+    material: "Leather & Alloy",
+    leatherType: "Full-Grain Bovine",
+    color: "Multicolor Set (Blue, Black, Red)",
+    isBestSeller: true,
+    isCustomizable: true,
+    description: "Premium trio collection featuring three distinct executive leather keychains in Royal Blue, Onyx Black, and Crimson Red.",
+    images: [
+      "/products/keychains/keychain-05.jpg",
+      "/products/keychains/keychain-02.jpg"
+    ],
+    features: [
+      "Set of 3 Distinct Colorways (Blue, Black, Red)",
+      "High-Precision Heat Stamping & Debossing",
+      "Heavyweight Metallic Carabiner Top",
+      "Complete Executive Gift Box Included"
+    ]
   }
 ];
 
