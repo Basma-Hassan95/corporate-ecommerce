@@ -13,13 +13,14 @@ import AboutView from './views/AboutView';
 import ContactView from './views/ContactView';
 import RefundPolicyView from './views/RefundPolicyView';
 import ShippingPolicyView from './views/ShippingPolicyView';
+import AdminCMSView from './views/AdminCMSView';
 import { ALL_PRODUCTS, PRODUCTS } from './data/products';
 
 export default function App() {
   const [activePage, setActivePageRaw] = useState(() => {
     if (typeof window !== 'undefined' && window.location.hash) {
       const hashPage = window.location.hash.replace('#', '');
-      if (['home', 'shop', 'catalog', 'pdp', 'cart', 'checkout', 'about', 'contact', 'refund-policy', 'shipping-policy'].includes(hashPage)) {
+      if (['home', 'shop', 'catalog', 'pdp', 'cart', 'checkout', 'about', 'contact', 'refund-policy', 'shipping-policy', 'admin'].includes(hashPage)) {
         return hashPage;
       }
     }
@@ -177,6 +178,8 @@ export default function App() {
         {activePage === 'refund' && <RefundPolicyView />}
 
         {activePage === 'shipping' && <ShippingPolicyView />}
+
+        {activePage === 'admin' && <AdminCMSView setActivePage={(p) => { setActivePage(p); window.scrollTo({ top: 0, behavior: 'smooth' }); }} />}
       </main>
 
       {/* Global Sliding Cart Drawer */}

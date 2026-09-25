@@ -1,89 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import { BRAND_IMAGES } from '../data/products';
-
-const CORPORATE_LOGOS = [
-  { 
-    name: 'Corporate Partner 1', 
-    logoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHhJtpbvOYqc0NkwwsMLhKqxQhaioywq53TXv-526bOA&s' 
-  },
-  { 
-    name: 'DRS Logistics', 
-    logoUrl: 'https://www.drs.com.pk/wp-content/uploads/2025/10/Untitled-1-1.png' 
-  },
-  { 
-    name: 'Meezan Bank', 
-    logoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR57Sr4uImEfq9qF-mwrrpa1mrJqw1OljRMEB77cB7ahg&s' 
-  },
-  { 
-    name: 'TUC Cracker', 
-    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/5/54/Tuc_cracker_logo.png?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original' 
-  },
-  { 
-    name: 'Lucky Cement', 
-    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/10/Lucky_Cement_logo.png?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original' 
-  },
-  { 
-    name: 'HBL', 
-    logoUrl: 'https://companieslogo.com/img/orig/HBL.PK-3c9ca012.png?t=1720244492' 
-  },
-  { 
-    name: 'Unilever', 
-    logoUrl: 'https://images.seeklogo.com/logo-png/14/2/unilever-logo-png_seeklogo-145123.png' 
-  },
-  { 
-    name: 'Swvl', 
-    logoUrl: 'https://iconlogovector.com/uploads/images/2025/02/lg-67add1f115927-Swvl.webp' 
-  },
-  { 
-    name: 'Khaadi', 
-    logoUrl: 'https://i.dawn.com/large/2021/12/61caa7175be6b.png' 
-  },
-  { 
-    name: 'Engro', 
-    logoUrl: 'https://www.logo.wine/a/logo/Engro_Corporation/Engro_Corporation-Logo.wine.svg' 
-  },
-  { 
-    name: 'MCB Bank', 
-    logoUrl: 'https://images.seeklogo.com/logo-png/20/1/mcb-bank-logo-png_seeklogo-202822.png' 
-  }
-];
-
-const TESTIMONIAL_SLIDES = [
-  {
-    id: 1,
-    name: "Marcus Vance",
-    role: "Head of People & Culture, Apex Global Solutions",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200",
-    quote: "The quality of the customized leather sets exceeded our expectations. Our executive clients were genuinely impressed, and the fulfillment process was flawless from start to finish."
-  },
-  {
-    id: 2,
-    name: "Ali Bohri",
-    role: "Director Operations, SAIF UL BURHAN",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200",
-    quote: "MashAllah kiya dealing hai! Best rates, best quality, straight commitment wale log. The custom leather passport holders and wooden gift sets for our annual corporate milestone were praised by all board members."
-  },
-  {
-    id: 3,
-    name: "Farhan Ahmed",
-    role: "Head of Admin & HR",
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200",
-    quote: "Ordered 500 customized full-grain leather passport holders with precision company logo debossing. Delivered 2 days ahead of schedule in luxury velvet presentation boxes. Outstanding experience!"
-  }
-];
+import { getCMSTestimonials, getCMSLogos } from '../utils/cmsStorage';
 
 export default function TestimonialsAndLogosSection({ setActivePage = () => {} }) {
+  const [testimonials, setTestimonials] = useState(getCMSTestimonials());
+  const [logos, setLogos] = useState(getCMSLogos());
   const [currentIdx, setCurrentIdx] = useState(0);
-  const activeItem = TESTIMONIAL_SLIDES[currentIdx];
+
+  useEffect(() => {
+    const handleUpdate = () => {
+      setTestimonials(getCMSTestimonials());
+      setLogos(getCMSLogos());
+    };
+    window.addEventListener('cms_data_updated', handleUpdate);
+    return () => window.removeEventListener('cms_data_updated', handleUpdate);
+  }, []);
+
+  const activeItem = testimonials[currentIdx] || testimonials[0] || {
+    name: "Marcus Vance",
+    role: "Head of People & Culture",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200",
+    quote: "The quality of the customized leather sets exceeded our expectations."
+  };
 
   // Auto-slide every 6 seconds
   useEffect(() => {
+    if (testimonials.length <= 1) return;
     const timer = setInterval(() => {
-      setCurrentIdx((prev) => (prev + 1) % TESTIMONIAL_SLIDES.length);
+      setCurrentIdx((prev) => (prev + 1) % testimonials.length);
     }, 6000);
     return () => clearInterval(timer);
-  }, []);
+  }, [testimonials.length]);
 
   return (
     <section style={{ backgroundColor: 'var(--surface-linen)', color: 'var(--text-dark-coffee)', padding: '4.5rem 0 5.5rem', position: 'relative', borderTop: '1px solid var(--border-light)', overflow: 'hidden' }}>
@@ -126,7 +74,7 @@ export default function TestimonialsAndLogosSection({ setActivePage = () => {} }
         <div style={{ position: 'absolute', top: 0, bottom: 0, right: 0, width: '120px', background: 'linear-gradient(270deg, var(--surface-linen) 0%, transparent 100%)', zIndex: 10, pointerEvents: 'none' }} />
 
         <div className="logos-marquee-track" style={{ display: 'flex', gap: '1.2rem', alignItems: 'center', width: 'max-content' }}>
-          {[...CORPORATE_LOGOS, ...CORPORATE_LOGOS, ...CORPORATE_LOGOS, ...CORPORATE_LOGOS].map((logo, idx) => (
+          {[...logos, ...logos, ...logos, ...logos].map((logo, idx) => (
             <div 
               key={idx}
               style={{
@@ -307,7 +255,7 @@ export default function TestimonialsAndLogosSection({ setActivePage = () => {} }
 
                 {/* SLIDER PROGRESS DOTS / PILL (EXACT MATCH FOR REFERENCE SCREENSHOT) */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  {TESTIMONIAL_SLIDES.map((_, idx) => (
+                  {testimonials.map((_, idx) => (
                     <button
                       key={idx}
                       onClick={() => setCurrentIdx(idx)}

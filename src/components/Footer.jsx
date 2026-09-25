@@ -195,7 +195,13 @@ export default function Footer({ setActivePage = () => {}, onSelectCategory = ()
           <div style={{ display: 'flex', gap: '1.8rem' }}>
             <span style={{ cursor: 'pointer' }} className="footer-gold-link">Privacy Policy</span>
             <span style={{ cursor: 'pointer' }} className="footer-gold-link">Terms of Service</span>
-            <span style={{ cursor: 'pointer' }} className="footer-gold-link">Lifetime Guarantee Terms</span>
+            <button 
+              onClick={() => setActivePage('admin')} 
+              style={{ background: 'none', border: 'none', color: '#F4EEDC', cursor: 'pointer', fontSize: '0.85rem', padding: 0, display: 'flex', alignItems: 'center', gap: '0.3rem', fontWeight: '600' }} 
+              className="footer-gold-link"
+            >
+              <Lock size={13} /> Admin CMS Portal
+            </button>
           </div>
         </div>
 
