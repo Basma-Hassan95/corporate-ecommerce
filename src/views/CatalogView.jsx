@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Filter, Star, Check, RotateCcw, Search } from 'lucide-react';
 import { ALL_PRODUCTS } from '../data/products';
 
-export default function CatalogView({ setActivePage, setSelectedProduct, initialCategory = 'All', searchQuery: externalSearchQuery = '', setSearchQuery: setExternalSearchQuery = null }) {
+export default function CatalogView({ setActivePage, setSelectedProduct, initialCategory = 'Leather Keychains', searchQuery: externalSearchQuery = '', setSearchQuery: setExternalSearchQuery = null }) {
   const [selectedCategory, setSelectedCategory] = useState(initialCategory);
   const [internalSearchQuery, setInternalSearchQuery] = useState('');
 
@@ -16,23 +16,9 @@ export default function CatalogView({ setActivePage, setSelectedProduct, initial
   }, [initialCategory]);
 
   const categories = [
-    'All',
-    'Leather Products',
     'Leather Keychains',
-    'Apparel',
-    'Bags',
-    'Bottles',
-    'Tech Gadgets',
-    'Wall Clocks',
-    'Custom Mugs',
-    'Corporate Notebooks',
-    'Pens',
-    'Office Supplies',
-    'Desk Organizer',
-    'Calendars',
     'Corporate Gift Box',
-    'PVC Rubber Merch',
-    'Shields & Awards'
+    'All'
   ];
 
   const filteredProducts = ALL_PRODUCTS.filter(p => {

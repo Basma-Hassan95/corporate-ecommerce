@@ -4,30 +4,16 @@ import { PRODUCTS } from '../data/products';
 
 export default function ShopView({ setActivePage, setSelectedProduct }) {
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const [selectedLeather, setSelectedLeather] = useState('All');
-  const [selectedSlots, setSelectedSlots] = useState('All');
-  const [selectedColor, setSelectedColor] = useState('All');
-  const [maxPrice, setMaxPrice] = useState(150);
 
-  const categories = ['All', 'Bifold Wallets', 'Slim Cardholders', 'Trifold Wallets', 'Passport Wallets', 'Money Clips'];
-  const leatherTypes = ['All', 'Full-Grain', 'Crazy Horse', 'Top-Grain'];
-  const slotOptions = ['All', '4-6 Cards', '8-12 Cards', '14+ Cards'];
+  const categories = ['All', 'Leather Keychains'];
 
   const filteredProducts = PRODUCTS.filter(p => {
     if (selectedCategory !== 'All' && p.category !== selectedCategory) return false;
-    if (selectedLeather !== 'All' && p.leatherType !== selectedLeather) return false;
-    if (selectedSlots !== 'All' && p.slotCapacity !== selectedSlots) return false;
-    if (selectedColor !== 'All' && p.color !== selectedColor) return false;
-    if (p.price > maxPrice) return false;
     return true;
   });
 
   const resetFilters = () => {
     setSelectedCategory('All');
-    setSelectedLeather('All');
-    setSelectedSlots('All');
-    setSelectedColor('All');
-    setMaxPrice(150);
   };
 
   return (
@@ -40,10 +26,10 @@ export default function ShopView({ setActivePage, setSelectedProduct }) {
             BESPOKE CATALOG
           </span>
           <h1 style={{ fontSize: '2.8rem', fontFamily: 'var(--font-heading)', color: 'var(--text-dark-coffee)' }}>
-            Personalized Leather Wallets
+            Executive Leather Keychains
           </h1>
           <p style={{ color: 'var(--text-dark-coffee)', opacity: 0.85, maxWidth: '600px', margin: '0.5rem auto 0' }}>
-            Filter by leather tanning style, card capacity, or wallet silhouette. All designs include complimentary laser monogramming.
+            Premium handcrafted leather keychains with custom logo branding and laser debossing.
           </p>
         </div>
 
@@ -65,10 +51,10 @@ export default function ShopView({ setActivePage, setSelectedProduct }) {
               </button>
             </div>
 
-            {/* Filter 1: Design Silhouette */}
+            {/* Filter 1: Category */}
             <div style={{ marginBottom: '1.5rem' }}>
               <h4 style={{ fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--text-dark-coffee)', marginBottom: '0.8rem' }}>
-                Wallet Type
+                Category
               </h4>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
                 {categories.map((cat) => (
@@ -94,97 +80,22 @@ export default function ShopView({ setActivePage, setSelectedProduct }) {
               </div>
             </div>
 
-            {/* Filter 2: Leather Grade */}
-            <div style={{ marginBottom: '1.5rem' }}>
-              <h4 style={{ fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--text-dark-coffee)', marginBottom: '0.8rem' }}>
-                Leather Grade
-              </h4>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-                {leatherTypes.map((type) => (
-                  <button
-                    key={type}
-                    onClick={() => setSelectedLeather(type)}
-                    style={{
-                      textAlign: 'left',
-                      background: 'none',
-                      border: 'none',
-                      fontSize: '0.88rem',
-                      padding: '0.35rem 0.6rem',
-                      borderRadius: 'var(--radius-sm)',
-                      cursor: 'pointer',
-                      backgroundColor: selectedLeather === type ? 'var(--surface-linen)' : 'transparent',
-                      color: selectedLeather === type ? 'var(--btn-coffee-bean)' : 'var(--text-dark-coffee)',
-                      fontWeight: selectedLeather === type ? '700' : '400'
-                    }}
-                  >
-                    {type}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Filter 3: Slot Capacity */}
-            <div style={{ marginBottom: '1.5rem' }}>
-              <h4 style={{ fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--text-dark-coffee)', marginBottom: '0.8rem' }}>
-                Slot Capacity
-              </h4>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-                {slotOptions.map((slot) => (
-                  <button
-                    key={slot}
-                    onClick={() => setSelectedSlots(slot)}
-                    style={{
-                      textAlign: 'left',
-                      background: 'none',
-                      border: 'none',
-                      fontSize: '0.88rem',
-                      padding: '0.35rem 0.6rem',
-                      borderRadius: 'var(--radius-sm)',
-                      cursor: 'pointer',
-                      backgroundColor: selectedSlots === slot ? 'var(--surface-linen)' : 'transparent',
-                      color: selectedSlots === slot ? 'var(--btn-coffee-bean)' : 'var(--text-dark-coffee)',
-                      fontWeight: selectedSlots === slot ? '700' : '400'
-                    }}
-                  >
-                    {slot}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Filter 4: Max Price */}
-            <div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', color: 'var(--text-dark-coffee)', fontWeight: '600', marginBottom: '0.5rem' }}>
-                <span>Max Price:</span>
-                <span>${maxPrice}</span>
-              </div>
-              <input 
-                type="range" 
-                min="40" 
-                max="150" 
-                value={maxPrice} 
-                onChange={(e) => setMaxPrice(Number(e.target.value))}
-                style={{ width: '100%', accentColor: 'var(--btn-coffee-bean)' }}
-              />
-            </div>
-
           </aside>
 
           {/* PRODUCT GRID */}
           <main>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
               <span style={{ fontSize: '0.9rem', color: 'var(--text-dark-coffee)' }}>
-                Showing <strong>{filteredProducts.length}</strong> handcrafted wallets
+                Showing <strong>{filteredProducts.length}</strong> executive keychains
               </span>
               <span style={{ fontSize: '0.85rem', color: 'var(--accent-dusty-taupe)' }}>
-                Sort: Featured Selection
+                Corporate Gifting Ready
               </span>
             </div>
 
             {filteredProducts.length === 0 ? (
               <div style={{ backgroundColor: 'var(--surface-white)', padding: '4rem 2rem', textAlign: 'center', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-light)' }}>
-                <h3>No wallets match your filter selection</h3>
-                <p style={{ color: 'var(--accent-dusty-taupe)', margin: '0.5rem 0 1.5rem' }}>Try adjusting your slot capacity or leather grade settings.</p>
+                <h3>No items match your filter selection</h3>
                 <button onClick={resetFilters} className="btn-primary">Clear Filters</button>
               </div>
             ) : (
