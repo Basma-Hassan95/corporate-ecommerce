@@ -66,7 +66,7 @@ export default function AdminCMSView({ setActivePage }) {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (passwordInput === 'wakeel123') {
+    if (passwordInput.trim().toLowerCase() === 'wakeel123') {
       setIsAuthenticated(true);
       setPasswordError('');
     } else {
