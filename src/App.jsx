@@ -17,15 +17,47 @@ import AdminCMSView from './views/AdminCMSView';
 import { ALL_PRODUCTS, PRODUCTS } from './data/products';
 
 export default function App() {
-  const [activePage, setActivePageRaw] = useState(() => {
-    if (typeof window !== 'undefined' && window.location.hash) {
-      const hashPage = window.location.hash.replace('#', '');
-      if (['home', 'shop', 'catalog', 'pdp', 'cart', 'checkout', 'about', 'contact', 'refund-policy', 'shipping-policy', 'admin'].includes(hashPage)) {
-        return hashPage;
+  const getInitialPage = () => {
+    if (typeof window !== 'undefined') {
+      const path = window.location.pathname.replace(/^\//, '').toLowerCase();
+      if (['admin', 'catalog', 'shop', 'about', 'contact', 'pdp', 'cart', 'checkout'].includes(path)) {
+        return path;
+      }
+      if (window.location.hash) {
+        const hashPage = window.location.hash.replace('#', '').toLowerCase();
+        if (['home', 'shop', 'catalog', 'pdp', 'cart', 'checkout', 'about', 'contact', 'refund-policy', 'shipping-policy', 'admin'].includes(hashPage)) {
+          return hashPage;
+        }
       }
     }
     return localStorage.getItem('active_page_nav') || 'home';
-  });
+  };
+
+  const [activePage, setActivePageRaw] = useState(getInitialPage);
+
+  useEffect(() => {
+    const handleLocationChange = () => {
+      if (typeof window !== 'undefined') {
+        const path = window.location.pathname.replace(/^\//, '').toLowerCase();
+        if (['admin', 'catalog', 'shop', 'about', 'contact', 'pdp', 'cart', 'checkout'].includes(path)) {
+          setActivePageRaw(path);
+          return;
+        }
+        if (window.location.hash) {
+          const hashPage = window.location.hash.replace('#', '').toLowerCase();
+          if (hashPage) setActivePageRaw(hashPage);
+        }
+      }
+    };
+
+    handleLocationChange();
+    window.addEventListener('hashchange', handleLocationChange);
+    window.addEventListener('popstate', handleLocationChange);
+    return () => {
+      window.removeEventListener('hashchange', handleLocationChange);
+      window.removeEventListener('popstate', handleLocationChange);
+    };
+  }, []);
 
   const setActivePage = (pageName) => {
     setActivePageRaw(pageName);
