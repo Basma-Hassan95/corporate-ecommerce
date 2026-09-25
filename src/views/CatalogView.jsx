@@ -16,9 +16,23 @@ export default function CatalogView({ setActivePage, setSelectedProduct, initial
   }, [initialCategory]);
 
   const categories = [
+    'All',
     'Leather Keychains',
     'Corporate Gift Box',
-    'All'
+    'Leather Products',
+    'Apparel',
+    'Bags',
+    'Bottles',
+    'Tech Gadgets',
+    'Wall Clocks',
+    'Custom Mugs',
+    'Corporate Notebooks',
+    'Pens',
+    'Office Supplies',
+    'Desk Organizer',
+    'Calendars',
+    'PVC Rubber Merch',
+    'Shields & Awards'
   ];
 
   const filteredProducts = ALL_PRODUCTS.filter(p => {

@@ -7,11 +7,35 @@ const MENU_STRUCTURE = [
   {
     type: 'dropdown',
     id: 'products',
-    label: 'Keychains & Gifts',
+    label: 'Products & Gifts',
     icon: <Gift size={15} color="var(--btn-coffee-bean)" />,
     items: [
-      { label: 'Leather Keychains', category: 'Leather Keychains' },
-      { label: 'Executive Gift Box Sets', category: 'Corporate Gift Box' }
+      { label: 'Apparel', category: 'Apparel' },
+      { label: 'Bags', category: 'Bags' },
+      { label: 'Bottles', category: 'Bottles' },
+      { 
+        label: 'Leather Products', 
+        category: 'Leather Products',
+        subCategories: [
+          { label: 'Wallets', page: 'shop', category: 'Leather Products' },
+          { label: 'Leather Keychains', page: 'catalog', category: 'Leather Keychains' }
+        ]
+      },
+      { label: 'Tech Gadgets', category: 'Tech Gadgets' },
+      { label: 'Wall Clocks', category: 'Wall Clocks' },
+    ]
+  },
+  {
+    type: 'dropdown',
+    id: 'office',
+    label: 'Office & Stationery',
+    icon: <BookOpen size={15} color="var(--btn-coffee-bean)" />,
+    items: [
+      { label: 'Corporate Notebooks', category: 'Corporate Notebooks' },
+      { label: 'Pens', category: 'Pens' },
+      { label: 'Office Supplies', category: 'Office Supplies' },
+      { label: 'Desk Organizer / Tabletop Items', category: 'Desk Organizer' },
+      { label: 'New Year Calendars', category: 'Calendars' },
     ]
   },
   { type: 'link', id: 'catalog', label: 'Catalog' },
