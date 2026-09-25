@@ -528,6 +528,69 @@ export const CORPORATE_GIFTS = [
       "Heavy-Duty Metal Key Rings included",
       "Complete Executive Presentation Box Included"
     ]
+  },
+  {
+    id: "kc-10",
+    name: "Stealth All-Black Executive Leather Keychain",
+    subtitle: "Matte Black Metal Hardware & Full-Grain Black Hide",
+    category: "Leather Keychains",
+    material: "Leather & Anodized Metal",
+    leatherType: "Full-Grain Bovine",
+    color: "Matte Black",
+    isBestSeller: true,
+    isCustomizable: true,
+    description: "Ultra-sleek all-black executive leather keychain featuring anodized matte black metallic top hardware and reinforced perimeter stitching.",
+    images: [
+      "/products/keychains/keychain-10.jpg"
+    ],
+    features: [
+      "100% Stealth All-Black Finish",
+      "Anodized Scratch-Resistant Black Metal Hardware",
+      "Reinforced Perimeter Edge Stitching",
+      "Delivered in Velvet Presentation Gift Box"
+    ]
+  },
+  {
+    id: "kc-11",
+    name: "Executive Brushed Silver Plate Leather Keychain",
+    subtitle: "Brushed Aluminum Metal Plate & Leather Loop",
+    category: "Leather Keychains",
+    material: "Metal & Leather",
+    leatherType: "Full-Grain",
+    color: "Brushed Silver & Black",
+    isBestSeller: true,
+    isCustomizable: true,
+    description: "Corporate keychain with a wide brushed silver metallic plate engineered specifically for prominent laser engraving of company logos.",
+    images: [
+      "/products/keychains/keychain-11.jpg"
+    ],
+    features: [
+      "Wide Brushed Metallic Logo Engraving Surface",
+      "Quick-Release Carabiner Spring Clasp",
+      "Full-Grain Textured Black Leather Strap",
+      "Ideal for Corporate Logo Debossing & Engraving"
+    ]
+  },
+  {
+    id: "corp-gift-02",
+    name: "Executive White Corporate VIP Gift Box Set",
+    subtitle: "4-in-1 Flask, Custom Notebook, Pen & Leather Keychain",
+    category: "Corporate Gift Box",
+    material: "Leather, Stainless Steel & Paper",
+    color: "Pure White & Navy",
+    isBestSeller: true,
+    isCustomizable: true,
+    description: "Premium 4-in-1 corporate welcome kit featuring a temperature-display white thermal flask bottle, hardbound corporate notebook diary, metallic executive pen, and matching branded leather keychain.",
+    images: [
+      "/products/gift-sets/giftset-02.jpg"
+    ],
+    features: [
+      "4-in-1 Complete Corporate Executive Welcome Kit",
+      "Double-Wall Vacuum Insulated Thermal Flask Bottle",
+      "A5 Hardbound Custom Branded Notebook Diary",
+      "Matching Executive Pen & Custom Leather Keychain",
+      "Rigid Presentation Gift Box with Cutout Foam Tray"
+    ]
   }
 ];
 
