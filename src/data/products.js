@@ -443,6 +443,91 @@ export const CORPORATE_GIFTS = [
       "Heavyweight Metallic Carabiner Top",
       "Complete Executive Gift Box Included"
     ]
+  },
+  {
+    id: "kc-06",
+    name: "360° Rotating Rectangular Metal & Leather Keychain",
+    subtitle: "High-Gloss Chrome Frame & Black Centerpiece",
+    category: "Leather Keychains",
+    material: "Metal & Leather",
+    leatherType: "Full-Grain",
+    color: "Polished Chrome & Black",
+    isBestSeller: true,
+    isCustomizable: true,
+    description: "Executive rectangular keychain featuring a 360-degree rotating center emblem surrounded by a high-shine chrome outer frame.",
+    images: [
+      "/products/keychains/keychain-06.jpg"
+    ],
+    features: [
+      "360° Smooth Rotating Rectangular Emblem",
+      "Mirror-Finish Polished Chrome Outer Frame",
+      "Double-Sided Custom Logo Laser Engraving",
+      "Delivered in Velvet Presentation Box"
+    ]
+  },
+  {
+    id: "kc-07",
+    name: "Brushed Steel Hinged Carabiner Keychain",
+    subtitle: "Heavyweight Stainless Steel & Leather Accent",
+    category: "Leather Keychains",
+    material: "Stainless Steel & Leather",
+    leatherType: "Full-Grain",
+    color: "Brushed Silver",
+    isBestSeller: true,
+    isCustomizable: true,
+    description: "Industrial-grade brushed stainless steel keychain featuring a precision spring carabiner clasp and hinged rectangular body.",
+    images: [
+      "/products/keychains/keychain-07.jpg"
+    ],
+    features: [
+      "Quick-Release Spring Carabiner Clasp",
+      "Heavyweight Brushed Stainless Steel Body",
+      "Precision Hinged Articulating Joint",
+      "Ideal for Deep Vector Laser Engraving"
+    ]
+  },
+  {
+    id: "kc-08",
+    name: "Matte Black & White Border Metal Keychain",
+    subtitle: "Contrast Bevel Frame & Hinged Clasp",
+    category: "Leather Keychains",
+    material: "Anodized Metal & Leather",
+    leatherType: "Full-Grain",
+    color: "Matte Black & White",
+    isBestSeller: false,
+    isCustomizable: true,
+    description: "Modern minimalist keychain engineered with an anodized matte black center and crisp white contrast border outline.",
+    images: [
+      "/products/keychains/keychain-08.jpg"
+    ],
+    features: [
+      "Crisp White Contrast Border Outline",
+      "Anodized Matte Black Scratch-Resistant Finish",
+      "Hinged Heavyweight Metal Articulation",
+      "Complimentary Custom Logo Engraving"
+    ]
+  },
+  {
+    id: "kc-09",
+    name: "Twin Executive Metallic Leather Keychains Set",
+    subtitle: "Brushed Silver & Gunmetal Black Collection",
+    category: "Leather Keychains",
+    material: "Leather & Alloy",
+    leatherType: "Full-Grain Bovine",
+    color: "Brushed Silver & Gunmetal Black",
+    isBestSeller: true,
+    isCustomizable: true,
+    description: "Executive duo collection featuring two premium metallic keychains in Brushed Silver and Gunmetal Black with leather loop backing.",
+    images: [
+      "/products/keychains/keychain-09.jpg",
+      "/products/keychains/keychain-07.jpg"
+    ],
+    features: [
+      "Duo Collection (Brushed Silver + Gunmetal Black)",
+      "Genuine Leather Backing with Edge Stitching",
+      "Heavy-Duty Metal Key Rings included",
+      "Complete Executive Presentation Box Included"
+    ]
   }
 ];
 
