@@ -236,6 +236,28 @@ export const PRODUCTS = [
 
 export const CORPORATE_GIFTS = [
   {
+    id: "note-01",
+    name: "Executive A5 Hardbound Corporate Journal Notebook",
+    subtitle: "Textured Charcoal Grey Cover with Magnetic Leather Snap Clasp",
+    category: "Corporate Notebooks",
+    material: "Textured Leatherette & 120gsm Cream Paper",
+    color: "Charcoal Grey",
+    isBestSeller: true,
+    isCustomizable: true,
+    description: "Premium A5 executive corporate notebook featuring a textured charcoal grey hardcover with a magnetic leather snap closure and ribbon bookmark. 200 lined cream memo pages ideal for corporate logo debossing.",
+    images: [
+      "/products/notebooks/notebook-01-front.jpg",
+      "/products/notebooks/notebook-01-open.jpg"
+    ],
+    features: [
+      "A5 Size (148 x 210 mm) Premium Hardcover",
+      "Magnetic Leather Snap Button Closure",
+      "200 Lined 120gsm Cream Pages with Memo/Date Headers",
+      "Complimentary Custom Logo Heat Debossing",
+      "Delivered in Executive Presentation Packaging"
+    ]
+  },
+  {
     id: "corp-gift-02",
     name: "Executive White Corporate VIP Gift Box Set",
     subtitle: "4-in-1 Flask, Custom Notebook, Pen & Leather Keychain",
