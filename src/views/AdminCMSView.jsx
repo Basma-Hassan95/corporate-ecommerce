@@ -7,7 +7,7 @@ import {
 } from '../utils/cmsStorage';
 import { 
   Lock, Plus, Edit2, Trash2, Check, X, 
-  Image as ImageIcon, Star, MessageSquare, Building2, Package, LogOut 
+  Image as ImageIcon, Star, MessageSquare, Building2, Package, LogOut, Upload 
 } from 'lucide-react';
 
 export default function AdminCMSView({ setActivePage }) {
@@ -390,18 +390,72 @@ export default function AdminCMSView({ setActivePage }) {
                 </div>
 
                 <div>
-                  <label style={{ fontSize: '0.82rem', fontWeight: '600', color: 'var(--text-dark-coffee)', display: 'block', marginBottom: '0.3rem' }}>Image URL / Path</label>
-                  <input 
-                    type="text"
-                    required
-                    value={productForm.images[0]}
-                    onChange={(e) => setProductForm({ ...productForm, images: [e.target.value] })}
-                    placeholder="/products/keychains/keychain-01.jpg"
-                    style={{ width: '100%', padding: '0.6rem 0.8rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)', fontSize: '0.88rem' }}
-                  />
+                  <label style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--text-dark-coffee)', display: 'block', marginBottom: '0.4rem' }}>
+                    Upload Product Image
+                  </label>
+                  
+                  <div style={{
+                    border: '2px dashed var(--btn-coffee-bean)',
+                    borderRadius: 'var(--radius-sm)',
+                    padding: '1.2rem 1rem',
+                    textAlign: 'center',
+                    backgroundColor: 'var(--surface-linen)',
+                    cursor: 'pointer',
+                    position: 'relative',
+                    transition: 'all 0.2s ease'
+                  }}>
+                    <input 
+                      type="file" 
+                      accept="image/*"
+                      onChange={(e) => {
+                        const file = e.target.files && e.target.files[0];
+                        if (file) {
+                          const reader = new FileReader();
+                          reader.onloadend = () => {
+                            setProductForm({ ...productForm, images: [reader.result] });
+                          };
+                          reader.readAsDataURL(file);
+                        }
+                      }}
+                      style={{
+                        position: 'absolute',
+                        inset: 0,
+                        opacity: 0,
+                        cursor: 'pointer',
+                        width: '100%',
+                        height: '100%',
+                        zIndex: 10
+                      }}
+                    />
+                    <Upload size={28} color="var(--btn-coffee-bean)" style={{ margin: '0 auto 0.4rem', display: 'block' }} />
+                    <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--text-dark-coffee)', fontWeight: '700' }}>
+                      Click or Drag Image File Here to Upload
+                    </p>
+                    <span style={{ fontSize: '0.75rem', color: 'var(--accent-dusty-taupe)', display: 'block', marginTop: '0.2rem' }}>
+                      Select photo from your phone or computer (JPG, PNG, WEBP)
+                    </span>
+                  </div>
+
+                  {/* Or Manual URL Input Fallback */}
+                  <details style={{ marginTop: '0.5rem' }}>
+                    <summary style={{ fontSize: '0.75rem', color: 'var(--accent-dusty-taupe)', cursor: 'pointer', outline: 'none' }}>
+                      Or paste image URL / file path
+                    </summary>
+                    <input 
+                      type="text"
+                      value={productForm.images[0]}
+                      onChange={(e) => setProductForm({ ...productForm, images: [e.target.value] })}
+                      placeholder="/products/keychains/keychain-01.jpg"
+                      style={{ width: '100%', padding: '0.5rem 0.7rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)', fontSize: '0.82rem', marginTop: '0.4rem' }}
+                    />
+                  </details>
+
                   {productForm.images[0] && (
-                    <div style={{ marginTop: '0.5rem', height: '100px', borderRadius: 'var(--radius-sm)', overflow: 'hidden', border: '1px solid var(--border-light)' }}>
-                      <img src={productForm.images[0]} alt="Preview" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    <div style={{ marginTop: '0.8rem', position: 'relative', height: '130px', borderRadius: 'var(--radius-sm)', overflow: 'hidden', border: '1px solid var(--border-light)', boxShadow: 'var(--shadow-sm)' }}>
+                      <img src={productForm.images[0]} alt="Uploaded Preview" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      <span style={{ position: 'absolute', bottom: '6px', right: '6px', backgroundColor: 'var(--btn-coffee-bean)', color: '#FFFFFF', fontSize: '0.7rem', padding: '0.25rem 0.6rem', borderRadius: '12px', fontWeight: '700' }}>
+                        ✓ Image Uploaded
+                      </span>
                     </div>
                   )}
                 </div>
@@ -548,15 +602,34 @@ export default function AdminCMSView({ setActivePage }) {
                 </div>
 
                 <div>
-                  <label style={{ fontSize: '0.82rem', fontWeight: '600', color: 'var(--text-dark-coffee)', display: 'block', marginBottom: '0.3rem' }}>Avatar Image URL</label>
-                  <input 
-                    type="text"
-                    required
-                    value={testimonialForm.avatar}
-                    onChange={(e) => setTestimonialForm({ ...testimonialForm, avatar: e.target.value })}
-                    placeholder="https://images.unsplash.com/photo-..."
-                    style={{ width: '100%', padding: '0.6rem 0.8rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)', fontSize: '0.88rem' }}
-                  />
+                  <label style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--text-dark-coffee)', display: 'block', marginBottom: '0.4rem' }}>Upload Client Photo / Avatar</label>
+                  <div style={{ border: '2px dashed var(--btn-coffee-bean)', borderRadius: 'var(--radius-sm)', padding: '1rem', textAlign: 'center', backgroundColor: 'var(--surface-linen)', cursor: 'pointer', position: 'relative' }}>
+                    <input 
+                      type="file" 
+                      accept="image/*"
+                      onChange={(e) => {
+                        const file = e.target.files && e.target.files[0];
+                        if (file) {
+                          const reader = new FileReader();
+                          reader.onloadend = () => setTestimonialForm({ ...testimonialForm, avatar: reader.result });
+                          reader.readAsDataURL(file);
+                        }
+                      }}
+                      style={{ position: 'absolute', inset: 0, opacity: 0, cursor: 'pointer', width: '100%', height: '100%' }}
+                    />
+                    <Upload size={22} color="var(--btn-coffee-bean)" style={{ margin: '0 auto 0.3rem', display: 'block' }} />
+                    <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--text-dark-coffee)', fontWeight: '700' }}>Select Photo File</p>
+                  </div>
+                  <details style={{ marginTop: '0.4rem' }}>
+                    <summary style={{ fontSize: '0.75rem', color: 'var(--accent-dusty-taupe)', cursor: 'pointer' }}>Or paste image URL</summary>
+                    <input 
+                      type="text"
+                      value={testimonialForm.avatar}
+                      onChange={(e) => setTestimonialForm({ ...testimonialForm, avatar: e.target.value })}
+                      placeholder="https://images.unsplash.com/photo-..."
+                      style={{ width: '100%', padding: '0.4rem 0.6rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)', fontSize: '0.8rem', marginTop: '0.3rem' }}
+                    />
+                  </details>
                 </div>
 
                 <div>
@@ -619,15 +692,34 @@ export default function AdminCMSView({ setActivePage }) {
                   />
                 </div>
                 <div>
-                  <label style={{ fontSize: '0.82rem', fontWeight: '600', color: 'var(--text-dark-coffee)', display: 'block', marginBottom: '0.3rem' }}>Logo Image URL</label>
-                  <input 
-                    type="text"
-                    required
-                    value={logoForm.logoUrl}
-                    onChange={(e) => setLogoForm({ ...logoForm, logoUrl: e.target.value })}
-                    placeholder="https://..."
-                    style={{ width: '100%', padding: '0.6rem 0.8rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)', fontSize: '0.88rem' }}
-                  />
+                  <label style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--text-dark-coffee)', display: 'block', marginBottom: '0.4rem' }}>Upload Logo Image File</label>
+                  <div style={{ border: '2px dashed var(--btn-coffee-bean)', borderRadius: 'var(--radius-sm)', padding: '1rem', textAlign: 'center', backgroundColor: 'var(--surface-linen)', cursor: 'pointer', position: 'relative' }}>
+                    <input 
+                      type="file" 
+                      accept="image/*"
+                      onChange={(e) => {
+                        const file = e.target.files && e.target.files[0];
+                        if (file) {
+                          const reader = new FileReader();
+                          reader.onloadend = () => setLogoForm({ ...logoForm, logoUrl: reader.result });
+                          reader.readAsDataURL(file);
+                        }
+                      }}
+                      style={{ position: 'absolute', inset: 0, opacity: 0, cursor: 'pointer', width: '100%', height: '100%' }}
+                    />
+                    <Upload size={22} color="var(--btn-coffee-bean)" style={{ margin: '0 auto 0.3rem', display: 'block' }} />
+                    <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--text-dark-coffee)', fontWeight: '700' }}>Select Logo File</p>
+                  </div>
+                  <details style={{ marginTop: '0.4rem' }}>
+                    <summary style={{ fontSize: '0.75rem', color: 'var(--accent-dusty-taupe)', cursor: 'pointer' }}>Or paste image URL</summary>
+                    <input 
+                      type="text"
+                      value={logoForm.logoUrl}
+                      onChange={(e) => setLogoForm({ ...logoForm, logoUrl: e.target.value })}
+                      placeholder="https://..."
+                      style={{ width: '100%', padding: '0.4rem 0.6rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)', fontSize: '0.8rem', marginTop: '0.3rem' }}
+                    />
+                  </details>
                 </div>
                 <button type="submit" className="btn-primary">Add Logo to Banner</button>
               </form>
