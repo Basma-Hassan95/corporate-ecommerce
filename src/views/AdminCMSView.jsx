@@ -81,8 +81,8 @@ export default function AdminCMSView({ setActivePage }) {
     if (editingProduct) {
       updatedProducts = products.map(p => p.id === editingProduct.id ? { ...productForm } : p);
     } else {
-      const newId = 'kc-' + (products.length + 1).toString().padStart(2, '0');
-      updatedProducts = [...products, { ...productForm, id: newId }];
+      const newId = 'prod-' + Date.now();
+      updatedProducts = [{ ...productForm, id: newId }, ...products];
     }
     setProducts(updatedProducts);
     saveCMSProducts(updatedProducts);

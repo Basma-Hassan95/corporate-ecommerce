@@ -163,6 +163,7 @@ export default function App() {
           <HomepageView 
             setActivePage={(p) => { setActivePage(p); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
             setSelectedProduct={setSelectedProduct}
+            onSelectCategory={handleSelectCategory}
           />
         )}
 
