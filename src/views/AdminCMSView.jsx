@@ -471,7 +471,29 @@ export default function AdminCMSView({ setActivePage }) {
                     <option value="Corporate Gift Box">Corporate Gift Box</option>
                     <option value="Leather Products">Leather Products</option>
                     <option value="Apparel">Apparel</option>
+                    <option value="Bags">Bags / Executive Bags</option>
+                    <option value="Bottles">Bottles / Thermal Flasks</option>
+                    <option value="Tech Gadgets">Tech Gadgets & Power Banks</option>
+                    <option value="Wall Clocks">Wall Clocks</option>
+                    <option value="Custom Mugs">Custom Mugs & Coasters</option>
+                    <option value="Corporate Notebooks">Corporate Notebooks & Diaries</option>
+                    <option value="Pens">Pens / Executive Pens</option>
+                    <option value="Office Supplies">Office Supplies</option>
+                    <option value="Desk Organizer">Desk Organizer / Tabletop Items</option>
+                    <option value="Calendars">Calendars</option>
+                    <option value="PVC Rubber Merch">PVC Rubber Merch</option>
+                    <option value="Shields & Awards">Shields & Corporate Awards</option>
+                    <option value="Other">Custom / Type Custom Below...</option>
                   </select>
+
+                  {/* If user types custom category */}
+                  <input 
+                    type="text"
+                    placeholder="Or type custom category name..."
+                    value={productForm.category === 'Other' ? '' : productForm.category}
+                    onChange={(e) => setProductForm({ ...productForm, category: e.target.value })}
+                    style={{ width: '100%', padding: '0.5rem 0.8rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)', fontSize: '0.82rem', marginTop: '0.4rem' }}
+                  />
                 </div>
 
                 <div>

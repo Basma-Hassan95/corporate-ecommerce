@@ -22,7 +22,7 @@ export default function CatalogView({ setActivePage, setSelectedProduct, initial
     }
   }, [initialCategory]);
 
-  const categories = [
+  const defaultCategories = [
     'All',
     'Leather Keychains',
     'Corporate Gift Box',
@@ -41,6 +41,9 @@ export default function CatalogView({ setActivePage, setSelectedProduct, initial
     'PVC Rubber Merch',
     'Shields & Awards'
   ];
+
+  const dynamicCategories = Array.from(new Set(allProducts.map(p => p.category).filter(Boolean)));
+  const categories = Array.from(new Set(['All', ...defaultCategories, ...dynamicCategories]));
 
   const filteredProducts = allProducts.filter(p => {
     if (selectedCategory !== 'All' && p.category !== selectedCategory) return false;
