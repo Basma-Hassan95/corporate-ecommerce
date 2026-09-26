@@ -258,6 +258,29 @@ export const CORPORATE_GIFTS = [
     ]
   },
   {
+    id: "note-02",
+    name: "Royal Blue Executive Metallic Clasp Journal Notebook",
+    subtitle: "Smooth Royal Blue Cover with Angled Metallic Snap Clasp",
+    category: "Corporate Notebooks",
+    material: "Premium Smooth Leatherette & 120gsm Cream Paper",
+    color: "Royal Blue",
+    isBestSeller: true,
+    isCustomizable: true,
+    description: "Luxury A5 executive corporate notebook in rich royal blue with double vertical spine stitching and an angled brushed metal magnetic closure. Features 200 lined memo pages with blue ribbon bookmark.",
+    images: [
+      "/products/notebooks/notebook-02-front.jpg",
+      "/products/notebooks/notebook-02-open.jpg",
+      "/products/notebooks/notebook-02-back.jpg"
+    ],
+    features: [
+      "A5 Size (148 x 210 mm) Hardcover",
+      "Angled Metallic Magnetic Snap Clasp",
+      "Double Vertical Spine Edge Stitching",
+      "200 Lined 120gsm Cream Pages with Blue Ribbon Bookmark",
+      "Complimentary Custom Corporate Logo Stamping"
+    ]
+  },
+  {
     id: "corp-gift-02",
     name: "Executive White Corporate VIP Gift Box Set",
     subtitle: "4-in-1 Flask, Custom Notebook, Pen & Leather Keychain",
