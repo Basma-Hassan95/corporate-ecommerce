@@ -51,7 +51,20 @@ export function getCMSProducts() {
   const data = localStorage.getItem(STORAGE_KEYS.PRODUCTS);
   if (!data) return ALL_PRODUCTS;
   try {
-    return JSON.parse(data);
+    const stored = JSON.parse(data);
+    if (!Array.isArray(stored)) return ALL_PRODUCTS;
+    const storedIds = new Set(stored.map(p => p.id));
+    let hasNew = false;
+    ALL_PRODUCTS.forEach(defaultItem => {
+      if (!storedIds.has(defaultItem.id)) {
+        stored.push(defaultItem);
+        hasNew = true;
+      }
+    });
+    if (hasNew) {
+      localStorage.setItem(STORAGE_KEYS.PRODUCTS, JSON.stringify(stored));
+    }
+    return stored;
   } catch (e) {
     return ALL_PRODUCTS;
   }
