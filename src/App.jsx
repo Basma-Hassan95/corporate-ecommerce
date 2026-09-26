@@ -20,7 +20,8 @@ export default function App() {
   const getInitialPage = () => {
     if (typeof window !== 'undefined') {
       const path = window.location.pathname.replace(/^\//, '').toLowerCase();
-      if (['admin', 'catalog', 'shop', 'about', 'contact', 'pdp', 'cart', 'checkout'].includes(path)) {
+      if (path === 'admin') return 'admin';
+      if (['catalog', 'shop', 'about', 'contact', 'pdp', 'cart', 'checkout'].includes(path)) {
         return path;
       }
       if (window.location.hash) {
@@ -39,13 +40,21 @@ export default function App() {
     const handleLocationChange = () => {
       if (typeof window !== 'undefined') {
         const path = window.location.pathname.replace(/^\//, '').toLowerCase();
-        if (['admin', 'catalog', 'shop', 'about', 'contact', 'pdp', 'cart', 'checkout'].includes(path)) {
-          setActivePageRaw(path);
+        if (path === 'admin') {
+          setActivePageRaw('admin');
           return;
         }
         if (window.location.hash) {
           const hashPage = window.location.hash.replace('#', '').toLowerCase();
-          if (hashPage) setActivePageRaw(hashPage);
+          if (['home', 'shop', 'catalog', 'pdp', 'cart', 'checkout', 'about', 'contact', 'refund-policy', 'shipping-policy', 'admin'].includes(hashPage)) {
+            setActivePageRaw(hashPage);
+            window.history.replaceState(null, '', hashPage === 'admin' ? '/admin' : '/');
+            return;
+          }
+        }
+        if (!path) {
+          const saved = localStorage.getItem('active_page_nav');
+          if (saved && saved !== 'admin') setActivePageRaw(saved);
         }
       }
     };
@@ -63,7 +72,8 @@ export default function App() {
     setActivePageRaw(pageName);
     localStorage.setItem('active_page_nav', pageName);
     if (typeof window !== 'undefined') {
-      window.location.hash = pageName;
+      const targetPath = pageName === 'admin' ? '/admin' : '/';
+      window.history.pushState({ page: pageName }, '', targetPath);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
