@@ -113,7 +113,10 @@ export default function PDPView({ product, addToCart, setActivePage, openCart })
                 Craftsmanship Highlights
               </h4>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '0.5rem' }}>
-                {product.features.map((feat, idx) => (
+                {(product.features && product.features.length > 0 
+                  ? product.features 
+                  : ["Premium Corporate Gifting Quality", "Complimentary Logo Debossing / Engraving", "Luxury Executive Gift Box Included"]
+                ).map((feat, idx) => (
                   <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.88rem' }}>
                     <Check size={16} color="var(--btn-coffee-bean)" />
                     <span>{feat}</span>
