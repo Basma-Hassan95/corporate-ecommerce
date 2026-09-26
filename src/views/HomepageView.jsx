@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import CorporateHeroSection from '../components/CorporateHeroSection';
 import EngravingCustomizer from '../components/EngravingCustomizer';
 import InteractiveCustomizationForm from '../components/InteractiveCustomizationForm';
@@ -6,10 +6,18 @@ import StatsAndValueProp from '../components/StatsAndValueProp';
 import BrandingServicesSection from '../components/BrandingServicesSection';
 import TestimonialsAndLogosSection from '../components/TestimonialsAndLogosSection';
 import { ArrowRight, Star } from 'lucide-react';
-import { ALL_PRODUCTS, PRODUCTS } from '../data/products';
+import { getCMSProducts } from '../utils/cmsStorage';
 
 export default function HomepageView({ setActivePage, setSelectedProduct, openCart, onSelectCategory }) {
-  const featuredProducts = ALL_PRODUCTS.slice(0, 8);
+  const [products, setProducts] = useState(getCMSProducts());
+
+  useEffect(() => {
+    const handleUpdate = () => setProducts(getCMSProducts());
+    window.addEventListener('cms_data_updated', handleUpdate);
+    return () => window.removeEventListener('cms_data_updated', handleUpdate);
+  }, []);
+
+  const featuredProducts = products.slice(0, 8);
 
   return (
     <div className="homepage-view" style={{ backgroundColor: 'var(--bg-parchment)' }}>

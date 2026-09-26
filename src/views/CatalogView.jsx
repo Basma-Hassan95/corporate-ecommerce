@@ -1,13 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { Filter, Star, Check, RotateCcw, Search } from 'lucide-react';
-import { ALL_PRODUCTS } from '../data/products';
+import { getCMSProducts } from '../utils/cmsStorage';
 
 export default function CatalogView({ setActivePage, setSelectedProduct, initialCategory = 'Leather Keychains', searchQuery: externalSearchQuery = '', setSearchQuery: setExternalSearchQuery = null }) {
   const [selectedCategory, setSelectedCategory] = useState(initialCategory);
   const [internalSearchQuery, setInternalSearchQuery] = useState('');
+  const [allProducts, setAllProducts] = useState(getCMSProducts());
 
   const searchQuery = setExternalSearchQuery ? externalSearchQuery : internalSearchQuery;
   const setSearchQuery = setExternalSearchQuery || setInternalSearchQuery;
+
+  useEffect(() => {
+    const handleUpdate = () => setAllProducts(getCMSProducts());
+    window.addEventListener('cms_data_updated', handleUpdate);
+    return () => window.removeEventListener('cms_data_updated', handleUpdate);
+  }, []);
 
   useEffect(() => {
     if (initialCategory) {
@@ -35,7 +42,7 @@ export default function CatalogView({ setActivePage, setSelectedProduct, initial
     'Shields & Awards'
   ];
 
-  const filteredProducts = ALL_PRODUCTS.filter(p => {
+  const filteredProducts = allProducts.filter(p => {
     if (selectedCategory !== 'All' && p.category !== selectedCategory) return false;
     if (searchQuery.trim() && !p.name.toLowerCase().includes(searchQuery.toLowerCase())) return false;
     return true;

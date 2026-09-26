@@ -1,13 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Filter, Star, Check, RotateCcw } from 'lucide-react';
-import { PRODUCTS } from '../data/products';
+import { getCMSProducts } from '../utils/cmsStorage';
 
 export default function ShopView({ setActivePage, setSelectedProduct }) {
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [products, setProducts] = useState(getCMSProducts());
+
+  useEffect(() => {
+    const handleUpdate = () => setProducts(getCMSProducts());
+    window.addEventListener('cms_data_updated', handleUpdate);
+    return () => window.removeEventListener('cms_data_updated', handleUpdate);
+  }, []);
 
   const categories = ['All', 'Leather Keychains'];
 
-  const filteredProducts = PRODUCTS.filter(p => {
+  const filteredProducts = products.filter(p => {
     if (selectedCategory !== 'All' && p.category !== selectedCategory) return false;
     return true;
   });
