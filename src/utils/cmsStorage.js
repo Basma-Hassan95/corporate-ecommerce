@@ -135,3 +135,74 @@ export function addCMSInquiry(inquiry) {
     window.dispatchEvent(new Event('cms_data_updated'));
   }
 }
+
+// Helper functions for Hero Banner Sliders
+export const INITIAL_HERO_SLIDES = [
+  {
+    id: 'slide-1',
+    badge: 'EXECUTIVE GENUINE LEATHER COLLECTION',
+    headlineMain: 'Bespoke Leather Goods.',
+    headlineAccent: 'Precision Craftsmen.',
+    description: 'Elevate your corporate brand with handcrafted executive leather wallets, keychains, and journals customized with precision logo debossing.',
+    image: '/products/wallets/wallet-03-front.jpg',
+    ctaPrimaryText: 'Contact Us',
+    ctaSecondaryText: 'Explore Catalog',
+    linkPrimary: 'contact',
+    linkSecondary: 'catalog'
+  },
+  {
+    id: 'slide-2',
+    badge: 'HARDCOVER CORPORATE JOURNALS',
+    headlineMain: 'Handcrafted Excellence.',
+    headlineAccent: 'Zero Synthetic Fillers.',
+    description: 'A5 hardbound executive journal notebooks featuring magnetic leather snap closures and custom corporate heat debossing.',
+    image: '/products/notebooks/notebook-01-front.jpg',
+    ctaPrimaryText: 'Contact Us',
+    ctaSecondaryText: 'Explore Notebooks',
+    linkPrimary: 'contact',
+    linkSecondary: 'catalog'
+  },
+  {
+    id: 'slide-3',
+    badge: 'SUSTAINABLE LUXURY CORPORATE GIFTING',
+    headlineMain: 'Executive Keychains.',
+    headlineAccent: 'Full-Grain Leather.',
+    description: 'Premium top-tier full-grain bovine leather strap keychains with heavy-duty zinc alloy clasp and complimentary laser engraving.',
+    image: '/products/keychains/keychain-05.jpg',
+    ctaPrimaryText: 'Contact Us',
+    ctaSecondaryText: 'Explore Keychains',
+    linkPrimary: 'contact',
+    linkSecondary: 'catalog'
+  },
+  {
+    id: 'slide-4',
+    badge: 'ROYAL BLUE EXECUTIVE LEATHER KEYCHAINS',
+    headlineMain: 'Precision Edge Stitching.',
+    headlineAccent: 'Chrome Hardware Top.',
+    description: 'Striking royal blue stitched full-grain leather keychains with custom micro-laser logo stamping and luxury presentation box.',
+    image: '/products/keychains/keychain-02.jpg',
+    ctaPrimaryText: 'Contact Us',
+    ctaSecondaryText: 'Explore Keychains',
+    linkPrimary: 'contact',
+    linkSecondary: 'catalog'
+  }
+];
+
+export function getCMSHeroSlides() {
+  if (typeof window === 'undefined') return INITIAL_HERO_SLIDES;
+  const data = localStorage.getItem('ws_cms_hero_slides');
+  if (!data) return INITIAL_HERO_SLIDES;
+  try {
+    const parsed = JSON.parse(data);
+    return Array.isArray(parsed) && parsed.length > 0 ? parsed : INITIAL_HERO_SLIDES;
+  } catch (e) {
+    return INITIAL_HERO_SLIDES;
+  }
+}
+
+export function saveCMSHeroSlides(slides) {
+  if (typeof window !== 'undefined') {
+    localStorage.setItem('ws_cms_hero_slides', JSON.stringify(slides));
+    window.dispatchEvent(new Event('cms_data_updated'));
+  }
+}

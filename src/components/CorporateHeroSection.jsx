@@ -1,77 +1,39 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, ArrowUpRight, ArrowRight } from 'lucide-react';
-import { BRAND_IMAGES } from '../data/products';
-
-const HERO_SLIDES = [
-  {
-    id: 1,
-    badge: 'EXECUTIVE GENUINE LEATHER COLLECTION',
-    headlineMain: 'Bespoke Leather Goods.',
-    headlineAccent: 'Precision Craftsmen.',
-    description: 'Elevate your corporate brand with handcrafted executive leather wallets, keychains, and journals customized with precision logo debossing.',
-    image: '/products/wallets/wallet-03-front.jpg',
-    ctaPrimaryText: 'Contact Us',
-    ctaSecondaryText: 'Explore Catalog',
-    linkPrimary: 'contact',
-    linkSecondary: 'catalog'
-  },
-  {
-    id: 2,
-    badge: 'HARDCOVER CORPORATE JOURNALS',
-    headlineMain: 'Handcrafted Excellence.',
-    headlineAccent: 'Zero Synthetic Fillers.',
-    description: 'A5 hardbound executive journal notebooks featuring magnetic leather snap closures and custom corporate heat debossing.',
-    image: '/products/notebooks/notebook-01-front.jpg',
-    ctaPrimaryText: 'Contact Us',
-    ctaSecondaryText: 'Explore Notebooks',
-    linkPrimary: 'contact',
-    linkSecondary: 'catalog'
-  },
-  {
-    id: 3,
-    badge: 'SUSTAINABLE LUXURY CORPORATE GIFTING',
-    headlineMain: 'Executive Keychains.',
-    headlineAccent: 'Full-Grain Leather.',
-    description: 'Premium top-tier full-grain bovine leather strap keychains with heavy-duty zinc alloy clasp and complimentary laser engraving.',
-    image: BRAND_IMAGES.engravingProcess,
-    ctaPrimaryText: 'Contact Us',
-    ctaSecondaryText: 'Explore Keychains',
-    linkPrimary: 'contact',
-    linkSecondary: 'catalog'
-  },
-  {
-    id: 4,
-    badge: 'ROYAL BLUE EXECUTIVE LEATHER KEYCHAINS',
-    headlineMain: 'Precision Edge Stitching.',
-    headlineAccent: 'Chrome Hardware Top.',
-    description: 'Striking royal blue stitched full-grain leather keychains with custom micro-laser logo stamping and luxury presentation box.',
-    image: '/products/keychains/keychain-02.jpg',
-    ctaPrimaryText: 'Contact Us',
-    ctaSecondaryText: 'Explore Keychains',
-    linkPrimary: 'contact',
-    linkSecondary: 'catalog'
-  }
-];
+import { getCMSHeroSlides } from '../utils/cmsStorage';
 
 export default function CorporateHeroSection({ setActivePage = () => {} }) {
+  const [heroSlides, setHeroSlides] = useState(getCMSHeroSlides());
   const [currentIdx, setCurrentIdx] = useState(0);
-  const activeSlide = HERO_SLIDES[currentIdx];
+
+  useEffect(() => {
+    const handleUpdate = () => {
+      const updated = getCMSHeroSlides();
+      setHeroSlides(updated);
+      if (currentIdx >= updated.length) setCurrentIdx(0);
+    };
+    window.addEventListener('cms_data_updated', handleUpdate);
+    return () => window.removeEventListener('cms_data_updated', handleUpdate);
+  }, [currentIdx]);
+
+  const slides = heroSlides && heroSlides.length > 0 ? heroSlides : getCMSHeroSlides();
+  const activeSlide = slides[currentIdx] || slides[0];
 
   const handleNext = () => {
-    setCurrentIdx((prev) => (prev + 1) % HERO_SLIDES.length);
+    setCurrentIdx((prev) => (prev + 1) % slides.length);
   };
 
   const handlePrev = () => {
-    setCurrentIdx((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
+    setCurrentIdx((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
   // Continuous Auto-Play Loop every 4.5 seconds
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentIdx((prev) => (prev + 1) % HERO_SLIDES.length);
+      setCurrentIdx((prev) => (prev + 1) % slides.length);
     }, 4500);
     return () => clearInterval(timer);
-  }, []);
+  }, [slides.length]);
 
   return (
     <section 
@@ -87,7 +49,7 @@ export default function CorporateHeroSection({ setActivePage = () => {} }) {
       className="reference-hero-section"
     >
       {/* BACKGROUND SLIDE IMAGE SHOWCASE */}
-      {HERO_SLIDES.map((slide, idx) => {
+      {slides.map((slide, idx) => {
         const isActive = idx === currentIdx;
 
         return (
@@ -329,7 +291,7 @@ export default function CorporateHeroSection({ setActivePage = () => {} }) {
         }}
         className="hero-thumbnails-bar"
       >
-        {HERO_SLIDES.map((slide, idx) => (
+        {slides.map((slide, idx) => (
           <div
             key={slide.id}
             onClick={() => setCurrentIdx(idx)}

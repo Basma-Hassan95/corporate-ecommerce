@@ -3,11 +3,12 @@ import {
   getCMSProducts, saveCMSProducts, 
   getCMSTestimonials, saveCMSTestimonials, 
   getCMSLogos, saveCMSLogos, 
-  getCMSInquiries 
+  getCMSInquiries,
+  getCMSHeroSlides, saveCMSHeroSlides
 } from '../utils/cmsStorage';
 import { 
   Lock, Plus, Edit2, Trash2, Check, X, 
-  Image as ImageIcon, Star, MessageSquare, Building2, Package, LogOut, Upload 
+  Image as ImageIcon, Star, MessageSquare, Building2, Package, LogOut, Upload, Sliders
 } from 'lucide-react';
 
 export default function AdminCMSView({ setActivePage }) {
@@ -21,6 +22,7 @@ export default function AdminCMSView({ setActivePage }) {
   const [testimonials, setTestimonials] = useState([]);
   const [logos, setLogos] = useState([]);
   const [inquiries, setInquiries] = useState([]);
+  const [heroSlides, setHeroSlides] = useState([]);
 
   // Product Form State
   const [editingProduct, setEditingProduct] = useState(null);
@@ -36,6 +38,21 @@ export default function AdminCMSView({ setActivePage }) {
     isBestSeller: false,
     rating: 5.0,
     reviewsCount: 25
+  });
+
+  // Hero Slide Form State
+  const [editingSlide, setEditingSlide] = useState(null);
+  const [slideForm, setSlideForm] = useState({
+    id: '',
+    badge: '',
+    headlineMain: '',
+    headlineAccent: '',
+    description: '',
+    image: '',
+    ctaPrimaryText: 'Contact Us',
+    ctaSecondaryText: 'Explore Catalog',
+    linkPrimary: 'contact',
+    linkSecondary: 'catalog'
   });
 
   // Testimonial Form State
@@ -62,6 +79,7 @@ export default function AdminCMSView({ setActivePage }) {
     setTestimonials(getCMSTestimonials());
     setLogos(getCMSLogos());
     setInquiries(getCMSInquiries());
+    setHeroSlides(getCMSHeroSlides());
   }, []);
 
   const handleLogin = (e) => {
@@ -116,6 +134,54 @@ export default function AdminCMSView({ setActivePage }) {
       isBestSeller: false,
       rating: 5.0,
       reviewsCount: 25
+    });
+  };
+
+  // --- HERO SLIDE ACTIONS ---
+  const handleSaveSlide = (e) => {
+    e.preventDefault();
+    let updated;
+    if (editingSlide) {
+      updated = heroSlides.map(s => s.id === editingSlide.id ? { ...slideForm } : s);
+    } else {
+      const newId = 'slide-' + Date.now();
+      updated = [...heroSlides, { ...slideForm, id: newId }];
+    }
+    setHeroSlides(updated);
+    saveCMSHeroSlides(updated);
+    resetSlideForm();
+  };
+
+  const handleDeleteSlide = (id) => {
+    if (heroSlides.length <= 1) {
+      alert('At least one slide is required for the main header hero banner.');
+      return;
+    }
+    if (window.confirm('Are you sure you want to delete this hero slider banner?')) {
+      const updated = heroSlides.filter(s => s.id !== id);
+      setHeroSlides(updated);
+      saveCMSHeroSlides(updated);
+    }
+  };
+
+  const startEditSlide = (slide) => {
+    setEditingSlide(slide);
+    setSlideForm({ ...slide });
+  };
+
+  const resetSlideForm = () => {
+    setEditingSlide(null);
+    setSlideForm({
+      id: '',
+      badge: '',
+      headlineMain: '',
+      headlineAccent: '',
+      description: '',
+      image: '',
+      ctaPrimaryText: 'Contact Us',
+      ctaSecondaryText: 'Explore Catalog',
+      linkPrimary: 'contact',
+      linkSecondary: 'catalog'
     });
   };
 
@@ -299,6 +365,24 @@ export default function AdminCMSView({ setActivePage }) {
             }}
           >
             <MessageSquare size={17} /> Testimonials &amp; Reviews ({testimonials.length})
+          </button>
+
+          <button 
+            onClick={() => setActiveTab('sliders')}
+            style={{
+              padding: '0.7rem 1.4rem',
+              borderRadius: 'var(--radius-sm)',
+              border: 'none',
+              background: activeTab === 'sliders' ? 'var(--btn-coffee-bean)' : 'transparent',
+              color: activeTab === 'sliders' ? '#FFFFFF' : 'var(--text-dark-coffee)',
+              fontWeight: '600',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem'
+            }}
+          >
+            <Sliders size={17} /> Hero Sliders ({heroSlides.length})
           </button>
 
           <button 
@@ -745,6 +829,197 @@ export default function AdminCMSView({ setActivePage }) {
                   </details>
                 </div>
                 <button type="submit" className="btn-primary">Add Logo to Banner</button>
+              </form>
+            </div>
+          </div>
+        )}
+
+        {/* TAB 4: HERO BANNER SLIDERS MANAGER */}
+        {activeTab === 'sliders' && (
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 420px', gap: '2rem' }}>
+            {/* Hero Slides List */}
+            <div>
+              <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--text-dark-coffee)', marginBottom: '1rem' }}>
+                Hero Banner Sliders ({heroSlides.length})
+              </h3>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
+                {heroSlides.map((slide, index) => (
+                  <div 
+                    key={slide.id} 
+                    style={{ 
+                      backgroundColor: 'var(--surface-white)', 
+                      padding: '1.4rem', 
+                      borderRadius: 'var(--radius-md)', 
+                      border: '1px solid var(--border-light)', 
+                      display: 'flex', 
+                      gap: '1.2rem',
+                      alignItems: 'flex-start',
+                      boxShadow: 'var(--shadow-sm)'
+                    }}
+                  >
+                    <img 
+                      src={slide.image} 
+                      alt={`Slide ${index + 1}`} 
+                      style={{ 
+                        width: '120px', 
+                        height: '90px', 
+                        borderRadius: 'var(--radius-sm)', 
+                        objectFit: 'cover', 
+                        border: '1px solid var(--border-light)',
+                        backgroundColor: '#16120B'
+                      }} 
+                    />
+                    <div style={{ flex: 1 }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '0.5rem', marginBottom: '0.4rem' }}>
+                        <div>
+                          <span style={{ fontSize: '0.72rem', color: '#9A7824', fontWeight: '700', letterSpacing: '0.05em', textTransform: 'uppercase', display: 'block' }}>
+                            {slide.badge || `Slide #${index + 1}`}
+                          </span>
+                          <h4 style={{ color: 'var(--text-dark-coffee)', margin: '0.2rem 0', fontFamily: 'var(--font-heading)', fontSize: '1.1rem' }}>
+                            {slide.headlineMain} <span style={{ color: '#9A7824', fontStyle: 'italic' }}>{slide.headlineAccent}</span>
+                          </h4>
+                        </div>
+                        <div style={{ display: 'flex', gap: '0.4rem' }}>
+                          <button 
+                            onClick={() => startEditSlide(slide)}
+                            style={{ padding: '0.4rem 0.7rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)', backgroundColor: 'var(--surface-linen)', cursor: 'pointer', fontSize: '0.78rem', display: 'flex', alignItems: 'center', gap: '0.3rem', color: 'var(--text-dark-coffee)' }}
+                          >
+                            <Edit2 size={13} /> Edit
+                          </button>
+                          <button 
+                            onClick={() => handleDeleteSlide(slide.id)}
+                            style={{ padding: '0.4rem 0.7rem', borderRadius: 'var(--radius-sm)', border: '1px solid #F5C6CB', backgroundColor: '#F8D7DA', cursor: 'pointer', fontSize: '0.78rem', display: 'flex', alignItems: 'center', gap: '0.3rem', color: '#721C24' }}
+                          >
+                            <Trash2 size={13} /> Delete
+                          </button>
+                        </div>
+                      </div>
+                      <p style={{ fontSize: '0.85rem', color: 'var(--accent-dusty-taupe)', margin: 0, lineHeight: 1.5 }}>
+                        {slide.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Hero Slide Add / Edit Form */}
+            <div style={{ backgroundColor: 'var(--surface-white)', padding: '1.8rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-light)', height: 'fit-content' }}>
+              <h3 style={{ fontFamily: 'var(--font-heading)', color: 'var(--text-dark-coffee)', marginBottom: '1.2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <span>{editingSlide ? 'Edit Hero Slide' : 'Add New Hero Slide'}</span>
+                {editingSlide && (
+                  <button onClick={resetSlideForm} style={{ background: 'none', border: 'none', fontSize: '0.75rem', color: 'var(--accent-dusty-taupe)', cursor: 'pointer' }}>
+                    Cancel Edit
+                  </button>
+                )}
+              </h3>
+
+              <form onSubmit={handleSaveSlide} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                <div>
+                  <label style={{ fontSize: '0.82rem', fontWeight: '600', color: 'var(--text-dark-coffee)', display: 'block', marginBottom: '0.3rem' }}>Top Badge / Category Tag</label>
+                  <input 
+                    type="text"
+                    value={slideForm.badge}
+                    onChange={(e) => setSlideForm({ ...slideForm, badge: e.target.value })}
+                    placeholder="e.g. EXECUTIVE GENUINE LEATHER COLLECTION"
+                    style={{ width: '100%', padding: '0.6rem 0.8rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)', fontSize: '0.88rem' }}
+                  />
+                </div>
+
+                <div>
+                  <label style={{ fontSize: '0.82rem', fontWeight: '600', color: 'var(--text-dark-coffee)', display: 'block', marginBottom: '0.3rem' }}>Main Headline Text</label>
+                  <input 
+                    type="text"
+                    required
+                    value={slideForm.headlineMain}
+                    onChange={(e) => setSlideForm({ ...slideForm, headlineMain: e.target.value })}
+                    placeholder="e.g. Bespoke Leather Goods."
+                    style={{ width: '100%', padding: '0.6rem 0.8rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)', fontSize: '0.88rem' }}
+                  />
+                </div>
+
+                <div>
+                  <label style={{ fontSize: '0.82rem', fontWeight: '600', color: 'var(--text-dark-coffee)', display: 'block', marginBottom: '0.3rem' }}>Accent Headline Text (Gold / Italic)</label>
+                  <input 
+                    type="text"
+                    value={slideForm.headlineAccent}
+                    onChange={(e) => setSlideForm({ ...slideForm, headlineAccent: e.target.value })}
+                    placeholder="e.g. Precision Craftsmen."
+                    style={{ width: '100%', padding: '0.6rem 0.8rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)', fontSize: '0.88rem' }}
+                  />
+                </div>
+
+                <div>
+                  <label style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--text-dark-coffee)', display: 'block', marginBottom: '0.4rem' }}>
+                    Slide Background Image
+                  </label>
+                  <div style={{ border: '2px dashed var(--btn-coffee-bean)', borderRadius: 'var(--radius-sm)', padding: '1rem', textAlign: 'center', backgroundColor: 'var(--surface-linen)', cursor: 'pointer', position: 'relative' }}>
+                    <input 
+                      type="file" 
+                      accept="image/*"
+                      onChange={(e) => {
+                        const file = e.target.files && e.target.files[0];
+                        if (file) {
+                          const reader = new FileReader();
+                          reader.onloadend = () => setSlideForm({ ...slideForm, image: reader.result });
+                          reader.readAsDataURL(file);
+                        }
+                      }}
+                      style={{ position: 'absolute', inset: 0, opacity: 0, cursor: 'pointer', width: '100%', height: '100%' }}
+                    />
+                    <Upload size={22} color="var(--btn-coffee-bean)" style={{ margin: '0 auto 0.3rem', display: 'block' }} />
+                    <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--text-dark-coffee)', fontWeight: '700' }}>Select Image File</p>
+                  </div>
+                  <details style={{ marginTop: '0.4rem' }}>
+                    <summary style={{ fontSize: '0.75rem', color: 'var(--accent-dusty-taupe)', cursor: 'pointer' }}>Or paste image URL</summary>
+                    <input 
+                      type="text"
+                      value={slideForm.image}
+                      onChange={(e) => setSlideForm({ ...slideForm, image: e.target.value })}
+                      placeholder="https://..."
+                      style={{ width: '100%', padding: '0.4rem 0.6rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)', fontSize: '0.8rem', marginTop: '0.3rem' }}
+                    />
+                  </details>
+                </div>
+
+                <div>
+                  <label style={{ fontSize: '0.82rem', fontWeight: '600', color: 'var(--text-dark-coffee)', display: 'block', marginBottom: '0.3rem' }}>Slide Sub-headline Description</label>
+                  <textarea 
+                    rows={3}
+                    required
+                    value={slideForm.description}
+                    onChange={(e) => setSlideForm({ ...slideForm, description: e.target.value })}
+                    placeholder="Enter slide description..."
+                    style={{ width: '100%', padding: '0.6rem 0.8rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)', fontSize: '0.88rem' }}
+                  />
+                </div>
+
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.8rem' }}>
+                  <div>
+                    <label style={{ fontSize: '0.78rem', fontWeight: '600', color: 'var(--text-dark-coffee)', display: 'block', marginBottom: '0.2rem' }}>Primary Button Text</label>
+                    <input 
+                      type="text"
+                      value={slideForm.ctaPrimaryText}
+                      onChange={(e) => setSlideForm({ ...slideForm, ctaPrimaryText: e.target.value })}
+                      placeholder="Contact Us"
+                      style={{ width: '100%', padding: '0.5rem 0.6rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)', fontSize: '0.82rem' }}
+                    />
+                  </div>
+                  <div>
+                    <label style={{ fontSize: '0.78rem', fontWeight: '600', color: 'var(--text-dark-coffee)', display: 'block', marginBottom: '0.2rem' }}>Secondary Button Text</label>
+                    <input 
+                      type="text"
+                      value={slideForm.ctaSecondaryText}
+                      onChange={(e) => setSlideForm({ ...slideForm, ctaSecondaryText: e.target.value })}
+                      placeholder="Explore Catalog"
+                      style={{ width: '100%', padding: '0.5rem 0.6rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)', fontSize: '0.82rem' }}
+                    />
+                  </div>
+                </div>
+
+                <button type="submit" className="btn-primary" style={{ marginTop: '0.5rem' }}>
+                  {editingSlide ? 'Update Hero Slide' : 'Save New Hero Slide'}
+                </button>
               </form>
             </div>
           </div>
