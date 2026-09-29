@@ -295,17 +295,17 @@ export default function HomepageView({ setActivePage, setSelectedProduct, openCa
                   transition: 'all 0.3s ease'
                 }}
               >
-                <div style={{ position: 'relative', paddingTop: '100%', overflow: 'hidden', backgroundColor: 'var(--surface-linen)' }}>
+                <div style={{ position: 'relative', paddingTop: '100%', overflow: 'hidden', backgroundColor: 'var(--surface-linen)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <img 
                     src={product.images[0]} 
                     alt={product.name} 
                     style={{
                       position: 'absolute',
-                      top: 0,
-                      left: 0,
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover'
+                      top: '5%',
+                      left: '5%',
+                      width: '90%',
+                      height: '90%',
+                      objectFit: 'contain'
                     }}
                   />
                   {product.isBestSeller ? (

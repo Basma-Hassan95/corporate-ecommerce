@@ -175,11 +175,11 @@ export default function CatalogView({ setActivePage, setSelectedProduct, initial
                     onClick={() => { setSelectedProduct(product); setActivePage('pdp'); }}
                     style={{ cursor: 'pointer' }}
                   >
-                    <div style={{ position: 'relative', height: '240px', overflow: 'hidden' }}>
+                    <div style={{ position: 'relative', height: '240px', overflow: 'hidden', backgroundColor: 'var(--surface-linen)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0.8rem' }}>
                       <img 
                         src={product.images[0]} 
                         alt={product.name} 
-                        style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                        style={{ maxWidth: '100%', maxHeight: '100%', width: 'auto', height: 'auto', objectFit: 'contain' }} 
                       />
                       {product.isBestSeller && (
                         <div style={{ position: 'absolute', top: '10px', left: '10px' }} className="badge-gold">
