@@ -4,7 +4,7 @@ import InteractiveCustomizationForm from '../components/InteractiveCustomization
 import StatsAndValueProp from '../components/StatsAndValueProp';
 import BrandingServicesSection from '../components/BrandingServicesSection';
 import TestimonialsAndLogosSection from '../components/TestimonialsAndLogosSection';
-import { ArrowRight, Star, BookOpen, Key, Gift, Briefcase, Sparkles, Package, Wallet, Droplet } from 'lucide-react';
+import { ArrowRight, Star, BookOpen, Key, Gift, Briefcase, Sparkles, Package, Wallet, Droplet, Clock } from 'lucide-react';
 import { getCMSProducts } from '../utils/cmsStorage';
 
 export default function HomepageView({ setActivePage, setSelectedProduct, openCart, onSelectCategory }) {
@@ -16,7 +16,7 @@ export default function HomepageView({ setActivePage, setSelectedProduct, openCa
     return () => window.removeEventListener('cms_data_updated', handleUpdate);
   }, []);
 
-  // Dynamically select multi-category featured products (notebooks, gift sets, keychains, wallets, bottles, new CMS items)
+  // Dynamically select multi-category featured products (clocks, notebooks, gift sets, keychains, wallets, bottles, new CMS items)
   const featuredProducts = useMemo(() => {
     if (!products || products.length === 0) return [];
     
@@ -32,8 +32,10 @@ export default function HomepageView({ setActivePage, setSelectedProduct, openCa
     const result = [];
     const categories = Object.keys(categoryGroups);
 
-    // Prioritize diverse categories first (Bottles, Wallets, Corporate Notebooks, Gift Boxes, etc.)
+    // Prioritize diverse categories first (Wall Clocks, Bottles, Wallets, Corporate Notebooks, Gift Boxes, etc.)
     const sortedCategories = categories.sort((a, b) => {
+      if (a === 'Wall Clocks') return -1;
+      if (b === 'Wall Clocks') return 1;
       if (a === 'Bottles') return -1;
       if (b === 'Bottles') return 1;
       if (a === 'Wallets') return -1;
@@ -79,6 +81,14 @@ export default function HomepageView({ setActivePage, setSelectedProduct, openCa
     });
 
     return [
+      {
+        name: 'Wall Clocks',
+        displayName: 'Custom Corporate Wall Clocks',
+        desc: '12-Inch Silent Quartz Movement Clocks with Custom Logo Printing',
+        count: counts['Wall Clocks'] || 1,
+        image: images['Wall Clocks'] || '/products/clocks/clock-01-front.jpg',
+        icon: Clock
+      },
       {
         name: 'Bottles',
         displayName: 'Custom Thermal Flask Bottles',

@@ -404,7 +404,33 @@ export const CORPORATE_BOTTLES = [
   }
 ];
 
-export const ALL_PRODUCTS = [...CORPORATE_BOTTLES, ...LEATHER_WALLETS, ...PRODUCTS, ...CORPORATE_GIFTS];
+export const CORPORATE_CLOCKS = [
+  {
+    id: "clock-01",
+    name: "Executive Royal Blue Custom Printed Corporate Wall Clock",
+    subtitle: "12-Inch Silent Quartz Movement Wall Clock with Custom Logo Printing",
+    category: "Wall Clocks",
+    material: "ABS Polymer Frame & Glass Dial Cover",
+    color: "Royal Blue & White",
+    isBestSeller: true,
+    isCustomizable: true,
+    rating: 5.0,
+    reviewsCount: 39,
+    description: "Premium 12-inch executive corporate wall clock featuring a royal blue frame rim, high-precision silent quartz sweep movement, and full-color custom logo dial printing. Perfect for office reception areas, boardrooms, and corporate gifting.",
+    images: [
+      "/products/clocks/clock-01-front.jpg"
+    ],
+    features: [
+      "Silent Non-Ticking Quartz Sweep Movement Mechanism",
+      "High-Resolution Full-Color Custom Logo Dial Printing",
+      "Durable Royal Blue Molded ABS Rim & Clear Glass Lens",
+      "12-Inch Standard Executive Diameter",
+      "Complimentary Corporate Gift Box Packaging"
+    ]
+  }
+];
+
+export const ALL_PRODUCTS = [...CORPORATE_CLOCKS, ...CORPORATE_BOTTLES, ...LEATHER_WALLETS, ...PRODUCTS, ...CORPORATE_GIFTS];
 
 export const BRAND_IMAGES = {
   heroBanner: "/products/keychains/keychain-01.jpg",
