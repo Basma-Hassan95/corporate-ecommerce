@@ -468,6 +468,7 @@ export default function AdminCMSView({ setActivePage }) {
                     style={{ width: '100%', padding: '0.6rem 0.8rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)', fontSize: '0.88rem' }}
                   >
                     <option value="Leather Keychains">Leather Keychains</option>
+                    <option value="Wallets">Wallets / Leather Wallets</option>
                     <option value="Corporate Gift Box">Corporate Gift Box</option>
                     <option value="Leather Products">Leather Products</option>
                     <option value="Apparel">Apparel</option>

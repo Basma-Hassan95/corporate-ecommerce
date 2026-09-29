@@ -25,6 +25,7 @@ export default function CatalogView({ setActivePage, setSelectedProduct, initial
   const defaultCategories = [
     'All',
     'Leather Keychains',
+    'Wallets',
     'Corporate Gift Box',
     'Leather Products',
     'Apparel',
@@ -46,7 +47,13 @@ export default function CatalogView({ setActivePage, setSelectedProduct, initial
   const categories = Array.from(new Set(['All', ...defaultCategories, ...dynamicCategories]));
 
   const filteredProducts = allProducts.filter(p => {
-    if (selectedCategory !== 'All' && p.category !== selectedCategory) return false;
+    if (selectedCategory !== 'All') {
+      if (selectedCategory === 'Wallets') {
+        if (p.category !== 'Wallets' && p.category !== 'Leather Products') return false;
+      } else if (p.category !== selectedCategory) {
+        return false;
+      }
+    }
     if (searchQuery.trim() && !p.name.toLowerCase().includes(searchQuery.toLowerCase())) return false;
     return true;
   });

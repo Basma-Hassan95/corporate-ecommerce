@@ -17,8 +17,8 @@ const MENU_STRUCTURE = [
         label: 'Leather Products', 
         category: 'Leather Products',
         subCategories: [
-          { label: 'Wallets', page: 'shop', category: 'Leather Products' },
-          { label: 'Leather Keychains', page: 'catalog', category: 'Leather Keychains' }
+          { label: 'Wallets', category: 'Wallets' },
+          { label: 'Leather Keychains', category: 'Leather Keychains' }
         ]
       },
       { label: 'Tech Gadgets', category: 'Tech Gadgets' },
