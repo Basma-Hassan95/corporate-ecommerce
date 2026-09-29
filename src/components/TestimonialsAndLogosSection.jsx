@@ -3,6 +3,14 @@ import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import { BRAND_IMAGES } from '../data/products';
 import { getCMSTestimonials, getCMSLogos } from '../utils/cmsStorage';
 
+const DEFAULT_TESTIMONIAL_IMAGES = [
+  "/products/wallets/wallet-03-front.jpg",
+  "/products/keychains/keychain-01.jpg",
+  "/products/notebooks/notebook-01-front.jpg",
+  "/products/bottles/bottle-01-front.jpg",
+  "/products/clocks/clock-01-front.jpg"
+];
+
 export default function TestimonialsAndLogosSection({ setActivePage = () => {} }) {
   const [testimonials, setTestimonials] = useState(getCMSTestimonials());
   const [logos, setLogos] = useState(getCMSLogos());
@@ -132,16 +140,37 @@ export default function TestimonialsAndLogosSection({ setActivePage = () => {} }
               borderRadius: '24px',
               overflow: 'hidden',
               boxShadow: 'var(--shadow-md)',
-              minHeight: '380px'
+              minHeight: '380px',
+              backgroundColor: '#16120B'
             }}
             className="left-photo-card"
           >
-            <img 
-              src={BRAND_IMAGES.heroBanner} 
-              alt="Hear from Our Customers" 
-              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-            />
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.7) 100%)' }} />
+            {/* DYNAMIC CROSSFADING TESTIMONIAL PRODUCT SHOWCASE IMAGES */}
+            {testimonials.map((item, idx) => {
+              const isActive = idx === currentIdx;
+              const slideImg = item.productImage || item.image || DEFAULT_TESTIMONIAL_IMAGES[idx % DEFAULT_TESTIMONIAL_IMAGES.length];
+              return (
+                <div
+                  key={item.id || idx}
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    opacity: isActive ? 1 : 0,
+                    visibility: isActive ? 'visible' : 'hidden',
+                    transition: 'opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1)',
+                    transform: isActive ? 'scale(1)' : 'scale(1.06)'
+                  }}
+                >
+                  <img 
+                    src={slideImg} 
+                    alt={item.name} 
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                </div>
+              );
+            })}
+            
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.7) 100%)', zIndex: 5 }} />
 
             {/* Top Text Overlay */}
             <div style={{ position: 'absolute', top: '2.2rem', left: '2.2rem', zIndex: 10 }}>

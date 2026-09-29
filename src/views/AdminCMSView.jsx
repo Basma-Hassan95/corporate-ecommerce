@@ -62,6 +62,7 @@ export default function AdminCMSView({ setActivePage }) {
     name: '',
     role: '',
     avatar: '',
+    productImage: '',
     quote: ''
   });
 
@@ -220,6 +221,7 @@ export default function AdminCMSView({ setActivePage }) {
       name: '',
       role: '',
       avatar: '',
+      productImage: '',
       quote: ''
     });
   };
@@ -734,6 +736,39 @@ export default function AdminCMSView({ setActivePage }) {
                       value={testimonialForm.avatar}
                       onChange={(e) => setTestimonialForm({ ...testimonialForm, avatar: e.target.value })}
                       placeholder="https://images.unsplash.com/photo-..."
+                      style={{ width: '100%', padding: '0.4rem 0.6rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)', fontSize: '0.8rem', marginTop: '0.3rem' }}
+                    />
+                  </details>
+                </div>
+
+                <div>
+                  <label style={{ fontSize: '0.85rem', fontWeight: '700', color: 'var(--text-dark-coffee)', display: 'block', marginBottom: '0.4rem' }}>
+                    Upload Showcase Product Picture (Left Card Background)
+                  </label>
+                  <div style={{ border: '2px dashed var(--btn-coffee-bean)', borderRadius: 'var(--radius-sm)', padding: '1rem', textAlign: 'center', backgroundColor: 'var(--surface-linen)', cursor: 'pointer', position: 'relative' }}>
+                    <input 
+                      type="file" 
+                      accept="image/*"
+                      onChange={(e) => {
+                        const file = e.target.files && e.target.files[0];
+                        if (file) {
+                          const reader = new FileReader();
+                          reader.onloadend = () => setTestimonialForm({ ...testimonialForm, productImage: reader.result });
+                          reader.readAsDataURL(file);
+                        }
+                      }}
+                      style={{ position: 'absolute', inset: 0, opacity: 0, cursor: 'pointer', width: '100%', height: '100%' }}
+                    />
+                    <Upload size={22} color="var(--btn-coffee-bean)" style={{ margin: '0 auto 0.3rem', display: 'block' }} />
+                    <p style={{ margin: 0, fontSize: '0.85rem', color: 'var(--text-dark-coffee)', fontWeight: '700' }}>Select Showcase Product Image File</p>
+                  </div>
+                  <details style={{ marginTop: '0.4rem' }}>
+                    <summary style={{ fontSize: '0.75rem', color: 'var(--accent-dusty-taupe)', cursor: 'pointer' }}>Or paste product image URL</summary>
+                    <input 
+                      type="text"
+                      value={testimonialForm.productImage || ''}
+                      onChange={(e) => setTestimonialForm({ ...testimonialForm, productImage: e.target.value })}
+                      placeholder="/products/wallets/wallet-03-front.jpg or https://..."
                       style={{ width: '100%', padding: '0.4rem 0.6rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-light)', fontSize: '0.8rem', marginTop: '0.3rem' }}
                     />
                   </details>

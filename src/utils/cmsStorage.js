@@ -13,6 +13,7 @@ export const INITIAL_TESTIMONIALS = [
     name: "Marcus Vance",
     role: "Head of People & Culture, Apex Global Solutions",
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200",
+    productImage: "/products/wallets/wallet-03-front.jpg",
     quote: "The quality of the customized leather sets exceeded our expectations. Our executive clients were genuinely impressed, and the fulfillment process was flawless from start to finish."
   },
   {
@@ -20,6 +21,7 @@ export const INITIAL_TESTIMONIALS = [
     name: "Ali Bohri",
     role: "Director Operations, SAIF UL BURHAN",
     avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200",
+    productImage: "/products/keychains/keychain-01.jpg",
     quote: "MashAllah kiya dealing hai! Best rates, best quality, straight commitment wale log. The custom leather keychains and wooden gift sets for our annual corporate milestone were praised by all board members."
   },
   {
@@ -27,6 +29,7 @@ export const INITIAL_TESTIMONIALS = [
     name: "Farhan Ahmed",
     role: "Head of Admin & HR",
     avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200",
+    productImage: "/products/notebooks/notebook-01-front.jpg",
     quote: "Ordered 500 customized full-grain leather keychains with precision company logo debossing. Delivered 2 days ahead of schedule in luxury velvet presentation boxes. Outstanding experience!"
   }
 ];
