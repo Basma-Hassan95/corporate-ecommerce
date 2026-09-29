@@ -351,6 +351,30 @@ export const LEATHER_WALLETS = [
       "Complimentary Custom Monogram & Logo Stamping",
       "Delivered in Luxury Presentation Packaging"
     ]
+  },
+  {
+    id: "wallet-03",
+    name: "Dark Espresso Snap Clasp Leather Coin & Bifold Wallet",
+    subtitle: "Dark Espresso Leather with Snap Closure & Zippered Coin Section",
+    category: "Wallets",
+    material: "100% Top-Grain Bovine Leather",
+    leatherType: "Nappa Full-Grain",
+    color: "Dark Espresso Brown",
+    isBestSeller: true,
+    isCustomizable: true,
+    rating: 5.0,
+    reviewsCount: 42,
+    description: "Executive compact bifold wallet in rich dark espresso brown featuring a secure leather snap strap closure, interior zippered coin compartment, dual bill sleeves, and 10 card slots. Ideal for custom corporate debossing.",
+    images: [
+      "/products/wallets/wallet-03-front.jpg"
+    ],
+    features: [
+      "Secure Outer Leather Snap Tab Button Closure",
+      "Internal Zippered Coin & Key Pocket",
+      "10 Dedicated Business/Credit Card Slots",
+      "Complimentary Corporate Heat Debossing",
+      "Includes Executive Presentation Box"
+    ]
   }
 ];
 
