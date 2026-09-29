@@ -4,7 +4,7 @@ import InteractiveCustomizationForm from '../components/InteractiveCustomization
 import StatsAndValueProp from '../components/StatsAndValueProp';
 import BrandingServicesSection from '../components/BrandingServicesSection';
 import TestimonialsAndLogosSection from '../components/TestimonialsAndLogosSection';
-import { ArrowRight, Star, BookOpen, Key, Gift, Briefcase, Sparkles, Package, Wallet } from 'lucide-react';
+import { ArrowRight, Star, BookOpen, Key, Gift, Briefcase, Sparkles, Package, Wallet, Droplet } from 'lucide-react';
 import { getCMSProducts } from '../utils/cmsStorage';
 
 export default function HomepageView({ setActivePage, setSelectedProduct, openCart, onSelectCategory }) {
@@ -16,7 +16,7 @@ export default function HomepageView({ setActivePage, setSelectedProduct, openCa
     return () => window.removeEventListener('cms_data_updated', handleUpdate);
   }, []);
 
-  // Dynamically select multi-category featured products (notebooks, gift sets, keychains, wallets, new CMS items)
+  // Dynamically select multi-category featured products (notebooks, gift sets, keychains, wallets, bottles, new CMS items)
   const featuredProducts = useMemo(() => {
     if (!products || products.length === 0) return [];
     
@@ -32,8 +32,10 @@ export default function HomepageView({ setActivePage, setSelectedProduct, openCa
     const result = [];
     const categories = Object.keys(categoryGroups);
 
-    // Prioritize non-keychain categories first (Wallets, Corporate Notebooks, Gift Boxes, etc.)
+    // Prioritize diverse categories first (Bottles, Wallets, Corporate Notebooks, Gift Boxes, etc.)
     const sortedCategories = categories.sort((a, b) => {
+      if (a === 'Bottles') return -1;
+      if (b === 'Bottles') return 1;
       if (a === 'Wallets') return -1;
       if (b === 'Wallets') return 1;
       if (a === 'Corporate Notebooks') return -1;
@@ -78,10 +80,18 @@ export default function HomepageView({ setActivePage, setSelectedProduct, openCa
 
     return [
       {
+        name: 'Bottles',
+        displayName: 'Custom Thermal Flask Bottles',
+        desc: '500ml Smart LED Temperature Vacuum Insulated Flasks',
+        count: counts['Bottles'] || 1,
+        image: images['Bottles'] || '/products/bottles/bottle-01-front.jpg',
+        icon: Droplet
+      },
+      {
         name: 'Wallets',
         displayName: 'Executive Genuine Leather Wallets',
         desc: 'Handcrafted Full-Grain Men Bifold Wallets & Cardholders',
-        count: counts['Wallets'] || counts['Leather Products'] || 1,
+        count: counts['Wallets'] || counts['Leather Products'] || 3,
         image: images['Wallets'] || '/products/wallets/wallet-01-front.jpg',
         icon: Wallet
       },

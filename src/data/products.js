@@ -378,7 +378,33 @@ export const LEATHER_WALLETS = [
   }
 ];
 
-export const ALL_PRODUCTS = [...LEATHER_WALLETS, ...PRODUCTS, ...CORPORATE_GIFTS];
+export const CORPORATE_BOTTLES = [
+  {
+    id: "bottle-01",
+    name: "Executive Matte Black Smart LED Thermal Flask Bottle",
+    subtitle: "500ml Double-Wall Vacuum Insulated Bottle with Touch Temperature Display",
+    category: "Bottles",
+    material: "304 Food-Grade Stainless Steel",
+    color: "Matte Black",
+    isBestSeller: true,
+    isCustomizable: true,
+    rating: 5.0,
+    reviewsCount: 54,
+    description: "Premium 500ml double-wall vacuum insulated thermal flask bottle with smart LED touch temperature display cap. Keeps beverages hot for 12 hours or cold for 24 hours. Features complimentary corporate logo printing or laser engraving.",
+    images: [
+      "/products/bottles/bottle-01-front.jpg"
+    ],
+    features: [
+      "Smart LED Touch Screen Temperature Display Cap",
+      "Double-Wall 304 Stainless Steel Vacuum Insulation",
+      "12-Hour Hot / 24-Hour Cold Thermal Retention",
+      "Leak-Proof Silicon Seal & Tea Infuser Filter Basket",
+      "Complimentary Custom Monogram / Logo Printing"
+    ]
+  }
+];
+
+export const ALL_PRODUCTS = [...CORPORATE_BOTTLES, ...LEATHER_WALLETS, ...PRODUCTS, ...CORPORATE_GIFTS];
 
 export const BRAND_IMAGES = {
   heroBanner: "/products/keychains/keychain-01.jpg",
