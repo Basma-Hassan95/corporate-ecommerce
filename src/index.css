@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Germania+One&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  /* GERMANIA ONE HEADING & OFF-WHITE ATELIER DESIGN SYSTEM */
+  /* ELEGANT SERIF & OFF-WHITE ATELIER DESIGN SYSTEM */
   --bg-parchment: #F8F9FA;
   --surface-linen: #F1F3F5;
   --surface-white: #FFFFFF;
@@ -20,10 +20,10 @@
   --border-light: #E9ECEF;
   --border-dark: #343A40;
   
-  /* GERMANIA ONE FONT APPLIED FOR HEADINGS */
-  --font-heading: 'Germania One', cursive, serif;
+  /* LUXURY PLAYFAIR DISPLAY SERIF FONT FOR HEADINGS */
+  --font-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
   --font-body: 'Plus Jakarta Sans', sans-serif;
-  --font-subheading: 'Germania One', cursive, serif;
+  --font-subheading: 'Playfair Display', Georgia, serif;
   
   --radius-sm: 8px;
   --radius-md: 16px;
