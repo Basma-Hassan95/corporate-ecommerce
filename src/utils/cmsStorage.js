@@ -57,7 +57,7 @@ export function getCMSProducts() {
     let hasNew = false;
     ALL_PRODUCTS.forEach(defaultItem => {
       if (!storedIds.has(defaultItem.id)) {
-        stored.push(defaultItem);
+        stored.unshift(defaultItem);
         hasNew = true;
       }
     });

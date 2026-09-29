@@ -303,7 +303,34 @@ export const CORPORATE_GIFTS = [
   }
 ];
 
-export const ALL_PRODUCTS = [...PRODUCTS, ...CORPORATE_GIFTS];
+export const LEATHER_WALLETS = [
+  {
+    id: "wallet-01",
+    name: "Executive Embossed Bifold Genuine Leather Wallet",
+    subtitle: "Rich Brown Full-Grain Leather Bifold Wallet",
+    category: "Wallets",
+    material: "100% Genuine Full-Grain Leather",
+    leatherType: "Full-Grain Bovine",
+    color: "Rich Saddle Brown",
+    isBestSeller: true,
+    isCustomizable: true,
+    rating: 5.0,
+    reviewsCount: 48,
+    description: "Executive men's bifold wallet crafted from 100% genuine full-grain leather with precision edge stitching and relief logo embossing. Features dual currency bill compartments, 8 card slots, and complimentary corporate monogram debossing.",
+    images: [
+      "/products/wallets/wallet-01-front.jpg"
+    ],
+    features: [
+      "100% Top-tier Full-Grain Italian Leather",
+      "8 Dedicated Credit/Business Card Slots",
+      "Dual Full-Length Bill & Currency Compartments",
+      "Complimentary Custom Corporate Logo Debossing",
+      "Delivered in Luxury Velvet Presentation Gift Box"
+    ]
+  }
+];
+
+export const ALL_PRODUCTS = [...LEATHER_WALLETS, ...PRODUCTS, ...CORPORATE_GIFTS];
 
 export const BRAND_IMAGES = {
   heroBanner: "/products/keychains/keychain-01.jpg",

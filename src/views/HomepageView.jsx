@@ -4,7 +4,7 @@ import InteractiveCustomizationForm from '../components/InteractiveCustomization
 import StatsAndValueProp from '../components/StatsAndValueProp';
 import BrandingServicesSection from '../components/BrandingServicesSection';
 import TestimonialsAndLogosSection from '../components/TestimonialsAndLogosSection';
-import { ArrowRight, Star, BookOpen, Key, Gift, Briefcase, Sparkles, Package } from 'lucide-react';
+import { ArrowRight, Star, BookOpen, Key, Gift, Briefcase, Sparkles, Package, Wallet } from 'lucide-react';
 import { getCMSProducts } from '../utils/cmsStorage';
 
 export default function HomepageView({ setActivePage, setSelectedProduct, openCart, onSelectCategory }) {
@@ -16,7 +16,7 @@ export default function HomepageView({ setActivePage, setSelectedProduct, openCa
     return () => window.removeEventListener('cms_data_updated', handleUpdate);
   }, []);
 
-  // Dynamically select multi-category featured products (notebooks, gift sets, keychains, new CMS items)
+  // Dynamically select multi-category featured products (notebooks, gift sets, keychains, wallets, new CMS items)
   const featuredProducts = useMemo(() => {
     if (!products || products.length === 0) return [];
     
@@ -32,8 +32,10 @@ export default function HomepageView({ setActivePage, setSelectedProduct, openCa
     const result = [];
     const categories = Object.keys(categoryGroups);
 
-    // Prioritize non-keychain categories first (Corporate Notebooks, Gift Boxes, etc.)
+    // Prioritize non-keychain categories first (Wallets, Corporate Notebooks, Gift Boxes, etc.)
     const sortedCategories = categories.sort((a, b) => {
+      if (a === 'Wallets') return -1;
+      if (b === 'Wallets') return 1;
       if (a === 'Corporate Notebooks') return -1;
       if (b === 'Corporate Notebooks') return 1;
       if (a === 'Corporate Gift Box') return -1;
@@ -76,6 +78,14 @@ export default function HomepageView({ setActivePage, setSelectedProduct, openCa
 
     return [
       {
+        name: 'Wallets',
+        displayName: 'Executive Genuine Leather Wallets',
+        desc: 'Handcrafted Full-Grain Men Bifold Wallets & Cardholders',
+        count: counts['Wallets'] || counts['Leather Products'] || 1,
+        image: images['Wallets'] || '/products/wallets/wallet-01-front.jpg',
+        icon: Wallet
+      },
+      {
         name: 'Corporate Notebooks',
         displayName: 'Corporate Notebooks & Diaries',
         desc: 'A5 Hardbound Executive Journals with Custom Logo Debossing',
@@ -98,14 +108,6 @@ export default function HomepageView({ setActivePage, setSelectedProduct, openCa
         count: counts['Corporate Gift Box'] || 1,
         image: images['Corporate Gift Box'] || '/products/gift-sets/giftset-02.jpg',
         icon: Gift
-      },
-      {
-        name: 'All',
-        displayName: 'Complete Corporate Catalog',
-        desc: 'Custom Apparel, Drinkware, Awards, Desk Organizers & Tech',
-        count: products.length,
-        image: '/products/keychains/keychain-03.jpg',
-        icon: Briefcase
       }
     ];
   }, [products]);
