@@ -41,13 +41,13 @@ const HERO_SLIDES = [
   },
   {
     id: 4,
-    badge: 'BESPOKE BIFOLD LEATHER WALLETS',
-    headlineMain: 'Tan Camel Collection.',
-    headlineAccent: 'Hand-Stitched Edge.',
-    description: 'Smooth tan vegetable-tanned full-grain leather wallet featuring gold-yellow perimeter edge stitching.',
-    image: '/products/wallets/wallet-02-front.jpg',
+    badge: 'ROYAL BLUE EXECUTIVE LEATHER KEYCHAINS',
+    headlineMain: 'Precision Edge Stitching.',
+    headlineAccent: 'Chrome Hardware Top.',
+    description: 'Striking royal blue stitched full-grain leather keychains with custom micro-laser logo stamping and luxury presentation box.',
+    image: '/products/keychains/keychain-02.jpg',
     ctaPrimaryText: 'Contact Us',
-    ctaSecondaryText: 'Explore Wallets',
+    ctaSecondaryText: 'Explore Keychains',
     linkPrimary: 'contact',
     linkSecondary: 'catalog'
   }
