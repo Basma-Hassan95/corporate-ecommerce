@@ -327,6 +327,30 @@ export const LEATHER_WALLETS = [
       "Complimentary Custom Corporate Logo Debossing",
       "Delivered in Luxury Velvet Presentation Gift Box"
     ]
+  },
+  {
+    id: "wallet-02",
+    name: "Tan Camel Executive Stitched Leather Bifold Wallet",
+    subtitle: "Smooth Tan Full-Grain Leather with Contrast Edge Stitching",
+    category: "Wallets",
+    material: "100% Genuine Tan Bovine Hide",
+    leatherType: "Vegetable-Tanned Full-Grain",
+    color: "Classic Tan / Caramel Brown",
+    isBestSeller: true,
+    isCustomizable: true,
+    rating: 5.0,
+    reviewsCount: 36,
+    description: "Bespoke executive bifold wallet crafted from smooth tan vegetable-tanned full-grain leather featuring hand-stitched contrast gold-yellow perimeter detailing. Includes 6 card slots, dual cash slots, and complimentary laser debossing.",
+    images: [
+      "/products/wallets/wallet-02-front.jpg"
+    ],
+    features: [
+      "100% Organically Tanned Full-Grain Hide",
+      "Hand-Burnished Edges with Contrast Perimeter Stitching",
+      "Dual Cash Bill Sections & Hidden ID Compartment",
+      "Complimentary Custom Monogram & Logo Stamping",
+      "Delivered in Luxury Presentation Packaging"
+    ]
   }
 ];
 
