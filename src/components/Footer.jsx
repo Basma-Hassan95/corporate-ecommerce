@@ -1,5 +1,5 @@
 import React from 'react';
-import { Lock, MapPin, Phone, Mail, Clock, Globe } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Globe } from 'lucide-react';
 
 export default function Footer({ setActivePage = () => {}, onSelectCategory = () => {} }) {
   const handleCategoryClick = (catName) => {
@@ -189,19 +189,23 @@ export default function Footer({ setActivePage = () => {}, onSelectCategory = ()
         {/* Bottom Copyright Bar */}
         <div style={{ borderTop: '1px solid rgba(255, 255, 255, 0.2)', paddingTop: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', fontSize: '0.85rem', color: 'rgba(255, 255, 255, 0.85)' }}>
           <div>
-            © All Rights Reserved Wakeel &amp; Sons Leather Goods (Pvt) Ltd 2023
+            <div>© All Rights Reserved Wakeel &amp; Sons Leather Goods (Pvt) Ltd 2023</div>
+            <div style={{ marginTop: '0.3rem', fontSize: '0.8rem', color: 'rgba(255, 255, 255, 0.8)' }}>
+              Created by{' '}
+              <a 
+                href="https://www.kodraxelsoft.com/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                style={{ color: '#FFFFFF', textDecoration: 'underline', fontWeight: '600' }}
+              >
+                Kodraxelsoft
+              </a>
+            </div>
           </div>
 
           <div style={{ display: 'flex', gap: '1.8rem' }}>
             <span style={{ cursor: 'pointer' }} className="footer-gold-link">Privacy Policy</span>
             <span style={{ cursor: 'pointer' }} className="footer-gold-link">Terms of Service</span>
-            <button 
-              onClick={() => setActivePage('admin')} 
-              style={{ background: 'none', border: 'none', color: '#F4EEDC', cursor: 'pointer', fontSize: '0.85rem', padding: 0, display: 'flex', alignItems: 'center', gap: '0.3rem', fontWeight: '600' }} 
-              className="footer-gold-link"
-            >
-              <Lock size={13} /> Admin CMS Portal
-            </button>
           </div>
         </div>
 
